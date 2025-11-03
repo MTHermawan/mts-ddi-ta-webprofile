@@ -3,28 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <!-- NOTE: Silakan design pakai CSS sesuai design di figma:
     https://www.figma.com/design/qoH3lm9j5RJl11X95Jxv4U/proyek-web?node-id=442-19&t=05d5jrUkllBfxArK-0 -->
-
+    
     <!-- TODO (Aulia): Tambahin header paling atas yang ada alamat, email, kontak, dsb. -->
-    <div></div>
+    <div class="site-header">
+        <div class="container-header">
+            <div class="left-header">
+                <p><img src="picture/icon-alamat.png" alt="Alamat" class="icon-header">alamat disini</p>
+                <p><img src="picture/icon-email.png" alt="Email" class="icon-header">email sekolah</p>
+            </div>
+
+            <div class="right-header">
+                <a href="#"><img src="picture/icon-youtube.png" alt="Youtube" class="social-icon"></a>
+                <a href="#"><img src="picture/icon-facebook.png" alt="Facebook" class="social-icon"></a>
+                <a href="#"><img src="picture/icon-instagram.png" alt="Instagram" class="social-icon"></a>
+            </div>
+        </div>
+    </div>
+
     <header>
         <!-- TODO (Aulia): Tambahin navigasi -->
+         <nav>
+            <div class="nav-logo">
+                <img src="assets/logo-sekolah.png" alt="Logo Sekolah">
+                <h1>MTS DDI Tani Aman</h1>
+            </div>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Informasi</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+         </nav>
+
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Pendidikan Berkarakter, Berbasis Al-Qur’an dan Teknologi</h1>
+                <h5>Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional, Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.</h5>
+                <button class="btn-green">Hubungi kami</button>
+            </div>
+        </section>
     </header>
+
     <main>
         <!-- TODO (Aulia): Lengkapin section sesuai desain figma -->
-        <section id="hero"></section>
-        <section id="about"></section>
+        <!-- <section id="hero">
+            <div class="hero-content">
+                <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
+                <p>Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional, Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.</p>
+                <button class="btn-green">Hubungi kami</button>
+            </div>
+        </section> -->
+
+
+        <section id="about">
+            <div class="about-container">
+                <img src="assets/gambar-sekolah2.png" alt="Gambar Sekolah" class="about-img">
+                <div class="about-text">
+                    <h1>Profil Sekolah</h1>
+                    <h3>MTS DDI Tani Aman</h3>
+                    <p>Puji dan syukur mari kita panjatkan kehadirat Allah SWT. Yang senantiasa dengan sifat kasih dan sayangnya banyak memberikan nikmat ...</p>
+                </div>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-box">
+                    <img src="assets/icon-student.png" alt="Siswa">
+                    <h2>Siswa</h2>
+                    <h3>720+</h3>
+                </div>
+                <div class="stat-box">
+                    <img src="assets/icon-teacher.png" alt="Guru">
+                    <h2>Guru</h2>
+                    <h3>64+</h3>
+                </div>
+                <div class="stat-box">
+                    <img src="assets/icon-graduate.png" alt="Lulusan">
+                    <h2>Lulusan</h2>
+                    <h3>3500+</h3>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="informasi">
+            <h1>Informasi</h1>
+
+            <div class="info-headline">
+                <div class="headline-card">
+                    <div class="headline-image"></div>
+                    <div>
+                        <h5>Your headline is here</h5>
+                        <button class="btn-dark">Button</button>
+                    </div>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-image"></div>
+                    <div>
+                        <h5>Your headline is here</h5>
+                        <button class="btn-dark">Button</button>
+                    </div>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-image"></div>
+                    <div>
+                        <h5>Your headline is here</h5>                            
+                        <button class="btn-dark">Button</button>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-img"></div>
+                    <div>
+                        <h5>Headline</h5>
+                        <p>Please add your content here. Keep it short and simple. And smile :)</p>
+                        <button class="btn-dark">Button</button>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-img"></div>
+                    <div>
+                        <h5>Headline</h5>
+                        <p>Please add your content here. Keep it short and simple. And smile :)</p>
+                        <button class="btn-dark">Button</button>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-img"></div>
+                    <div>
+                        <h5>Headline</h5>
+                        <p>Please add your content here. Keep it short and simple. And smile :)</p>
+                        <button class="btn-dark">Button</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-button">
+                <button class="btn-green">Lihat Berita</button>
+                <button class="btn-green">Lihat Agenda</button>
+            </div>
+        </section>
         
-        <!-- TODO (Reyhan): Lengkapin section dan footer sesuai desain figma -->
-        <section id="galeri"></section>
-        <section id="berita"></section>
-        <section id="kontak"></section>
+        <section id="gallery">
+            <h1>Galeri</h1>
+            <div class="gallery-container">
+                <button class="arrow-btn left"><</button>
+                <div class="gallery-track">
+                    <img src="assets/gambar-gallery1.jpeg" alt="Foto 1">
+                    <img src="assets/gambar-gallery2.jpeg" alt="Foto 2">
+                    <img src="assets/gambar-gallery3.jpeg" alt="Foto 3">
+                    <img src="assets/gambar-gallery4.jpeg" alt="Foto 4">
+                    <img src="assets/gambar-gallery5.jpeg" alt="Foto 5">
+                </div>
+                <button class="arrow-btn right">></button>
+            </div>
+            <div class="gallery-button">
+                <button class="btn-green"> Lebih Lanjut</button>
+            </div>
+        </section>
+        <section id="kontak">
+            <h1>Kontak Kami</h1>
+            <div class="kontak-container">
+                <div class="kontak-info">
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <img src="assets/icon-telepon.png" alt="Telepon">
+                        </div>
+                        <div>
+                            <h4>No. Telepon</h4>
+                            <p>Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <img src="assets/icon-email.png" alt="Email">
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <img src="assets/icon-alamat.png" alt="Alamat">
+                        </div>
+                        <div>
+                            <h4>Lokasi</h4>
+                            <p>Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="kontak-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h1>MTS DDI TANI AMAN</h1>
+                <p>MTS DDI Tani Aman: Menjadi sekolah unggulan yang membentuk generasi Qur’ani, cerdas, dan berakhlak mulia</p>
+
+                <ul>
+                    <li><img src="assets/icon-alamat.png" alt="Alamat">Wisconsin Ave, Suite 700<br>Chevy Chase, Maryland 20815</li>
+                    <li><img src="assets/icon-email.png" alt="Email">support@figma.com</li>
+                    <li><img src="assets/icon-telepon.png" alt="Telepon">+1 800 854-36-80</li>
+                </ul>
+            </div>
+            <div class="footer-menu">
+            <h3>Menu</h3>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Informasi</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-follow">
+            <h3>Temukan Kami</h3>
+                <ul>
+                    <li><a href="#">Youtube</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Sales and Refunds</a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Site Map</a></li>
+            </ul>
+            <p>© 2021 All Rights Reserved</p>
+        </div>
+    </footer>
 </body>
 </html>
