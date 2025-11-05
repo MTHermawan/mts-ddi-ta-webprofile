@@ -146,12 +146,14 @@ nav ul {
 nav ul li a {
   color: rgb(199, 199, 199);
   text-decoration: none;
+  transition: 0.5s;
 }
 
 nav ul li a:hover {
-  font-weight: 600;
+  /* font-weight: 600; */
+  cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: rgba(4, 134, 0, 1);
 }
 
 /* nav.stuck {
@@ -174,8 +176,20 @@ nav.stuck {
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2); */
   color: #000000;
   top: 0;
+
   /* sesuaikan lagi styling navigasi pas stucknya */
 }
+
+nav.stuck ul li a{
+  color: #000000;
+  text-decoration: none;
+  transition: 0.5s;
+}
+nav.stuck ul li a:hover{
+  cursor: pointer;
+  color: rgba(4, 134, 0, 1);
+}
+
 
 /* ---------------- HERO SECTION ---------------- */
 #hero {
