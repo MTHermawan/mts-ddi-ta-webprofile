@@ -148,9 +148,14 @@ nav ul li a:hover {
 }
 
 nav.stuck {
-  position: sticky;
-  background-color: white;
+  position: fixed;
+  background-color: green;
+  z-index : 99;
   top: 0;
+  width: 100%;
+  max-width: none;
+  /* padding: 16px 245px; */
+  box-sizing: border-box;
   /* sesuaikan lagi styling navigasi pas stucknya */
 }
 
