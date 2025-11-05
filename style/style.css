@@ -147,6 +147,13 @@ nav ul li a:hover {
   color: white;
 }
 
+nav.stuck {
+  position: sticky;
+  background-color: white;
+  top: 0;
+  /* sesuaikan lagi styling navigasi pas stucknya */
+}
+
 /* ---------------- HERO SECTION ---------------- */
 #hero {
   position: relative;
