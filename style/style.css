@@ -112,7 +112,8 @@ header::before {
 nav {
   position: relative;
   z-index: 2;
-  max-width: 1350px;
+  /* max-width: 1350px; */
+  max-width: none;
   margin: 0;
   display: flex;
   justify-content: space-between;
