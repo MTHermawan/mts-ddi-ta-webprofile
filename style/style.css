@@ -61,6 +61,8 @@ p {
   display: flex;
   gap: 20px;
   align-items: center;
+  color: #ffffff;
+  
 }
 
 .left-header p {
@@ -72,14 +74,14 @@ p {
 
 .icon-header {
   width: 20px;
-  filter: brightness(0) invert(1);
   margin-right: 6px;
+  color: #000;
 }
 
 .right-header a img {
   width: 20px;
   margin-left: 10px;
-  filter: brightness(0) invert(1);
+  color: #000;
   transition: 0.2s;
 }
 
@@ -277,7 +279,7 @@ nav ul li a:hover {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
-  width: 400px;
+  width: 500px;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
 }
 
@@ -309,19 +311,19 @@ nav ul li a:hover {
   margin-bottom: 40px;
 }
 
-/* .info-card {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 250px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
-} */
-
 .info-card {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
   width: 250px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+.info-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 275px;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
   border: 30px solid #ffffff;
 }
@@ -364,7 +366,7 @@ nav ul li a:hover {
 /* Container utama */
 .gallery-container {
   position: relative;
-  max-width: 900px;
+  max-width: 1050px;
   margin: 0 auto;
   display: flex;
   gap: 60px;
@@ -496,12 +498,14 @@ nav ul li a:hover {
   border-radius: 15px;
   background-color: #dcdcdc;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 600px;
+  height: 430px;
 }
 
 
 /* ---------------- FOOTER SECTION ---------------- */
 #footer {
-  background-color: #f5f5f5;
+  background-color: rgba(198, 198, 198, 1);
   color: #222;
   padding-top: 50px;
   font-family: 'Poppins', sans-serif;
@@ -515,7 +519,7 @@ nav ul li a:hover {
   gap: 40px;
   max-width: 1200px;
   margin: auto;
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
 
@@ -625,7 +629,7 @@ nav ul li a:hover {
   border-top: 1px solid #ccc;
   padding: 15px 20px;
   text-align: center;
-  background-color: #eaeaea;
+  background-color:rgba(198, 198, 198, 1);
 }
 
 .footer-bottom ul {
