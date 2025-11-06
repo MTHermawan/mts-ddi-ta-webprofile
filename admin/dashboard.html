@@ -1,93 +1,73 @@
-<!-- <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="../style/dashboard-admin.css" />
-</head>
-<body>
-    <section>
-          <div class="header-box">
-    <div class="header-text">
-      <h2>Halo, Admin MTs DDI Tani Aman!</h2>
-      <p>Selamat datang di dashboard manajemen website sekolah.</p>
-    </div>
-    <img src="../assets/Group.png" width="230" />
-  </div>
-
-  <div class="menu-container">
-    <div class="menu-item"><img src="../assets/sekolah.png" /></div>
-    <div class="menu-item"><img src="../assets/guru.png" /></div>
-    <div class="menu-item"><img src="../assets/ekskul.png"></div>
-    <div class="menu-item"><img src="../assets/fasilitas.png" /></div>
-    <div class="menu-item"><img src="../assets/strukturorganisasi.png" /></div>
-    <div class="menu-item"><img src="../assets/fluent-color_news-16.png" /></div>
-    <div class="menu-item"><img src="../assets/agenda.png" /></div>
-    <div class="menu-item"><img src="../assets/galeri.png" /></div>
-  </div>
-
-  <div class="activity-section">
-    <div>
-    <h3>Aktifitas</h3>
-    <div class="activity-grid">
-      <div class="activity-box" id="recentActivities">
-        <div class="title">Aktivitas Terbaru</div>
-        <ul class="list" id="activityList"></ul>
-      </div>
-    </div>
-    <div class="activity-grid">
-      <div class="activity-box" id="recentActivities">
-        <div class="title">Aktivitas Terbaru</div>
-        <ul class="list" id="activityList"></ul>
-      </div>
-    </div>
-    </div>
-  </div>
-    </section>
-
-  <script src="script.js"></script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard MTs DDI Tani Aman</title>
   <link rel="stylesheet" href="../style/dashboard-admin.css" />
 </head>
 <body>
-  <header class="banner">
-    <div class="banner-content">
-      <h1>Halo, Admin MTs DDI Tani Aman!</h1>
+  <header class="header">
+    <div class="header-text">
+      <h2>Halo, Admin MTs DDI Tani Aman!</h2>
       <p>Selamat datang di dashboard manajemen website sekolah.</p>
+    </div>
+    <div class="header-illustration">
+      <img src="../assets/Group.png" alt="" />
     </div>
   </header>
 
-  <main>
-    <section class="management">
-      <h2>Manajemen</h2>
-      <div class="grid">
-        <div class="menu-item"><img src="../assets/sekolah.png" /></div>
-        <div class="menu-item"><img src="../assets/guru.png" /></div>
-        <div class="menu-item"><img src="../assets/ekskul.png"></div>
-        <div class="menu-item"><img src="../assets/fasilitas.png" /></div>
-        <div class="menu-item"><img src="../assets/strukturorganisasi.png" /></div>
-        <div class="menu-item"><img src="../assets/fluent-color_news-16.png" /></div>
-        <div class="menu-item"><img src="../assets/agenda.png" /></div>
-        <div class="menu-item"><img src="../assets/galeri.png" /></div>
+  <hr class="hr-atas">
+
+  <section class="manajemen-section">
+    <h3 class="center-title">Manajemen</h3>
+    <nav class="manajemen" aria-label="Menu Manajemen">
+      <div class="item" tabindex="0" aria-label="Visi Misi">
+        <img src="../assets/sekolah.png" alt="Ikon Visi Misi" />
+        <span>Visi Misi</span>
       </div>
-    </section>
+      <div class="item" tabindex="0" aria-label="Data Guru">
+        <img src="../assets/guru.png" alt="Ikon Data Guru" />
+        <span>Data Guru</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Fasilitas">
+        <img src="../assets/fasilitas.png" alt="Ikon Fasilitas" />
+        <span>Fasilitas</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Ekstrakulikuler">
+        <img src="../assets/ekskul.png" alt="Ikon Ekstrakulikuler" />
+        <span>Ekstrakulikuler</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Struktur Organisasi">
+        <img src="../assets/strukturorganisasi.png" alt="Ikon Struktur Organisasi" />
+        <span>Struktur Organisasi</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Berita">
+        <img src="../assets/fluent-color_news-16.png" alt="Ikon Berita" />
+        <span>Berita</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Agenda">
+        <img src="../assets/agenda.png" alt="Ikon Agenda" />
+        <span>Agenda</span>
+      </div>
+      <div class="item" tabindex="0" aria-label="Galeri">
+        <img src="../assets/galeri.png" alt="Ikon Galeri" />
+        <span>Galeri</span>
+      </div>
+    </nav>
+  </section>
 
-    <section class="info-panels">
-      <div class="panel">Aktivitas</div>
-      <div class="panel">Statistik</div>
-    </section>
-  </main>
+  <hr class="hr-bawah">
 
-  <script src="script.js"></script>
+  <section class="aktfitas-statistik">
+    <div class="section-column" aria-label="Bagian Aktifitas">
+      <h4 class="section-header">Aktifitas</h4>
+      <div class="box activity"></div>
+    </div>
+    <div class="section-column" aria-label="Bagian Statistik">
+      <h4 class="section-header">Statistik</h4>
+      <div class="box statistik"></div>
+    </div>
+  </section>
 </body>
 </html>
