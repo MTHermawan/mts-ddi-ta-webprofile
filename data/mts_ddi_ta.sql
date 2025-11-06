@@ -32,7 +32,7 @@ CREATE TABLE ekstrakurikuler (
     id_ekstrakurikuler INT auto_increment PRIMARY KEY,
     nama VARCHAR(20) NOT NULL,
     nama_pembimbing VARCHAR(50) NOT NULL,
-    jadwal DATETIME,
+    jadwal VARCHAR(25),
     url_foto VARCHAR(50)
 );
 
@@ -64,9 +64,6 @@ CREATE TABLE informasi (
     email_admin VARCHAR(255),
     FOREIGN KEY (email_admin) REFERENCES admin(email)
 ); 
-
-ALTER TABLE ekstrakurikuler
-MODIFY jadwal VARCHAR(25);
 
 -- Insert data ke tabel admin
 INSERT INTO admin (email, password, nama) VALUES
