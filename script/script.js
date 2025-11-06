@@ -35,13 +35,13 @@ const jumlahDataObserver = new IntersectionObserver(([entry]) => {
         intervalStopwatch = setInterval(() => {
             const currentTime = performance.now();
             const elapsedTimes = (currentTime - startTime) / 1000;
-            const progress = elapsedTimes / jumlahDataDuration;
+            const progress = 1 - Math.pow(1 - Math.min(1, (elapsedTimes / jumlahDataDuration)), 2.5); // 0 - 1
 
-            jumlahSiswaElement.innerHTML = Math.floor(jumlahSiswa * Math.min(1, (progress / 1))) + "+";
-            jumlahGuruElement.innerHTML = Math.floor(jumlahGuru * Math.min(1, (progress / 1))) + "+";
-            jumlahLulusanElement.innerHTML = Math.floor(jumlahLulusan * Math.min(1, (progress / 1))) + "+";
+            jumlahSiswaElement.innerHTML = Math.floor(jumlahSiswa * progress) + "+";
+            jumlahGuruElement.innerHTML = Math.floor(jumlahGuru * progress) + "+";
+            jumlahLulusanElement.innerHTML = Math.floor(jumlahLulusan * progress) + "+";
             if (progress > 1) clearInterval(intervalStopwatch);
-        }, 50);
+        }, 35);
     }
 }, { threshold: [0.25] });
 
