@@ -39,7 +39,7 @@ button{
     text-decoration: none;   
 }
 
-.data-guru-con {
+.ekskul-con {
     display: flex;
     justify-content: space-between;
     /* height: 200vh; */
@@ -57,7 +57,7 @@ button{
     text-align: center;
 }
 
-.img-guru{
+.img-fasilitas{
     width: 240px;
     height: 250px;
     border-radius: 20px;
@@ -66,18 +66,24 @@ button{
 }
 
 .nama{
+    display: flex;
+    align-items: end;
     font-family: "poppins", sans-serif;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-.mapel{
+.pembimbing{
+    display: flex;
+    align-items: end;
     font-family: "poppins", sans-serif;
     font-size: 12px;
     margin-bottom: 20px;
 }
 
-.gelar{
+.jadwal{
+    display: flex;
+    align-items: end;
     font-family: "poppins", sans-serif;
     font-size: 12px;
 }

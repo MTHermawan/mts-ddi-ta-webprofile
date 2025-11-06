@@ -12,6 +12,7 @@ body {
   background: white;
   /* padding: 20px; */
   color: #000;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -72,7 +73,6 @@ body {
   height: 100px;
   border-radius: 10px;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +80,12 @@ body {
   gap: 6px;
   padding: 10px 6px;
   user-select: none;
+  transition: transform 0.5s ease;
+}
+
+.item:hover{
+  transform: scale(1.03);
+  box-shadow: 5px 3px 10px rgb(0, 0, 0, 0.2);
 }
 
 .item img {

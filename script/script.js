@@ -12,7 +12,7 @@ const jumlahLulusanElement = document.getElementById('value_jumlah_lulusan');
 const jumlahSiswa = 720;
 const jumlahGuru = 64;
 const jumlahLulusan = 3500;
-const jumlahDataDuration = 2.5;
+const jumlahDataDuration = 3;
 
 
 // Object
@@ -35,7 +35,7 @@ const jumlahDataObserver = new IntersectionObserver(([entry]) => {
         intervalStopwatch = setInterval(() => {
             const currentTime = performance.now();
             const elapsedTimes = (currentTime - startTime) / 1000;
-            const progress = 1 - Math.pow(1 - Math.min(1, (elapsedTimes / jumlahDataDuration)), 2.5); // 0 - 1
+            const progress = 1 - Math.pow(1 - Math.min(1, (elapsedTimes / jumlahDataDuration)), 3); // 0 - 1
 
             jumlahSiswaElement.innerHTML = Math.floor(jumlahSiswa * progress) + "+";
             jumlahGuruElement.innerHTML = Math.floor(jumlahGuru * progress) + "+";

@@ -39,7 +39,7 @@ button{
     text-decoration: none;   
 }
 
-.data-guru-con {
+.berita-con {
     display: flex;
     justify-content: space-between;
     /* height: 200vh; */
@@ -57,7 +57,7 @@ button{
     text-align: center;
 }
 
-.img-guru{
+.img-berita{
     width: 240px;
     height: 250px;
     border-radius: 20px;
@@ -65,22 +65,25 @@ button{
     margin-bottom: 20px
 }
 
-.nama{
+.judul{
+    display: flex;
+    align-items: end;
     font-family: "poppins", sans-serif;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-.mapel{
+.desk{
+    display: flex;
+    /* align-items: end;
+    justify-items: flex-start; */
+    text-align: left;
     font-family: "poppins", sans-serif;
     font-size: 12px;
     margin-bottom: 20px;
+    max-width: 250px;
 }
 
-.gelar{
-    font-family: "poppins", sans-serif;
-    font-size: 12px;
-}
 
 .edit-hapus{
     margin: 20px;
