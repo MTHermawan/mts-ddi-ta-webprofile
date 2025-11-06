@@ -1,21 +1,22 @@
-.back{
-    width: 150px;
-    background-color: aqua;
+.btn{
     display: flex;
-    justify-content: center;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: right;
     align-items: center;
     height: 50px;
     border-radius: 20px;
 }
+
+
+
+.back{
+    background-color: aqua;
+}
 .add{
-    width: 150px;
     background-color: rgb(255, 255, 255);
     color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    border-radius: 20px;
+
 }
 
 .data-guru-con {
@@ -23,7 +24,7 @@
     justify-content: space-between;
     /* height: 200vh; */
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 0 20px;
 }
 
@@ -47,14 +48,33 @@
 .nama{
     font-family: "poppins", sans-serif;
     font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .mapel{
     font-family: "poppins", sans-serif;
     font-size: 12px;
+    margin-bottom: 20px;
 }
 
 .gelar{
     font-family: "poppins", sans-serif;
     font-size: 12px;
+}
+
+.edit-hapus{
+    margin: 20px;
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+}
+
+.edit{
+    color: blue;
+    text-decoration: none;
+}
+
+.hapus{
+    color: rgb(255, 0, 0);
+    text-decoration: none;
 }
