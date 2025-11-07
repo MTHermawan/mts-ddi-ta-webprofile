@@ -100,7 +100,7 @@ function GetAllAgenda(){
     global $koneksi;
 
     $data = [];
-    $sql = "SELECT * FROM informasi WHERE jadwal_agenda IS NULL ORDER BY tanggal_dibuat DESC";
+    $sql = "SELECT * FROM informasi WHERE jadwal_agenda NOT NULL ORDER BY tanggal_dibuat DESC";
     $result = $koneksi->query($sql);
 
     if ($result->num_rows > 0) {
