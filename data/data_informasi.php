@@ -1,19 +1,32 @@
 <?php
 include_once 'koneksi.php';
 
+// Referensi Model Informasi
+// - id_informasi int (auto increment),
+// - judul string
+// - konten string
+// - jadwal_agenda string
+// - tanggal_dibuat string
+// - url_foto string
+// - email_admin string
+
 // -- Fungsi CRUD Informasi --
 // Menambahkan data informasi baru (CREATE)
 function InsertInformasi($judul, $konten, $jadwal_agenda, $url_foto, $email_admin){
+    // Ngambil koneksi dari variabel global
     global $koneksi;
     
+    // Query, tanda "?" menandakan parameter yang akan di-bind
     $sql = "INSERT INTO informasi (judul, konten, jadwal_agenda, tanggal_dibuat, url_foto, email_admin) VALUES (?, ?, ?, NOW(), ?, ?)";
     $stmt = $koneksi->prepare($sql);
+    
+    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
     $stmt->bind_param("sssss", $judul, $konten, $jadwal_agenda, $url_foto, $email_admin);
     return $stmt->execute(); 
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllDataInformasi(){
+function GetAllInformasi(){
     global $koneksi;
 
     $data = [];
@@ -29,7 +42,7 @@ function GetAllDataInformasi(){
     return $data;
 }
 
-// Perbarui data informasi berdasarkan ID (UPDATE)
+// Memperbarui data informasi berdasarkan ID (UPDATE)
 function UpdateInformasi($koneksi, $id, $judul, $konten, $jadwal_agenda, $url_foto){
     $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
     $stmt = $koneksi->prepare($sql);
@@ -37,17 +50,18 @@ function UpdateInformasi($koneksi, $id, $judul, $konten, $jadwal_agenda, $url_fo
     return $stmt->execute();
 }
 
-// Hapus kolom informasi berdasarkan ID (DELETE)
+// Menghapus kolom informasi berdasarkan ID (DELETE)
 function DeleteInformasi($koneksi, $id){
     $sql = "DELETE FROM informasi WHERE id = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id);
     return $stmt->execute();
 }
+// -- End Fungsi CRUD Informasi --
 
 // -- Fungsi Utilitas Data Informasi --
 // Mengambil data informasi berdasarkan ID
-function GetDataInformasiById($id){
+function GetInformasiById($id){
     global $koneksi;
     
     $data = null;
@@ -97,4 +111,5 @@ function GetAllAgenda(){
 
     return $data;
 }
+// -- End Fungsi Utilitas Data Informasi --
 ?>
