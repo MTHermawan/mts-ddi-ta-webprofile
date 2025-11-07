@@ -104,3 +104,86 @@ button{
     color: rgb(255, 0, 0);
     text-decoration: none;
 }
+
+/* Popup Tambah */
+.popup-tambah{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-tambah .card {
+    position: absolute;
+    background-color: #C7FFB7;
+    width: 900px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+.popup-tambah .content {
+    display: flex;
+    height: max-content;
+    flex-direction: row;
+    /* gap: 20px; */
+    /* height: 360px; */
+}
+.popup-tambah .upload-gambar {
+    align-self: center;
+    width: 300px;
+    margin: 0px 40px;
+}
+
+.popup-tambah .upload-gambar label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    background-color: lightgrey;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.popup-tambah .upload-gambar img {
+    object-fit: contain;
+}
+
+/* Kondisi  */
+.popup-tambah .upload-gambar img.empty-img {
+    margin-left: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.popup-tambah input[type="file"]
+{
+    display: none;
+}
+
+.popup-tambah .input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.popup-tambah .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+
+/* End Popup Tambah */

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,11 +8,12 @@
   <link rel="stylesheet" href="../style/dashboard-admin.css" />
   <link rel="stylesheet" href="../style/manajemen-ekskul.css" />
 </head>
+
 <body>
   <header class="header">
     <div class="header-text">
       <h2>Halo, Admin MTs DDI Tani Aman!</h2>
-      <p>Anda saat ini  sedang melakukan manajemen pada ekstrakulikuler</p>
+      <p>Anda saat ini sedang melakukan manajemen pada ekstrakulikuler</p>
     </div>
     <div class="header-illustration">
       <img src="../assets/Group.png" alt="" />
@@ -22,33 +24,60 @@
 
   <section class="btn-sec">
     <div class="container">
-        <div class="btn">
-            <button class="back" >
-                <img src="../assets/back.png" alt="">
-                <a href="">kembali</a>
-            </button>
-            <button class="add">
-                <img src="../assets/Vector (1).png" alt="">
-                <a href="">Tambah</a>
-            </button>
-        </div>
+      <div class="btn">
+        <button class="back">
+          <img src="../assets/back.png" alt="">
+          <a href="">kembali</a>
+        </button>
+        <button class="add">
+          <img src="../assets/Vector (1).png" alt="">
+          <a href="">Tambah</a>
+        </button>
+      </div>
     </div>
   </section>
 
-      <section class="ekskul">
-            <div class="ekskul-con">
-                <div class="card">
-                    <h2 class="nama">nama</h2>
-                    <img src="" alt="" class="img-fasilitas">
-                    <h3 class="pembimbing">Pembimbing:</h3>
-                    <h3 class="jadwal">Jadwal: </h3>
-                    <div class="edit-hapus">
-                        <a class="edit" href="">edit</a>
-                        <a class="hapus" href="">hapus</a>
-                    </div>
-                </div>
-            </div>
-    </section>
+  <section class="ekskul">
+    <div class="ekskul-con">
+      <div class="card">
+        <h2 class="nama">nama</h2>
+        <img src="" alt="" class="img-fasilitas">
+        <h3 class="pembimbing">Pembimbing:</h3>
+        <h3 class="jadwal">Jadwal: </h3>
+        <div class="edit-hapus">
+          <a class="edit" href="">edit</a>
+          <a class="hapus" href="">hapus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="popup-tambah">
+    <form class="card">
+      <h1>Ekstrakulikuler</h1>
+      <div class="content">
+        <div class="upload-gambar">
+          <label for="input_gambar_ekskul">
+            <img class="empty-img" src="../assets/input-image.svg" alt="">
+          </label>
+          <input type="file" name="gambar_ekskul" id="input_gambar_ekskul" accept="image/*">
+        </div>
+        <div class="input-group">
+          <label for="input_nama_ekskul">Nama Ekskul</label>
+          <input type="text" name="nama_ekskul" id="input_nama_ekskul">
+          <label for="input_pembimbing">Pembimbing</label>
+          <input type="text" name="pembimbing" id="input_pembimbing">
+          <label for="input_jadwal  ">Jadwal</label>
+          <input type="text" name="jadwal" id="input_jadwal">
+        </div>
+      </div>
+      <div class="button-group">
+        <button type="button">Kembali</button>
+        <button type="submit">Simpan</button>
+      </div>
+    </form>
+  </section>
 
 </body>
+
 </html>
