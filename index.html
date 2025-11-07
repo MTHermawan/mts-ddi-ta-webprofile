@@ -28,25 +28,33 @@
     </div>
 
     <header>
-        <!-- TODO (Aulia): Tambahin navigasi -->
          <nav>
             <div class="nav-logo">
                 <img src="assets/logo-sekolah.png" alt="Logo Sekolah">
                 <h1>MTS DDI Tani Aman</h1>
             </div>
             <ul>
-                <li><a href="#">Beranda</a></li>
+                <li><a id="navbar-beranda" href="./index.html">Beranda</a></li>
                 <li>
-                    <a href="#">Profil</a>
-                    <ul class="dropdown">
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
+                    <a id="navbar-profil" href="#">Profil</a>
+                    <ul id="navbar-profil-dropdown" class="dropdown">
+                        <li><a href="./profile/sejarah.html">Sejarah Singkat</a></li>
+                        <li><a href="./profile/visi-misi.html">Visi Misi</a></li>
+                        <li><a href="./profile/guru.html">Data Guru</a></li>
+                        <li><a href="./profile/fasilitas.html">Fasilitas</a></li>
+                        <li><a href="./profile/ekskul.html">Ekstrakulikuler</a></li>
+                        <li><a href="./profile/organisasi.html">Organisasi</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Informasi</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a id="navbar-galeri" href="#gallery">Galeri</a></li>
+                <li>
+                    <a id="navbar-informasi" href="#">Informasi</a>
+                    <ul id="navbar-informasi-dropdown" class="dropdown">
+                        <li><a href="./informasi/agenda.html">Agenda</a></li>
+                        <li><a href="./informasi/berita.html">Berita</a></li>
+                    </ul>
+                </li>
+                <li><a id="navbar-kontak" href="#kontak">Kontak</a></li>
             </ul>
          </nav>
 

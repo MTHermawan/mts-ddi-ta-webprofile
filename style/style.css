@@ -2,7 +2,10 @@
 
 /* *, *::before, *::after {
   box-sizing: border-box;
-}  */
+  }  */
+* {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -46,7 +49,6 @@ p {
   font-family: "Poppins", sans-serif;
 }
 
-
 /* ---------------- SITE HEADER (HIJAU ATAS) ---------------- */
 .site-header {
   background-color: #048600;
@@ -71,7 +73,6 @@ p {
   gap: 20px;
   align-items: center;
   color: #ffffff;
-  
 }
 
 .left-header p {
@@ -120,7 +121,7 @@ header::before {
 /* ---------------- NAVBAR ---------------- */
 nav {
   position: relative;
-  z-index: 2;
+  z-index: 1000;
   /* max-width: 1350px; */
   max-width: none;
   margin: 0;
@@ -142,7 +143,7 @@ nav {
   height: 45px;
 }
 
-.nav-logo h1{
+.nav-logo h1 {
   font-size: 28px;
 }
 
@@ -151,6 +152,11 @@ nav ul {
   display: flex;
   gap: 24px;
   margin: 0;
+}
+
+nav ul li {
+  position: relative;
+  z-index: 1000;
 }
 
 nav ul li a {
@@ -166,52 +172,88 @@ nav ul li a:hover {
   color: white;
 }
 
-/* nav.stuck {
-  position: fixed;
-  background-color: green;
-  z-index : 99;
-  top: 0;
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-} */
-
 nav.stuck {
   position: sticky;
-  /* position: fixed; */
-  z-index: 9999;
+  z-index: 2000;
   background-color: white;
   /* opacity: 0.7; */
   /* backdrop-filter: blur(5px);
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2); */
   color: #000000;
   top: 0;
-
-  /* sesuaikan lagi styling navigasi pas stucknya */
 }
 
-nav.stuck ul li a{
+nav.stuck a {
+  color: black;
+}
+
+nav.stuck ul li {
   color: #000000;
   text-decoration: none;
   transition: 0.5s;
 }
-nav.stuck ul li a:hover{
+nav.stuck ul li a:hover,
+nav .dropdown a:hover {
   cursor: pointer;
   color: rgba(4, 134, 0, 1);
 }
 
 nav .dropdown {
-  position: absolute; 
-  background-color: red;
-  display: flex;
+  display: none;
   flex-direction: column;
-  padding: 5px 10px;
+  position: absolute;
+  background-color: #f4f4f4;
+  color: black;
+  width: 200px;
+  padding: 0px;
+  border-radius: 5px;
+  gap: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+}
+
+nav .dropdown li {
+  padding: 0;
+  border-bottom: solid black 2px;
+}
+
+nav .dropdown li:last-child {
+  border-bottom: none;
+}
+
+nav .dropdown a {
+  color: black;
+  width: 100%;
+  display: block;
+  padding: 12px 12px;
+  text-decoration: none;
+}
+
+nav ul li.active > a {
+  color: white !important;
+  font-weight: 500;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+
+nav.stuck ul li.active > a {
+  color: #048600 !important;
+  font-weight: 500;
+  border-bottom: 2px solid #048600;
+  padding-bottom: 2px;
+}
+
+.dropdown.show {
+  display: flex;
 }
 
 /* ---------------- HERO SECTION ---------------- */
 #hero {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   max-width: 100%;
   padding-top: 50px;
   padding-bottom: 100px;
@@ -259,7 +301,7 @@ nav .dropdown {
 }
 
 .about-container {
-  display: flex;  
+  display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
@@ -302,7 +344,7 @@ nav .dropdown {
   gap: 30px;
   flex-wrap: nowrap;
   flex-direction: row;
-  align-items: center
+  align-items: center;
 }
 
 .about-stats img {
@@ -314,7 +356,7 @@ nav .dropdown {
 
 .stat-box {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 30px 60px;
   border-radius: 10px;
 }
@@ -397,7 +439,7 @@ nav .dropdown {
   border-radius: 8px;
   overflow: hidden;
   width: 250px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .info-card {
@@ -405,7 +447,7 @@ nav .dropdown {
   border-radius: 8px;
   overflow: hidden;
   width: 275px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
   border: 30px solid #ffffff;
 }
 
@@ -463,8 +505,8 @@ nav .dropdown {
 
 /* Track gambar horizontal */
 .gallery-track {
-  display: flex;               /* wajib flex */
-  flex-direction: row;         /* horizontal */
+  display: flex; /* wajib flex */
+  flex-direction: row; /* horizontal */
   gap: 10px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -511,7 +553,6 @@ nav .dropdown {
   margin-top: 40px;
   text-align: center;
 }
-
 
 /* ---------------- KONTAK SECTION ---------------- */
 #kontak {
@@ -586,11 +627,10 @@ nav .dropdown {
 .kontak-map iframe {
   border-radius: 15px;
   background-color: #dcdcdc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 600px;
   height: 430px;
 }
-
 
 /* ---------------- FOOTER SECTION ---------------- */
 #footer {
@@ -613,7 +653,6 @@ nav .dropdown {
   margin: auto;
   padding: 50px 0;
 }
-
 
 /* bagian kiri - tentang sekolah */
 .footer-about {
@@ -721,7 +760,7 @@ nav .dropdown {
   border-top: 1px solid #ccc;
   padding: 15px 20px;
   text-align: center;
-  background-color:rgba(198, 198, 198, 1);
+  background-color: rgba(198, 198, 198, 1);
 }
 
 .footer-bottom ul {
@@ -760,7 +799,9 @@ nav .dropdown {
     text-align: center;
   }
 
-  .footer-about, .footer-menu, .footer-follow {
+  .footer-about,
+  .footer-menu,
+  .footer-follow {
     margin-bottom: 30px;
   }
 

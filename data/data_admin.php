@@ -5,6 +5,7 @@ include_once 'koneksi.php';
 // - email string
 // - nama string
 // - password string
+// - tanggal_register string
 
 function InsertAdmin($email, $nama, $password){
     // Ngambil koneksi dari variabel global
@@ -35,22 +36,35 @@ function GetAllInformasi(){
     return $data;
 }
 
-function UpdateAdmin($email, $judul, $konten, $jadwal_agenda, $url_foto){
+function UpdateAdmin($email, $nama, $password){
     global $koneksi;
 
-    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
+    $sql = "UPDATE informasi SET nama = ?, password = ? WHERE email = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
+    $stmt->bind_param("ssss", $nama, $password, $email);
     return $stmt->execute();
 }
 
-function DeleteAdmin($id, $judul, $konten, $jadwal_agenda, $url_foto){
-    global $koneksi;
+// function DeleteAdmin($email){
+//     global $koneksi;
 
-    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
+//     $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = em";
+//     $stmt = $koneksi->prepare($sql);
+//     $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
+//     return $stmt->execute();
+// }
+
+function GetAdminByEmail($email)
+{
+    global $koneksi;
+    
+    // Query, tanda "?" menandakan parameter yang akan di-bind
+    $sql = "SELECT * FROM admin WHERE email = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
-    return $stmt->execute();
+    
+    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
+    $stmt->bind_param("s", $email);
+    return $stmt->execute(); 
 }
 
 ?>
