@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style/login-admin.css">
+</head>
+<body>
+    <section class="login-sec">
+        <div class="img">
+            <img src="../assets/admin.png" alt="admin">
+        </div>
+        <div class="container">
+            <h2>Login</h2>
+
+            <form onsubmit="return validasi()">
+                <div class="input">
+                    <label >Username</label>
+                    <input class="isi" type="text" id="username" >
+                        
+                    <label >Password</label>
+                    <input class="isi" type="password" id="password" >
+                        
+                </div>
+                
+                <a href=""><button ondblclick="validasi()" type="submit" >Login</button></a>
+                
+            </form>
+        </div>
+    </section>
+</body>
+</html>
