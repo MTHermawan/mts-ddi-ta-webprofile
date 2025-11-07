@@ -43,7 +43,9 @@ function GetAllInformasi(){
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateInformasi($koneksi, $id, $judul, $konten, $jadwal_agenda, $url_foto){
+function UpdateInformasi($id, $judul, $konten, $jadwal_agenda, $url_foto){
+    global $koneksi;
+
     $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
@@ -51,7 +53,9 @@ function UpdateInformasi($koneksi, $id, $judul, $konten, $jadwal_agenda, $url_fo
 }
 
 // Menghapus kolom informasi berdasarkan ID (DELETE)
-function DeleteInformasi($koneksi, $id){
+function DeleteInformasi($id){
+    global $koneksi;
+
     $sql = "DELETE FROM informasi WHERE id = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id);

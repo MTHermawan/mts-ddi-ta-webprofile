@@ -200,6 +200,13 @@ nav.stuck ul li a:hover{
   color: rgba(4, 134, 0, 1);
 }
 
+nav .dropdown {
+  position: absolute; 
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
 
 /* ---------------- HERO SECTION ---------------- */
 #hero {
