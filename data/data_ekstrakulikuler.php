@@ -7,6 +7,7 @@ include_once 'koneksi.php';
 // - nama_pembimbing string
 // - jadwal string
 // - url_foto string
+// - tanggal_dibuat string
 
 
 ?>

@@ -7,6 +7,6 @@ include_once 'koneksi.php';
 // - jabatan string
 // - url_foto string
 // - gelar string
-
+// - tanggal_dibuat string
 
 ?>

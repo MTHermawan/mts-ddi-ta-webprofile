@@ -35,4 +35,22 @@ function GetAllInformasi(){
     return $data;
 }
 
+function UpdateAdmin($email, $judul, $konten, $jadwal_agenda, $url_foto){
+    global $koneksi;
+
+    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
+    return $stmt->execute();
+}
+
+function DeleteAdmin($id, $judul, $konten, $jadwal_agenda, $url_foto){
+    global $koneksi;
+
+    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
+    return $stmt->execute();
+}
+
 ?>

@@ -6,6 +6,7 @@ include_once 'koneksi.php';
 // - nama_fasilitas string
 // - url_foto string
 // - deskripsi_fasilitas string
+// - tanggal_dibuat string
 
 
 ?>
