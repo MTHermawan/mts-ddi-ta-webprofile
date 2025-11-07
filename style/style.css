@@ -333,6 +333,10 @@ nav .dropdown {
 #informasi {
   background-color: #d9d9d9;
   padding: 60px 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 125px;
+  padding-right: 125px;
 }
 
 #informasi h1 {
@@ -345,7 +349,7 @@ nav .dropdown {
 .info-headline {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 150px;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
@@ -354,7 +358,9 @@ nav .dropdown {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
-  width: 500px;
+  width: 550px;
+  height: 350px;
+  box-sizing: border-box;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
 }
 
@@ -381,7 +387,7 @@ nav .dropdown {
 .info-cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 90px;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
@@ -409,11 +415,16 @@ nav .dropdown {
 }
 
 .info-card div {
-  padding: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .info-card p {
   color: #333;
+}
+
+.btn-dark {
+  padding: 12px;
 }
 
 /* Tombol bawah */
@@ -505,8 +516,12 @@ nav .dropdown {
 /* ---------------- KONTAK SECTION ---------------- */
 #kontak {
   background-color: #c8ffba;
+  width: 100%;
   padding: 60px 0;
   text-align: center;
+  box-sizing: border-box;
+  padding-left: 125px;
+  padding-right: 125px;
 }
 
 #kontak h1 {
@@ -521,7 +536,6 @@ nav .dropdown {
   align-items: flex-start;
   gap: 50px;
   flex-wrap: nowrap;
-  max-width: 1100px;
   margin: 0 auto;
   text-align: left;
 }
@@ -584,6 +598,10 @@ nav .dropdown {
   color: #222;
   padding-top: 50px;
   font-family: 'Poppins', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 125px;
+  padding-right: 125px;
 }
 
 /* container utama footer */
@@ -592,7 +610,6 @@ nav .dropdown {
   grid-template-columns: 2fr 1fr 1fr; /* kolom kiri lebar, tengah & kanan lebih kecil */
   align-items: start; /* biar heading sejajar di atas */
   gap: 40px;
-  max-width: 1200px;
   margin: auto;
   padding: 50px 0;
 }
