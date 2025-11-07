@@ -15,7 +15,8 @@ CREATE TABLE profile (
 CREATE TABLE admin (
     email VARCHAR(255) PRIMARY KEY,
     password VARCHAR(25) NOT NULL,
-    nama VARCHAR(50) NOT NULL
+    nama VARCHAR(50) NOT NULL,
+    tanggal_register DATETIME
 );
 
 -- Table Foto_Galeri
@@ -33,7 +34,8 @@ CREATE TABLE ekstrakurikuler (
     nama VARCHAR(20) NOT NULL,
     nama_pembimbing VARCHAR(50) NOT NULL,
     jadwal VARCHAR(25),
-    url_foto VARCHAR(50)
+    url_foto VARCHAR(50),
+    tanggal_dibuat DATETIME
 );
 
 -- Table Fasilitas
@@ -41,7 +43,8 @@ CREATE TABLE fasilitas (
     id_fasilitas INT auto_increment PRIMARY KEY,
     nama_fasilitas VARCHAR(25) NOT NULL,
     url_foto VARCHAR(50),
-    deskripsi_fasilitas VARCHAR(100)
+    deskripsi_fasilitas VARCHAR(100),
+    tanggal_dibuat DATETIME
 );
 
 -- Table Guru
@@ -50,7 +53,8 @@ CREATE TABLE guru (
     nama VARCHAR(50) NOT NULL,
     jabatan VARCHAR(25),
     url_foto VARCHAR(50),
-    gelar VARCHAR(20)
+    gelar VARCHAR(20),
+    tanggal_dibuat DATETIME
 );
 
 -- Table Informasi
@@ -63,23 +67,23 @@ CREATE TABLE informasi (
     url_foto VARCHAR(50),
     email_admin VARCHAR(255),
     FOREIGN KEY (email_admin) REFERENCES admin(email)
-); 
+);
 
 -- Insert data ke tabel admin
-INSERT INTO admin (email, password, nama) VALUES
-('admin@mtsddi.sch.id', 'admin123', 'Admin');
+INSERT INTO admin (email, password, nama, tanggal_register) VALUES
+('admin@mtsddi.sch.id', 'admin123', 'Admin', NOW());
 
 -- Insert data ke tabel guru
-INSERT INTO guru (nama, jabatan, url_foto, gelar) VALUES
-('Muhammad Rizki', 'Guru Matematika', '/images/guru3.jpg', 'S.Pd');
+INSERT INTO guru (nama, jabatan, url_foto, gelar, tanggal_dibuat) VALUES
+('Muhammad Rizki', 'Guru Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
 
 -- Insert data ke tabel ekstrakurikuler
-INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto) VALUES
-('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', '/images/ekskul1.jpg');
+INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES
+('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', '/images/ekskul1.jpg', NOW());
 
 -- Insert data ke tabel fasilitas
-INSERT INTO fasilitas (nama_fasilitas, url_foto, deskripsi_fasilitas) VALUES
-('Perpustakaan', '/images/fasilitas3.jpg', 'Perpustakaan dengan koleksi 500+ buku');
+INSERT INTO fasilitas (nama_fasilitas, url_foto, deskripsi_fasilitas, tanggal_dibuat) VALUES
+('Perpustakaan', '/images/fasilitas3.jpg', 'Perpustakaan dengan koleksi 500+ buku', NOW());
 
 -- Insert data ke tabel foto_galeri
 INSERT INTO foto_galeri (deskripsi_foto_galeri, url_foto, tanggal_posting, email) VALUES
@@ -89,4 +93,3 @@ INSERT INTO foto_galeri (deskripsi_foto_galeri, url_foto, tanggal_posting, email
 INSERT INTO informasi (judul, konten, jadwal_agenda, tanggal_dibuat, url_foto, email_admin) VALUES
 ('Pendaftaran Siswa Baru 2025/2026', 'Pendaftaran siswa baru dibuka mulai 1 Januari hingga 28 Februari 2025', '2025-01-01', '2024-11-01', '/images/info1.jpg', 'admin@mtsddi.sch.id'),
 ('Peringatan Maulid Nabi Muhammad SAW', 'Kegiatan peringatan Maulid Nabi di Aula Sekolah', NULL , '2024-11-04', '/images/info4.jpg', 'admin@mtsddi.sch.id');
-
