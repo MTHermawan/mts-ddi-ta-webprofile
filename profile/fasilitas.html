@@ -25,17 +25,33 @@
     </div>
 
     <header>
-         <nav>
+          <nav>
             <div class="nav-logo">
                 <img src="../assets/logo-sekolah.png" alt="Logo Sekolah">
                 <h1>MTS DDI Tani Aman</h1>
             </div>
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Informasi</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a id="navbar-beranda" href="../index.html">Beranda</a></li>
+                <li>
+                    <a id="navbar-profil" href="#">Profil</a>
+                    <ul id="navbar-profil-dropdown" class="dropdown">
+                        <li><a href="./sejarah.html">Sejarah Singkat</a></li>
+                        <li><a href="./visi-misi.html">Visi Misi</a></li>
+                        <li><a href="./guru.html">Data Guru</a></li>
+                        <li><a href="./fasilitas.html">Fasilitas</a></li>
+                        <li><a href="./ekskul.html">Ekstrakulikuler</a></li>
+                        <li><a href="./organisasi.html">Organisasi</a></li>
+                    </ul>
+                </li>
+                <li><a id="navbar-galeri" href="#gallery">Galeri</a></li>
+                <li>
+                    <a id="navbar-informasi" href="#">Informasi</a>
+                    <ul id="navbar-informasi-dropdown" class="dropdown">
+                        <li><a href="../informasi/agenda.html">Agenda</a></li>
+                        <li><a href="../informasi/berita.html">Berita</a></li>
+                    </ul>
+                </li>
+                <li><a id="navbar-kontak" href="#kontak">Kontak</a></li>
             </ul>
          </nav>
 

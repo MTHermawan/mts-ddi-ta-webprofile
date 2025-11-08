@@ -20,7 +20,7 @@ function InsertAdmin($email, $nama, $password){
     return $stmt->execute(); 
 }
 
-function GetAllInformasi(){
+function GetAllAdmin(){
     global $koneksi;
 
     $data = [];
@@ -64,7 +64,29 @@ function GetAdminByEmail($email)
     
     // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
     $stmt->bind_param("s", $email);
-    return $stmt->execute(); 
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    }
+    return null;
 }
 
+function GetAdminByUsername($username)
+{
+    global $koneksi;
+    
+    // Query, tanda "?" menandakan parameter yang akan di-bind
+    $sql = "SELECT * FROM admin WHERE nama = ?";
+    $stmt = $koneksi->prepare($sql);
+    
+    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    }
+    return null;
+}
 ?>
