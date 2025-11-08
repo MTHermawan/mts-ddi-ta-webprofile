@@ -165,7 +165,7 @@ body {
 }
 
 .sidebar-header h1 {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 600;
   color: rgb(52, 64, 84);
 }
@@ -240,6 +240,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 9;
+  box-sizing: border-box;
 }
 
 nav {
@@ -247,7 +248,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .nav-left {
@@ -306,6 +308,8 @@ nav {
   background-color: #fee2e2;
   color: #dc2626;
 }
+
+/*              MAIN CONTENT                */
 
 .main-content {
   margin: 20px;
