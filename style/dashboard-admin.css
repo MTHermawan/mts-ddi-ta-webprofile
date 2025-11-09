@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 html,
 body,
@@ -135,7 +133,7 @@ body {
   min-height: 2000px;
   display: flex;
   /* font-family: "poppins", sans-serif; */
-  font-family: "Signika Negative", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 /*                  SIDE BAR                     */
@@ -185,6 +183,7 @@ body {
   color: rgb(52, 64, 84);
   font-weight: 550;
   margin-bottom: 5px;
+  margin-left: 8px;
 }
 
 .menu-item {
@@ -200,14 +199,14 @@ body {
 }
 
 .menu-item:hover {
-  background-color: rgba(4, 134, 0, 1);
-  color: white;
+  background-color: #f1f3f6;
+  color: rgb(52, 64, 84);
 }
 
-.menu-item.active {
+/* .menu-item.active {
   background-color: rgba(4, 134, 0, 1);
   color: white;
-}
+} */
 
 .menu-item i {
   width: 20px;
@@ -216,13 +215,13 @@ body {
 }
 
 .menu-text {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 350;
 }
 
 .divider {
   height: 1px;
-  background-color: #e2e8f0;
+  background-color: rgb(102, 112, 133);
   margin: 1rem 0;
 }
 
@@ -281,6 +280,7 @@ nav {
 .profile-info {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .profile-name {
@@ -300,7 +300,7 @@ nav {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background-color: #f1f5f9;
+  background-color: #f1f3f6;
   color: #475569;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -325,47 +325,87 @@ nav {
 }
 
 .card-row1 {
-  width: 280px;
-  height: 200px;
+  flex: 0.25;
+  min-height: 100px;
   background-color: white;
   box-shadow: 0 0 0 0.9px #dde1e5;
   border-radius: 16px;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 4px;
 }
 
 .card-logo {
+  background-color: #f1f3f6;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background-color: #F2F4F7;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.card-logo img{
-  width: 35px;
-}
-.card h2 {
-  font-size: 16px;
-  color: grey;
-  margin-top: 20px;
+.card-logo img {  
+  width: 32px;
 }
 
 .card-info {
+  flex: 0.6;
+  /* background-color: aqua; */
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  gap: 4px;
   position: relative;
+  height: 100%;
+}
+
+.vertical-divider {
+  height: 90%;
+  width: 1px;
+  background-color: rgb(102, 112, 133);
+  margin: 0 8px;
+}
+
+.card-info-detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(102, 112, 133);
 }
 
 .card-amount {
   font-size: 28px;
   font-weight: 700;
+  color: black;
+}
+
+.btn-container {
+  flex: 0.4;
+  /* background-color: yellow; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-end;
 }
 
 /* CSS */
@@ -374,15 +414,17 @@ nav {
   width: 80px;
   height: 30px;
   appearance: none;
-  background-color: #E6FFEC;
+  background-color: #f1f3f6;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 500;
   list-style: none;
@@ -404,14 +446,14 @@ nav {
 }
 
 .button-card-row1:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button-card-row1:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
