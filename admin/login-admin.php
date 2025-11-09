@@ -6,14 +6,14 @@ include_once "../data/data_admin.php";
 $data = GetAllAdmin();
 $error_message = ''; // Add this variable to store error message
 
-if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit_login'])) {
-    $input_username = $_POST['username'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $input_email = $_POST['email'];
     $input_password = $_POST['password'];
 
-    $akun = GetAdminByUsername($input_username);
+    $akun = GetAdminByEmail($input_email);
     if ($akun && $akun['password'] == $input_password) {
         $_SESSION['email'] = $akun['email'];
-        header("Location: ./dashboard-admin.php");
+        header("Location: ./dashboard-admin.html");
     }
 }
 ?>
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit_login'])) {
               <label> <input type="checkbox" /> Ingat saya </label>
             </div>
             <p class="message-error">
-              <?php echo htmlspecialchars($message); ?>
+              <?php echo htmlspecialchars($error_message); ?>
             </p>
             <button type="submit">Login</button>
           </form>
