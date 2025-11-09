@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap");
 
 .main-content {
   font-family: "Signika Negative", sans-serif;
   flex: 1;
   padding: 30px;
   margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .top-bar {
@@ -27,14 +27,14 @@
   margin-left: 10px;
   padding: 10px 15px;
   border: none;
-  background-color:  #048600;
+  background-color: #048600;
   color: white;
   cursor: pointer;
   border-radius: 4px;
 }
 
 .teacher-data {
-  padding: 250px;  
+  padding: 250px;
   text-align: center;
   color: #7f8c8d;
 }
@@ -57,27 +57,97 @@
   border-radius: 8px;
   padding: 8px 16px;
   width: 1000px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .search-icon {
-    margin-right: 16px;
-    color: #999;
-    font-size: 18px;
+  margin-right: 16px;
+  color: #999;
+  font-size: 18px;
 }
 
 .search-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 14px;
-    color: #666;
-    padding: 4px 0;
-    margin-left: 16px;
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #666;
+  padding: 4px 0;
+  margin-left: 16px;
 }
 
 .search-input::placeholder {
-    color: #999;
-    font-style: italic;
+  color: #999;
+  font-style: italic;
+}
+
+.popup {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.popup-content {
+  display: flex;
+  width: 960px;
+  box-sizing: border-box;
+  padding: 48px;
+  background-color: #fff;
+  border-radius: 8px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popup-content h1 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.popup-input-group {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.popup-input, .popup-input-gambar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popup-input-gambar label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.popup-input-gambar input[type="file"] {
+  display: none;
+}
+
+.popup-input-gambar label:hover {
+  cursor: pointer;
+}
+
+.popup-button-tambah {
+  background-color: rgb(241, 241, 241);
+  border: none;
+  border-radius: 2px;
+  padding: 8px 12px;  
+}
+
+.popup-button-kembali {
+  background-color: rgb(239, 68, 68);
+  border: none;
+  border-radius: 2px;
+  padding: 8px 12px;
+  color: white;  
 }

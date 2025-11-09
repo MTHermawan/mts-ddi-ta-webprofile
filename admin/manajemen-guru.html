@@ -88,50 +88,81 @@
           </a>
         </li>
 
-        <div class="divider"></div>
-      </ul>
-    </div>
+      <div class="divider"></div>
+    </ul>
+  </div>
 
-    <!-- Main -->
-    <div class="main">
-      <!-- Header Navbar -->
-      <header>
-        <nav>
-          <div class="profile-admin">
-            <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
-            <div class="profile-info">
-              <div class="profile-name">Admin Dashboard</div>
-              <div class="profile-role">Administrator</div>
-            </div>
+  <!-- Main -->
+  <div class="main">
+    <!-- Header Navbar -->
+    <header>
+      <nav>
+        <div class="profile-admin">
+          <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
+          <div class="profile-info">
+            <div class="profile-name">Admin Dashboard</div>
+            <div class="profile-role">Administrator</div>
           </div>
-          <div class="exit-logo">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </div>
-        </nav>
-      </header>
-
-      
-      
-      <div class="top-bar">
-        <h1>Guru</h1>
-        <div class="actions">
-          <button class="export">Export CSV</button>
-          <button class="add">Tambah Guru</button>
         </div>
-      </div>
-      
-      <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" class="search-input" placeholder="Cari nama guru">
-      </div>
+        <div class="exit-logo">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
+      </nav>
+    </header>
 
-      <section class="teacher-data">
-        <p class="empty-message">Tidak ada data guru</p>
-        <p class="instruction">Harap masukkan data guru</p>
-      </section>
+
+    <div class="top-bar">
+      <h1>Guru</h1>
+      <div class="actions">
+        <button class="export">Export CSV</button>
+        <button class="add" id="btn_tambah_guru">Tambah Guru</button>
+      </div>
     </div>
 
-    
-    <script src="../script/dashboard-admin.js"></script>
-  </body>
+    <div class="search-container">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="search-input" placeholder="Cari nama guru">
+    </div>
+
+    <section class="teacher-data">
+      <p class="empty-message">Tidak ada data guru</p>
+      <p class="instruction">Harap masukkan data guru</p>
+    </section>
+
+    <section class="popup">
+      <form class="popup-content">
+        <h1>Tambah Guru</h1>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" name="nama" id="nama">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="mapel">Mapel</label>
+            <input type="text" name="mapel" id="gelar">
+          </div>
+          <div class="popup-input">
+            <label for="gelar">Gelar</label>
+            <input type="text" name="gelar" id="gelar">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input-gambar">
+            <label for="foto_guru">
+              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
+            </label>
+            <input type="file" name="foto_guru" id="foto_guru">
+          </div>
+          <button type="submit" class="popup-button-tambah">Tambah</button>
+          <button type="button" class="popup-button-kembali">Kembali</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="../script/dashboard-admin.js"></script>
+</body>
+
 </html>
