@@ -47,3 +47,37 @@
 .instruction {
   font-size: 16px;
 }
+
+.search-container {
+  font-family: "Signika Negative", sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  margin-left: 50px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 1000px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.search-icon {
+    margin-right: 16px;
+    color: #999;
+    font-size: 18px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+    padding: 4px 0;
+    margin-left: 16px;
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
