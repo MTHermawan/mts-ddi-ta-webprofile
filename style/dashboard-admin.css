@@ -165,7 +165,7 @@
   display: none;
 }
 
-/*                MAIN CONTENT ROW 2            */
+/*                MAIN CONTENT ROW 2           */
 .container-row2 {
   display: flex;
   flex-direction: column;
@@ -173,14 +173,15 @@
   background-color: white;
   box-shadow: 0 0 0 0.9px #dde1e5;
   border-radius: 16px;
+  padding: 0px 20px;
 }
 
 .row2 {
   display: flex;
   align-items: center;
   background-color: white;
-  gap: 4px;
   border-radius: 16px;
+  gap: 20px;
   /* box-shadow: 0 0 0 0.9px #dde1e5; */
   flex-wrap: wrap;
 }
@@ -190,7 +191,7 @@
   min-height: 100px;
   background-color: white;
   border-radius: 16px;
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,7 +241,7 @@
 }
 
 .card-info-row2-detail {
-  flex: 0.98;
+  flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -255,7 +256,7 @@
   color: rgb(102, 112, 133);
 }
 
-#instagram, #facebook, #youtube, #email {
+#instagram, #facebook, #youtube, #email, #maps, #location {
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -266,38 +267,43 @@
   transition: all 0.2s ease;
 }
 
-input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:focus {
+input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:focus, textarea#maps:focus, input#location:focus  {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
   outline: none;
 }
 
-.btn-container-row2 {
-  /* background-color: yellow; */
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  align-items: flex-end;
+/* OVERRIDE WIDTH DAN FLEX */
+
+.card23 {
+  flex: 1;
 }
 
-/* CSS */
-.button-card-row2 {
-  margin-top: -1px;
-  width: 80px;
-  height: 30px;
+.card24 {
+  flex: 1;
+}
+
+/* BUTTON ROW2 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button-row2 {
+  width: 100px;
   appearance: none;
   background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292e;
+  color: #24292E;
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 20px;
   list-style: none;
   padding: 6px 16px;
   position: relative;
@@ -310,33 +316,34 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
   word-wrap: break-word;
 }
 
-.button-card-row2:hover {
-  background-color: #f1f3f6;
+.button-row2:hover {
+  background-color: #fafbfc;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-card-row2:disabled {
-  background-color: #fafbfc;
+.button-row2:disabled {
+  background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959da5;
+  color: #959DA5;
   cursor: default;
 }
 
-.button-card-row2:active {
-  background-color: #edeff2;
+.button-row2:active {
+  background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-card-row2:focus {
+.button-row2:focus {
   outline: 1px transparent;
 }
 
-.button-card-row2:before {
+.button-row2:before {
   display: none;
 }
 
-.button-card-row2:-webkit-details-marker {
+.button-row2:-webkit-details-marker {
   display: none;
 }
+
