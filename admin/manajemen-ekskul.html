@@ -118,9 +118,46 @@
       </div>
     </div>
 
+    <div class="search-container">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="search-input" placeholder="Cari nama ekstrakulikuler">
+    </div>
+
     <section class="ekskul">
       <p class="empty-message">Tidak ada data ekskul</p>
       <p class="instruction">Harap masukkan data ekskul</p>
+    </section>
+
+    <section class="popup">
+      <form class="popup-content">
+        <h1>Tambah Ekstrakulikuler</h1>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="nama">Nama Ekstrakulikuler</label>
+            <input class="satu" type="text" name="nama" id="nama">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="pembimbing">Pembimbing</label>
+            <input class="dua" type="text" name="pembimbing" id="pembimbing">
+          </div>
+          <div class="popup-input">
+            <label for="jadwal">Jadwal</label>
+            <input class="dua" type="text" name="jadwal" id="jadwal">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input-gambar">
+            <label for="foto_guru">
+              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
+            </label>
+            <input type="file" name="foto_guru" id="foto_guru">
+          </div>
+          <button type="submit" class="popup-button-tambah">Tambah</button>
+          <button type="button" class="popup-button-kembali">Kembali</button>
+        </div>
+      </form>
     </section>
     </div>
 

@@ -118,9 +118,42 @@
       </div>
     </div>
 
+    <div class="search-container">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="search-input" placeholder="Cari nama fasilitas">
+    </div>
+
     <section class="fasilitas">
       <p class="empty-message">Tidak ada data fasilitas</p>
       <p class="instruction">Harap masukkan data fasilitas</p>
+    </section>
+
+    <section class="popup">
+      <form class="popup-content">
+        <h1>Tambah Fasilitas</h1>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="nama">Nama Fasilitas</label>
+            <input class="satu" type="text" name="nama" id="nama">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="desk">Deskripsi</label>
+            <input class="dua" type="text" name="desk" id="desk">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input-gambar">
+            <label for="foto_guru">
+              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
+            </label>
+            <input type="file" name="foto_guru" id="foto_guru">
+          </div>
+          <button type="submit" class="popup-button-tambah">Tambah</button>
+          <button type="button" class="popup-button-kembali">Kembali</button>
+        </div>
+      </form>
     </section>
     </div>
 

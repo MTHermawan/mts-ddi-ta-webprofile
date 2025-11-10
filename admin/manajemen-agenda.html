@@ -118,9 +118,47 @@
       </div>
     </div>
 
+    <div class="search-container">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="search-input" placeholder="Cari judul agenda">
+    </div>
+
     <section class="agenda">
       <p class="empty-message">Tidak ada data agenda</p>
       <p class="instruction">Harap masukkan data agenda</p>
+    </section>
+
+        <section class="popup">
+      <form class="popup-content">
+        <h1>Tambah Agenda</h1>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="judul">Judul Agenda</label>
+            <input class="dua" type="text" name="judul" id="judul">
+          </div>
+          <div class="popup-input">
+            <label for="
+            jadwal">Jadwal</label>
+            <input class="dua" type="text" name="jadwal" id="jadwal">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input">
+            <label for="desk">Deskripsi</label>
+            <input class="satu" type="text" name="desk" id="desk">
+          </div>
+        </div>
+        <div class="popup-input-group">
+          <div class="popup-input-gambar">
+            <label for="foto_guru">
+              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
+            </label>
+            <input type="file" name="foto_guru" id="foto_guru">
+          </div>
+          <button type="submit" class="popup-button-tambah">Tambah</button>
+          <button type="button" class="popup-button-kembali">Kembali</button>
+        </div>
+      </form>
     </section>
     </div>
 
