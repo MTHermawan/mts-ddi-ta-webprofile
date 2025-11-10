@@ -20,6 +20,14 @@ header {
   min-height: 400px;
 }
 
+h5{
+    width: 900px;
+}
+
+.judul-hero{
+    width: 900px;
+}
+
 .sejarah-container {
     display: flex;
     justify-content: center;
@@ -32,7 +40,7 @@ header {
 
 .sejarah-container h1 {
     font-family: "Signika Negative", sans-serif;
-    font-size: 48px;
+    font-size: 36px;
     text-align: center;
     margin-bottom: 100px;
 }

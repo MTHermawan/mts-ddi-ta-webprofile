@@ -122,7 +122,9 @@
   width: 500px;
   height: 30px;
   border-color: rgba(0, 0, 0, 0.3);
+
 }
+
 .dua{
   border-radius: 8px;
   width: 234px;
@@ -152,6 +154,7 @@
   transition: ease-in-out 0.5s;
   color: rgba(4, 134, 0, 1) ;
 }
+
 
 .popup-button-tambah {
   width: 100px;  
