@@ -129,31 +129,43 @@
     </section>
 
     <section class="popup">
-      <form class="popup-content">
-        <h1>Tambah Galeri</h1>
-        <div class="popup-input-group">
-          <div class="popup-input">
-            <label for="judul">Judul Galeri</label>
-            <input class="satu" type="text" name="judul" id="judul">
+      <div class="popup-bg">
+        <form class="popup-tambah">
+          <h1>Tambah Galeri</h1>
+          <div class="popup-input-group">
+            <div class="popup-input">
+              <label for="judul">Judul Galeri</label>
+              <input class="satu" type="text" name="judul" id="judul">
+            </div>
+          </div>
+          <div class="popup-input-group">
+            <div class="popup-input">
+              <label for="desk">Deskripsi</label>
+              <input class="dua" type="text" name="desk" id="desk">
+            </div>
+          </div>
+          <div class="popup-input-group">
+            <div class="popup-input-gambar">
+              <label for="foto_guru">
+                <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
+              </label>
+              <input type="file" name="foto_guru" id="foto_guru">
+            </div>
+            <button type="submit" class="popup-button-tambah">Tambah</button>
+            <button type="button" class="popup-button-kembali">Kembali</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="popup-bg">
+        <div class="popup-hapus">
+          <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
+          <div class="btn-grup-hapus">
+            <button class="confirm-hapus"><img src="../assets/popup-centang.png" alt="centang">Iya</button>
+            <button class="cancel-hapus"><img src="../assets/popup-no.png" alt="tidak">Tidak</button>
           </div>
         </div>
-        <div class="popup-input-group">
-          <div class="popup-input">
-            <label for="desk">Deskripsi</label>
-            <input class="dua" type="text" name="desk" id="desk">
-          </div>
-        </div>
-        <div class="popup-input-group">
-          <div class="popup-input-gambar">
-            <label for="foto_guru">
-              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
-            </label>
-            <input type="file" name="foto_guru" id="foto_guru">
-          </div>
-          <button type="submit" class="popup-button-tambah">Tambah</button>
-          <button type="button" class="popup-button-kembali">Kembali</button>
-        </div>
-      </form>
+      </div>
     </section>
     </div>
 

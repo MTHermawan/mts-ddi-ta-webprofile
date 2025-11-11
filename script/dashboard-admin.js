@@ -19,7 +19,7 @@
 //     alert(main);
 //     document.append(```
 //         <section class="popup">
-//       <form class="popup-content">
+//       <form class="popup-tambah">
 //         <h1>Tambah Guru</h1>
 //         <div class="popup-input-group">
 //           <div class="popup-input">
