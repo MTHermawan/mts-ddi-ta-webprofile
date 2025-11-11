@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manajemen Berita</title>
+    <title>Dashboard Admin</title>
     <link rel="stylesheet" href="../style/dashboard.css" />
-    <link rel="stylesheet" href="../style/manajemen-berita.css" />
+    <link rel="stylesheet" href="../style/manajemen-visi-misi.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -70,7 +70,7 @@
           </a>
         </li>
         <li>
-          <a href="manajemen-berita.html" class="menu-item active">
+          <a href="manajemen-berita.html" class="menu-item">
             <i class="fa-regular fa-newspaper"></i>
             <span class="menu-text">Berita</span>
           </a>
@@ -110,54 +110,50 @@
         </nav>
       </header>
 
-    <div class="top-bar">
-      <h1>Berita</h1>
-      <div class="actions">
-        <button class="export">Export CSV</button>
-        <button class="add">Tambah Berita</button>
+      <!-- Title Menu -->
+      <h1 class="menu-title">Visi Misi</h1>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- main content row 21-->
+        <div class="container-row1">
+          <!-- main content row 24 -->
+          <form action="">
+            <div class="row1">
+              <div class="card-row1 card24">
+                <div class="card-detail-row1">
+                  <div class="card-tittle">
+                    <div class="card-logo-row1">
+                      <img
+                        src="../assets/icon-visi-misi.svg"
+                        alt="visi-misi Icon"
+                      />
+                    </div>
+                    <label class="card-title-row1" for="visi-misi"
+                      >Visi Misi Sekolah</label
+                    >
+                  </div>
+                  <div class="card-info-row1">
+                    <div class="card-info-row1-detail">
+                      <textarea
+                        name="visi-misi"
+                        id="visi-misi"
+                        placeholder="Visi Misi MTs Tani Aman"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-container">
+              <div></div>
+              <button class="button-row1">Simpan</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-
-    <div class="search-container">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" class="search-input" placeholder="Cari judul berita">
-    </div>
-
-    <section class="berita">
-      <p class="empty-message">Tidak ada data berita</p>
-      <p class="instruction">Harap masukkan data berita</p>
-    </section>
-
-    <section class="popup">
-      <form class="popup-content">
-        <h1>Tambah Berita</h1>
-        <div class="popup-input-group">
-          <div class="popup-input">
-            <label for="judul">Judul Berita</label>
-            <input class="satu" type="text" name="judul" id="judul">
-          </div>
-        </div>
-        <div class="popup-input-group">
-          <div class="popup-input">
-            <label for="desk">Deskripsi</label>
-            <input class="dua" type="text" name="desk" id="desk">
-          </div>
-        </div>
-        <div class="popup-input-group">
-          <div class="popup-input-gambar">
-            <label for="foto_guru">
-              <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
-            </label>
-            <input type="file" name="foto_guru" id="foto_guru">
-          </div>
-          <button type="submit" class="popup-button-tambah">Tambah</button>
-          <button type="button" class="popup-button-kembali">Kembali</button>
-        </div>
-      </form>
-    </section>
-    </div>
-
-    
     <script src="../script/dashboard-admin.js"></script>
   </body>
 </html>
