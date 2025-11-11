@@ -24,7 +24,7 @@ function InsertEkstrakurikuler($nama, $nama_pembimbing, $jadwal, $url_foto, $tan
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllInformasi(){
+function GetAllEkstrakurikuler(){
     global $koneksi;
 
     $data = [];
@@ -41,7 +41,7 @@ function GetAllInformasi(){
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateEktrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat){
+function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat){
     global $koneksi;
 
     $sql = "UPDATE ekstrakurikuler SET nama = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ?, tanggal_dibuat = ? WHERE id_ekstrakurikuler = ?";

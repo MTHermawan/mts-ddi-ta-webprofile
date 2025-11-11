@@ -24,7 +24,7 @@ function InsertGuru($nama, $jabatan, $url_foto, $gelar, $tanggal_dibuat){
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllInformasi(){
+function GetAllGuru(){
     global $koneksi;
 
     $data = [];

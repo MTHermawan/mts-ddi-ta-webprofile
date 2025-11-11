@@ -23,7 +23,7 @@ function InsertFotoGaleri($deskripsi_foto_galeri, $url_foto, $tanggal_posting, $
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllInformasi(){
+function GetAllFotoGaleri(){
     global $koneksi;
 
     $data = [];
@@ -50,7 +50,7 @@ function UpdateFotoGaleri($id_foto_galeri, $deskripsi_foto_galeri, $url_foto, $t
 }
 
 // Menghapus kolom informasi berdasarkan ID (DELETE)
-function DeleteFasilitas($id_foto_galeri){
+function DeleteFotoGaleri($id_foto_galeri){
     global $koneksi;
 
     $sql = "DELETE FROM foto_galeri WHERE id_foto_galeri = ?";

@@ -23,7 +23,7 @@ function InsertFasilitas($nama_fasilitas, $url_foto, $deskripsi_fasilitas, $tang
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllInformasi(){
+function GetAllFasilitas(){
     global $koneksi;
 
     $data = [];
