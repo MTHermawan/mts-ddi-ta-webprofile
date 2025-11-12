@@ -167,17 +167,20 @@ nav ul li {
   z-index: 1000;
 }
 
-nav ul li a {
+.nav-menu-btn {
   color: rgb(199, 199, 199);
   text-decoration: none;
   transition: 0.5s;
 }
 
-nav ul li a:hover {
+.nav-menu-btn.active, .nav-menu-btn:hover {
   /* font-weight: 600; */
-  cursor: pointer;
   text-decoration: none;
   color: white;
+}
+
+.nav-menu-btn:hover {
+  cursor: pointer;
 }
 
 nav.stuck {
@@ -191,18 +194,15 @@ nav.stuck {
   top: 0;
 }
 
-nav.stuck a {
-  color: black;
-}
-
-nav.stuck ul li {
+nav.stuck .nav-menu-btn {
   color: #000000;
   text-decoration: none;
   transition: 0.5s;
 }
-nav.stuck ul li a:hover,
+
+nav.stuck .nav-menu-btn:hover,
+nav.stuck .nav-menu-btn.active,
 nav .dropdown a:hover {
-  cursor: pointer;
   color: rgba(4, 134, 0, 1);
 }
 
@@ -233,25 +233,11 @@ nav .dropdown li:last-child {
 }
 
 nav .dropdown a {
+  display: block;
   color: black;
   width: 100%;
-  display: block;
   padding: 12px 12px;
   text-decoration: none;
-}
-
-nav ul li.active > a {
-  color: white !important;
-  font-weight: 500;
-  border-bottom: 2px solid white;
-  padding-bottom: 2px;
-}
-
-nav.stuck ul li.active > a {
-  color: #048600 !important;
-  font-weight: 500;
-  border-bottom: 2px solid #048600;
-  padding-bottom: 2px;
 }
 
 .dropdown.show {

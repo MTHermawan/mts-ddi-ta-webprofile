@@ -9,55 +9,10 @@
     <link rel="icon" href="./assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
-    <!-- NOTE: Silakan design pakai CSS sesuai design di figma:
-    https://www.figma.com/design/qoH3lm9j5RJl11X95Jxv4U/proyek-web?node-id=442-19&t=05d5jrUkllBfxArK-0 -->
-    
-    <!-- TODO (Aulia): Tambahin header paling atas yang ada alamat, email, kontak, dsb. -->
-    <div class="site-header">
-        <div class="container-header">
-            <div class="left-header">
-                <p><img src="assets/icon-alamat.png" alt="Alamat" class="icon-header">Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota Samarinda.</p>
-                <p><img src="assets/icon-email.png" alt="Email" class="icon-header">email sekolah</p>
-            </div>
-
-            <div class="right-header">
-                <a href="#"><img src="assets/icon-youtube.png" alt="Youtube" class="social-icon"></a>
-                <a href="#"><img src="assets/icon-facebook.png" alt="Facebook" class="social-icon"></a>
-                <a href="#"><img src="assets/icon-instagram.png" alt="Instagram" class="social-icon"></a>
-            </div>
-        </div>
-    </div>
+    <?php include "includes/site-header.php"; ?>
 
     <header>
-         <nav>
-            <div class="nav-logo">
-                <img src="assets/logo-sekolah.png" alt="Logo Sekolah">
-                <h1>MTS DDI Tani Aman</h1>
-            </div>
-            <ul>
-                <li><a id="navbar-beranda" href="./index.html">Beranda</a></li>
-                <li>
-                    <a id="navbar-profil" href="#">Profil</a>
-                    <ul id="navbar-profil-dropdown" class="dropdown">
-                        <li><a href="./profile/sejarah.html">Sejarah Singkat</a></li>
-                        <li><a href="./profile/visi-misi.html">Visi Misi</a></li>
-                        <li><a href="./profile/guru.html">Data Guru</a></li>
-                        <li><a href="./profile/fasilitas.html">Fasilitas</a></li>
-                        <li><a href="./profile/ekskul.html">Ekstrakulikuler</a></li>
-                        <li><a href="./profile/organisasi.html">Organisasi</a></li>
-                    </ul>
-                </li>
-                <li><a id="navbar-galeri" href="#gallery">Galeri</a></li>
-                <li>
-                    <a id="navbar-informasi" href="#">Informasi</a>
-                    <ul id="navbar-informasi-dropdown" class="dropdown">
-                        <li><a href="./informasi/agenda.html">Agenda</a></li>
-                        <li><a href="./informasi/berita.html">Berita</a></li>
-                    </ul>
-                </li>
-                <li><a id="navbar-kontak" href="#kontak">Kontak</a></li>
-            </ul>
-         </nav>
+        <?php include "includes/navbar.php"; ?>
 
         <section id="hero">
             <div class="hero-content">
@@ -69,7 +24,6 @@
     </header>
 
     <main>
-        <!-- TODO (Aulia): Lengkapin section sesuai desain figma -->
         <!-- <section id="hero">
             <div class="hero-content">
                 <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
@@ -77,7 +31,6 @@
                 <button class="btn-green">Hubungi kami</button>
             </div>
         </section> -->
-
 
         <section id="about">
             <div class="about-container">
@@ -217,48 +170,7 @@
             </div>
         </section>
     </main>
-    <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h1>MTS DDI TANI AMAN</h1>
-                <p>MTS DDI Tani Aman: Menjadi sekolah unggulan yang membentuk generasi Qur’ani, cerdas, dan berakhlak mulia</p>
-
-                <ul>
-                    <li><img src="assets/icon-alamat.png" alt="Alamat">Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota Samarinda, Kalimantan Timur 75251</li>
-                    <li><img src="assets/icon-email.png" alt="Email">www@</li>
-                    <li><img src="assets/icon-telepon.png" alt="Telepon">0</li>
-                </ul>
-            </div>
-            <div class="footer-menu">
-            <h3>Menu</h3>
-                <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Galeri</a></li>
-                    <li><a href="#">Informasi</a></li>
-                    <li><a href="#">Kontak</a></li>
-                </ul>
-            </div>
-            <div class="footer-follow">
-            <h3>Temukan Kami</h3>
-                <ul>
-                    <li><a href="#">Youtube</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <ul>
-                <li><a href="#">a</a></li>
-                <li><a href="#">b</a></li>
-                <li><a href="#">c</a></li>
-                <li><a href="#">d</a></li>
-                <li><a href="#">e</a></li>
-            </ul>
-            <p>P</p>
-        </div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 
     <script src="./script/script.js"></script>
 </body>

@@ -14,16 +14,20 @@ const jumlahGuru = 64;
 const jumlahLulusan = 3500;
 const jumlahDataDuration = 3;
 
-const profileButton = document.getElementById("navbar-profil")
-const profileDropdown = document.getElementById('navbar-profil-dropdown');
-const stickyProfileButton = stickyNavbar.querySelector('#navbar-profil');
-const stickyProfileDropdown = stickyNavbar.querySelector('#navbar-profil-dropdown');
-
-const infoButton = document.getElementById('navbar-informasi');
-const infoDropdown = document.getElementById('navbar-informasi-dropdown');
-const stickyInfoButton = stickyNavbar.querySelector('#navbar-informasi');
-const stickyInfoDropdown = stickyNavbar.querySelector('#navbar-informasi-dropdown');
-
+const navMenuDropdown = {
+    "profile_nav": {
+        "normal_btn": document.getElementById("navbar-profil"),
+        "normal_dropdown": document.getElementById('navbar-profil-dropdown'),
+        "sticky_btn": stickyNavbar.querySelector('#navbar-profil'),
+        "sticky_dropdown": stickyNavbar.querySelector('#navbar-profil-dropdown'),
+    },
+    "information_nav": {
+        "normal_btn": document.getElementById('navbar-informasi'),
+        "normal_dropdown": document.getElementById('navbar-informasi-dropdown'),
+        "sticky_btn": stickyNavbar.querySelector('#navbar-informasi'),
+        "sticky_dropdown": stickyNavbar.querySelector('#navbar-informasi-dropdown'),
+    }
+}
 
 
 // Object
@@ -43,7 +47,7 @@ const navbarObserver = new IntersectionObserver(([entry]) => {
 const jumlahDataObserver = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
         jumlahDataObserver.unobserve(jumlahSiswaElement);
-        
+
         const startTime = performance.now();
         intervalStopwatch = setInterval(() => {
             const currentTime = performance.now();
@@ -58,79 +62,59 @@ const jumlahDataObserver = new IntersectionObserver(([entry]) => {
     }
 }, { threshold: [0.25] });
 
-// Function
-function toggleDropdown(button, dropdownMenu) {
-    dropdownMenu.classList.toggle('show');
-    button.classList.toggle('active');
-    
-    const navButtons = document.querySelectorAll('nav ul li');
-    navButtons.forEach(btn => {
-        if (btn !== button) {
-            btn.classList.remove('active');
+
+function toggleDropdown(pressedBtn) {
+    Object.values(navMenuDropdown).forEach(menu => {
+        const buttons = [menu.normal_btn, menu.sticky_btn];
+        const dropdowns = [menu.normal_dropdown, menu.sticky_dropdown];
+        if (!buttons.includes(pressedBtn)) {
+            buttons.forEach(btn => { btn.classList.remove('active'); });
+            dropdowns.forEach(d => { d.classList.remove('show'); });
+        }
+        else {
+            buttons.forEach(btn => { btn.classList.toggle('active'); });
+            dropdowns.forEach(d => { d.classList.toggle('show'); });
         }
     });
 }
 
 function handleClickOutside(event) {
-    if (!profileButton.contains(event.target) && !stickyProfileButton.contains(event.target)) {
-        profileDropdown.classList.remove('show');
-        stickyProfileDropdown.classList.remove('show');
-        profileButton.classList.remove('active');
-        stickyProfileButton.classList.remove('active');
-    }
+    Object.values(navMenuDropdown).forEach(menu => {
+        const buttons = [menu.normal_btn, menu.sticky_btn];
+        const dropdowns = [menu.normal_dropdown, menu.sticky_dropdown];
+        const clickable = buttons.concat(dropdowns).filter(Boolean);
+        const clickedInside = clickable.some(el => el.contains && el.contains(event.target));
+        if (!clickedInside) {
+            buttons.forEach(btn => { if (btn) btn.classList.remove('active'); });
+            dropdowns.forEach(d => { if (d) d.classList.remove('show'); });
+        }
+    });
 }
-
-function handleClickOutside(event) {
-    if (!profileButton.contains(event.target) && 
-        !stickyProfileButton.contains(event.target) && 
-        !infoButton.contains(event.target) && 
-        !stickyInfoButton.contains(event.target)) {
-        
-        profileDropdown.classList.remove('show');
-        stickyProfileDropdown.classList.remove('show');
-        profileButton.classList.remove('active');
-        stickyProfileButton.classList.remove('active');
-        
-        infoDropdown.classList.remove('show');
-        stickyInfoDropdown.classList.remove('show');
-        infoButton.classList.remove('active');
-        stickyInfoButton.classList.remove('active');
-    }
-}
+// }
 
 // Event listeners
-profileButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleDropdown(profileButton, profileDropdown);
-    // Sync with sticky nav
-    stickyProfileButton.classList.toggle('active');
-    stickyProfileDropdown.classList.toggle('show');
+Object.values(navMenuDropdown).forEach(menu => {
+    menu.normal_btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleDropdown(e.target);
+    });
+    menu.sticky_btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleDropdown(e.target);
+    });
 });
 
-stickyProfileButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleDropdown(stickyProfileButton, stickyProfileDropdown);
-    // Sync with main nav
-    profileButton.classList.toggle('active');
-    profileDropdown.classList.toggle('show');
-});
+//     stickyInfoButton.classList.toggle('active');
+//     stickyInfoDropdown.classList.toggle('show');
+// });
 
-// Add these event listeners with the other ones
-infoButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleDropdown(infoButton, infoDropdown);
-    // Sync with sticky nav
-    stickyInfoButton.classList.toggle('active');
-    stickyInfoDropdown.classList.toggle('show');
-});
+// stickyInfoButton.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     toggleDropdown(stickyInfoButton, stickyInfoDropdown);
 
-stickyInfoButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleDropdown(stickyInfoButton, stickyInfoDropdown);
-    // Sync with main nav
-    infoButton.classList.toggle('active');
-    infoDropdown.classList.toggle('show');
-});
+//     infoButton.classList.toggle('active');
+//     infoDropdown.classList.toggle('show');
+// });
 
 // Main
 // Setting up cloned navbar
