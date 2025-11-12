@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manajemen Agenda</title>
+    <title>Dashboard Admin</title>
     <link rel="stylesheet" href="../style/dashboard.css" />
-    <link rel="stylesheet" href="../style/manajemen-agenda.css" />
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
+    <link rel="stylesheet" href="../style/manajemen-struktur-organisasi.css" />
+    <link
+      rel="icon"
+      href="../assets/logo-sekolah.png"
+      type="image/png/jpeg/jpg"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -67,7 +71,7 @@
         <li>
           <a href="manajemen-struktur-organisasi.html" class="menu-item">
             <i class="fa-solid fa-sitemap"></i>
-            <span class="menu-text">Struktur Organisasi </span>
+            <span class="menu-text">Struktur Organisasi</span>
           </a>
         </li>
         <li>
@@ -111,71 +115,45 @@
         </nav>
       </header>
 
-    <div class="top-bar">
-      <h1>Agenda</h1>
-      <div class="actions">
-        <button class="export">Export CSV</button>
-        <button class="add">Tambah Agenda</button>
-      </div>
-    </div>
+      <!-- Title Menu -->
+      <h1 class="menu-title">Struktur Organisasi Sekolah</h1>
 
-    <div class="search-container">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" class="search-input" placeholder="Cari judul agenda">
-    </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- main content row 21-->
+        <div class="container-row1">
+          <!-- main content row 24 -->
+          <form action="" class="row1">
+            <div class="card-row1">
+              <div class="card-detail-row1">
+                <div class="card-tittle">
+                  <div class="card-logo-row1">
+                    <img
+                      src="../assets/icon-struktur-organisasi.svg"
+                      alt="visi-misi Icon"
+                    />
+                  </div>
+                  <label class="card-title-row1" for="visi"
+                    >Struktur Organisasi</label
+                  >
+                </div>
+                <div class="card-info-row1">
+                  <div class="card-info-row1-detail">
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <section class="agenda">
-      <p class="empty-message">Tidak ada data agenda</p>
-      <p class="instruction">Harap masukkan data agenda</p>
-    </section>
-
-    <section class="popup">
-      <div class="popup-bg">
-        <form class="popup-tambah">
-          <h1>Tambah Agenda</h1>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="judul">Judul Agenda</label>
-              <input class="dua" type="text" name="judul" id="judul">
+            <div class="button-container">
+              <div></div>
+              <div class="button">
+                <button class="button-row1">Simpan</button>
+              </div>
             </div>
-            <div class="popup-input">
-              <label for="
-              jadwal">Jadwal</label>
-              <input class="dua" type="text" name="jadwal" id="jadwal">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="desk">Deskripsi</label>
-              <input class="satu" type="text" name="desk" id="desk">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input-gambar">
-              <label for="foto_guru">
-                <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
-              </label>
-              <input type="file" name="foto_guru" id="foto_guru">
-            </div>
-            <button type="submit" class="popup-button-tambah">Tambah</button>
-            <button type="button" class="popup-button-kembali">Kembali</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="popup-bg">
-        <div class="popup-hapus">
-          <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-          <div class="btn-grup-hapus">
-            <button class="confirm-hapus"><img src="../assets/popup-centang.png" alt="centang">Iya</button>
-            <button class="cancel-hapus"><img src="../assets/popup-no.png" alt="tidak">Tidak</button>
-          </div>
+          </form>
         </div>
       </div>
-    </section>
     </div>
-
-    
     <script src="../script/dashboard-admin.js"></script>
   </body>
 </html>

@@ -19,13 +19,14 @@
 }
 
 .row1 {
-	width: 100%;
+  width: 100%;
   display: flex;
   background-color: white;
   border-radius: 16px;
   /* box-shadow: 0 0 0 0.9px #dde1e5; */
   flex-direction: column;
   gap: 20px;
+  height: 600px;
 }
 
 .card-row1 {
@@ -65,7 +66,7 @@
 }
 
 .card-logo-row1 img {
-  width: 36px;
+  width: 32px;
 }
 
 .vertical-divider {
@@ -94,6 +95,8 @@
   justify-content: center;
   gap: 4px;
   box-sizing: border-box;
+  box-shadow: 0 0 0 0.9px #dde1e5;
+  border-radius: 8px;
 }
 
 .card-title-row1 {
