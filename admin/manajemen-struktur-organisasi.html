@@ -139,6 +139,15 @@
                 </div>
                 <div class="card-info-row1">
                   <div class="card-info-row1-detail">
+
+                    <div class="struktur-organisasi-container" id="strukturOrganisasiContainer">
+                      <div class="struktur-organisasi-placeholder" id="strukturOrganisasiPlaceholder">
+                        <i class="fa-solid fa-image"></i>
+                        <p>Belum ada gambar struktur organisasi yang diunggah</p>
+                        <p>Klik tombol "Upload Gambar" untuk menambahkan</p>
+                      </div>
+                      <img class="struktur-organisasi-image" id="strukturOrganisasiImage" style="display: none;" alt="Struktur Organisasi">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -146,14 +155,20 @@
 
             <div class="button-container">
               <div></div>
-              <div class="button">
-                <button class="button-row1">Simpan</button>
+              <div class="button-group">
+                <button type="button" class="button-upload" id="uploadButton">
+                  <i class="fa-solid fa-upload"></i> Upload Gambar
+                </button>
+                <button type="submit" class="button-row1">
+                  <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
+    
     <script src="./script/dashboard-admin.js"></script>
+    <script src="./script/manajemen-struktur-organisasi.js"></script>
   </body>
 </html>

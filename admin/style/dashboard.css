@@ -127,7 +127,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-textarea, input, button {
+textarea,
+input,
+button {
   font-family: "Outfit", sans-serif;
 }
 
@@ -289,11 +291,12 @@ nav {
 .profile-name {
   font-weight: 600;
   font-size: 0.95rem;
+  color: rgb(29, 41, 57);
 }
 
 .profile-role {
   font-size: 0.8rem;
-  color: rgb(52, 64, 84);
+  color: rgb(102, 112, 133);
 }
 
 .exit-logo {
