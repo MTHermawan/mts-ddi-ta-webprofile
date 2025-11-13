@@ -26,7 +26,7 @@ $base_url = $protocol . $host . '/' . $project_folder . '/';
                 <li><a href="<?php echo $base_url; ?>profile/organisasi.php">Organisasi</a></li>
             </ul>
         </li>
-        <li><a id="navbar-galeri" href="#gallery" class="nav-menu-btn">Galeri</a></li>
+        <li><a id="navbar-galeri" href="<?php echo $base_url; ?>informasi/galeri.php" class="nav-menu-btn">Galeri</a></li>
         <li>
             <a id="navbar-informasi" href="#" class="nav-menu-btn">Informasi</a>
             <ul id="navbar-informasi-dropdown" class="dropdown">
@@ -37,3 +37,5 @@ $base_url = $protocol . $host . '/' . $project_folder . '/';
         <li><a id="navbar-kontak" href="#kontak" class="nav-menu-btn">Kontak</a></li>
     </ul>
 </nav>
+
+<script src="<?php echo $base_url; ?>script/navbar.js"></script>

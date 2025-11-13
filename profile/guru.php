@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Guru</title>
-    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/guru.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>

@@ -15,46 +15,43 @@
   scroll-behavior: smooth;
 }
 
+body, h1, h2, h3, h4, h5, p, a {
+  font-family: "Signika Negative", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: "Signika Negative", sans-serif;
   background-color: #f4f4f4;
 }
 
 h1 {
   font-size: 40px;
   font-weight: 600;
-  font-family: "Signika Negative", sans-serif;
 }
 
 h2 {
   font-size: 36px;
   font-weight: 600;
-  font-family: "Signika Negative", sans-serif;
 }
 
 h3 {
   font-size: 32px;
   font-weight: 500;
-  font-family: "Signika Negative", sans-serif;
 }
 
 h4 {
   font-size: 24px;
   font-weight: 500;
-  font-family: "Signika Negative", sans-serif;
 }
 
 h5 {
   font-size: 20px;
   font-weight: 500;
-  font-family: "Signika Negative", sans-serif;
 }
 
 p {
   font-size: 14px;
   line-height: 1.8;
-  font-family: "Signika Negative", sans-serif;
 }
 
 /* ---------------- SITE HEADER (HIJAU ATAS) ---------------- */
@@ -270,7 +267,6 @@ nav .dropdown a {
   cursor: pointer;
   transition: 0.2s;
   font-size: 16px;
-  font-family: "Signika Negative", sans-serif;
 }
 
 .btn-green:hover {

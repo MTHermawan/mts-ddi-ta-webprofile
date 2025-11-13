@@ -24,6 +24,4 @@ const jumlahDataObserver = new IntersectionObserver(([entry]) => {
     }
 }, { threshold: [0.25] });
 
-stickyNavbar.id = '';
-stickyNavbar.classList.add('stuck');
-stickyNavbar.style.zIndex = '1000';
+jumlahDataObserver?.observe(jumlahSiswaElement);
