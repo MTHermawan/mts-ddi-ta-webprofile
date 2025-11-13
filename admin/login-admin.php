@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Login</title>
-    <link rel="stylesheet" href="../style/admin/login-admin.css" />
+    <link rel="stylesheet" href="./style/login-admin.css" />
   </head>
 
   <body>
@@ -78,5 +78,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       </div>
     </div>
   </body>
-  <script src="../script/admin/login-admin.js"></script>
+  <script src="./script/login-admin.js"></script>
 </html>
