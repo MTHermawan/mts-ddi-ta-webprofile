@@ -1,18 +1,8 @@
 // Deklarasi Variabel / Element
-
-// Header
 const header = document.querySelector('header');
 const headerNavbar = document.querySelector('nav');
 const stickyNavbar = headerNavbar.cloneNode(true);
 const heroSection = document.getElementById('hero');
-
-const jumlahSiswaElement = document.getElementById('value_jumlah_siswa');
-const jumlahGuruElement = document.getElementById('value_jumlah_guru');
-const jumlahLulusanElement = document.getElementById('value_jumlah_lulusan');
-const jumlahSiswa = 720;
-const jumlahGuru = 64;
-const jumlahLulusan = 3500;
-const jumlahDataDuration = 3;
 
 const navMenuDropdown = {
     "profile_nav": {
@@ -29,7 +19,6 @@ const navMenuDropdown = {
     }
 }
 
-
 // Object
 const navbarObserver = new IntersectionObserver(([entry]) => {
     if (entry.intersectionRatio <= 0.99 && !document.body.contains(stickyNavbar)) {
@@ -44,26 +33,8 @@ const navbarObserver = new IntersectionObserver(([entry]) => {
     }
 }, { threshold: [0.99, 1.0] });
 
-const jumlahDataObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
-        jumlahDataObserver.unobserve(jumlahSiswaElement);
-
-        const startTime = performance.now();
-        intervalStopwatch = setInterval(() => {
-            const currentTime = performance.now();
-            const elapsedTimes = (currentTime - startTime) / 1000;
-            const progress = 1 - Math.pow(1 - Math.min(1, (elapsedTimes / jumlahDataDuration)), 3); // 0 - 1
-
-            jumlahSiswaElement.innerHTML = Math.floor(jumlahSiswa * progress) + "+";
-            jumlahGuruElement.innerHTML = Math.floor(jumlahGuru * progress) + "+";
-            jumlahLulusanElement.innerHTML = Math.floor(jumlahLulusan * progress) + "+";
-            if (progress > 1) clearInterval(intervalStopwatch);
-        }, 35);
-    }
-}, { threshold: [0.25] });
-
-
 function toggleDropdown(pressedBtn) {
+    if (!navbarObserver || !jumlahDataObserver) return;
     Object.values(navMenuDropdown).forEach(menu => {
         const buttons = [menu.normal_btn, menu.sticky_btn];
         const dropdowns = [menu.normal_dropdown, menu.sticky_dropdown];
@@ -79,6 +50,7 @@ function toggleDropdown(pressedBtn) {
 }
 
 function handleClickOutside(event) {
+    if (!navbarObserver || !jumlahDataObserver) return;
     Object.values(navMenuDropdown).forEach(menu => {
         const buttons = [menu.normal_btn, menu.sticky_btn];
         const dropdowns = [menu.normal_dropdown, menu.sticky_dropdown];
@@ -90,7 +62,6 @@ function handleClickOutside(event) {
         }
     });
 }
-// }
 
 // Event listeners
 Object.values(navMenuDropdown).forEach(menu => {
@@ -104,28 +75,10 @@ Object.values(navMenuDropdown).forEach(menu => {
     });
 });
 
-//     stickyInfoButton.classList.toggle('active');
-//     stickyInfoDropdown.classList.toggle('show');
-// });
-
-// stickyInfoButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     toggleDropdown(stickyInfoButton, stickyInfoDropdown);
-
-//     infoButton.classList.toggle('active');
-//     infoDropdown.classList.toggle('show');
-// });
-
 // Main
-// Setting up cloned navbar
-stickyNavbar.id = '';
-stickyNavbar.classList.add('stuck');
-stickyNavbar.style.zIndex = '1000';
+navbarObserver?.observe(headerNavbar);
+jumlahDataObserver?.observe(jumlahSiswaElement);
 
-navbarObserver.observe(headerNavbar);
-jumlahDataObserver.observe(jumlahSiswaElement);
-
-// Close dropdown when clicking outside
 document.addEventListener('click', handleClickOutside);
 
 

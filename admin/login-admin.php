@@ -79,5 +79,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       </div>
     </div>
   </body>
-  <script src="../script/login-admin.js"></script>
+  <script src="../script/admin/login-admin.js"></script>
 </html>

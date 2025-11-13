@@ -11,10 +11,10 @@
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
-    <?php include "../includes/site-header.php"; ?>
+    <?php include "../includes/user/site-header.php"; ?>
 
     <header>
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "../includes/user/navbar.php"; ?>
 
         <section id="hero">
             <div class="hero-content">
@@ -40,8 +40,8 @@
     </div>
     </section>
 
-    <?php include "../includes/footer.php"; ?>
+    <?php include "../includes/user/footer.php"; ?>
 
-    <script src="../script/script.js"></script>
+    <script src="../script/user/script.js"></script>
 </body>
 </html>
