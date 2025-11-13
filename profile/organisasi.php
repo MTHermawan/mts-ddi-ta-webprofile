@@ -1,3 +1,4 @@
+<?php require_once "../data/koneksi.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">

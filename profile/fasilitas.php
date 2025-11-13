@@ -1,3 +1,5 @@
+<?php include_once "../data/koneksi.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

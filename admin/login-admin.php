@@ -1,10 +1,8 @@
-<?php
-session_start();
-include_once "../data/koneksi.php";
+<?php include_once "../data/koneksi.php";
 include_once "../data/data_admin.php";
 
 $data = GetAllAdmin();
-$error_message = ''; // Add this variable to store error message
+$error_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $input_email = $_POST['email'];

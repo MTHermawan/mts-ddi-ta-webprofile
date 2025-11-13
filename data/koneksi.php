@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 $database = 'mts_ddi_ta';
 $server = 'localhost';
 $username = 'root';

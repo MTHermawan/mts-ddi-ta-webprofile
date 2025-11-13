@@ -1,3 +1,4 @@
+<?php include "../data/koneksi.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
