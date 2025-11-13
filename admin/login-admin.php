@@ -5,13 +5,12 @@ $data = GetAllAdmin();
 $error_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $input_email = $_POST['email'];
-    $input_password = $_POST['password'];
+    $input_email = htmlspecialchars($_POST['email']);
+    $input_password = htmlspecialchars($_POST['password']);
 
-    $akun = GetAdminByEmail($input_email);
-    if ($akun && $akun['password'] == $input_password) {
-        $_SESSION['email'] = $akun['email'];
-        header("Location: ./dashboard-admin.html");
+    if (ValidasiLogin($input_email, $input_password)) {
+        $_SESSION['email'] = $input_email;
+        header("Location: ./halaman-utama.html");
     }
 }
 ?>

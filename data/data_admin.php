@@ -89,4 +89,21 @@ function GetAdminByUsername($username)
     }
     return null;
 }
+
+function ValidasiLogin($input_email, $input_password)
+{
+    global $koneksi;
+
+    $sql = "SELECT * FROM admin WHERE email = ? AND password = ?";
+    $stmt = $koneksi->prepare($sql);
+
+    $stmt->bind_param("ss", $input_email, $input_password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        return $data["email"] === $input_email && $data["password"] === $input_password;
+    }
+    return false;
+}
 ?>
