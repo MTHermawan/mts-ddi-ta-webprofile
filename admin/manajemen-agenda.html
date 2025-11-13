@@ -1,177 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Agenda</title>
+    <link rel="stylesheet" href="./style/dashboard.css" />
+    <link rel="stylesheet" href="./style/manajemen-agenda.css" />
+    <link
+      rel="icon"
+      href="../assets/logo-sekolah.png"
+      type="image/png/jpeg/jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manajemen Agenda</title>
-  <link rel="stylesheet" href="./style/dashboard.css" />
-  <link rel="stylesheet" href="./style/manajemen-agenda.css" />
-  <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="../assets/logo-sekolah.png"
+          alt="Logo Sekolah"
+          class="sidebar-logo"
+        />
+        <h1>MTs DDI TA</h1>
+      </div>
 
-<body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <img src="../assets/logo-sekolah.png" alt="Logo Sekolah" class="sidebar-logo" />
-      <h1>MTs DDI TA</h1>
-    </div>
-
-    <!-- menu -->
-    <!-- nanti dibuat dropdown dengan teks manajemen sebagai parent -->
-    <ul class="menu">
-      <p class="menu-letter">MENU</p>
-      <!-- <li>
+      <!-- menu -->
+      <!-- nanti dibuat dropdown dengan teks manajemen sebagai parent -->
+      <ul class="menu">
+        <p class="menu-letter">MENU</p>
+        <!-- <li>
           <a href="#" class="menu-item active">
             <i class="fa-regular fa-address-card"></i>
             <span class="menu-text">Profile Sekolah</span>
           </a>
         </li> -->
-      <li>
-        <a href="halaman-utama.html" class="menu-item active">
-          <i class="fa-solid fa-house"></i>
-          <span class="menu-text">Halaman Utama</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-visi-misi.html" class="menu-item">
-          <i class="fa-regular fa-address-card"></i>
-          <span class="menu-text">Visi Misi</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-guru.html" class="menu-item">
-          <i class="fa-regular fa-user"></i>
-          <span class="menu-text">Staff Pengajar</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-fasilitas.html" class="menu-item">
-          <i class="fa-regular fa-building"></i>
-          <span class="menu-text">Fasilitas Sekolah</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-ekskul.html" class="menu-item">
-          <i class="fa-solid fa-medal"></i>
-          <span class="menu-text">Ekstrakulikuler</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-struktur-organisasi.html" class="menu-item">
-          <i class="fa-solid fa-sitemap"></i>
-          <span class="menu-text">Struktur Organisasi </span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-berita.html" class="menu-item">
-          <i class="fa-regular fa-newspaper"></i>
-          <span class="menu-text">Berita</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-agenda.html" class="menu-item">
-          <i class="fas fa-file"></i>
-          <span class="menu-text">Agenda</span>
-        </a>
-      </li>
-      <li>
-        <a href="manajemen-galeri.html" class="menu-item">
-          <i class="fa-solid fa-image"></i>
-          <span class="menu-text">Galeri</span>
-        </a>
-      </li>
+        <li>
+          <a href="halaman-utama.html" class="menu-item active">
+            <i class="fa-solid fa-house"></i>
+            <span class="menu-text">Halaman Utama</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-visi-misi.html" class="menu-item">
+            <i class="fa-regular fa-address-card"></i>
+            <span class="menu-text">Visi Misi</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-guru.html" class="menu-item">
+            <i class="fa-regular fa-user"></i>
+            <span class="menu-text">Staff Pengajar</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-fasilitas.html" class="menu-item">
+            <i class="fa-regular fa-building"></i>
+            <span class="menu-text">Fasilitas Sekolah</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-ekskul.html" class="menu-item">
+            <i class="fa-solid fa-medal"></i>
+            <span class="menu-text">Ekstrakulikuler</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-struktur-organisasi.html" class="menu-item">
+            <i class="fa-solid fa-sitemap"></i>
+            <span class="menu-text">Struktur Organisasi </span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-berita.html" class="menu-item">
+            <i class="fa-regular fa-newspaper"></i>
+            <span class="menu-text">Berita</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-agenda.html" class="menu-item">
+            <i class="fas fa-file"></i>
+            <span class="menu-text">Agenda</span>
+          </a>
+        </li>
+        <li>
+          <a href="manajemen-galeri.html" class="menu-item">
+            <i class="fa-solid fa-image"></i>
+            <span class="menu-text">Galeri</span>
+          </a>
+        </li>
 
-      <div class="divider"></div>
-    </ul>
-  </div>
+        <div class="divider"></div>
+      </ul>
+    </div>
 
-  <!-- Main -->
-  <div class="main">
-    <!-- Header Navbar -->
-    <header>
-      <nav>
-        <div class="profile-admin">
-          <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
-          <div class="profile-info">
-            <div class="profile-name">Admin Dashboard</div>
-            <div class="profile-role">Administrator</div>
+    <!-- Main -->
+    <div class="main">
+      <!-- Header Navbar -->
+      <header>
+        <nav>
+          <div class="profile-admin">
+            <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
+            <div class="profile-info">
+              <div class="profile-name">Admin Dashboard</div>
+              <div class="profile-role">Administrator</div>
+            </div>
+          </div>
+          <div class="exit-logo">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </div>
+        </nav>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <!-- Title Menu -->
+      <h1 class="menu-title">Agenda</h1>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="main-content-header">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Cari nama guru"
+            />
+          </div>
+
+          <div class="button-container">
+            <button class="export button">
+              <i class="fa-solid fa-file-export"></i> Export CSV
+            </button>
+            <button
+              class="add button"
+              id="btn_tambah_guru"
+              onclick="OpenPopup('popup-tambah');"
+            >
+              <i class="fa-solid fa-plus"></i> Tambah Agenda
+            </button>
           </div>
         </div>
-        <div class="exit-logo">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </div>
-      </nav>
-    </header>
 
-    <div class="top-bar">
-      <h1>Agenda</h1>
-      <div class="actions">
-        <button class="export">Export CSV</button>
-        <button class="add" onclick="OpenPopup('popup-tambah');">Tambah Agenda</button>
+        <div class="main-content-data">
+          <!-- Tampilan Jika Data Kosong -->
+          <div class="empty-data" id="emptyData">
+            <div class="empty-data-placeholder" id="emptyDataPlaceholder">
+              <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
+              <p>Belum ada data agenda yang ditambahkan</p>
+              <p>Klik tombol "Tambah Agenda" untuk menambahkan</p>
+            </div>
+            <img
+              class="struktur-organisasi-image"
+              id="strukturOrganisasiImage"
+              style="display: none"
+              alt="Struktur Organisasi"
+            />
+          </div>
+
+          <!-- Data Agenda -->
+
+        </div>
       </div>
+
+      <!-- POP UP TAMBAH AGENDA -->
+      <section class="popup">
+        <form id="popup-tambah" action="" method="post">
+          <div class="popup-overlay">
+            <h1>Tambah Agenda</h1>
+            <div class="popup-input-group">
+              <div class="popup-input">
+                <label for="judul">Judul Agenda</label>
+                <input class="dua" type="text" name="judul" id="judul" />
+              </div>
+              <div class="popup-input">
+                <label
+                  for="
+              jadwal"
+                  >Jadwal</label
+                >
+                <input class="dua" type="text" name="jadwal" id="jadwal" />
+              </div>
+            </div>
+            <div class="popup-input-group">
+              <div class="popup-input">
+                <label for="desk">Deskripsi</label>
+                <input class="satu" type="text" name="desk" id="desk" />
+              </div>
+            </div>
+            <div class="popup-input-group">
+              <div class="popup-input-gambar">
+                <label for="foto_guru">
+                  <img src="../assets/icon-tambah-gambar.svg" alt="" />Tambah
+                  Gambar
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="foto_guru"
+                  id="foto_guru"
+                />
+              </div>
+              <button type="submit" class="popup-button-tambah">Tambah</button>
+              <button
+                type="button"
+                class="popup-button-kembali"
+                onclick="ClosePopup('popup-tambah');"
+              >
+                Kembali
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form id="popup-hapus">
+          <div class="popup-overlay">
+            <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
+            <input type="hidden" name="id" />
+            <div class="btn-grup-hapus">
+              <button type="submit" class="confirm-hapus">
+                <img src="../assets/popup-centang.png" alt="centang" />Iya
+              </button>
+              <button class="cancel-hapus">
+                <img
+                  src="../assets/popup-no.png"
+                  alt="tidak"
+                  onclick="ClosePopup('popup-hapus');"
+                />Tidak
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
     </div>
 
-    <div class="search-container">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" class="search-input" placeholder="Cari judul agenda">
-    </div>
-
-    <section class="agenda">
-      <p class="empty-message">Tidak ada data agenda</p>
-      <p class="instruction">Harap masukkan data agenda</p>
-    </section>
-
-    <section class="popup">
-      <form id="popup-tambah" action="" method="post">
-        <div class="popup-overlay">
-          <h1>Tambah Agenda</h1>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="judul">Judul Agenda</label>
-              <input class="dua" type="text" name="judul" id="judul">
-            </div>
-            <div class="popup-input">
-              <label for="
-              jadwal">Jadwal</label>
-              <input class="dua" type="text" name="jadwal" id="jadwal">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="desk">Deskripsi</label>
-              <input class="satu" type="text" name="desk" id="desk">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input-gambar">
-              <label for="foto_guru">
-                <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
-              </label>
-              <input type="file" accept="image/*" name="foto_guru" id="foto_guru">
-            </div>
-            <button type="submit" class="popup-button-tambah">Tambah</button>
-            <button type="button" class="popup-button-kembali" onclick="ClosePopup('popup-tambah');">Kembali</button>
-          </div>
-        </div>
-      </form>
-
-      <form id="popup-hapus">
-        <div class="popup-overlay">
-          <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-          <input type="hidden" name="id">
-          <div class="btn-grup-hapus">
-            <button type="submit" class="confirm-hapus"><img src="../assets/popup-centang.png" alt="centang">Iya</button>
-            <button class="cancel-hapus"><img src="../assets/popup-no.png" alt="tidak" onclick="ClosePopup('popup-hapus');">Tidak</button>
-          </div>
-        </div>
-      </form>
-    </section>
-  </div>
-
-  <script src="./script/dashboard-admin.js"></script>
-</body>
-
+    <script src="./script/dashboard-admin.js"></script>
+  </body>
 </html>

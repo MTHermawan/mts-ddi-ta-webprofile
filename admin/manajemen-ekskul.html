@@ -106,24 +106,58 @@
       </nav>
     </header>
 
-    <div class="top-bar">
-      <h1>Ekstrakulikuler</h1>
-      <div class="actions">
-        <button class="export">Export CSV</button>
-        <button class="add" onclick="OpenPopup('popup-tambah');">Tambah Ekskul</button>
+    <!-- MAIN CONTENT -->
+     <!-- Title Menu -->
+      <h1 class="menu-title">Ekstrakulikuler</h1>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="main-content-header">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Cari nama guru"
+            />
+          </div>
+
+          <div class="button-container">
+            <button class="export button">
+              <i class="fa-solid fa-file-export"></i> Export CSV
+            </button>
+            <button
+              class="add button"
+              id="btn_tambah_guru"
+              onclick="OpenPopup('popup-tambah');"
+            >
+              <i class="fa-solid fa-plus"></i> Tambah Ekstrakulikuler
+            </button>
+          </div>
+        </div>
+
+        <div class="main-content-data">
+          <!-- Tampilan Jika Data Kosong -->
+          <div class="empty-data" id="emptyData">
+            <div class="empty-data-placeholder" id="emptyDataPlaceholder">
+              <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
+              <p>Belum ada data ekstrakulikuler yang ditambahkan</p>
+              <p>Klik tombol "Tambah Ekstrakulikuler" untuk menambahkan</p>
+            </div>
+            <img
+              class="struktur-organisasi-image"
+              id="strukturOrganisasiImage"
+              style="display: none"
+              alt="Struktur Organisasi"
+            />
+          </div>  
+
+          <!-- Data ekskul -->
+
+        </div>
       </div>
-    </div>
-
-    <div class="search-container">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" class="search-input" placeholder="Cari nama ekstrakulikuler">
-    </div>
-
-    <section class="ekskul">
-      <p class="empty-message">Tidak ada data ekskul</p>
-      <p class="instruction">Harap masukkan data ekskul</p>
-    </section>
-
+    
+    <!-- POP UP TAMBAH EKSKUL -->
     <section class="popup">
       <form id="popup-tambah" action="" method="post">
         <div class="popup-overlay">

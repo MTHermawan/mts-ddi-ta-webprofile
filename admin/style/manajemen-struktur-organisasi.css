@@ -8,7 +8,7 @@
 }
 
 /*                MAIN CONTENT ROW 1           */
-.container-row1 {
+.container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -18,7 +18,7 @@
   padding: 20px;
 }
 
-.row1 {
+.form {
   width: 100%;
   display: flex;
   background-color: white;
@@ -29,7 +29,7 @@
   height: auto;
 }
 
-.card-row1 {
+.container-card {
   flex: 1;
   background-color: white;
   border-radius: 16px;
@@ -39,7 +39,7 @@
   align-items: center;
 }
 
-.card-detail-row1 {
+.card-detail {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -47,13 +47,13 @@
   gap: 8px;
 }
 
-.card-tittle {
+.card-header {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.card-logo-row1 {
+.card-logo {
   background-color: #f1f3f6;
   display: flex;
   align-items: center;
@@ -65,11 +65,17 @@
   transition: all 0.2s ease;
 }
 
-.card-logo-row1 img {
+.card-logo img {
   width: 32px;
 }
 
-.card-info-row1 {
+.card-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(102, 112, 133);
+}
+
+.card-img {
   flex: 1;
   /* background-color: aqua; */
   display: flex;
@@ -80,17 +86,16 @@
   height: 100%;
 }
 
-.card-info-row1-detail {
+.card-img-detail {
   flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
   box-sizing: border-box;
   box-shadow: 0 0 0 0.9px #dde1e5;
   border-radius: 8px;
-  padding: 12px;
+  padding: 20px;
 }
 
 .struktur-organisasi-container {
@@ -106,26 +111,25 @@
 
 .struktur-organisasi-placeholder {
   text-align: center;
-  color: #6b7280;
   padding: 20px;
 }
 
 .struktur-organisasi-placeholder i {
   font-size: 48px;
   margin-bottom: 12px;
-  color: #9ca3af;
+  color: rgb(29, 41, 57);
+}
+
+.struktur-organisasi-placeholder p {
+  color: rgb(29, 41, 57);
+  font-weight: 400px;
+  margin-top: 8px; 
 }
 
 .struktur-organisasi-image {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
-
-.card-title-row1 {
-  font-size: 16px;
-  font-weight: 500;
-  color: rgb(102, 112, 133);
 }
 
 .visi,
@@ -162,7 +166,8 @@ textarea.tujuan:focus {
   gap: 12px;
 }
 
-.button-row1, .button-upload {
+.button-simpan,
+.button-upload {
   width: 100px;
   appearance: none;
   background-color: white;
@@ -193,21 +198,21 @@ textarea.tujuan:focus {
   width: 160px;
 }
 
-.button-row1:hover {
-  background-color: #F2F4F7;
+.button-simpan:hover {
+  background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button-upload:hover {
-  background-color: #F2F4F7;
+  background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-row1:disabled,
+.button-simpan:disabled,
 .button-upload:disabled {
   background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
@@ -215,7 +220,7 @@ textarea.tujuan:focus {
   cursor: default;
 }
 
-.button-row1:active {
+.button-simpan:active {
   background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
@@ -227,17 +232,17 @@ textarea.tujuan:focus {
   transition: none 0s;
 }
 
-.button-row1:focus,
+.button-simpan:focus,
 .button-upload:focus {
   outline: 1px transparent;
 }
 
-.button-row1:before,
+.button-simpan:before,
 .button-upload:before {
   display: none;
 }
 
-.button-row1:-webkit-details-marker,
+.button-simpan:-webkit-details-marker,
 .button-upload:-webkit-details-marker {
   display: none;
 }

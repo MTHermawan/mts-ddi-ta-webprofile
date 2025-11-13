@@ -7,8 +7,7 @@
   gap: 20px;
 }
 
-/*                MAIN CONTENT ROW 1           */
-.container-row1 {
+.container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -18,7 +17,7 @@
   padding: 20px;
 }
 
-.row1 {
+.form {
 	width: 100%;
   display: flex;
   background-color: white;
@@ -28,7 +27,7 @@
   gap: 20px;
 }
 
-.card-row1 {
+.card {
   flex: 1;
   background-color: white;
   border-radius: 16px;
@@ -38,7 +37,7 @@
   align-items: center;
 }
 
-.card-detail-row1 {
+.card-detail {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -46,13 +45,13 @@
   gap: 8px;
 }
 
-.card-tittle {
+.card-header {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.card-logo-row1 {
+.card-logo {
   background-color: #f1f3f6;
   display: flex;
   align-items: center;
@@ -64,18 +63,17 @@
   transition: all 0.2s ease;
 }
 
-.card-logo-row1 img {
+.card-logo img {
   width: 36px;
 }
 
-.vertical-divider {
-  height: 90%;
-  width: 1px;
-  background-color: rgb(29, 41, 57);
-  margin: 0 8px;
+.card-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(102, 112, 133);
 }
 
-.card-info-row1 {
+.card-input {
   flex: 1;
   /* background-color: aqua; */
   display: flex;
@@ -86,7 +84,7 @@
   height: 100%;
 }
 
-.card-info-row1-detail {
+.card-input-detail {
   flex: 1;
   height: 100%;
   display: flex;
@@ -94,12 +92,6 @@
   justify-content: center;
   gap: 4px;
   box-sizing: border-box;
-}
-
-.card-title-row1 {
-  font-size: 16px;
-  font-weight: 500;
-  color: rgb(102, 112, 133);
 }
 
 .visi, .misi, .tujuan {
@@ -125,13 +117,12 @@ textarea.visi:focus, textarea.misi:focus, textarea.tujuan:focus  {
   outline: none;
 }
 
-/* BUTTON ROW1 */
 .button-container {
   display: flex;
   justify-content: space-between;
 }
 
-.button-row1 {
+.button {
   width: 100px;
   appearance: none;
   background-color: white;
@@ -157,35 +148,35 @@ textarea.visi:focus, textarea.misi:focus, textarea.tujuan:focus  {
   word-wrap: break-word;
 }
 
-.button-row1:hover {
+.button:hover {
   background-color: #F2F4F7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-row1:disabled {
+.button:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
 }
 
-.button-row1:active {
+.button:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-row1:focus {
+.button:focus {
   outline: 1px transparent;
 }
 
-.button-row1:before {
+.button:before {
   display: none;
 }
 
-.button-row1:-webkit-details-marker {
+.button:-webkit-details-marker {
   display: none;
 }
 
