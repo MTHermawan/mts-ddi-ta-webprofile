@@ -58,7 +58,15 @@ h5{
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+}
+
+.empty-img-guru{
+    width: 240px;
+    height: 250px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(222, 222, 222);
 }
 
 .nama{

@@ -102,8 +102,11 @@ function ValidasiLogin($input_email, $input_password)
     $result = $stmt->get_result();
     if($result->num_rows > 0) {
         $data = $result->fetch_assoc();
-        return $data["email"] === $input_email && $data["password"] === $input_password;
+        if ($data["email"] === $input_email && $data["password"] === $input_password)
+        {
+            return $data;
+        }
     }
-    return false;
+    return null;
 }
 ?>

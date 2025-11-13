@@ -19,102 +19,12 @@
 
   <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <img
-          src="../assets/logo-sekolah.png"
-          alt="Logo Sekolah"
-          class="sidebar-logo"
-        />
-        <h1>MTs DDI TA</h1>
-      </div>
-
-      <!-- menu -->
-      <!-- nanti dibuat dropdown dengan teks manajemen sebagai parent -->
-      <ul class="menu">
-        <p class="menu-letter">MENU</p>
-        <!-- <li>
-          <a href="#" class="menu-item active">
-            <i class="fa-regular fa-address-card"></i>
-            <span class="menu-text">Profile Sekolah</span>
-          </a>
-        </li> -->
-        <li>
-          <a href="halaman-utama.html" class="menu-item active">
-            <i class="fa-solid fa-house"></i>
-            <span class="menu-text">Halaman Utama</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-visi-misi.html" class="menu-item">
-            <i class="fa-regular fa-address-card"></i>
-            <span class="menu-text">Visi Misi</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-guru.html" class="menu-item">
-            <i class="fa-regular fa-user"></i>
-            <span class="menu-text">Staff Pengajar</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-fasilitas.html" class="menu-item">
-            <i class="fa-regular fa-building"></i>
-            <span class="menu-text">Fasilitas Sekolah</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-ekskul.html" class="menu-item">
-            <i class="fa-solid fa-medal"></i>
-            <span class="menu-text">Ekstrakulikuler</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-struktur-organisasi.html" class="menu-item">
-            <i class="fa-solid fa-sitemap"></i>
-            <span class="menu-text">Struktur Organisasi </span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-berita.html" class="menu-item">
-            <i class="fa-regular fa-newspaper"></i>
-            <span class="menu-text">Berita</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-agenda.html" class="menu-item">
-            <i class="fas fa-file"></i>
-            <span class="menu-text">Agenda</span>
-          </a>
-        </li>
-        <li>
-          <a href="manajemen-galeri.html" class="menu-item">
-            <i class="fa-solid fa-image"></i>
-            <span class="menu-text">Galeri</span>
-          </a>
-        </li>
-
-        <div class="divider"></div>
-      </ul>
-    </div>
+    <?php include "./includes/sidebar.php"; ?>
 
     <!-- Main -->
     <div class="main">
       <!-- Header Navbar -->
-      <header>
-        <nav>
-          <div class="profile-admin">
-            <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
-            <div class="profile-info">
-              <div class="profile-name">Admin Dashboard</div>
-              <div class="profile-role">Administrator</div>
-            </div>
-          </div>
-          <div class="exit-logo">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </div>
-        </nav>
-      </header>
+      <?php include "./includes/header.php" ?>
 
       <!-- MAIN CONTENT -->
       <!-- Title Menu -->

@@ -60,7 +60,16 @@ h5{
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+}
+
+.empty-img-galeri{
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(222, 222, 222);
+
 }
 
 .judul{

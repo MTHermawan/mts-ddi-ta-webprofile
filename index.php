@@ -111,8 +111,8 @@
             </div>
             
             <div class="info-button">
-                <a href="./informasi/berita.html"><button class="btn-green">Lihat Berita</button></a>
-                <a href="./informasi/agenda.html"><button class="btn-green">Lihat Agenda</button></a>
+                <a href="./informasi/berita.php"><button class="btn-green">Lihat Berita</button></a>
+                <a href="./informasi/agenda.php"><button class="btn-green">Lihat Agenda</button></a>
             </div>
         </section>
         
@@ -130,7 +130,7 @@
                 <button class="arrow-btn right">></button>
             </div>
             <div class="gallery-button">
-                <a href="./informasi/galeri.html"><button class="btn-green" > Lebih Lanjut</button></a>
+                <a href="./informasi/galeri.php"><button class="btn-green" > Lebih Lanjut</button></a>
                 
             </div>
         </section>

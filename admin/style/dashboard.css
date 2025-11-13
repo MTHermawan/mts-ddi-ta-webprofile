@@ -146,6 +146,10 @@ button:hover {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*                  SIDE BAR                     */
 .sidebar {
   width: 300px;
@@ -214,10 +218,10 @@ button:hover {
   color: rgb(52, 64, 84);
 }
 
-/* .menu-item.active {
+.menu-item.active {
   background-color: rgba(4, 134, 0, 1);
   color: white;
-} */
+}
 
 .menu-item i {
   width: 20px;

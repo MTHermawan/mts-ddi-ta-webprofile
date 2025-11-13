@@ -56,9 +56,8 @@
 function OpenPopup(id_form_popup) {
     const popup = document.getElementById(id_form_popup);
     const overlay = popup.querySelector(".popup-overlay");
-    const topbar = document.querySelector(".top-bar");
+    // const topbar = document.querySelector(".top-bar");
 
-    // compute scrollbar width and set CSS variable to compensate layout shift
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.setProperty('--scrollbar-compensation', (scrollbarWidth > 0 ? scrollbarWidth : 0) + 'px');
 
@@ -66,22 +65,21 @@ function OpenPopup(id_form_popup) {
     overlay.classList.add("open");
 
     document.body.classList.add("popup-open");
-    topbar.classList.add("popup-open");
+    // topbar.classList.add("popup-open");
 }
 
 function ClosePopup(id_form_popup) {
     const popup = document.getElementById(id_form_popup);
     const overlay = popup.querySelector(".popup-overlay");
-    const topbar = document.querySelector(".top-bar");
+    // const topbar = document.querySelector(".top-bar");
 
     overlay.classList.remove("open");
     setTimeout(() => {
         popup.classList.remove("open");
 
-        // remove compensation after animation completes
         document.body.style.removeProperty('--scrollbar-compensation');
     }, 220);
 
     document.body.classList.remove("popup-open");
-    topbar.classList.remove("popup-open");
+    // topbar.classList.remove("popup-open");
 }

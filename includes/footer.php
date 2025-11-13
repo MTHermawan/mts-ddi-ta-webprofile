@@ -1,12 +1,4 @@
-<?php
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-$host = $_SERVER['HTTP_HOST'];
-$script_path = $_SERVER['SCRIPT_NAME'];
-
-$path_parts = array_filter(explode('/', $script_path));
-$project_folder = isset($path_parts[1]) ? $path_parts[1] : '';
-$base_url = $protocol . $host . '/' . $project_folder . '/';
-?>
+<?php require_once __DIR__."/path.php"; ?>
 
 <footer id="footer">
     <div class="footer-container">
@@ -16,10 +8,9 @@ $base_url = $protocol . $host . '/' . $project_folder . '/';
             </p>
 
             <ul>
-                <li><img src="<?php echo $base_url; ?>assets/icon-alamat.png" alt="Alamat">Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir,
-                    Kota Samarinda, Kalimantan Timur 75251</li>
-                <li><img src="<?php echo $base_url; ?>assets/icon-email.png" alt="Email">www@</li>
-                <li><img src="<?php echo $base_url; ?>assets/icon-telepon.png" alt="Telepon">0</li>
+                <li><img src="<?php echo ASSET_PATH; ?>icon-alamat.png" alt="Alamat">Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota Samarinda, Kalimantan Timur 75251</li>
+                <li><img src="<?php echo ASSET_PATH; ?>icon-email.png" alt="Email">www@</li>
+                <li><img src="<?php echo ASSET_PATH; ?>icon-telepon.png" alt="Telepon">0</li>
             </ul>
         </div>
         <div class="footer-menu">

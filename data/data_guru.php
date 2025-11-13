@@ -10,16 +10,16 @@ include_once 'koneksi.php';
 // - tanggal_dibuat string
 
 // Menambahkan data informasi baru (CREATE)
-function InsertGuru($nama, $jabatan, $url_foto, $gelar, $tanggal_dibuat){
+function InsertGuru($nama, $jabatan, $gelar, $url_foto){
     // Ngambil koneksi dari variabel global
     global $koneksi;
     
     // Query, tanda "?" menandakan parameter yang akan di-bind
-    $sql = "INSERT INTO guru (nama, jabatan, url_foto, gelar, tanggal_dibuat) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO guru (nama, jabatan, gelar, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
     
     // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("sssss", $nama, $jabatan, $url_foto, $gelar, $tanggal_dibuat);
+    $stmt->bind_param("ssss", $nama, $jabatan, $url_foto, $gelar);
     return $stmt->execute(); 
 }
 
@@ -41,12 +41,12 @@ function GetAllGuru(){
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateGuru($id_guru, $nama, $jabatan, $url_foto, $gelar, $tanggal_dibuat){
+function UpdateGuru($id_guru, $nama, $jabatan, $gelar, $url_foto){
     global $koneksi;
 
-    $sql = "UPDATE guru SET nama = ?, jabatan = ?, url_foto = ?, gelar = ?, tanggal_dibuat = ? WHERE id_guru = ?";
+    $sql = "UPDATE guru SET nama = ?, jabatan = ?, gelar = ?, url_foto = ?, WHERE id_guru = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("sssssi", $nama, $jabatan, $url_foto, $gelar, $tanggal_dibuat, $id_guru);
+    $stmt->bind_param("ssssi", $nama, $jabatan, $gelar, $url_foto, $id_guru);
     return $stmt->execute();
 }
 

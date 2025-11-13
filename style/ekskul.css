@@ -60,7 +60,13 @@ h5{
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
-    margin-bottom: 20px
+}
+
+.empty-img-ekskul{
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    background-color: rgb(222, 222, 222);
 }
 
 .nama{

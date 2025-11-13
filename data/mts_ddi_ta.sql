@@ -5,6 +5,13 @@ USE mts_ddi_ta;
 CREATE TABLE profile (
     visi VARCHAR(2000),
     misi VARCHAR(2000),
+    tujuan VARCHAR(2000),
+    alamat VARCHAR(100),
+    email_sekolah VARCHAR(50),
+    url_google_maps VARCHAR(50),
+    url_instagram VARCHAR(50),
+    url_facebook VARCHAR(50),
+    url_youtube VARCHAR(50),
     url_foto_struktur VARCHAR(50),
     jumlah_siswa INT,
     jumlah_guru INT,
@@ -13,7 +20,7 @@ CREATE TABLE profile (
 
 -- Table Admin
 CREATE TABLE admin (
-    email VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(100) PRIMARY KEY,
     password VARCHAR(25) NOT NULL,
     nama VARCHAR(50) NOT NULL,
     tanggal_register DATETIME
@@ -22,6 +29,7 @@ CREATE TABLE admin (
 -- Table Foto_Galeri
 CREATE TABLE foto_galeri (
     id_foto_galeri INT auto_increment PRIMARY KEY,
+    judul_foto_galeri VARCHAR(30),
     deskripsi_foto_galeri VARCHAR(100),
     url_foto VARCHAR(50) NOT NULL,
     tanggal_posting DATE,
@@ -86,8 +94,8 @@ INSERT INTO fasilitas (nama_fasilitas, url_foto, deskripsi_fasilitas, tanggal_di
 ('Perpustakaan', '/images/fasilitas3.jpg', 'Perpustakaan dengan koleksi 500+ buku', NOW());
 
 -- Insert data ke tabel foto_galeri
-INSERT INTO foto_galeri (deskripsi_foto_galeri, url_foto, tanggal_posting, email) VALUES
-('Upacara Bendera Hari Senin', '/images/galeri1.jpg', '2024-11-04', 'admin@mtsddi.sch.id');
+INSERT INTO foto_galeri (judul_foto_galeri, deskripsi_foto_galeri, url_foto, tanggal_posting, email) VALUES
+('Upacara Bendera', 'Upacara Bendera Hari Senin', '/images/galeri1.jpg', '2024-11-04', 'admin@mtsddi.sch.id');
 
 -- Insert data ke tabel informasi
 INSERT INTO informasi (judul, konten, jadwal_agenda, tanggal_dibuat, url_foto, email_admin) VALUES
