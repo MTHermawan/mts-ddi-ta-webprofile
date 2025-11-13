@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fasilitas</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/user/style.css">
     <link rel="stylesheet" href="../style/fasilitas.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
@@ -48,6 +48,6 @@
 
     <?php include "../includes/footer.php"; ?>
 
-    <script src="../script/script.js"></script>
+    <script src="../script/user/script.js"></script>
 </body>
 </html>
