@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visi dan Misi</title>
-    <link rel="stylesheet" href="../style/user/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/visi-misi.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
