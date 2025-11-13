@@ -44,6 +44,6 @@
 
     <?php include "../includes/footer.php"; ?>
 
-    <script src="../script/user/script.js"></script>
+    <script src="../script/script.js"></script>
 </body>
 </html>
