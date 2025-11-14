@@ -1,5 +1,5 @@
 <?php include_once "../data/koneksi.php";
-include_once "../data/data_ekstrakurikuler.php";
+include_once "../data/data_ekskul.php";
 
 $data_ekskul = GetAllEkstrakurikuler();
 ?>

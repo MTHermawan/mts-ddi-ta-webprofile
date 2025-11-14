@@ -1,0 +1,12 @@
+<?php include_once "../../../data/data_fasilitas.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_fasilitas = htmlspecialchars($_POST['id_fasilitas']);
+    $nama_fasilitas = htmlspecialchars($_POST['nama_fasilitas']);
+    $deskripsi_fasilitas = htmlspecialchars($_POST['deskripsi_fasilitas']);
+    $file_foto = $_FILES['foto_fasilitas'];
+
+    UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $file_foto);
+}
+
+?>

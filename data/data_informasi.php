@@ -10,23 +10,56 @@ include_once 'koneksi.php';
 // - url_foto string
 // - email_admin string
 
-// -- Fungsi CRUD Informasi --
+$asset_subdir = "informasi/";
+
 // Menambahkan data informasi baru (CREATE)
-function InsertInformasi($judul, $konten, $jadwal_agenda, $url_foto, $email_admin){
-    // Ngambil koneksi dari variabel global
+function InsertInformasi($judul, $konten, $file_foto, $jadwal_agenda = null)
+{
     global $koneksi;
-    
-    // Query, tanda "?" menandakan parameter yang akan di-bind
-    $sql = "INSERT INTO informasi (judul, konten, jadwal_agenda, tanggal_dibuat, url_foto, email_admin) VALUES (?, ?, ?, NOW(), ?, ?)";
+    global $asset_subdir;
+
+    // Upload File
+    if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
+    $sql = "INSERT INTO informasi (judul, konten, jadwal_agenda, url_foto, email_admin, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    
-    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("sssss", $judul, $konten, $jadwal_agenda, $url_foto, $email_admin);
-    return $stmt->execute(); 
+    $stmt->bind_param("sssss", $judul, $konten, $jadwal_agenda, $url_foto, $_SESSION['email']);
+
+    // Menarik file kembali jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    return true;
 }
 
 // Mengambil semua data infromasi (READ)
-function GetAllInformasi(){
+function GetInformasiById($id)
+{
+    global $koneksi;
+
+    $data = null;
+    $sql = "SELECT * FROM informasi WHERE id = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        while ($result->fetch_assoc()) {
+        }
+        $result->close();
+        $koneksi->next_result();
+    }
+
+    return $data;
+}
+
+function GetAllInformasi()
+{
     global $koneksi;
 
     $data = [];
@@ -37,53 +70,16 @@ function GetAllInformasi(){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+
+        $result->close();
+        $koneksi->next_result();
     }
 
     return $data;
 }
 
-// Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateInformasi($id, $judul, $konten, $jadwal_agenda, $url_foto){
-    global $koneksi;
-
-    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto, $id);
-    return $stmt->execute();
-}
-
-// Menghapus kolom informasi berdasarkan ID (DELETE)
-function DeleteInformasi($id){
-    global $koneksi;
-
-    $sql = "DELETE FROM informasi WHERE id = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id);
-    return $stmt->execute();
-}
-// -- End Fungsi CRUD Informasi --
-
-// -- Fungsi Utilitas Data Informasi --
-// Mengambil data informasi berdasarkan ID
-function GetInformasiById($id){
-    global $koneksi;
-    
-    $data = null;
-    $sql = "SELECT * FROM informasi WHERE id = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-    }
-
-    return $data;
-}
-
-// Mengambil semua data berita
-function GetAllBerita(){
+function GetAllBerita()
+{
     global $koneksi;
 
     $data = [];
@@ -94,13 +90,16 @@ function GetAllBerita(){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+
+        $result->close();
+        $koneksi->next_result();
     }
 
     return $data;
 }
 
-// Mengambil semua data agenda
-function GetAllAgenda(){
+function GetAllAgenda()
+{
     global $koneksi;
 
     $data = [];
@@ -111,9 +110,108 @@ function GetAllAgenda(){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+
+        $result->close();
+        $koneksi->next_result();
     }
 
     return $data;
 }
-// -- End Fungsi Utilitas Data Informasi --
+
+// Memperbarui data informasi berdasarkan ID (UPDATE)
+function UpdateAgenda($id, $judul, $konten, $file_foto, $jadwal_agenda)
+{
+    global $koneksi;
+    global $asset_subdir;
+
+    // Mengambil data lama
+    if (!($old_data = GetInformasiById($id)))
+        return false;
+
+    // Mengupload foto
+    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
+    $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ? AND jadwal_agenda IS NOT NULL";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("ssssi", $judul, $konten, $jadwal_agenda, $url_foto_baru, $id);
+
+    // Menarik kembali foto baru jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    // Menghapus foto lama
+    HapusFile($old_data['url_foto']);
+    return true;
+}
+
+function UpdateBerita($id, $judul, $konten, $file_foto)
+{
+    global $koneksi;
+    global $asset_subdir;
+
+    // Mengambil data lama
+    if (!($old_data = GetInformasiById($id)))
+        return false;
+
+    // Mengupload foto
+    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
+    $sql = "UPDATE informasi SET judul = ?, konten = ?, url_foto = ? WHERE id = ? AND jadwal_agenda IS NULL";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("sssi", $judul, $konten, $url_foto_baru, $id);
+
+    // Menarik kembali foto baru jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    // Menghapus foto lama
+    HapusFile($old_data['url_foto']);
+    return true;
+}
+
+// Menghapus kolom informasi berdasarkan ID (DELETE)
+function DeleteAgenda($id)
+{
+    global $koneksi;
+
+    if (!($data = GetInformasiById($id)))
+        return false;
+
+    $sql = "DELETE FROM informasi WHERE id = ? AND jadwal_agenda IS NOT NULL";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("i", $id);
+
+    if (!($stmt->execute()))
+        return false;
+
+    // Menghapus gambar jika record berhasil dihapus
+    HapusFile($data["url_foto"]);
+    return true;
+}
+
+function DeleteBerita($id)
+{
+    global $koneksi;
+
+    if (!($data = GetInformasiById($id)))
+        return false;
+
+    $sql = "DELETE FROM informasi WHERE id = ? AND jadwal_agenda IS NULL";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("i", $id);
+
+    if (!($stmt->execute()))
+        return false;
+
+    // Menghapus gambar jika record berhasil dihapus
+    HapusFile($data["url_foto"]);
+    return true;
+}
+
 ?>

@@ -3,7 +3,7 @@ include_once 'koneksi.php';
 
 // Referensi Model Data ekstrakurikuler
 // - id_ekstrakurikuler int (auto increment)
-// - nama string
+// - nama_ekskul string
 // - nama_pembimbing string
 // - jadwal string
 // - url_foto string
@@ -12,7 +12,7 @@ include_once 'koneksi.php';
 $asset_subdir = "ekstrakurikuler/";
 
 // Menambahkan baris data ekstrakurikuler baru (CREATE)
-function InsertEkstrakurikuler($nama, $nama_pembimbing, $jadwal, $file_foto)
+function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
@@ -21,9 +21,9 @@ function InsertEkstrakurikuler($nama, $nama_pembimbing, $jadwal, $file_foto)
     if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO ekstrakurikuler (nama_ekskul, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssss", $nama, $nama_pembimbing, $jadwal, $url_foto);
+    $stmt->bind_param("ssss", $nama_ekskul, $nama_pembimbing, $jadwal, $url_foto);
 
     // Menarik file kembali jika gagal
     if (!($stmt->execute())) {
@@ -80,7 +80,7 @@ function GetAllEkstrakurikuler()
 }
 
 // Memperbarui data ekstrakurikuler berdasarkan ID (UPDATE)
-function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $jadwal, $file_foto)
+function UpdateEkskul($id_ekstrakurikuler, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
@@ -93,9 +93,9 @@ function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $ja
     if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "UPDATE ekstrakurikuler SET nama = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ? WHERE id_ekstrakurikuler = ?";
+    $sql = "UPDATE ekstrakurikuler SET nama_ekskul = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ? WHERE id_ekstrakurikuler = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $nama, $nama_pembimbing, $jadwal, $url_foto_baru, $id_ekstrakurikuler);
+    $stmt->bind_param("ssssi", $nama_ekskul, $nama_pembimbing, $jadwal, $url_foto_baru, $id_ekstrakurikuler);
 
     // Menarik kembali foto baru jika gagal
     if (!($stmt->execute())) {
@@ -109,7 +109,7 @@ function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $ja
 }
 
 // Menghapus baris data ekstrakurikuler berdasarkan ID (DELETE)
-function DeleteEkstrakurikuler($id_ekstrakurikuler)
+function DeleteEkskul($id_ekstrakurikuler)
 {
     global $koneksi;
 

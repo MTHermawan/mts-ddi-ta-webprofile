@@ -36,10 +36,10 @@ CREATE TABLE foto_galeri (
     email VARCHAR(255)
 );
 
--- Table Ekstrakurikuler
-CREATE TABLE ekstrakurikuler (
-    id_ekstrakurikuler INT auto_increment PRIMARY KEY,
-    nama VARCHAR(20) NOT NULL,
+-- Table Ekskul
+CREATE TABLE ekskul (
+    id_ekskul INT auto_increment PRIMARY KEY,
+    nama_ekskul VARCHAR(20) NOT NULL,
     nama_pembimbing VARCHAR(50) NOT NULL,
     jadwal VARCHAR(25),
     url_foto VARCHAR(50),
@@ -58,7 +58,7 @@ CREATE TABLE fasilitas (
 -- Table Guru
 CREATE TABLE guru (
     id_guru INT auto_increment PRIMARY KEY,
-    nama VARCHAR(50) NOT NULL,
+    nama_guru VARCHAR(50) NOT NULL,
     jabatan VARCHAR(25),
     url_foto VARCHAR(50),
     gelar VARCHAR(20),
@@ -82,11 +82,11 @@ INSERT INTO admin (email, password, nama, tanggal_register) VALUES
 ('admin@mtsddi.sch.id', 'admin123', 'Admin', NOW());
 
 -- Insert data ke tabel guru
-INSERT INTO guru (nama, jabatan, url_foto, gelar, tanggal_dibuat) VALUES
+INSERT INTO guru (nama_guru, jabatan, url_foto, gelar, tanggal_dibuat) VALUES
 ('Muhammad Rizki', 'Guru Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
 
--- Insert data ke tabel ekstrakurikuler
-INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES
+-- Insert data ke tabel ekskul
+INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES
 ('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', '/images/ekskul1.jpg', NOW());
 
 -- Insert data ke tabel fasilitas
