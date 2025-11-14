@@ -1,5 +1,5 @@
-<?php
-include_once 'koneksi.php';
+<?php include_once 'koneksi.php';
+include_once 'utility.php';
 
 // Referensi Model Data Guru
 // - id_guru int (auto increment)
@@ -9,22 +9,58 @@ include_once 'koneksi.php';
 // - gelar string
 // - tanggal_dibuat string
 
-// Menambahkan data informasi baru (CREATE)
-function InsertGuru($nama, $jabatan, $gelar, $url_foto){
-    // Ngambil koneksi dari variabel global
+$asset_subdir = "guru/";
+
+// Menambahkan baris data guru baru (CREATE)
+function InsertGuru($nama, $jabatan, $gelar, $file_foto)
+{
     global $koneksi;
-    
-    // Query, tanda "?" menandakan parameter yang akan di-bind
+    global $asset_subdir;
+
+    // Upload File
+    if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
     $sql = "INSERT INTO guru (nama, jabatan, gelar, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    
-    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("ssss", $nama, $jabatan, $url_foto, $gelar);
-    return $stmt->execute(); 
+    $stmt->bind_param("ssss", $nama, $jabatan, $gelar, $url_foto);
+
+    // Menarik file kembali jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    return true;
 }
 
-// Mengambil semua data infromasi (READ)
-function GetAllGuru(){
+// Mendapatkan data guru (READ)
+function GetGuruById($id_guru)
+{
+    global $koneksi;
+
+    $data = null;
+    $sql = "SELECT * FROM guru WHERE id_guru = ?";
+    $stmt = $koneksi->prepare($sql);
+    
+    $stmt->bind_param("i", $id_guru);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        while ($result->fetch_assoc()) {
+        }
+
+        $result->close();
+        $koneksi->next_result();
+    }
+
+    return $data;
+}
+
+function GetAllGuru()
+{
     global $koneksi;
 
     $data = [];
@@ -35,28 +71,60 @@ function GetAllGuru(){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+        
+        $result->close();
+        $koneksi->next_result();
     }
 
     return $data;
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateGuru($id_guru, $nama, $jabatan, $gelar, $url_foto){
+function UpdateGuru($id_guru, $nama, $jabatan, $gelar, $file_foto)
+{
     global $koneksi;
+    global $asset_subdir;
+
+    // Mengambil data lama
+    if (!($old_data = GetGuruById($id_guru)))
+        return false;
+
+    // Mengupload foto
+    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
+        return false;
 
     $sql = "UPDATE guru SET nama = ?, jabatan = ?, gelar = ?, url_foto = ?, WHERE id_guru = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $nama, $jabatan, $gelar, $url_foto, $id_guru);
-    return $stmt->execute();
+    $stmt->bind_param("ssDssi", $nama, $jabatan, $gelar, $url_foto_baru, $id_guru);
+
+    // Menarik kembali foto baru jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    // Menghapus foto lama
+    HapusFile($old_data['url_foto']);
+    return true;
 }
 
-// Menghapus kolom informasi berdasarkan ID (DELETE)
-function DeleteGuru($id_guru){
+// Menghapus baris data guru berdasarkan ID (DELETE)
+function DeleteGuru($id_guru)
+{
     global $koneksi;
+
+    if (!($data = GetGuruById($id_guru)))
+        return false;
 
     $sql = "DELETE FROM guru WHERE id_guru = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_guru);
-    return $stmt->execute();
+
+    if (!($stmt->execute()))
+        return false;
+
+    // Menghapus gambar jika record berhasil dihapus
+    HapusFile($data["url_foto"]);
+    return true;
 }
 ?>

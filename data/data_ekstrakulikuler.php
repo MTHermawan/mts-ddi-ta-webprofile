@@ -1,30 +1,66 @@
 <?php
 include_once 'koneksi.php';
 
-// Referensi Model Data Ekstrakulikuler
-// - id_ekstrakulikuler int (auto increment)
+// Referensi Model Data ekstrakurikuler
+// - id_ekstrakurikuler int (auto increment)
 // - nama string
 // - nama_pembimbing string
 // - jadwal string
 // - url_foto string
 // - tanggal_dibuat string
 
-// Menambahkan data informasi baru (CREATE)
-function InsertEkstrakurikuler($nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat){
-    // Ngambil koneksi dari variabel global
+$asset_subdir = "ekstrakurikuler/";
+
+// Menambahkan baris data ekstrakurikuler baru (CREATE)
+function InsertEkstrakurikuler($nama, $nama_pembimbing, $jadwal, $file_foto)
+{
     global $koneksi;
-    
-    // Query, tanda "?" menandakan parameter yang akan di-bind
-    $sql = "INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, ?)";
+    global $asset_subdir;
+
+    // Upload File
+    if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
+    $sql = "INSERT INTO ekstrakurikuler (nama, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    
-    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("sssss", $nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat);
-    return $stmt->execute(); 
+    $stmt->bind_param("ssss", $nama, $nama_pembimbing, $jadwal, $url_foto);
+
+    // Menarik file kembali jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    return true;
 }
 
-// Mengambil semua data infromasi (READ)
-function GetAllEkstrakurikuler(){
+// Mendapatkan data ekstrakurikuler (READ)
+function GetEkstrakurikulerById($id_ekstrakurikuler)
+{
+    global $koneksi;
+
+    $data = null;
+    $sql = "SELECT * FROM ekstrakurikuler WHERE id_ekstrakurikuler = ?";
+    $stmt = $koneksi->prepare($sql);
+    
+    $stmt->bind_param("i", $id_ekstrakurikuler);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        while ($result->fetch_assoc()) {
+        }
+
+        $result->close();
+        $koneksi->next_result();
+    }
+
+    return $data;
+}
+
+function GetAllEkstrakurikuler()
+{
     global $koneksi;
 
     $data = [];
@@ -35,29 +71,59 @@ function GetAllEkstrakurikuler(){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+
+        $result->close();
+        $koneksi->next_result();
     }
 
     return $data;
 }
 
-// Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat){
+// Memperbarui data ekstrakurikuler berdasarkan ID (UPDATE)
+function UpdateEkstrakurikuler($id_ekstrakurikuler, $nama, $nama_pembimbing, $jadwal, $file_foto)
+{
     global $koneksi;
+    global $asset_subdir;
 
-    $sql = "UPDATE ekstrakurikuler SET nama = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ?, tanggal_dibuat = ? WHERE id_ekstrakurikuler = ?";
+    // Mengambil data lama
+    if (!($old_data = GetEkstrakurikulerById($id_ekstrakurikuler)))
+        return false;
+
+    // Mengupload foto
+    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
+        return false;
+
+    $sql = "UPDATE ekstrakurikuler SET nama = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ? WHERE id_ekstrakurikuler = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("sssssi", $nama, $nama_pembimbing, $jadwal, $url_foto, $tanggal_dibuat, $id_ekstrakurikuler);
-    return $stmt->execute();
+    $stmt->bind_param("ssssi", $nama, $nama_pembimbing, $jadwal, $url_foto_baru, $id_ekstrakurikuler);
+
+    // Menarik kembali foto baru jika gagal
+    if (!($stmt->execute())) {
+        HapusFile($asset_subdir . $file_foto['name']);
+        return false;
+    }
+
+    // Menghapus foto lama
+    HapusFile($old_data['url_foto']);
+    return true;
 }
 
-// Menghapus kolom informasi berdasarkan ID (DELETE)
-function DeleteEkstrakurikuler($id_ekstrakurikuler){
+// Menghapus baris data ekstrakurikuler berdasarkan ID (DELETE)
+function DeleteEkstrakurikuler($id_ekstrakurikuler)
+{
     global $koneksi;
+
+    if (!($data = GetEkstrakurikulerById($id_ekstrakurikuler)))
+        return false;
 
     $sql = "DELETE FROM ekstrakurikuler WHERE id_ekstrakurikuler = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_ekstrakurikuler);
-    return $stmt->execute();
-}
+    if (!($stmt->execute()))
+        return false;
 
+    // Menghapus gambar jika record berhasil dihapus
+    HapusFile($data['url_foto']);
+    return true;
+}
 ?>

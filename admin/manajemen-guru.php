@@ -1,7 +1,6 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_guru.php";
 include_once "../data/utility.php";
-include_once "./includes/path.php";
 
 ?>
 

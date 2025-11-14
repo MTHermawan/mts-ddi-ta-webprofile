@@ -1,6 +1,5 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_informasi.php";
-include_once "../includes/path.php";
 
 $data_agenda = GetAllAgenda();
 ?>
@@ -39,8 +38,8 @@ $data_agenda = GetAllAgenda();
             <?php foreach ($data_agenda as $agenda) { ?>
                 <div class="card">
                     <!-- FOTO -->
-                    <?php if (file_exists(ASSET_PATH . $agenda["url_foto"])) { ?>
-                        <img src="<?php echo ASSET_PATH . $agenda["url_foto"]; ?>" alt="" class="img-galeri">
+                    <?php if (file_exists("../assets/" . $agenda["url_foto"])) { ?>
+                        <img src="<?php echo "../assets/" . $agenda["url_foto"]; ?>" alt="" class="img-galeri">
                     <?php } ?>
 
                     <!-- DETAIL -->

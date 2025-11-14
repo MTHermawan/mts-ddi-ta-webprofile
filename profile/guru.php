@@ -1,6 +1,5 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_guru.php";
-include_once "../includes/path.php";
 
 $data_guru = GetAllGuru();
 ?>
@@ -42,8 +41,9 @@ $data_guru = GetAllGuru();
                     <h3 class="mapel"><?php echo $guru["jabatan"]; ?></h3>
 
                     <!-- FOTO -->
-                    <?php if (file_exists(ASSET_PATH . $guru['url_foto'])) { ?>
-                        <img src="" alt="" class="img-guru">
+                     
+                    <?php if (file_exists("../assets/" . $guru['url_foto'])) { ?>
+                        <img src="<?php echo "../assets/" . $guru['url_foto']; ?>" alt="" class="img-guru">
                     <?php } else { ?>
                         <div class="empty-img-guru"></div>
                     <?php } ?>

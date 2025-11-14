@@ -1,6 +1,5 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_fasilitas.php";
-include_once "../includes/path.php";
 
 $data_fasilitas = GetAllFasilitas();
 ?>
@@ -42,7 +41,7 @@ $data_fasilitas = GetAllFasilitas();
                     <h3 class="deskripsi-fasilitas"><?php echo $fasilitas["deskripsi_fasilitas"]; ?></h3>
                     
                     <!-- FOTO -->
-                    <?php if (file_exists(ASSET_PATH . $fasilitas['url_foto'])) { ?>
+                    <?php if (file_exists("../assets/" . $fasilitas['url_foto'])) { ?>
                         <img src="" alt="" class="img-fasilitas">
                     <?php } else { ?>
                         <div class="empty-img-fasilitas"></div>

@@ -8,6 +8,6 @@ $project_folder = isset($path_parts[1]) ? $path_parts[1] : '';
 $base_url = $protocol . $host . '/' . $project_folder . '/'; 
 
 define('DOCUMENT_ROOT', $base_url);
-define('ASSET_PATH', $base_url."assets/");
+define('ASSET_PATH', $base_url . "assets/");
 define('CURRENT_PAGE', basename($_SERVER['PHP_SELF']));
 ?>

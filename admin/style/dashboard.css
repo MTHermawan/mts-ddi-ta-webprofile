@@ -440,6 +440,10 @@ body.popup-open .popup-overlay {
   gap: 4px;
 }
 
+.popup-input input {
+  padding: 0px 8px;
+}
+
 .popup-input-gambar label {
   display: flex;
   flex-direction: row;

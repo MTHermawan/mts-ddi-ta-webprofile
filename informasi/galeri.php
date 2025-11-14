@@ -1,6 +1,5 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_foto_galeri.php";
-include_once "../includes/path.php";
 
 $data_galeri = GetAllFotoGaleri();
 ?>
@@ -39,8 +38,8 @@ $data_galeri = GetAllFotoGaleri();
             <?php foreach ($data_galeri as $galeri) { ?>
                 <div class="card">
                     <!-- FOTO -->
-                    <?php if (file_exists(ASSET_PATH . $galeri["url_foto"])) { ?>
-                        <img src="<?php echo ASSET_PATH . $galeri["url_foto"]; ?>" alt="" class="img-galeri">
+                    <?php if (file_exists("../assets/" . $galeri["url_foto"])) { ?>
+                        <img src="<?php echo "../assets/" . $galeri["url_foto"]; ?>" alt="" class="img-galeri">
                     <?php } else { ?>
                         <div class="empty-img-galeri"></div>
                     <?php } ?>

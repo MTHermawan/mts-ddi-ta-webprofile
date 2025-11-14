@@ -1,6 +1,5 @@
 <?php include_once "../data/koneksi.php"; 
 include_once "../data/data_informasi.php";
-include_once "../includes/path.php";
 
 $data_berita = GetAllBerita();
 ?>
@@ -38,8 +37,8 @@ $data_berita = GetAllBerita();
             <?php foreach ($data_berita as $berita) { ?>
                 <div class="card">
                     <!-- FOTO -->
-                    <?php if (file_exists(ASSET_PATH . $berita["url_foto"])) { ?>
-                        <img src="<?php echo ASSET_PATH . $berita["url_foto"]; ?>" alt="" class="img-galeri">
+                    <?php if (file_exists("../assets/" . $berita["url_foto"])) { ?>
+                        <img src="<?php echo "../assets/" . $berita["url_foto"]; ?>" alt="" class="img-galeri">
                     <?php } else { ?>
                         <div class="empty-img-galeri"></div>
                     <?php } ?>
