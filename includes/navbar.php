@@ -14,7 +14,7 @@
                 <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/visi-misi.php">Visi Misi</a></li>
                 <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/guru.php">Data Guru</a></li>
                 <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/fasilitas.php">Fasilitas</a></li>
-                <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/ekskul.php">ekstrakurikuler</a></li>
+                <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/ekskul.php">Ekstrakurikuler</a></li>
                 <li><a href="<?php echo DOCUMENT_ROOT; ?>profile/organisasi.php">Organisasi</a></li>
             </ul>
         </li>

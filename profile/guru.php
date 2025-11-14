@@ -37,7 +37,7 @@ $data_guru = GetAllGuru();
             <?php foreach ($data_guru as $guru) { ?>
                 <div class="card">
                     <!-- NAMA dan MAPEL -->
-                    <h2 class="nama"><?php echo $guru["nama"]; ?></h2>
+                    <h2 class="nama"><?php echo $guru["nama_guru"]; ?></h2>
                     <h3 class="mapel"><?php echo $guru["mapel"]; ?></h3>
 
                     <!-- FOTO -->

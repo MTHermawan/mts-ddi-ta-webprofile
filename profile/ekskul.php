@@ -10,7 +10,7 @@ $data_ekskul = GetAllEkskul();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ekstrakurikuler</title>
+    <title>Ekstrakurikuler</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/ekskul.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
@@ -32,12 +32,12 @@ $data_ekskul = GetAllEkskul();
     </header>
 
     <section class="data-ekskul">
-        <h1 class="head">ekstrakurikuler</h1>
+        <h1 class="head">Ekstrakurikuler</h1>
         <div class="data-ekskul-con">
             <?php foreach ($data_ekskul as $ekskul) { ?>
                 <div class="card">
                     <!-- JUDUL / NAMA EKSKUL -->
-                    <h2 class="nama"><?php echo $ekskul["nama"] ?></h2>
+                    <h2 class="nama"><?php echo $ekskul["nama_ekskul"] ?></h2>
 
                     <!-- FOTO -->
                     <?php if (file_exists("../assets/" . $ekskul["url_foto"])) { ?>
