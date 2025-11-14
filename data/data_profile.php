@@ -1,5 +1,5 @@
-<?php
-include_once 'koneksi.php';
+<?php include_once 'koneksi.php';
+include_once 'utility.php';
 
 // Referensi Model Data Profil
 // - visi string

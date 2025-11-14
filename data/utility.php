@@ -6,7 +6,7 @@ function GenerateImagePath($original_filename, $target_dir, $prefix = "")
     if (!is_dir($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
-
+    
     $unique_id = uniqid($prefix);
     $file_extension = pathinfo($original_filename, PATHINFO_EXTENSION);
     $new_filename = $unique_id . '.' . $file_extension;
@@ -26,7 +26,7 @@ function GenerateImagePath($original_filename, $target_dir, $prefix = "")
 function TambahFile($file_foto, $asset_subdir)
 {
     global $asset_dir;
-    $target_dir = realpath($asset_dir ."/". $asset_subdir) . "\\";
+    $target_dir = $asset_dir ."/". $asset_subdir;
 
     if ($target_path = GenerateImagePath($file_foto['name'], $target_dir)) {
         if (move_uploaded_file($file_foto['tmp_name'], $target_path)) {

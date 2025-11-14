@@ -9,7 +9,7 @@ include_once 'utility.php';
 // - tanggal_posting string
 // - email string
 
-$asset_dir = "galeri/";
+$asset_subdir = "galeri/";
 
 // Menambahkan baris data foto galeri baru (CREATE)
 function InsertFotoGaleri($judul_foto_galeri, $deskripsi_foto_galeri, $file_foto)

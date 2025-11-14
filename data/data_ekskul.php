@@ -1,8 +1,8 @@
-<?php
-include_once 'koneksi.php';
+<?php include_once 'koneksi.php';
+include_once 'utility.php';
 
-// Referensi Model Data ekstrakurikuler
-// - id_ekstrakurikuler int (auto increment)
+// Referensi Model Data ekskul
+// - id_ekskul int (auto increment)
 // - nama_ekskul string
 // - nama_pembimbing string
 // - jadwal string
@@ -11,7 +11,7 @@ include_once 'koneksi.php';
 
 $asset_subdir = "ekstrakurikuler/";
 
-// Menambahkan baris data ekstrakurikuler baru (CREATE)
+// Menambahkan baris data ekskul baru (CREATE)
 function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
 {
     global $koneksi;
@@ -21,7 +21,7 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
     if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "INSERT INTO ekstrakurikuler (nama_ekskul, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("ssss", $nama_ekskul, $nama_pembimbing, $jadwal, $url_foto);
 
@@ -34,16 +34,16 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
     return true;
 }
 
-// Mendapatkan data ekstrakurikuler (READ)
-function GetEkstrakurikulerById($id_ekstrakurikuler)
+// Mendapatkan data ekskul (READ)
+function GetEkskulById($id_ekskul)
 {
     global $koneksi;
 
     $data = null;
-    $sql = "SELECT * FROM ekstrakurikuler WHERE id_ekstrakurikuler = ?";
+    $sql = "SELECT * FROM ekskul WHERE id_ekskul = ?";
     $stmt = $koneksi->prepare($sql);
     
-    $stmt->bind_param("i", $id_ekstrakurikuler);
+    $stmt->bind_param("i", $id_ekskul);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -59,12 +59,12 @@ function GetEkstrakurikulerById($id_ekstrakurikuler)
     return $data;
 }
 
-function GetAllEkstrakurikuler()
+function GetAllEkskul()
 {
     global $koneksi;
 
     $data = [];
-    $sql = "SELECT * FROM ekstrakurikuler";
+    $sql = "SELECT * FROM ekskul";
     $result = $koneksi->query($sql);
 
     if ($result->num_rows > 0) {
@@ -79,23 +79,23 @@ function GetAllEkstrakurikuler()
     return $data;
 }
 
-// Memperbarui data ekstrakurikuler berdasarkan ID (UPDATE)
-function UpdateEkskul($id_ekstrakurikuler, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
+// Memperbarui data ekskul berdasarkan ID (UPDATE)
+function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
 
     // Mengambil data lama
-    if (!($old_data = GetEkstrakurikulerById($id_ekstrakurikuler)))
+    if (!($old_data = GetEkskulById($id_ekskul)))
         return false;
 
     // Mengupload foto
     if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "UPDATE ekstrakurikuler SET nama_ekskul = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ? WHERE id_ekstrakurikuler = ?";
+    $sql = "UPDATE ekskul SET nama_ekskul = ?, nama_pembimbing = ?, jadwal = ?, url_foto = ? WHERE id_ekskul = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $nama_ekskul, $nama_pembimbing, $jadwal, $url_foto_baru, $id_ekstrakurikuler);
+    $stmt->bind_param("ssssi", $nama_ekskul, $nama_pembimbing, $jadwal, $url_foto_baru, $id_ekskul);
 
     // Menarik kembali foto baru jika gagal
     if (!($stmt->execute())) {
@@ -108,17 +108,17 @@ function UpdateEkskul($id_ekstrakurikuler, $nama_ekskul, $nama_pembimbing, $jadw
     return true;
 }
 
-// Menghapus baris data ekstrakurikuler berdasarkan ID (DELETE)
-function DeleteEkskul($id_ekstrakurikuler)
+// Menghapus baris data ekskul berdasarkan ID (DELETE)
+function DeleteEkskul($id_ekskul)
 {
     global $koneksi;
 
-    if (!($data = GetEkstrakurikulerById($id_ekstrakurikuler)))
+    if (!($data = GetEkskulById($id_ekskul)))
         return false;
 
-    $sql = "DELETE FROM ekstrakurikuler WHERE id_ekstrakurikuler = ?";
+    $sql = "DELETE FROM ekskul WHERE id_ekskul = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id_ekstrakurikuler);
+    $stmt->bind_param("i", $id_ekskul);
     if (!($stmt->execute()))
         return false;
 

@@ -107,7 +107,7 @@
           </div>
           <div class="popup-input-group">
             <div class="popup-input-gambar">
-              <label for="foto_guru">
+              <label for="foto_ekskul">
                 <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
               </label>
               <input type="file" accept="image/*" name="foto_ekskul" id="foto_ekskul">

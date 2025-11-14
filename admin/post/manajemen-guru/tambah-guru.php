@@ -1,7 +1,7 @@
 <?php include_once "../../../data/data_guru.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama_guru = htmlspecialchars($_POST['nama']);
+    $nama_guru = htmlspecialchars($_POST['nama_guru']);
     $mapel = htmlspecialchars($_POST['mapel']);
     $gelar = htmlspecialchars($_POST['gelar']);
     $file_foto = $_FILES['foto_guru'];

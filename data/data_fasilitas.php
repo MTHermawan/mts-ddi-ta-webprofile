@@ -8,7 +8,7 @@ include_once 'utility.php';
 // - deskripsi_fasilitas string
 // - tanggal_dibuat string
 
-$asset_dir = "fasilitas/";
+$asset_subdir = "f/";
 
 // Menambahkan baris data fasilitas baru (CREATE)
 function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_foto)
