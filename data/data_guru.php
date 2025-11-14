@@ -4,7 +4,7 @@ include_once 'utility.php';
 // Referensi Model Data Guru
 // - id_guru int (auto increment)
 // - nama_guru string
-// - jabatan string
+// - mapel string
 // - url_foto string
 // - gelar string
 // - tanggal_dibuat string
@@ -12,7 +12,7 @@ include_once 'utility.php';
 $asset_subdir = "guru/";
 
 // Menambahkan baris data guru baru (CREATE)
-function InsertGuru($nama_guru, $jabatan, $gelar, $file_foto)
+function InsertGuru($nama_guru, $mapel, $gelar, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
@@ -21,9 +21,9 @@ function InsertGuru($nama_guru, $jabatan, $gelar, $file_foto)
     if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "INSERT INTO guru (nama_guru, jabatan, gelar, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO guru (nama_guru, mapel, gelar, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssss", $nama_guru, $jabatan, $gelar, $url_foto);
+    $stmt->bind_param("ssss", $nama_guru, $mapel, $gelar, $url_foto);
 
     // Menarik file kembali jika gagal
     if (!($stmt->execute())) {
@@ -80,7 +80,7 @@ function GetAllGuru()
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateGuru($id_guru, $nama_guru, $jabatan, $gelar, $file_foto)
+function UpdateGuru($id_guru, $nama_guru, $mapel, $gelar, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
@@ -93,9 +93,9 @@ function UpdateGuru($id_guru, $nama_guru, $jabatan, $gelar, $file_foto)
     if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "UPDATE guru SET nama_guru = ?, jabatan = ?, gelar = ?, url_foto = ?, WHERE id_guru = ?";
+    $sql = "UPDATE guru SET nama_guru = ?, mapel = ?, gelar = ?, url_foto = ?, WHERE id_guru = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $nama_guru, $jabatan, $gelar, $url_foto_baru, $id_guru);
+    $stmt->bind_param("ssssi", $nama_guru, $mapel, $gelar, $url_foto_baru, $id_guru);
 
     // Menarik kembali foto baru jika gagal
     if (!($stmt->execute())) {

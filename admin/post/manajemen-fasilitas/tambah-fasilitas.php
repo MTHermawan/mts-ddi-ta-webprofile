@@ -7,5 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_foto);
 }
+header('Location: ../../manajemen-galeri.php');
 
 ?>

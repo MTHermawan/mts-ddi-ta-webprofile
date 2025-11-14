@@ -3,15 +3,7 @@ include_once "../data/data_admin.php";
 
 $error_message = '';
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $input_email = htmlspecialchars($_POST['email']);
-    $input_password = htmlspecialchars($_POST['password']);
 
-    if ($data = ValidasiLogin($input_email, $input_password)) {
-        $_SESSION['email'] = $data['email'];
-        header("Location: ./halaman-utama.php");
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           <p class="login-description">
             Masukkan email dan kata sandi untuk masuk ke akun Anda.
           </p>
-          <form action="" method="POST" class="login-form">
+          <form action="./post/login-admin/validasi-login.php" method="POST" class="login-form">
             <label class="email-label" for="email">Email</label>
             <input
               id="email"

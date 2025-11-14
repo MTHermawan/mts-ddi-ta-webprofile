@@ -7,5 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     InsertInformasi($judul, $konten, $file_foto);
 }
+header('Location: ../../manajemen-berita.php');
 
 ?>

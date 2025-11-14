@@ -36,12 +36,11 @@ $data_guru = GetAllGuru();
         <div class="data-guru-con">
             <?php foreach ($data_guru as $guru) { ?>
                 <div class="card">
-                    <!-- NAMA dan MAPEL/JABATAN -->
+                    <!-- NAMA dan MAPEL -->
                     <h2 class="nama"><?php echo $guru["nama"]; ?></h2>
-                    <h3 class="mapel"><?php echo $guru["jabatan"]; ?></h3>
+                    <h3 class="mapel"><?php echo $guru["mapel"]; ?></h3>
 
                     <!-- FOTO -->
-                     
                     <?php if (file_exists("../assets/" . $guru['url_foto'])) { ?>
                         <img src="<?php echo "../assets/" . $guru['url_foto']; ?>" alt="" class="img-guru">
                     <?php } else { ?>

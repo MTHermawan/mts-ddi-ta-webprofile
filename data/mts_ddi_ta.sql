@@ -59,7 +59,7 @@ CREATE TABLE fasilitas (
 CREATE TABLE guru (
     id_guru INT auto_increment PRIMARY KEY,
     nama_guru VARCHAR(50) NOT NULL,
-    jabatan VARCHAR(25),
+    mapel VARCHAR(30),
     url_foto VARCHAR(50),
     gelar VARCHAR(20),
     tanggal_dibuat DATETIME
@@ -82,7 +82,7 @@ INSERT INTO admin (email, password, nama, tanggal_register) VALUES
 ('admin@mtsddi.sch.id', 'admin123', 'Admin', NOW());
 
 -- Insert data ke tabel guru
-INSERT INTO guru (nama_guru, jabatan, url_foto, gelar, tanggal_dibuat) VALUES
+INSERT INTO guru (nama_guru, mapel, url_foto, gelar, tanggal_dibuat) VALUES
 ('Muhammad Rizki', 'Guru Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
 
 -- Insert data ke tabel ekskul

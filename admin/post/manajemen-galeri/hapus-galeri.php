@@ -5,5 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteFotoGaleri($id_foto_galeri);
 }
+header('Location: ../../manajemen-galeri.php');
 
 ?>

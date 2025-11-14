@@ -79,7 +79,7 @@
 
       <!-- POP UP TAMBAH BERITA -->
       <section class="popup">
-        <form id="popup-tambah" action="" method="post">
+        <form id="popup-tambah" action="./post/manajemen-berita/tambah-berita.php" method="post" enctype="multipart/form-data">
           <div class="popup-overlay">
             <h1>Tambah Berita</h1>
             <div class="popup-input-group">
@@ -90,21 +90,21 @@
             </div>
             <div class="popup-input-group">
               <div class="popup-input">
-                <label for="desk">Deskripsi</label>
+                <label for="konten">Deskripsi</label>
                 <input class="dua" type="text" name="desk" id="desk" />
               </div>
             </div>
             <div class="popup-input-group">
               <div class="popup-input-gambar">
-                <label for="foto_guru">
+                <label for="foto_informasi">
                   <img src="../assets/icon-tambah-gambar.svg" alt="" />Tambah
                   Gambar
                 </label>
                 <input
                   type="file"
                   accept="image/*"
-                  name="foto_guru"
-                  id="foto_guru"
+                  name="foto_informasi"
+                  id="foto_informasi"
                 />
               </div>
               <button type="submit" class="popup-button-tambah">Tambah</button>
@@ -119,10 +119,10 @@
           </div>
         </form>
 
-        <form id="popup-hapus">
+        <form id="popup-hapus" action="./post/manajemen-berita/hapus-berita.php" method="post" enctype="multipart/form-data">
           <div class="popup-overlay">
             <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-            <input type="hidden" name="id" />
+            <input type="hidden" name="id" id="id_popup_hapus"/>
             <div class="btn-grup-hapus">
               <button type="submit" class="confirm-hapus">
                 <img src="../assets/popup-centang.png" alt="centang" />Iya

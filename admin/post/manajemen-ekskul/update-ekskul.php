@@ -9,5 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto);
 }
+header('Location: ../../manajemen-ekskul.php');
 
 ?>

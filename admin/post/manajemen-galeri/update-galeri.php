@@ -8,5 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateFotoGaleri($id_foto_galeri, $judul_galeri, $deskripsi_galeri, $file_foto);
 }
+header('Location: ../../manajemen-galeri.php');
 
 ?>

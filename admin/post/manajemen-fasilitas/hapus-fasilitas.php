@@ -5,5 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteFasilitas($id_guru);
 }
+header('Location: ../../manajemen-fasilitas.php');
 
 ?>

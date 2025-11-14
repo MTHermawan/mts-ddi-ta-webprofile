@@ -5,5 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteEkskul($id_guru);
 }
+header('Location: ../../manajemen-ekskul.php');
 
 ?>

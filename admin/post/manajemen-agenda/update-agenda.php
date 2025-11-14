@@ -9,5 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateAgenda($id, $judul, $konten, $file_foto, $jadwal_agenda);
 }
+header('Location: ../../manajemen-agenda.php');
 
 ?>

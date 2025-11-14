@@ -8,5 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $file_foto);
 }
+header('Location: ../../manajemen-fasilitas.php');
 
 ?>

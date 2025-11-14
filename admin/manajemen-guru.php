@@ -168,19 +168,19 @@ include_once "../data/utility.php";
     <!-- POP UP TAMBAH GURU -->
 
     <section class="popup">
-      <form id="popup-tambah" action="./post/tambah-guru.php" method="post" enctype="multipart/form-data">
+      <form id="popup-tambah" action="./post/manajemen-guru/tambah-guru.php" method="post" enctype="multipart/form-data">
         <div class="popup-overlay">
           <h1>Tambah Guru</h1>
           <div class="popup-input-group">
             <div class="popup-input">
               <label for="nama">Nama Lengkap</label>
-              <input class="satu" type="text" name="nama" id="nama" />
+              <input class="satu" type="text" name="nama_guru" id="nama_guru" />
             </div>
           </div>
           <div class="popup-input-group">
             <div class="popup-input">
               <label for="mapel">Mapel</label>
-              <input class="dua" type="text" name="jabatan" id="mapel" />
+              <input class="dua" type="text" name="mapel" id="mapel" />
             </div>
             <div class="popup-input">
               <label for="gelar">Gelar</label>
@@ -203,10 +203,10 @@ include_once "../data/utility.php";
         </div>
       </form>
 
-      <form id="popup-hapus">
+      <form id="popup-hapus" action="./post/manajemen-guru/hapus-guru.php" method="post" enctype="multipart/form-data">
         <div class="popup-overlay">
           <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-          <input type="hidden" name="id" />
+          <input type="hidden" name="id_guru" id="id_popup_hapus" />
           <div class="btn-grup-hapus">
             <button type="submit" name="hapus" class="confirm-hapus">
               <img src="../assets/popup-centang.png" alt="centang" />Iya

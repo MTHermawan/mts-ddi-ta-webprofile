@@ -73,32 +73,32 @@
 
       <!-- POP UP TAMBAH FASILITAS -->
       <section class="popup">
-        <form id="popup-tambah" action="" method="post">
+        <form id="popup-tambah" action="./post/manajemen-fasilitas/tambah-fasilitas.php" method="post" enctype="multipart/form-data">
           <div class="popup-overlay">
             <h1>Tambah Fasilitas</h1>
             <div class="popup-input-group">
               <div class="popup-input">
                 <label for="nama">Nama Fasilitas</label>
-                <input class="satu" type="text" name="nama" id="nama" />
+                <input class="satu" type="text" name="nama_fasilitas" id="nama" />
               </div>
             </div>
             <div class="popup-input-group">
               <div class="popup-input">
                 <label for="desk">Deskripsi</label>
-                <input class="dua" type="text" name="desk" id="desk" />
+                <input class="dua" type="text" name="deskripsi_fasilitas" id="desk" />
               </div>
             </div>
             <div class="popup-input-group">
               <div class="popup-input-gambar">
-                <label for="foto_guru">
+                <label for="foto_fasilitas">
                   <img src="../assets/icon-tambah-gambar.svg" alt="" />Tambah
                   Gambar
                 </label>
                 <input
                   type="file"
                   accept="image/*"
-                  name="foto_guru"
-                  id="foto_guru"
+                  name="foto_fasilitas"
+                  id="foto_fasilitas"
                 />
               </div>
               <button type="submit" class="popup-button-tambah">Tambah</button>
@@ -113,11 +113,11 @@
           </div>
         </form>
 
-        <form id="popup-hapus">
+        <form id="popup-hapus" action="./post/manajemen-fasilitas/hapus-fasilitas.php" method="post" enctype="multipart/form-data">
           <div class="popup-overlay">
             <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
             <div class="btn-grup-hapus">
-              <input type="hidden" name="id" />
+              <input type="hidden" name="id_fasilitas" id="id_popup_hapus"/>
               <button type="submit" class="confirm-hapus">
                 <img src="../assets/popup-centang.png" alt="centang" />Iya
               </button>

@@ -83,3 +83,9 @@ function ClosePopup(id_form_popup) {
     document.body.classList.remove("popup-open");
     // topbar.classList.remove("popup-open");
 }
+
+function SetInputValue(inputId, newValue)
+{
+    const target = document.querySelector('input#'+inputId);
+    target.value = newValue;
+}

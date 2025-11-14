@@ -5,5 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteGuru($id_guru);
 }
+header('Location: ../../manajemen-guru.php');
 
 ?>
