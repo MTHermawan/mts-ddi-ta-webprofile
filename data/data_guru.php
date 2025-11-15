@@ -9,7 +9,7 @@ include_once 'utility.php';
 // - gelar string
 // - tanggal_dibuat string
 
-$asset_subdir = "a/";
+$asset_subdir = "guru/";
 
 // Menambahkan baris data guru baru (CREATE)
 function InsertGuru($nama_guru, $mapel, $gelar, $file_foto)
