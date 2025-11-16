@@ -34,101 +34,142 @@
     </header>
 
     <!-- MAIN CONTENT -->
-     <!-- Title Menu -->
-      <h1 class="menu-title">Ekstrakulikuler</h1>
+    <!-- Title Menu -->
+    <h1 class="menu-title">Ekstrakulikuler</h1>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <div class="main-content-header">
-          <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              type="text"
-              class="search-input"
-              placeholder="Cari nama guru"
-            />
-          </div>
-
-          <div class="button-container">
-            <button class="export button">
-              <i class="fa-solid fa-file-export"></i> Export CSV
-            </button>
-            <button
-              class="add button"
-              id="btn_tambah_guru"
-              onclick="OpenPopup('popup-tambah');"
-            >
-              <i class="fa-solid fa-plus"></i> Tambah Ekstrakulikuler
-            </button>
-          </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="main-content-header">
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Cari nama guru" />
         </div>
 
-        <div class="main-content-data">
-          <!-- Tampilan Jika Data Kosong -->
-          <div class="empty-data" id="emptyData">
-            <div class="empty-data-placeholder" id="emptyDataPlaceholder">
-              <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
-              <p>Belum ada data ekstrakulikuler yang ditambahkan</p>
-              <p>Klik tombol "Tambah Ekstrakulikuler" untuk menambahkan</p>
-            </div>
-            <img
-              class="struktur-organisasi-image"
-              id="strukturOrganisasiImage"
-              style="display: none"
-              alt="Struktur Organisasi"
-            />
-          </div>  
-
-          <!-- Data ekskul -->
-
+        <div class="button-container">
+          <button class="export button">
+            <i class="fa-solid fa-file-export"></i> Export CSV
+          </button>
+          <button
+            class="add button"
+            id="btn_tambah_guru"
+            onclick="openPopup()">
+            <i class="fa-solid fa-plus"></i> Tambah Ekstrakulikuler
+          </button>
         </div>
       </div>
-    
-    <!-- POP UP TAMBAH EKSKUL -->
-    <section class="popup">
-      <form id="popup-tambah" action="./post/manajemen-ekskul/tambah-ekskul.php" method="post" enctype="multipart/form-data">
-        <div class="popup-overlay">
-          <h1>Tambah Ekstrakulikuler</h1>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="nama">Nama Ekstrakulikuler</label>
-              <input class="satu" type="text" name="nama_ekskul" id="nama">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="pembimbing">Pembimbing</label>
-              <input class="dua" type="text" name="nama_pembimbing" id="pembimbing">
-            </div>
-            <div class="popup-input">
-              <label for="jadwal">Jadwal</label>
-              <input class="dua" type="text" name="jadwal" id="jadwal">
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input-gambar">
-              <label for="foto_ekskul">
-                <img src="../assets/icon-tambah-gambar.svg" alt="">Tambah Gambar
-              </label>
-              <input type="file" accept="image/*" name="foto_ekskul" id="foto_ekskul">
-            </div>
-            <button type="submit" class="popup-button-tambah">Tambah</button>
-            <button type="button" class="popup-button-kembali" onclick="ClosePopup('popup-tambah')">Kembali</button>
-          </div>
-        </div>
-      </form>
 
-      <form id="popup-hapus" action="./post/manajemen-ekskul/hapus-ekskul.php" method="post" enctype="multipart/form-data">
-        <div class="popup-overlay">
-          <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-          <input type="hidden" name="id_ekskul" id="id_popup_hapus">
-          <div class="btn-grup-hapus">
-            <button type="submit" class="confirm-hapus"><img src="../assets/popup-centang.png" alt="centang">Iya</button>
-            <button class="cancel-hapus"><img src="../assets/popup-no.png" alt="tidak" onclick="ClosePopup('popup-hapus');">Tidak</button>
+      <div class="main-content-data">
+        <!-- Tampilan Jika Data Kosong -->
+        <div class="empty-data" id="emptyData">
+          <div class="empty-data-placeholder" id="emptyDataPlaceholder">
+            <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
+            <p>Belum ada data ekstrakulikuler yang ditambahkan</p>
+            <p>Klik tombol "Tambah Ekstrakulikuler" untuk menambahkan</p>
+          </div>
+          <img
+            class="struktur-organisasi-image"
+            id="strukturOrganisasiImage"
+            style="display: none"
+            alt="Struktur Organisasi" />
+        </div>
+
+        <!-- Data ekskul -->
+
+      </div>
+    </div>
+
+    <!-- POP UP TAMBAH EKSKUL -->
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2 class="popup-title">Tambah Ekstrakulikuler</h2>
+          <button class="popup-close" onclick="closePopup()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Input Gambar -->
+        <div class="image-input-container">
+          <label class="image-input-label">Foto Ekstrakulikuler</label>
+          <div class="image-upload-area" id="imageUploadArea">
+            <input
+              type="file"
+              class="image-input"
+              id="imageInput"
+              accept="image/*" />
+
+            <!-- Placeholder (default state) -->
+            <div class="image-placeholder" id="imagePlaceholder">
+              <div class="image-placeholder-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <div class="image-placeholder-text">
+                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+              </div>
+            </div>
+
+            <!-- Preview gambar -->
+            <div class="image-preview" id="imagePreview">
+              <img id="previewImage" src="" alt="Preview" />
+              <div class="image-preview-actions">
+                <button
+                  type="button"
+                  class="preview-action-btn change"
+                  onclick="triggerImageInput()">
+                  <i class="fas fa-sync-alt"></i> Ganti
+                </button>
+                <button
+                  type="button"
+                  class="preview-action-btn remove"
+                  onclick="removeImage()">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
-    </section>
+
+        <!-- Input Teks -->
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Nama Ekstrakulikuler</label>
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan judul konten" />
+        </div>
+
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Nama Pembimbing</label>
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan judul konten" />
+        </div>
+
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Jadwal</label>
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan judul konten" />
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions">
+          <button type="button" class="popup-btn cancel" onclick="closePopup()"><i class="fas fa-times"></i> Batal</button>
+          <button type="button" class="popup-btn submit" onclick="submitForm()"><i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
