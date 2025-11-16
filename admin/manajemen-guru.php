@@ -41,7 +41,7 @@ include_once "../data/utility.php";
           <button class="export button">
             <i class="fa-solid fa-file-export"></i> Export CSV
           </button>
-          <button class="add button" id="btn_tambah_guru" onclick="OpenPopup('popup-tambah');">
+          <button class="add button" id="btn_tambah_guru" onclick="openPopup()">
             <i class="fa-solid fa-plus"></i> Tambah Guru
           </button>
         </div>
@@ -165,62 +165,75 @@ include_once "../data/utility.php";
       </div>
     </div>
 
+
     <!-- POP UP TAMBAH GURU -->
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2 class="popup-title">Tambah Guru</h2>
+          <button class="popup-close" onclick="closePopup()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
 
-    <section class="popup">
-      <form id="popup-tambah" action="./post/manajemen-guru/tambah-guru.php" method="post" enctype="multipart/form-data">
-        <div class="popup-overlay">
-          <h1>Tambah Guru</h1>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="nama">Nama Lengkap</label>
-              <input class="satu" type="text" name="nama_guru" id="nama_guru" />
+        <!-- Input Gambar -->
+        <div class="image-input-container">
+          <label class="image-input-label">Foto Guru</label>
+          <div class="image-upload-area" id="imageUploadArea">
+            <input type="file" class="image-input" id="imageInput" accept="image/*">
+
+            <!-- Placeholder (default state) -->
+            <div class="image-placeholder" id="imagePlaceholder">
+              <div class="image-placeholder-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <div class="image-placeholder-text">
+                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+              </div>
             </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input">
-              <label for="mapel">Mapel</label>
-              <input class="dua" type="text" name="mapel" id="mapel" />
+
+            <!-- Preview gambar -->
+            <div class="image-preview" id="imagePreview">
+              <img id="previewImage" src="" alt="Preview">
+              <div class="image-preview-actions">
+                <button type="button" class="preview-action-btn change" onclick="triggerImageInput()">
+                  <i class="fas fa-sync-alt"></i> Ganti
+                </button>
+                <button type="button" class="preview-action-btn remove" onclick="removeImage()">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </div>
             </div>
-            <div class="popup-input">
-              <label for="gelar">Gelar</label>
-              <input class="dua" type="text" name="gelar" id="gelar" />
-            </div>
-          </div>
-          <div class="popup-input-group">
-            <div class="popup-input-gambar">
-              <label for="foto_guru">
-                <img src="../assets/icon-tambah-gambar.svg" alt="" />Tambah
-                Gambar
-              </label>
-              <input type="file" accept="image/*" name="foto_guru" id="foto_guru" />
-            </div>
-            <button type="submit" name="tambah" class="popup-button-tambah">Tambah</button>
-            <button type="button" class="popup-button-kembali" onclick="ClosePopup('popup-tambah')">
-              Kembali
-            </button>
           </div>
         </div>
-      </form>
 
-      <form id="popup-hapus" action="./post/manajemen-guru/hapus-guru.php" method="post" enctype="multipart/form-data">
-        <div class="popup-overlay">
-          <h1 class="h1-hapus">Yakin Ingin Hapus?</h1>
-          <input type="hidden" name="id_guru" id="id_popup_hapus" />
-          <div class="btn-grup-hapus">
-            <button type="submit" name="hapus" class="confirm-hapus">
-              <img src="../assets/popup-centang.png" alt="centang" />Iya
-            </button>
-            <button class="cancel-hapus">
-              <img src="../assets/popup-no.png" alt="tidak" onclick="ClosePopup('popup-hapus');" />Tidak
-            </button>
-          </div>
+        <!-- Input Teks -->
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Nama</label>
+          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan nama guru">
         </div>
-      </form>
-    </section>
+
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
+          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan mata pelajaran yang diampu">
+        </div>
+
+        <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Gelar</label>
+          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan gelar guru">
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions">
+          <button type="button" class="popup-btn cancel" onclick="closePopup()">Batal</button>
+          <button type="button" class="popup-btn submit" onclick="submitForm()">Simpan</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="./script/dashboard-admin.js"></script>
+  <script src="../admin/script/dashboard-admin.js"></script>
 </body>
 
 </html>
