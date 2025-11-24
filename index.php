@@ -1,180 +1,314 @@
-<?php include "./data/koneksi.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Halaman Utama</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="icon" href="./assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
-    <?php include "./includes/site-header.php"; ?>
-
+    
     <header>
-        <?php include "./includes/navbar.php"; ?>
-
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Pendidikan Berkarakter, Berbasis Al-Qur’an dan Teknologi</h1>
-                <h5>Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional, Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.</h5>
-                <button class="btn-green">Hubungi kami</button>
+        <nav class="navbar">
+            <div class="logo-container">
+            <div class="logo"><img src="style/logo-sekolah.png" alt="logo"></div> 
+            <!-- ganti aja logonya nanti -->
+            <div class="logo-text">
+                <h1>Mts Ddi Tani Aman</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, ratione.</p>
             </div>
-        </section>
+            </div>
+
+            <div class="nav-menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Events</a>
+            <a href="#">News</a>
+            <a href="#">Galeri</a>
+            <a href="#">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        <!-- <section id="hero">
-            <div class="hero-content">
-                <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
-                <p>Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional, Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.</p>
-                <button class="btn-green">Hubungi kami</button>
-            </div>
-        </section> -->
+    <section id="hero">
+        <!-- Gambar sebagai background -->
+        <img src="style/contoh1.jpg" alt="Latar belakang pendidikan berkarakter" class="hero-bg-img">
 
-        <section id="about">
-            <div class="about-container">
-                <img src="assets/gambar-sekolah2.png" alt="Gambar Sekolah" class="about-img">
-                <div class="about-text">
-                    <h1>Profil Sekolah</h1>
-                    <h3>MTS DDI Tani Aman</h3>
-                    <p>Puji dan syukur mari kita panjatkan kehadirat Allah SWT. Yang senantiasa dengan sifat kasih dan sayangnya banyak memberikan nikmat ...</p>
-                </div>
-            </div>
+        <!-- Overlay gelap untuk kontras teks -->
+        <div class="hero-overlay"></div>
 
-            <div class="about-stats">
-                <div class="stat-box">
-                    <img src="assets/icon-student.png" alt="Siswa">
-                    <h2>Siswa</h2>
-                    <h3 id="value_jumlah_siswa">720+</h3>
-                </div>
-                <div class="stat-box">
-                    <img src="assets/icon-teacher.png" alt="Guru">
-                    <h2>Guru</h2>
-                    <h3 id="value_jumlah_guru">64+</h3>
-                </div>
-                <div class="stat-box">
-                    <img src="assets/icon-graduate.png" alt="Lulusan">
-                    <h2>Lulusan</h2>
-                    <h3 id="value_jumlah_lulusan">3500+</h3>
-                </div>
-            </div>
-        </section>
+        <!-- Konten utama -->
+        <div class="hero-content">
+            <h1>Pendidikan Berkarakter, Berbasis Al-Qur’an dan Teknologi</h1>
+            <p class="hero-subtitle">
+            Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional, Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
+            </p>
+            <button class="btn-green">Hubungi Kami</button>
+        </div>
+    </section>
 
-        <section id="informasi">
-            <h1>Informasi</h1>
+    <section id="about">
+    <div class="about-container">
+        <h1 class="about-teks">Tentang Kami</h1>
+        <p class="intro-text">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto repellendus omnis illum ratione quod laboriosam.
+        </p>
 
-            <div class="info-headline">
-                <div class="headline-card">
-                    <div class="headline-image"></div>
-                    <div>
-                        <h5>judul</h5>
-                        <button class="btn-dark">Selengkapnya...</button>
-                    </div>
-                </div>
-                <div class="headline-card">
-                    <div class="headline-image"></div>
-                    <div>
-                        <h5>judul</h5>                            
-                        <button class="btn-dark">Selengkapnya...</button>
-                        </div>
-                    </div>
+        <!-- Wrapper untuk 3 kotak -->
+        <div class="about-cards">
+        <div class="kotak-besar">
+            <div class="kotak-teks">
+            <div class="icon-kotak"><i class="fa-regular fa-note-sticky"></i></div>
+            <h2>Misi Kami</h2>
+            <p>To revolutionize education by fostering critical thinking, creativity, and innovation. We prepare students not just for careers, but for lives of purpose and impact.</p>
+            <ul class="mission-list">
+                <li>Student-Centered Learning</li>
+                <li>Global Perspective</li>
+                <li>Innovation Hub</li>
+            </ul>
             </div>
+            <div class="kotak-gambar">
+            <img src="style/contoh1.jpg" alt="Ilustrasi sekolah modern">
+            </div>
+        </div>
 
-            <div class="info-cards">
-                <div class="info-card">
-                    <div class="info-img"></div>
-                    <div class="info-card-detail">
-                        <h5>judul</h5>
-                        <p>deskripsi disini</p>
-                        <button class="btn-dark">Selengkapnya...</button>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-img"></div>
-                    <div class="info-card-detail">
-                        <h5>judul</h5>
-                        <p>deskripsi disini</p>
-                        <button class="btn-dark">Selengkapnya...</button>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-img"></div>
-                    <div class="info-card-detail">
-                        <h5>judul</h5>
-                        <p>deskripsi disini</p>
-                        <button class="btn-dark">Selengkapnya...</button>
-                    </div>
-                </div>
+        <!-- Wrapper untuk 2 Kotak Kecil (Kanan) -->
+        <div class="kotak-kecil-wrapper">
+            <div class="kotak-kecil kotak-1">
+            <div class="small-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+                <div class="small-number">60+</div>
+                <div class="small-title">Advanced Programs</div>
+                <div class="small-desc">From STEM to Arts, Business to Humanities</div>
             </div>
-            
-            <div class="info-button">
-                <a href="./informasi/berita.php"><button class="btn-green">Lihat Berita</button></a>
-                <a href="./informasi/agenda.php"><button class="btn-green">Lihat Agenda</button></a>
             </div>
-        </section>
+            <div class="kotak-kecil kotak-2">
+            <div class="small-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div>
+                <div class="small-number">50+</div>
+                <div class="small-title">Countries Represented</div>
+                <div class="small-desc">A truly diverse global community</div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- Ganti 3 wrapper terpisah dengan SATU wrapper -->
+        <div class="kotak-bawah-container">
+        <div class="kotak-bawah kotak-3">
+            <div class="small-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="small-content">
+            <div class="small-title-bawah">Awards & Honors</div>
+            <div class="small-desc-bawah">Recognizing excellence in academics and beyond</div>
+            </div>
+        </div>
+
+        <div class="kotak-bawah kotak-3">
+            <div class="small-icon"><i class="fa-solid fa-address-book"></i></div>
+            <div class="small-content">
+            <div class="small-title-bawah">Global Impact</div>
+            <div class="small-desc-bawah">Shaping leaders worldwide since 2005</div>
+            </div>
+        </div>
+
+        <div class="kotak-bawah kotak-3">
+            <div class="small-icon"><i class="fa-solid fa-school-flag"></i></div>
+            <div class="small-content">
+            <div class="small-title-bawah">Alumni Success</div>
+            <div class="small-desc-bawah">98% graduate employed or in higher education</div>
+            </div>
+        </div>
+        <div class="kotak-bawah kotak-3">
+            <div class="small-icon"><i class="fa-solid fa-school-flag"></i></div>
+            <div class="small-content">
+            <div class="small-title-bawah">Alumni Success</div>
+            <div class="small-desc-bawah">98% graduate employed or in higher education</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section id="event">
+    <div class="event-container">
+            <h1 class="about-teks">Acara Mendatang</h1>
+            <p class="intro-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto repellendus omnis illum ratione quod laboriosam.
+            </p>
+
+        <!-- Wrapper untuk kartu event -->
+        <div class="event-wrapper">
+
+            <div class="event-card">
+            <div class="event-image-wrapper">
+                <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                <!-- Overlay gelap di bagian bawah (opsional) -->
+                <div class="image-overlay"></div>
+            </div>
+            <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+            <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+            <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+            <button class="btn-event">View Details -></button>
+            </div>
+            <div class="event-card">
+            <div class="event-image-wrapper">
+                <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                <!-- Overlay gelap di bagian bawah (opsional) -->
+                <div class="image-overlay"></div>
+            </div>
+            <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+            <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+            <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+            <button class="btn-event">View Details -></button>
+            </div>
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                    <!-- Overlay gelap di bagian bawah (opsional) -->
+                    <div class="image-overlay"></div>
+                </div>
+                <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+                <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+                <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+                <button class="btn-event">View Details -></button>
+            </div>
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                    <!-- Overlay gelap di bagian bawah (opsional) -->
+                    <div class="image-overlay"></div>
+                </div>
+                <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+                <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+                <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+                <button class="btn-event">View Details -></button>
+            </div>
+            <div class="event-card">
+                <div class="event-image-wrapper">
+                    <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                    <!-- Overlay gelap di bagian bawah (opsional) -->
+                    <div class="image-overlay"></div>
+                </div>
+                <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+                <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+                <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+                <button class="btn-event">View Details -></button>
+            </div>
+            <div class="event-card">
+            <div class="event-image-wrapper">
+                <img src="style/contoh4.jpg" alt="Event 1" class="event-image">
+                <!-- Overlay gelap di bagian bawah (opsional) -->
+                <div class="image-overlay"></div>
+            </div>
+            <h3 class="event-title">New Quantum Computing Lab Inaugurated</h3>
+            <p class="event-date"> <i class="fa-solid fa-calendar icon-event"></i>November 20, 2025</p>
+            <p class="event-time"><i class="fa-solid fa-clock icon-event"></i>10:00 AM - 12:00 PM</p>
+            <button class="btn-event">View Details -></button>
+            </div>
+        </div>
         
-        <section id="gallery">
-            <h1>Galeri</h1>
-            <div class="gallery-container">
-                <button class="arrow-btn left"><</button>
-                <div class="gallery-track">
-                    <img src="assets/gambar-gallery1.jpeg" alt="Foto 1">
-                    <img src="assets/gambar-gallery2.jpeg" alt="Foto 2">
-                    <img src="assets/gambar-gallery3.jpeg" alt="Foto 3">
-                    <img src="assets/gambar-gallery4.jpeg" alt="Foto 4">
-                    <img src="assets/gambar-gallery5.jpeg" alt="Foto 5">
-                </div>
-                <button class="arrow-btn right">></button>
-            </div>
-            <div class="gallery-button">
-                <a href="./informasi/galeri.php"><button class="btn-green" > Lebih Lanjut</button></a>
-                
-            </div>
-        </section>
-        <section id="kontak">
-            <h1>Kontak Kami</h1>
-            <div class="kontak-container">
-                <div class="kontak-info">
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <img src="assets/icon-telepon.png" alt="Telepon">
-                        </div>
-                        <div>
-                            <h4>No. Telepon</h4>
-                            <p>0</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <img src="assets/icon-email.png" alt="Email">
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>www@</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <img src="assets/icon-alamat.png" alt="Alamat">
-                        </div>
-                        <div>
-                            <h4>Lokasi</h4>
-                            <p>Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota Samarinda, Kalimantan Timur 75251</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="kontak-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-    <?php include "./includes/footer.php"; ?>
+        
+        <!-- Tambahkan event lainnya di sini -->
+        
+    </div>
+    </section>
 
-    <script src="./script/index.js"></script>
-    <script src="./script/script.js"></script>
+    <section id="news">
+    <div class="news-container">
+        <h1 class="about-teks">Berita Terbaru</h1>
+        <p class="intro-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto repellendus omnis illum ratione quod laboriosam.
+        </p>
+        <!-- Wrapper untuk kartu berita -->
+
+        <div class="news-wrapper">
+            <div class="card-news">
+                <div class="big-news">
+                    <div class="news-image">
+                        <img src="style/contoh3.jpg" alt="Ilustrasi sekolah modern">
+                    </div>
+                    <div class="kotak-news">
+                        <div class="icon-news">Berita Utama</div>
+                        <h2 class="news-teks">Lorem ipsum dolor sit amet.</h2>
+                        <p class="news-desk">To revolutionize education by fostering critical thinking, creativity, and innovation. We prepare students not just for careers, but for lives of purpose and impact.</p>
+                        <p class="news-date"> <i class="fa-solid fa-calendar icon-news-i"></i>November 20, 2025</p>
+                        <button class="read-more-news">View Details -></button>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="style/contoh4.jpg" alt="Event 1" class="news-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <h3 class="news-title">New Quantum Computing Lab Inaugurated</h3>
+                    <p class="news-desk-p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, odio.</p>
+                    <button class="btn-news">View Details -></button>
+                </div>
+                <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="style/contoh4.jpg" alt="Event 1" class="news-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <h3 class="news-title">New Quantum Computing Lab Inaugurated</h3>
+                    <p class="news-desk-p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, odio.</p>
+                    <button class="btn-news">View Details -></button>
+                </div>
+                <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="style/contoh4.jpg" alt="Event 1" class="news-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <h3 class="news-title">New Quantum Computing Lab Inaugurated</h3>
+                    <p class="news-desk-p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, odio.</p>
+                    <button class="btn-news">View Details -></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+    <div class="contact-container">
+        <h1 class="about-teks">Hubungi Kami</h1>
+        <p class="intro-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto repellendus omnis illum ratione quod laboriosam.
+        </p>
+
+        <div class="contact-wrapper">
+            <div class="card-contact">
+                    <div class="big-contact">
+                        <div class="kotak-contact">
+                            <div class="icon-contact"><i class="fa-solid fa-phone"></i></div>
+                            <h2 class="contact-teks">Lorem</h2>
+                            <p class="detail-contact">0897998889898</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-contact">
+                    <div class="big-contact">
+                        <div class="kotak-contact">
+                            <div class="icon-contact"><i class="fa-solid fa-message"></i></div>
+                            <h2 class="contact-teks">Email</h2>
+                            <p class="detail-contact">0897998889898</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-contact">
+                    <div class="big-contact">
+                        <div class="kotak-contact">
+                            <div class="icon-contact"><i class="fa-solid fa-map"></i></div>
+                            <h2 class="contact-teks">Alamat</h2>
+                            <p class="detail-contact">0897998889898</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="kontak-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    </section>
+    
+    <script src="script/script.js"></script>
+    <script src="script/navbar.js"></script>
 </body>
 </html>
