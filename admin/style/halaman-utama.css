@@ -1,19 +1,13 @@
 /*              MAIN CONTENT                */
-.main-content {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  gap: 20px;
-}
 
 /*             MAIN CONTENT ROW 1            */
-.row1 {
+.stats-container {
   display: flex;
   gap: 20px;
   width: 100%;
 }
 
-.card-row1 {
+.stat-card {
   flex: 0.25;
   min-height: 100px;
   background-color: white;
@@ -25,7 +19,7 @@
   align-items: center;
 }
 
-.card-detail-row1 {
+.stat-content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,7 +28,7 @@
   gap: 4px;
 }
 
-.card-logo-row1 {
+.stat-icon {
   background-color: #f1f3f6;
   display: flex;
   align-items: center;
@@ -46,11 +40,11 @@
   transition: all 0.2s ease;
 }
 
-.card-logo-row1 img {
+.stat-icon img {
   width: 32px;
 }
 
-.card-info-row1 {
+.stat-info {
   flex: 0.6;
   /* background-color: aqua; */
   display: flex;
@@ -61,33 +55,33 @@
   height: 100%;
 }
 
-.vertical-divider {
+.divider-vertical {
   height: 90%;
   width: 1px;
   background-color: rgb(29, 41, 57);
   margin: 0 8px;
 }
 
-.card-info-row1-detail {
+.stat-details {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.card-title-row1 {
+.stat-title {
   font-size: 16px;
   font-weight: 500;
   color: rgb(102, 112, 133);
 }
 
-.card-amount-row1 {
+.stat-value {
   font-size: 28px;
   font-weight: 700;
   color: rgb(29, 41, 57);
 }
 
-.btn-container-row1 {
+.stat-actions {
   flex: 0.4;
   /* background-color: yellow; */
   height: 100%;
@@ -98,7 +92,7 @@
 }
 
 /* CSS */
-.button-card-row1 {
+.btn-edit {
   margin-top: -1px;
   width: 80px;
   height: 30px;
@@ -126,40 +120,40 @@
   word-wrap: break-word;
 }
 
-.button-card-row1:hover {
+.btn-edit:hover {
   background-color: #F2F4F7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-card-row1:disabled {
+.btn-edit:disabled {
   background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959da5;
   cursor: default;
 }
 
-.button-card-row1:active {
+.btn-edit:active {
   background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-card-row1:focus {
+.btn-edit:focus {
   outline: 1px transparent;
 }
 
-.button-card-row1:before {
+.btn-edit:before {
   display: none;
 }
 
-.button-card-row1:-webkit-details-marker {
+.btn-edit:-webkit-details-marker {
   display: none;
 }
 
 /*                MAIN CONTENT ROW 2           */
-.container-row2 {
+.social-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -167,19 +161,21 @@
   box-shadow: 0 0 0 0.9px #dde1e5;
   border-radius: 16px;
   padding: 0px 20px;
+  box-sizing: border-box;
 }
 
-.row2 {
+.social-row {
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 16px;
-  gap: 20px;
+  /* gap: 28px; */
   /* box-shadow: 0 0 0 0.9px #dde1e5; */
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
-.card-row2 {
+.social-card {
   flex: 0.5;
   min-height: 100px;
   background-color: white;
@@ -188,9 +184,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
-.card-detail-row2 {
+.social-form {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -199,7 +196,11 @@
   gap: 4px;
 }
 
-.card-logo-row2 {
+.social-form-left {
+  padding-right: 20px;
+}
+
+.social-icon {
   background-color: #f1f3f6;
   display: flex;
   align-items: center;
@@ -211,11 +212,11 @@
   transition: all 0.2s ease;
 }
 
-.card-logo-row2 img {
+.social-icon img {
   width: 40px;
 }
 
-.card-info-row2 {
+.social-info {
   flex: 1;
   /* background-color: aqua; */
   display: flex;
@@ -233,7 +234,7 @@
   margin: 0 8px;
 }
 
-.card-info-row2-detail {
+.social-details {
   flex: 1;
   height: 100%;
   display: flex;
@@ -243,7 +244,7 @@
   box-sizing: border-box;
 }
 
-.card-title-row2 {
+.social-label {
   font-size: 16px;
   font-weight: 500;
   color: rgb(102, 112, 133);
@@ -268,22 +269,18 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
 
 /* OVERRIDE WIDTH DAN FLEX */
 
-.card23 {
-  flex: 1;
-}
-
-.card24 {
+.social-card-full {
   flex: 1;
 }
 
 /* BUTTON ROW2 */
-.button-container {
+.form-actions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.button-row2 {
+.btn-save {
   width: 100px;
   appearance: none;
   background-color: white;
@@ -309,35 +306,34 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
   word-wrap: break-word;
 }
 
-.button-row2:hover {
+.btn-save:hover {
   background-color: #F2F4F7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-row2:disabled {
+.btn-save:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
 }
 
-.button-row2:active {
+.btn-save:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-row2:focus {
+.btn-save:focus {
   outline: 1px transparent;
 }
 
-.button-row2:before {
+.btn-save:before {
   display: none;
 }
 
-.button-row2:-webkit-details-marker {
+.btn-save:-webkit-details-marker {
   display: none;
 }
-
