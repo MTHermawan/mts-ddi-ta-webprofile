@@ -36,23 +36,23 @@
                 <p class="visi">“BERTAQWA, UNGGUL, DAN BERKARAKTER.”</p>
                 <hr>
                 <p class="misi">
-                    1. Menciptkan Madrasah sebagai sarana untuk mengoptimalkan pengkajian keimanan danketaqwaan terhadap Allah SWT. <br>
-                    2. Membiasakan berprilaku Islami sesuai adab dengan meneladani Rasulullah SAW. <br>
+                    1. Menciptakan Madrasah sebagai sarana untuk mengoptimalkan pengkajian keimanan danketaqwaan terhadap Allah SWT. <br>
+                    2. Membiasakan berperilaku Islami sesuai adab dengan meneladani Rasulullah SAW. <br>
                     3. Merancang pembelajaran yang menarik dan menyenangkan. <br>
                     4. Meningkatkan manajemen satuan Pendidikan yang adaptif, unggul dan berkarakter. <br>
                     5. Menjamin hak belajar setiap anak dalam proses pembelajaran yang menjunjung tinggi nilai kebersamaan. <br>
                     6. Mewujudkan prestasi peserta didik sesuai dengan potensi yang dimiliki baik secara akademik maupun non akademik. <br>
-                    7. Mewujudkan peserta didik yang berprilaku ramah dan berkarakter baik.
+                    7. Mewujudkan peserta didik yang berperilaku ramah dan berkarakter baik.
                 </p>
                 <hr>
                 <p class="tujuan">
-                    1. Menciptkan Madrasah sebagai sarana untuk mengoptimalkan pengkajian keimanan danketaqwaan terhadap Allah SWT. <br>
-                    2. Membiasakan berprilaku Islami sesuai adab dengan meneladani Rasulullah SAW. <br>
-                    3. Merancang pembelajaran yang menarik dan menyenangkan. <br>
-                    4. Meningkatkan manajemen satuan Pendidikan yang adaptif, unggul dan berkarakter. <br>
-                    5. Menjamin hak belajar setiap anak dalam proses pembelajaran yang menjunjung tinggi nilai kebersamaan. <br>
-                    6. Mewujudkan prestasi peserta didik sesuai dengan potensi yang dimiliki baik secara akademik maupun non akademik. <br>
-                    7. Mewujudkan peserta didik yang berprilaku ramah dan berkarakter baik.
+                    Tujuan MTs DDI Tani Aman Kecamatan Loa Janan Ilir Kota Samarinda  adalah sebagai berikut: <br>
+                    1. Membiasakan kegiatan ibadah secara rutin. <br>
+                    2. Menciptakan pembelajaran yang mengedepankan ciri khas madrasah yang islami dan bernuansa kebhinekaan yang harmonis. <br>
+                    3. Membentuk peserta didik yang memiliki kemampuan daya saing yang unggul, berkarakter dan taat beribadah. <br>
+                    4. Menghasilkan lulusan yang mampu bersaing dan unggul dalam kehidupan nyata. <br>
+                    5. Mempunyai kecakapaan hidup yang unggul dan mampu beradaptasi dengan perkembangan zaman. <br>
+                    6. Menjadikan madrasah sebagai tempat untuk mengembangkan proses pengembangkan intelektual emosional, sosial, keterampilan dan tumbuh kembang peserta didik sesuai tingkat kemampuan dan kondisi masing-masing peserta didik yang mengedepankan nilai kebersamaan. <br>
                 </p>
             </div>
         </div>

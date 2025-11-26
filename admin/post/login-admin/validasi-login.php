@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     else
     {
+        $_SESSION['login_error'] = "Email atau password salah.";
         header("Location: ../../login-admin.php");
     }
 }

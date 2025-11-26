@@ -26,7 +26,7 @@
                 <li><a href="<?php echo DOCUMENT_ROOT; ?>informasi/berita.php">Berita</a></li>
             </ul>
         </li>
-        <li><a id="navbar-kontak" href="#kontak" class="nav-menu-btn">Kontak</a></li>
+        <li><a id="navbar-kontak" href="<?php echo DOCUMENT_ROOT; ?>#kontak" class="nav-menu-btn">Kontak</a></li>
     </ul>
 </nav>
 

@@ -1,7 +1,12 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_admin.php";
 
-$error_message = '';
+if (isset($_SESSION['login_error'])) {
+    $error_message = $_SESSION['login_error'];
+    unset($_SESSION['login_error']);
+} else {
+    $error_message = "";
+}
 
 
 ?>

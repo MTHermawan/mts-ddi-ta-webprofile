@@ -43,7 +43,7 @@
         <li>
             <a href="<?php echo ADMIN_PATH; ?>manajemen-ekskul.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-ekskul.php") echo "active"; ?>">
                 <i class="fa-solid fa-medal"></i>
-                <span class="menu-text">ekstrakurikuler</span>
+                <span class="menu-text">Ekstrakurikuler</span>
             </a>
         </li>
         <li>

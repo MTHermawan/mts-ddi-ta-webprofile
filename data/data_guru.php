@@ -127,4 +127,17 @@ function DeleteGuru($id_guru)
     HapusFile($data["url_foto"]);
     return true;
 }
+
+function GetInitialName($nama_guru) {
+    $words = explode(" ", trim($nama_guru));
+    $initials = "";
+
+    foreach ($words as $word) {
+        if (!empty($word)) {
+            $initials .= strtoupper($word[0]);
+        }
+    }
+
+    return $initials;
+}
 ?>
