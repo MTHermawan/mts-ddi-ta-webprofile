@@ -1,12 +1,4 @@
 /*              MAIN CONTENT                */
-.main-content {
-	height: auto;
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  gap: 20px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -17,8 +9,8 @@
   padding: 20px;
 }
 
-.form {
-	width: 100%;
+.vision-form {
+  width: 100%;
   display: flex;
   background-color: white;
   border-radius: 16px;
@@ -27,7 +19,13 @@
   gap: 20px;
 }
 
-.card {
+.vision-mision-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.form-card {
   flex: 1;
   background-color: white;
   border-radius: 16px;
@@ -37,7 +35,7 @@
   align-items: center;
 }
 
-.card-detail {
+.form-card-content {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -45,13 +43,13 @@
   gap: 8px;
 }
 
-.card-header {
+.form-card-header {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.card-logo {
+.form-icon {
   background-color: #f1f3f6;
   display: flex;
   align-items: center;
@@ -63,17 +61,17 @@
   transition: all 0.2s ease;
 }
 
-.card-logo img {
-  width: 36px;
+.form-icon img {
+  width: 32px;
 }
 
-.card-label {
+.form-label {
   font-size: 16px;
   font-weight: 500;
   color: rgb(102, 112, 133);
 }
 
-.card-input {
+.form-input-container {
   flex: 1;
   /* background-color: aqua; */
   display: flex;
@@ -84,7 +82,7 @@
   height: 100%;
 }
 
-.card-input-detail {
+.form-input-wrapper {
   flex: 1;
   height: 100%;
   display: flex;
@@ -94,7 +92,7 @@
   box-sizing: border-box;
 }
 
-.visi, .misi, .tujuan {
+.form-textarea {
   padding: 8px 8px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -103,32 +101,33 @@
   box-sizing: border-box;
   width: 100%;
   transition: all 0.2s ease;
-	height: 200px;
+  height: 112px;
   line-height: 1.5;
 }
 
 #tujuan {
-	height: 300px;
+  height: 132px;
 }
 
-textarea.visi:focus, textarea.misi:focus, textarea.tujuan:focus  {
+textarea.form-textarea:focus {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
   outline: none;
 }
 
-.button-container {
+.form-actions {
   display: flex;
   justify-content: space-between;
 }
 
-.button {
+.btn-save {
   width: 100px;
   appearance: none;
   background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: rgb(29, 41, 57);
   cursor: pointer;
@@ -148,35 +147,34 @@ textarea.visi:focus, textarea.misi:focus, textarea.tujuan:focus  {
   word-wrap: break-word;
 }
 
-.button:hover {
-  background-color: #F2F4F7;
+.btn-save:hover {
+  background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button:disabled {
-  background-color: #FAFBFC;
+.btn-save:disabled {
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
-.button:active {
-  background-color: #EDEFF2;
+.btn-save:active {
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button:focus {
+.btn-save:focus {
   outline: 1px transparent;
 }
 
-.button:before {
+.btn-save:before {
   display: none;
 }
 
-.button:-webkit-details-marker {
+.btn-save:-webkit-details-marker {
   display: none;
 }
-

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTS DDI Tani Aman - Pendidikan Berkarakter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-light: #34d399;
+            --primary-dark: #059669;
+            --slate-dark: #1e293b;
+            --slate-light: #f1f5f9;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .navbar-brand-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.65rem;
+            margin-left: 0.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--slate-light);
+            color: var(--primary);
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .navbar-menu {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .dropdown-menu {
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            .dropdown:hover .dropdown-menu {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(5, 150, 105, 0.9) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23059669" width="1200" height="600"/><path fill="%2310b981" opacity="0.1" d="M0 300 Q 300 200 600 300 T 1200 300 L 1200 600 L 0 600 Z"/><circle cx="200" cy="150" r="80" fill="%23ffffff" opacity="0.05"/><circle cx="1000" cy="500" r="120" fill="%23ffffff" opacity="0.03"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Statistics Bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--slate-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 3rem 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== NEWS SECTION ===== */
+        .news {
+            padding: 5rem 2rem;
+            background: var(--slate-light);
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-featured {
+            grid-column: span 2;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .news-featured .news-card-image {
+            height: 350px;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-date {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .news-featured .news-card-title {
+            font-size: 1.8rem;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .news-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .news-link:hover {
+            gap: 0.75rem;
+        }
+
+        .news-recent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-featured {
+                grid-column: span 1;
+            }
+
+            .news-recent {
+                grid-template-columns: 1fr;
+            }
+
+            .news {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .carousel-button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .carousel-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .carousel-container {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                gap: 1rem;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-item {
+                height: 250px;
+                font-size: 2rem;
+            }
+
+            .gallery {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--slate-dark);
+            color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .maps-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .maps-placeholder {
+                height: 300px;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0f172a;
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <div class="navbar-brand-icon">MT</div>
+            MTS DDI Tani Aman
+        </a>
+        <ul class="navbar-menu">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Program</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#akademik">Program Akademik</a></li>
+                    <li><a href="#ekstrakurikuler">Ekstrakurikuler</a></li>
+                    <li><a href="#tahfiz">Program Tahfiz</a></li>
+                </ul>
+            </li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
+            <p>Membangun generasi yang cerdas, beriman, dan berwawasan global</p>
+            <button class="cta-button" onclick="document.getElementById('tentang').scrollIntoView({behavior: 'smooth'})">Pelajari Lebih Lanjut</button>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about" id="tentang">
+        <h2 class="section-title">Tentang MTS DDI Tani Aman</h2>
+        
+        <div class="about-content">
+            <div class="about-image">
+                📚
+            </div>
+            <div class="about-text">
+                <h2>Visi & Misi Kami</h2>
+                <p>MTS DDI Tani Aman berdedikasi untuk menyediakan pendidikan berkualitas tinggi yang menggabungkan nilai-nilai Islam dengan teknologi modern. Kami percaya bahwa setiap siswa memiliki potensi unik yang perlu dikembangkan.</p>
+                <p>Kurikulum kami dirancang untuk menghasilkan lulusan yang tidak hanya akademis unggul, tetapi juga memiliki karakter kuat dan kepemimpinan yang inspiratif.</p>
+                <p>Dengan fasilitas modern dan guru yang berpengalaman, kami berkomitmen menciptakan lingkungan belajar yang inklusif dan mendukung perkembangan holistik setiap siswa.</p>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🎓</div>
+                <div class="stat-number">850+</div>
+                <div class="stat-label">Siswa Aktif</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🏫</div>
+                <div class="stat-number">65+</div>
+                <div class="stat-label">Guru Profesional</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎖️</div>
+                <div class="stat-number">2500+</div>
+                <div class="stat-label">Lulusan Sukses</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWS SECTION ===== -->
+    <section class="news" id="berita">
+        <div class="news-container">
+            <h2 class="section-title">Berita & Informasi</h2>
+
+            <!-- Featured News -->
+            <div class="news-grid">
+                <div class="news-card news-featured">
+                    <div class="news-card-image">📰</div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">15 November 2024</div>
+                        <h3 class="news-card-title">Peluncuran Program Tahfiz Al-Qur'an Terpadu dengan Teknologi AI</h3>
+                        <p class="news-card-excerpt">MTS DDI Tani Aman dengan bangga mengumumkan peluncuran program tahfiz terbaru yang mengintegrasikan teknologi kecerdasan buatan untuk membantu siswa dalam proses menghafal Al-Qur'an dengan lebih efektif dan menyenangkan...</p>
+                        <a href="#" class="news-link">Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-image">🏆</div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">10 November 2024</div>
+                        <h3 class="news-card-title">Penghargaan Sekolah Berprestasi Tingkat Provinsi</h3>
+                        <p class="news-card-excerpt">Prestasi gemilang diraih dalam ajang penghargaan sekolah berprestasi se-Provinsi Sulawesi Selatan...</p>
+                        <a href="#" class="news-link">Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent News -->
+            <h3 style="font-size: 1.3rem; margin-bottom: 2rem; color: var(--text-dark);">Berita Terbaru Lainnya</h3>
+            <div class="news-recent">
+                <div class="news-card">
+                    <div class="news-card-image">🎨</div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">5 November 2024</div>
+                        <h3 class="news-card-title">Festival Seni & Budaya 2024</h3>
+                        <p class="news-card-excerpt">Siswa menampilkan bakat mereka di panggung besar...</p>
+                        <a href="#" class="news-link">Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-image">⚽</div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">1 November 2024</div>
+                        <h3 class="news-card-title">Juara Turnamen Olahraga Antar SMP</h3>
+                        <p class="news-card-excerpt">Tim sepak bola sekolah meraih prestasi gemilang...</p>
+                        <a href="#" class="news-link">Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-image">💻</div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">25 Oktober 2024</div>
+                        <h3 class="news-card-title">Workshop Coding untuk Siswa</h3>
+                        <p class="news-card-excerpt">Program pelatihan teknologi untuk mengembangkan keterampilan...</p>
+                        <a href="#" class="news-link">Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="gallery" id="galeri">
+        <h2 class="section-title">Galeri Kegiatan</h2>
+        
+        <div class="carousel">
+            <button class="carousel-button" onclick="moveCarousel(-1)">❮</button>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-item">📷 Upacara Bendera</div>
+                    <div class="carousel-item">🎓 Wisuda Kelas IX</div>
+                    <div class="carousel-item">🕌 Kegiatan Spiritual</div>
+                    <div class="carousel-item">🏃 Olahraga & Kesehatan</div>
+                    <div class="carousel-item">📚 Pembelajaran Interaktif</div>
+                </div>
+            </div>
+            <button class="carousel-button" onclick="moveCarousel(1)">❯</button>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact" id="kontak">
+        <div class="contact-container">
+            <div class="contact-info-group">
+                <h2 class="section-title" style="color: var(--white); text-align: left; margin-bottom: 2rem;">Hubungi Kami</h2>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h3>Telepon</h3>
+                        <p>(0481) 855-1234</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>info@mtsdditaniaman.ac.id</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Alamat</h3>
+                        <p>Jl. Pendidikan No. 42, Tani Aman, Makassar, Sulawesi Selatan 90241</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="maps-placeholder">
+                🗺️ Google Maps Placeholder
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>&copy; 2025 MTS DDI Tani Aman. Semua Hak Dilindungi. | Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</p>
+    </footer>
+
+    <!-- ===== CAROUSEL SCRIPT ===== -->
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = track.children.length;
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= slides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = slides - 1;
+            }
+
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-rotate carousel every 5 seconds
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const element = document.querySelector(href);
+                    if (element) {
+                        element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

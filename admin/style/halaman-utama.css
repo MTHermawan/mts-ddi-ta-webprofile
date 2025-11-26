@@ -121,7 +121,7 @@
 }
 
 .btn-edit:hover {
-  background-color: #F2F4F7;
+  background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
@@ -159,7 +159,7 @@
   width: 100%;
   background-color: white;
   box-shadow: 0 0 0 0.9px #dde1e5;
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 0px 20px;
   box-sizing: border-box;
 }
@@ -250,7 +250,12 @@
   color: rgb(102, 112, 133);
 }
 
-#instagram, #facebook, #youtube, #email, #maps, #location {
+#instagram,
+#facebook,
+#youtube,
+#email,
+#maps,
+#location {
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -261,7 +266,12 @@
   transition: all 0.2s ease;
 }
 
-input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:focus, textarea#maps:focus, input#location:focus  {
+input#instagram:focus,
+input#facebook:focus,
+input#youtube:focus,
+input#email:focus,
+textarea#maps:focus,
+input#location:focus {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
   outline: none;
@@ -286,7 +296,8 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
   background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: rgb(29, 41, 57);
   cursor: pointer;
@@ -307,21 +318,21 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
 }
 
 .btn-save:hover {
-  background-color: #F2F4F7;
+  background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .btn-save:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .btn-save:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -337,3 +348,14 @@ input#instagram:focus, input#facebook:focus, input#youtube:focus, input#email:fo
 .btn-save:-webkit-details-marker {
   display: none;
 }
+
+/* .location-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 0 0.9px #dde1e5;
+  border-radius: 24px;
+  padding: 0px 20px;
+  box-sizing: border-box;
+} */

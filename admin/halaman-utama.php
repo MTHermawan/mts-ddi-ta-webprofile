@@ -27,12 +27,13 @@
 
     <!-- Main Content -->
     <div class="main-content">
-      <!-- main content row 1 -->
+
+      <!-- main content stats -->
       <div class="stats-container">
         <div class="stat-card">
           <div class="stat-content">
             <div class="stat-icon">
-              <img src="../assets/icon-student.png" alt="Student Icon" />
+              <img src="../assets/icon-students.svg" alt="Student Icon" />
             </div>
             <div class="stat-info">
               <div class="divider-vertical"></div>
@@ -50,7 +51,7 @@
         <div class="stat-card">
           <div class="stat-content">
             <div class="stat-icon">
-              <img src="../assets/icon-teacher.png" alt="teacher Icon" />
+              <img src="../assets/icon-teachers.svg" alt="teacher Icon" />
             </div>
             <div class="stat-info">
               <div class="divider-vertical"></div>
@@ -68,7 +69,7 @@
         <div class="stat-card">
           <div class="stat-content">
             <div class="stat-icon">
-              <img src="../assets/icon-graduate.png" alt="graduate Icon" />
+              <img src="../assets/icon-graduates.svg" alt="graduate Icon" />
             </div>
             <div class="stat-info">
               <div class="divider-vertical"></div>
@@ -105,14 +106,14 @@
         </div>
       </div>
 
-      <!-- main content row 21-->
-      <div class="social-container">
+      <!-- main content media social -->
+      <form action="" class="social-container">
         <div class="social-row">
           <div class="social-card">
-            <form action="" class="social-form social-form-left">
+            <div class="social-form social-form-left">
               <div class="social-icon">
                 <img
-                  src="../assets/icon-instagram.png"
+                  src="../assets/icon-instagram.svg"
                   alt="instagram Icon" />
               </div>
               <div class="social-info">
@@ -126,13 +127,13 @@
                     placeholder="https://instagram.com/....." />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
 
           <div class="social-card">
-            <form action="" class="social-form social-form-right">
+            <div class="social-form social-form-right">
               <div class="social-icon">
-                <img src="../assets/icon-facebook.png" alt="facebook Icon" />
+                <img src="../assets/icon-facebook.svg" alt="facebook Icon" />
               </div>
               <div class="social-info">
                 <div class="social-details">
@@ -145,16 +146,16 @@
                     placeholder="https://facebook.com/....." />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
-        <!-- main content row 22 -->
+
         <div class="social-row">
           <div class="social-card">
-            <form action="" class="social-form social-form-left">
+            <div class="social-form social-form-left">
               <div class="social-icon">
-                <img src="../assets/icon-youtube.png" alt="youtube Icon" />
+                <img src="../assets/icon-youtube.svg" alt="youtube Icon" />
               </div>
               <div class="social-info">
                 <div class="social-details">
@@ -167,13 +168,13 @@
                     placeholder="https://youtube.com/....." />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
 
           <div class="social-card social-card-right">
-            <form action="" class="social-form social-form-right">
+            <div class="social-form social-form-right">
               <div class="social-icon">
-                <img src="../assets/icon-email.png" alt="email Icon" />
+                <img src="../assets/icon-email.svg" alt="email Icon" />
               </div>
               <div class="social-info">
                 <div class="social-details">
@@ -186,17 +187,16 @@
                     placeholder="email@example.com" />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
-        <!-- main content row 23 -->
         <div class="social-row social-row-full">
           <div class="social-card social-card-full">
-            <form action="" class="social-form">
+            <div class="social-form">
               <div class="social-icon">
                 <img
-                  src="../assets/icon-alamat.png"
+                  src="../assets/icon-location.svg"
                   alt="Extracurricular Icon" />
               </div>
               <div class="social-info">
@@ -210,14 +210,13 @@
                     placeholder="Masukkan Alamat Lengkap" />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
-        <!-- main content row 24 -->
         <div class="social-row">
           <div class="social-card social-card-full">
-            <form action="" class="social-form">
+            <div class="social-form">
               <div class="social-icon">
                 <img
                   src="../assets/icon-link.svg"
@@ -235,7 +234,7 @@
                     placeholder="Masukkan Alamat Lengkap" />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -244,7 +243,10 @@
           <button class="btn-save">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
-      </div>
+      </form>
+
+      <!-- main content location -->
+      <form action="" class="location-container"></form>
     </div>
   </div>
   <script src="./script/dashboard-admin.js"></script>
