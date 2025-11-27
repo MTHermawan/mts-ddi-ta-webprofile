@@ -65,14 +65,17 @@ include_once "../data/utility.php";
                 <th>Nama</th>
                 <th>Mata Pelajaran</th>
                 <th>Gelar</th>
-                <th>Aksi</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">LC</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Lindsey Curtis">
+                      <div class="teacher-avatar-initials">LC</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Lindsey Curtis</h3>
                     </div>
@@ -90,7 +93,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">KG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Kaiya George">
+                      <div class="teacher-avatar-initials">KG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Kaiya George</h3>
                     </div>
@@ -108,7 +114,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">ZG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Kaiya George">
+                      <div class="teacher-avatar-initials">ZG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Zain Geldt</h3>
                     </div>
@@ -126,7 +135,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">AS</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Abram Schleifer">
+                      <div class="teacher-avatar-initials">AS</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Abram Schleifer</h3>
                     </div>
@@ -144,7 +156,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">CG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carla George">
+                      <div class="teacher-avatar-initials">CG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Carla George</h3>
                     </div>
@@ -262,10 +277,11 @@ include_once "../data/utility.php";
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/manajemen-guru.js"></script>
 </body>
 
 </html>
