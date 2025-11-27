@@ -165,42 +165,48 @@ include_once "../data/utility.php";
       </div>
     </div>
 
-
-    <!-- POP UP TAMBAH GURU -->
-    <div class="popup-overlay" id="popup">
-      <div class="popup-content">
+    <!-- POP UP TAMBAH/EDIT -->
+    <div class="popup-overlay-form" id="popup">
+      <div class="popup-content-form">
         <div class="popup-header">
-          <h2 class="popup-title">Tambah Guru</h2>
+          <h2 class="popup-title" id="popupTitle">Tambah Guru</h2>
           <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
           </button>
         </div>
 
-        <!-- Input Gambar -->
         <div class="image-input-container">
           <label class="image-input-label">Foto Guru</label>
           <div class="image-upload-area" id="imageUploadArea">
-            <input type="file" class="image-input" id="imageInput" accept="image/*">
+            <input
+              type="file"
+              class="image-input"
+              id="imageInput"
+              accept="image/*" />
 
-            <!-- Placeholder (default state) -->
             <div class="image-placeholder" id="imagePlaceholder">
               <div class="image-placeholder-icon">
                 <i class="fas fa-cloud-upload-alt"></i>
               </div>
               <div class="image-placeholder-text">
                 <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+                <p>PNG, JPG, JPEG</p>
               </div>
             </div>
 
-            <!-- Preview gambar -->
             <div class="image-preview" id="imagePreview">
-              <img id="previewImage" src="" alt="Preview">
+              <img id="previewImage" src="" alt="Preview" />
               <div class="image-preview-actions">
-                <button type="button" class="preview-action-btn change" onclick="triggerImageInput()">
+                <button
+                  type="button"
+                  class="preview-action-btn change"
+                  onclick="triggerImageInput()">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
-                <button type="button" class="preview-action-btn remove" onclick="removeImage()">
+                <button
+                  type="button"
+                  class="preview-action-btn remove"
+                  onclick="removeImage()">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -208,26 +214,46 @@ include_once "../data/utility.php";
           </div>
         </div>
 
-        <!-- Input Teks -->
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Nama</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan nama guru">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan nama guru" />
         </div>
 
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan mata pelajaran yang diampu">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan mata pelajaran yang diampu" />
         </div>
 
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Gelar</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan gelar guru">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan gelar guru" />
         </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions">
-          <button type="button" class="popup-btn cancel" onclick="closePopup()"><i class="fas fa-times"></i> Batal</button>
-          <button type="button" class="popup-btn submit" onclick="submitForm()"><i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        <div class="popup-actions-form">
+          <button
+            type="button"
+            class="popup-btn-form cancel"
+            onclick="closePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-form submit"
+            onclick="submitForm()">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
         </div>
       </div>
     </div>

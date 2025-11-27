@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Admin</title>
+  <title>Halaman Utama</title>
   <link rel="stylesheet" href="./style/dashboard.css" />
   <link rel="stylesheet" href="./style/halaman-utama.css" />
   <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
