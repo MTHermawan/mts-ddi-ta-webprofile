@@ -18,6 +18,7 @@ if (isset($_SESSION['login_error'])) {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Login</title>
     <link rel="stylesheet" href="./style/login-admin.css" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
 
   <body>
@@ -68,6 +69,7 @@ if (isset($_SESSION['login_error'])) {
             <p class="message-error">
               <?php echo htmlspecialchars($error_message); ?>
             </p>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACDLpnaIbrSMA1VB"></div>
             <button type="submit">Login</button>
           </form>
         </div>
