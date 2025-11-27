@@ -41,7 +41,7 @@ include_once "../data/utility.php";
           <button class="export button">
             <i class="fa-solid fa-file-export"></i> Export CSV
           </button>
-          <button class="add button" id="btn_tambah_guru" onclick="openPopup()">
+          <button class="add button" id="btn_tambah_guru" onclick="openPopup('Tambah Guru')">
             <i class="fa-solid fa-plus"></i> Tambah Guru
           </button>
         </div>
@@ -73,7 +73,7 @@ include_once "../data/utility.php";
                 <td>
                   <div class="teacher-info">
                     <div class="teacher-avatar">
-                      <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Lindsey Curtis">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Kaiya George">
                       <div class="teacher-avatar-initials">LC</div>
                     </div>
                     <div class="teacher-details">
@@ -177,6 +177,7 @@ include_once "../data/utility.php";
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
 
@@ -217,8 +218,7 @@ include_once "../data/utility.php";
               <div class="image-preview-actions">
                 <button
                   type="button"
-                  class="preview-action-btn change"
-                  onclick="triggerImageInput()">
+                  class="preview-action-btn change">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
                 <button
@@ -238,7 +238,7 @@ include_once "../data/utility.php";
           <input
             type="text"
             class="text-input"
-            id="titleInput"
+            id="inputName"
             placeholder="Masukkan nama guru" />
         </div>
 
@@ -247,7 +247,7 @@ include_once "../data/utility.php";
           <input
             type="text"
             class="text-input"
-            id="titleInput"
+            id="inputSubject"
             placeholder="Masukkan mata pelajaran yang diampu" />
         </div>
 
@@ -256,7 +256,7 @@ include_once "../data/utility.php";
           <input
             type="text"
             class="text-input"
-            id="titleInput"
+            id="inputDegree"
             placeholder="Masukkan gelar guru" />
         </div>
 
@@ -273,6 +273,54 @@ include_once "../data/utility.php";
             class="popup-btn-form submit"
             onclick="submitForm()">
             <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- POP UP KONFIRMASI DELETE -->
+    <div class="popup-overlay-delete" id="deletePopup">
+      <div class="popup-content-delete">
+        <div class="popup-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+
+        <h2 class="popup-title">Hapus Data?</h2>
+
+        <p class="popup-message">
+          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+          dihapus sudah benar.
+        </p>
+
+        <!-- Informasi Data yang Akan Dihapus -->
+        <div class="popup-data-info">
+          <div class="data-item">
+            <span class="data-label">Nama:</span>
+            <span class="data-value" id="dataName">Lindsey Curtis</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Mata Pelajaran:</span>
+            <span class="data-value" id="dataSubject">Teknologi Informasi</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Gelar:</span>
+            <span class="data-value" id="dataDegree">S.Kom</span>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete()">
+            Hapus
           </button>
         </div>
       </div>
