@@ -1,5 +1,7 @@
-<?php include_once "../data/koneksi.php";
-include_once "../data/data_guru.php";
+<?php session_start();
+require_once "./includes/check-auth.php";
+include_once "../data/koneksi.php";
+include_once "../data/data_staff.php";
 include_once "../data/utility.php";
 
 ?>
