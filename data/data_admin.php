@@ -1,105 +1,145 @@
-<?php include_once 'koneksi.php';
-include_once 'utility.php';
-
-// Referensi Model Data Admin
-// - email string
-// - nama string
-// - password string
-// - tanggal_register string
-
-function InsertAdmin($email, $nama, $password)
-{
-    // Ngambil koneksi dari variabel global
-    global $koneksi;
-
-    // Query, tanda "?" menandakan parameter yang akan di-bind
-    $sql = "INSERT INTO admin (email, nama, password) VALUES (?, ?, ?)";
-    $stmt = $koneksi->prepare($sql);
-
-    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("sss", $email, $nama, $password);
-    return $stmt->execute();
-}
+<?php
+include_once "koneksi.php";
 
 function GetAllAdmin()
 {
     global $koneksi;
-
-    $data = [];
     $sql = "SELECT * FROM admin";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
+    }
+    
+    return $result;
+}
+
+function GetAdminByUsername($email)
+{
+    global $koneksi;
+    $email = mysqli_real_escape_string($koneksi, $email);
+    $sql = "SELECT * FROM admin WHERE email = '$email'";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
+    }
+    
+    return mysqli_fetch_assoc($result);
+}
+
+function ValidasiLogin($email, $password)
+{
+    $admin = GetAdminByUsername($email);
+    $stored_hash = password_hash($admin['password'], PASSWORD_DEFAULT);
+    
+    if ($admin && password_verify($password, $stored_hash)) {
+        return $admin;
+    }
+    
+    return false;
+}
+
+function CreateRememberToken($email, $token, $expires_days = 30)
+{
+    global $koneksi;
+    $email = mysqli_real_escape_string($koneksi, $email);
+    $token = mysqli_real_escape_string($koneksi, $token);
+    
+    $expires_at = date('Y-m-d H:i:s', strtotime("+{$expires_days} days"));
+    
+    $sql = "INSERT INTO admin_remember_tokens (email, token, expires_at) 
+            VALUES ('$email', '$token', '$expires_at')";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
+    }
+    
+    return true;
+}
+
+function ValidateRememberToken($token)
+{
+    global $koneksi;
+    $token = mysqli_real_escape_string($koneksi, $token);
+    
+    // Check if token exists and hasn't expired
+    $sql = "SELECT art.id, art.email, art.token, art.expires_at, a.* 
+            FROM admin_remember_tokens AS art
+            JOIN admin a ON art.email = a.email
+            WHERE art.token = '$token' AND art.expires_at > NOW()";
     $result = $koneksi->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
     }
-
-    return $data;
+    
+    $admin = mysqli_fetch_assoc($result);
+    
+    if (!$admin) {
+        // Token not found or expired, delete it
+        DeleteRememberToken($token);
+        return false;
+    }
+    
+    return $admin;
 }
 
-function UpdateAdmin($email, $nama, $password)
+function DeleteRememberToken($token)
 {
     global $koneksi;
-
-    $sql = "UPDATE informasi SET nama = ?, password = ? WHERE email = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssss", $nama, $password, $email);
-    return $stmt->execute();
+    $token = mysqli_real_escape_string($koneksi, $token);
+    
+    $sql = "DELETE FROM admin_remember_tokens WHERE token = '$token'";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
+    }
+    
+    return true;
 }
 
-function GetAdminByEmail($email)
+function DeleteAdminRememberTokens($email)
 {
     global $koneksi;
-
-    $sql = "SELECT * FROM admin WHERE email = ?";
-    $stmt = $koneksi->prepare($sql);
-
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        return $result->fetch_assoc();
+    $email = mysqli_real_escape_string($koneksi, $email);
+    
+    $sql = "DELETE FROM admin_remember_tokens WHERE email = '$email'";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
     }
-    return null;
+    
+    return true;
 }
 
-function GetAdminByUsername($username)
+function CleanupExpiredTokens()
 {
     global $koneksi;
-
-    // Query, tanda "?" menandakan parameter yang akan di-bind
-    $sql = "SELECT * FROM admin WHERE nama = ?";
-    $stmt = $koneksi->prepare($sql);
-
-    // Data Binding, setiap karakter dalam parameter pertama merupakan tipe data dari masing-masing kolom (s = string, i = integer)
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        return $result->fetch_assoc();
+    
+    $sql = "DELETE FROM admin_remember_tokens WHERE expires_at < NOW()";
+    $result = mysqli_query($koneksi, $sql);
+    
+    if (!$result) {
+        die("Query error: " . mysqli_error($koneksi));
     }
-    return null;
+    
+    return true;
 }
 
-function ValidasiLogin($input_email, $input_password)
+function LogoutAdmin()
 {
     global $koneksi;
-
-    $sql = "SELECT * FROM admin WHERE email = ? AND password = ?";
-    $stmt = $koneksi->prepare($sql);
-
-    $stmt->bind_param("ss", $input_email, $input_password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-        if ($data["email"] === $input_email && $data["password"] === $input_password) {
-            return $data;
-        }
+    
+    // Delete all remember tokens for this admin (logout all devices)
+    if (isset($_SESSION['email'])) {
+        DeleteAdminRememberTokens($_SESSION['email']);
     }
-    return null;
+    
+    session_destroy();
+    setcookie('admin_remember', '', time() - 3600, '/');
 }
-
 ?>

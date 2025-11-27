@@ -1,18 +1,19 @@
 <?php include_once 'koneksi.php';
 include_once 'utility.php';
 
-// Referensi Model Data Guru
-// - id_guru int (auto increment)
-// - nama_guru string
+// Referensi Model Data Staff
+// - id_staff int (auto increment)
+// - nama_staff string
+// - jabatan string
 // - mapel string
 // - url_foto string
-// - gelar string
+// - pendidikan string
 // - tanggal_dibuat string
 
-$asset_subdir = "guru/";
+$asset_subdir = "staff/";
 
-// Menambahkan baris data guru baru (CREATE)
-function InsertGuru($nama_guru, $mapel, $gelar, $file_foto)
+// Menambahkan baris data staff baru (CREATE)
+function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
@@ -21,29 +22,31 @@ function InsertGuru($nama_guru, $mapel, $gelar, $file_foto)
     if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "INSERT INTO guru (nama_guru, mapel, gelar, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO staff (nama_staff, jabatan, mapel, pendidikan, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssss", $nama_guru, $mapel, $gelar, $url_foto);
+    $stmt->bind_param("sssss", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto);
 
     // Menarik file kembali jika gagal
     if (!($stmt->execute())) {
+        echo "Error: " . $stmt->error;
         HapusFile($asset_subdir . $file_foto['name']);
         return false;
     }
+    echo "New record created successfully";
 
     return true;
 }
 
-// Mendapatkan data guru (READ)
-function GetGuruById($id_guru)
+// Mendapatkan data staff (READ)
+function GetStaffById($id_staff)
 {
     global $koneksi;
 
     $data = null;
-    $sql = "SELECT * FROM guru WHERE id_guru = ?";
+    $sql = "SELECT * FROM staff WHERE id_staff = ?";
     $stmt = $koneksi->prepare($sql);
     
-    $stmt->bind_param("i", $id_guru);
+    $stmt->bind_param("i", $id_staff);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -59,12 +62,12 @@ function GetGuruById($id_guru)
     return $data;
 }
 
-function GetAllGuru()
+function GetAllStaff()
 {
     global $koneksi;
 
     $data = [];
-    $sql = "SELECT * FROM guru";
+    $sql = "SELECT * FROM staff";
     $result = $koneksi->query($sql);
 
     if ($result->num_rows > 0) {
@@ -80,22 +83,22 @@ function GetAllGuru()
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateGuru($id_guru, $nama_guru, $mapel, $gelar, $file_foto)
+function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
 
     // Mengambil data lama
-    if (!($old_data = GetGuruById($id_guru)))
+    if (!($old_data = GetStaffById($id_staff)))
         return false;
 
     // Mengupload foto
     if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
         return false;
 
-    $sql = "UPDATE guru SET nama_guru = ?, mapel = ?, gelar = ?, url_foto = ?, WHERE id_guru = ?";
+    $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, pendidikan = ?, url_foto = ?, WHERE id_staff = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssssi", $nama_guru, $mapel, $gelar, $url_foto_baru, $id_guru);
+    $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto_baru, $id_staff);
 
     // Menarik kembali foto baru jika gagal
     if (!($stmt->execute())) {
@@ -108,17 +111,17 @@ function UpdateGuru($id_guru, $nama_guru, $mapel, $gelar, $file_foto)
     return true;
 }
 
-// Menghapus baris data guru berdasarkan ID (DELETE)
-function DeleteGuru($id_guru)
+// Menghapus baris data staff berdasarkan ID (DELETE)
+function DeleteStaff($id_staff)
 {
     global $koneksi;
 
-    if (!($data = GetGuruById($id_guru)))
+    if (!($data = GetStaffById($id_staff)))
         return false;
 
-    $sql = "DELETE FROM guru WHERE id_guru = ?";
+    $sql = "DELETE FROM staff WHERE id_staff = ?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id_guru);
+    $stmt->bind_param("i", $id_staff);
 
     if (!($stmt->execute()))
         return false;
@@ -128,8 +131,8 @@ function DeleteGuru($id_guru)
     return true;
 }
 
-function GetInitialName($nama_guru) {
-    $words = explode(" ", trim($nama_guru));
+function GetInitialName($nama_staff) {
+    $words = explode(" ", trim($nama_staff));
     $initials = "";
 
     foreach ($words as $word) {

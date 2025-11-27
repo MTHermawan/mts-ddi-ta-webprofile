@@ -208,15 +208,27 @@ body {
   line-height: 20px;
 }
 
-.form-container form,
-.password {
+.form-container form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+.password,
+.email,
+.captcha {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.captcha {
+  margin: 10px 0 0 0;
+}
+
 .form-container .login-form .email-label,
-.form-container .login-form .password-label {
+.form-container .login-form .password-label,
+.form-container .login-form .captcha-label {
   font-size: 16px;
   color: black;
 }
@@ -261,6 +273,20 @@ body {
   line-height: 15px;
 }
 
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.remember-me label {
+    cursor: pointer;
+    margin: 0;
+}
+
 .form-container .login-form button {
   background-color: #fff;
   border: 1px solid #d5d9d9;
@@ -277,7 +303,7 @@ body {
   position: relative;
   text-align: center;
   min-height: 40px;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .form-container .login-form button:hover {
@@ -285,10 +311,12 @@ body {
 }
 
 .form-container .login-form button:focus {
-  border: 2px solid #ec0029;
+  border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
   outline: 0;
 }
+
+
 
 @media (min-width: 768px) {
   .header {

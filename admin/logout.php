@@ -1,8 +1,9 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
+include_once "../data/data_admin.php";
 
-header('Location: ./login-admin.php');
+LogoutAdmin();
 
+header("Location: ./login-admin.php");
+exit();
 ?>
