@@ -175,6 +175,7 @@ include_once "../data/utility.php";
           </button>
         </div>
 
+        <!-- Input Gambar -->
         <div class="image-input-container">
           <label class="image-input-label">Foto Guru</label>
           <div class="image-upload-area" id="imageUploadArea">
@@ -184,16 +185,18 @@ include_once "../data/utility.php";
               id="imageInput"
               accept="image/*" />
 
+            <!-- Placeholder (default state) -->
             <div class="image-placeholder" id="imagePlaceholder">
               <div class="image-placeholder-icon">
                 <i class="fas fa-cloud-upload-alt"></i>
               </div>
               <div class="image-placeholder-text">
                 <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG</p>
+                <p>PNG, JPG, JPEG.</p>
               </div>
             </div>
 
+            <!-- Preview gambar -->
             <div class="image-preview" id="imagePreview">
               <img id="previewImage" src="" alt="Preview" />
               <div class="image-preview-actions">
@@ -214,6 +217,7 @@ include_once "../data/utility.php";
           </div>
         </div>
 
+        <!-- Input Teks -->
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Nama</label>
           <input
@@ -241,6 +245,7 @@ include_once "../data/utility.php";
             placeholder="Masukkan gelar guru" />
         </div>
 
+        <!-- Tombol Aksi -->
         <div class="popup-actions-form">
           <button
             type="button"
@@ -257,9 +262,10 @@ include_once "../data/utility.php";
         </div>
       </div>
     </div>
+    
   </div>
 
-  <script src="../admin/script/dashboard-admin.js"></script>
+  <script src="./script/dashboard-admin.js"></script>
 </body>
 
 </html>
