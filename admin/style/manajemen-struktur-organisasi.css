@@ -1,13 +1,4 @@
 /*              MAIN CONTENT                */
-.main-content {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  gap: 20px;
-}
-
-/*                MAIN CONTENT ROW 1           */
 .container {
   display: flex;
   flex-direction: column;
@@ -79,7 +70,6 @@
   flex: 1;
   /* background-color: aqua; */
   display: flex;
-  gap: 12px;
   align-items: center;
   gap: 4px;
   position: relative;
@@ -93,9 +83,6 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  box-shadow: 0 0 0 0.9px #dde1e5;
-  border-radius: 8px;
-  padding: 20px;
 }
 
 .struktur-organisasi-container {
@@ -107,6 +94,11 @@
   border-radius: 8px;
   background-color: #f9fafb;
   overflow: hidden;
+}
+
+.struktur-organisasi-container:hover {
+  border-color: rgba(4, 134, 0, 1);
+  background-color: rgba(4, 134, 0, 0.05);
 }
 
 .struktur-organisasi-placeholder {
@@ -123,7 +115,12 @@
 .struktur-organisasi-placeholder p {
   color: rgb(29, 41, 57);
   font-weight: 400px;
-  margin-top: 8px; 
+  margin-top: 8px;
+}
+
+.struktur-organisasi-placeholder p strong {
+  color: rgba(4, 134, 0, 1);
+  font-weight: 500;
 }
 
 .struktur-organisasi-image {
@@ -167,7 +164,8 @@ textarea.tujuan:focus {
 }
 
 .button-simpan,
-.button-upload {
+.button-upload,
+.button-hapus {
   width: 100px;
   appearance: none;
   background-color: white;
@@ -192,6 +190,17 @@ textarea.tujuan:focus {
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word;
+}
+
+.button-hapus {
+  background-color: white;
+  width: 160px;
+  color: #dc2626;
+  display: none;
+}
+
+.button-hapus:hover {
+  background-color: #fee2e2;
 }
 
 .button-upload {

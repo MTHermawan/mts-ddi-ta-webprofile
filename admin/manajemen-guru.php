@@ -65,14 +65,17 @@ include_once "../data/utility.php";
                 <th>Nama</th>
                 <th>Mata Pelajaran</th>
                 <th>Gelar</th>
-                <th>Aksi</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">LC</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Lindsey Curtis">
+                      <div class="teacher-avatar-initials">LC</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Lindsey Curtis</h3>
                     </div>
@@ -90,7 +93,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">KG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Kaiya George">
+                      <div class="teacher-avatar-initials">KG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Kaiya George</h3>
                     </div>
@@ -108,7 +114,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">ZG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Kaiya George">
+                      <div class="teacher-avatar-initials">ZG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Zain Geldt</h3>
                     </div>
@@ -126,7 +135,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">AS</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Abram Schleifer">
+                      <div class="teacher-avatar-initials">AS</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Abram Schleifer</h3>
                     </div>
@@ -144,7 +156,10 @@ include_once "../data/utility.php";
               <tr>
                 <td>
                   <div class="teacher-info">
-                    <div class="teacher-avatar">CG</div>
+                    <div class="teacher-avatar">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carla George">
+                      <div class="teacher-avatar-initials">CG</div>
+                    </div>
                     <div class="teacher-details">
                       <h3>Carla George</h3>
                     </div>
@@ -165,12 +180,11 @@ include_once "../data/utility.php";
       </div>
     </div>
 
-
-    <!-- POP UP TAMBAH GURU -->
-    <div class="popup-overlay" id="popup">
-      <div class="popup-content">
+    <!-- POP UP TAMBAH/EDIT -->
+    <div class="popup-overlay-form" id="popup">
+      <div class="popup-content-form">
         <div class="popup-header">
-          <h2 class="popup-title">Tambah Guru</h2>
+          <h2 class="popup-title" id="popupTitle">Tambah Guru</h2>
           <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
           </button>
@@ -180,7 +194,11 @@ include_once "../data/utility.php";
         <div class="image-input-container">
           <label class="image-input-label">Foto Guru</label>
           <div class="image-upload-area" id="imageUploadArea">
-            <input type="file" class="image-input" id="imageInput" accept="image/*">
+            <input
+              type="file"
+              class="image-input"
+              id="imageInput"
+              accept="image/*" />
 
             <!-- Placeholder (default state) -->
             <div class="image-placeholder" id="imagePlaceholder">
@@ -189,18 +207,24 @@ include_once "../data/utility.php";
               </div>
               <div class="image-placeholder-text">
                 <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+                <p>PNG, JPG, JPEG.</p>
               </div>
             </div>
 
             <!-- Preview gambar -->
             <div class="image-preview" id="imagePreview">
-              <img id="previewImage" src="" alt="Preview">
+              <img id="previewImage" src="" alt="Preview" />
               <div class="image-preview-actions">
-                <button type="button" class="preview-action-btn change" onclick="triggerImageInput()">
+                <button
+                  type="button"
+                  class="preview-action-btn change"
+                  onclick="triggerImageInput()">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
-                <button type="button" class="preview-action-btn remove" onclick="removeImage()">
+                <button
+                  type="button"
+                  class="preview-action-btn remove"
+                  onclick="removeImage()">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -211,29 +235,53 @@ include_once "../data/utility.php";
         <!-- Input Teks -->
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Nama</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan nama guru">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan nama guru" />
         </div>
 
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan mata pelajaran yang diampu">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan mata pelajaran yang diampu" />
         </div>
 
         <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Gelar</label>
-          <input type="text" class="text-input" id="titleInput" placeholder="Masukkan gelar guru">
+          <input
+            type="text"
+            class="text-input"
+            id="titleInput"
+            placeholder="Masukkan gelar guru" />
         </div>
 
         <!-- Tombol Aksi -->
-        <div class="popup-actions">
-          <button type="button" class="popup-btn cancel" onclick="closePopup()"><i class="fas fa-times"></i> Batal</button>
-          <button type="button" class="popup-btn submit" onclick="submitForm()"><i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        <div class="popup-actions-form">
+          <button
+            type="button"
+            class="popup-btn-form cancel"
+            onclick="closePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-form submit"
+            onclick="submitForm()">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
         </div>
       </div>
     </div>
+
   </div>
 
-  <script src="../admin/script/dashboard-admin.js"></script>
+  <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/manajemen-guru.js"></script>
 </body>
 
 </html>

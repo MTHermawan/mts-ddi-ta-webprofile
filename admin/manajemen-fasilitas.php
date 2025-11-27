@@ -69,10 +69,10 @@
     </div>
 
     <!-- POP UP TAMBAH FASILITAS -->
-    <div class="popup-overlay" id="popup">
-      <div class="popup-content">
+    <div class="popup-overlay-form" id="popup">
+      <div class="popup-content-form">
         <div class="popup-header">
-          <h2 class="popup-title">Tambah Fasilitas</h2>
+          <h2 class="popup-title" id="popupTitle">Tambah Fasilitas</h2>
           <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
           </button>
@@ -95,7 +95,7 @@
               </div>
               <div class="image-placeholder-text">
                 <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+                <p>PNG, JPG, JPEG.</p>
               </div>
             </div>
 
@@ -139,9 +139,19 @@
         </div>
 
         <!-- Tombol Aksi -->
-        <div class="popup-actions">
-          <button type="button" class="popup-btn cancel" onclick="closePopup()"><i class="fas fa-times"></i> Batal</button>
-          <button type="button" class="popup-btn submit" onclick="submitForm()"><i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        <div class="popup-actions-form">
+          <button
+            type="button"
+            class="popup-btn-form cancel"
+            onclick="closePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-form submit"
+            onclick="submitForm()">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
         </div>
       </div>
     </div>

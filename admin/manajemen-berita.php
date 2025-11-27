@@ -74,10 +74,10 @@
     </div>
 
     <!-- POP UP TAMBAH BERITA -->
-    <div class="popup-overlay" id="popup">
-      <div class="popup-content">
+    <div class="popup-overlay-form" id="popup">
+      <div class="popup-content-form">
         <div class="popup-header">
-          <h2 class="popup-title">Tambah Berita</h2>
+          <h2 class="popup-title" id="popupTitle">Tambah Berita</h2>
           <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
           </button>
@@ -144,9 +144,19 @@
         </div>
 
         <!-- Tombol Aksi -->
-        <div class="popup-actions">
-          <button type="button" class="popup-btn cancel" onclick="closePopup()"><i class="fas fa-times"></i> Batal</button>
-          <button type="button" class="popup-btn submit" onclick="submitForm()"><i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        <div class="popup-actions-form">
+          <button
+            type="button"
+            class="popup-btn-form cancel"
+            onclick="closePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-form submit"
+            onclick="submitForm()">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
         </div>
       </div>
     </div>
