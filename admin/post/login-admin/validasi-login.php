@@ -1,36 +1,38 @@
-<?php 
+<?php
 session_start();
 include_once "../../../data/koneksi.php";
 include_once "../../../data/data_admin.php";
 
+$redirect_url = "../../login-admin.php";
+
 function ValidateTurnstile($token, $secret, $remoteip = null)
 {
     $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-    
+
     $data = [
         'secret' => $secret,
         'response' => $token,
     ];
-    
+
     if ($remoteip) {
         $data['remoteip'] = $remoteip;
     }
-    
+
     $options = [
         'http' => [
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
             'content' => http_build_query($data),
         ],
     ];
-    
+
     $context = stream_context_create($options);
     $response = @file_get_contents($url, false, $context);
-    
+
     if ($response === FALSE) {
         return ['success' => false];
     }
-    
+
     return json_decode($response, true);
 }
 
@@ -47,19 +49,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!$validation['success']) {
         $_SESSION['login_error'] = "Verifikasi CAPTCHA gagal. Silakan coba lagi.";
         header("Location: ../../login-admin.php");
-        exit();
     }
 
     $data = ValidasiLogin($input_email, $input_password);
-    
+
     if ($data) {
         $_SESSION['admin_email'] = $data['email'];
 
         if (isset($_POST['remember']) && $_POST['remember'] == 'on') {
             $remember_token = bin2hex(random_bytes(32));
-            
+
             CreateRememberToken($data['email'], $remember_token, 30);
-            
+
             setcookie(
                 'admin_remember',
                 $remember_token,
@@ -73,17 +74,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             );
         }
 
-        header("Location: ../../halaman-utama.php");
-        exit();
-
+        $redirect_url = "../../halaman-utama.php";
+        if (isset($_SESSION['redirect_after_login'])) {
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+            $host = $_SERVER['HTTP_HOST'];
+            $check_redirect = $protocol . $host . "/" . $_SESSION['redirect_after_login'];
+            unset($_SESSION['redirect_after_login']);
+            
+            if (filter_var($check_redirect, FILTER_VALIDATE_URL)) {
+                $redirect_url = $check_redirect;
+            }
+        }
     } else {
         $_SESSION['last_email_input'] = $input_email;
         $_SESSION['login_error'] = "Email atau password salah.";
-        header("Location: ../../login-admin.php");
-        exit();
     }
-} else {
-    header("Location: ../../login-admin.php");
-    exit();
 }
+header("Location: $redirect_url");
 ?>
