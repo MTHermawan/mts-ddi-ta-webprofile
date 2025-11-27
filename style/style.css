@@ -108,11 +108,12 @@ body {
 
 .nav-menu a:hover {
     color: white;
-    box-shadow: 0 4px 12px rgb(4, 134, 0) ;
+    box-shadow: 0 4px 12px rgb(4, 134, 0);
 }
 
 .nav-menu a:hover::before {
     opacity: 1;
+    background: rgb(4, 134, 0);
 }
 
 
@@ -242,11 +243,11 @@ body {
   display: flex;
   width: 900px;
   gap: 30px;
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #0d7a00, #18a300);
   border-radius: 20px;
   padding: 30px;
   color: white;
-  box-shadow: 0 8px 24px rgba(157, 80, 187, 0.3);
+  box-shadow: 0 8px 24px rgba(4, 134, 0, 0.3);
   flex: 1;
   min-width: 0; 
 }
@@ -260,7 +261,7 @@ body {
   width: 50px;
   height: 50px;
   background: white;
-  color: #6e48aa;
+  color: #0b6b00;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -323,7 +324,7 @@ body {
 
 /* Kotak Kecil Umum */
 .kotak-kecil {
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #6BFF6B, #009900);
   border-radius: 16px;
   padding: 28px 20px; 
   display: flex;
@@ -379,12 +380,12 @@ body {
 
 
 .kotak-1 .small-icon {
-  background: linear-gradient(135deg, #bb86fc, #3700b3);
+  background: linear-gradient(135deg, #7CFF86, #0d9400);
   color: white;
 }
 
 .kotak-2 .small-icon {
-  background: linear-gradient(135deg, #03dac6, #018786);
+  background: linear-gradient(135deg, #7CFF86, #0d9400);
   color: white;
 }
 
@@ -398,7 +399,7 @@ body {
 }
 
 .kotak-bawah {
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #0d7a00, #18a300);
   border-radius: 16px;
   padding: 24px 20px;
   display: flex;
@@ -518,7 +519,7 @@ body {
 
 .icon-event {
   margin-right: 8px;
-  color: #6e48aa;
+  color: rgb(4, 134, 0);
 }
 
 .btn-event {
@@ -537,7 +538,7 @@ body {
 }
 
 .btn-event:hover {
-  color: #6e48aa; 
+  color: rgb(4, 134, 0);
   text-decoration: underline;
 }
 /* event section stop */
@@ -553,11 +554,11 @@ body {
   width: 13 00px;
   height: 500px;
   gap: 30px;
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #0d7a00, #18a300);
   border-radius: 20px;
   padding: 30px;
   color: white;
-  box-shadow: 0 8px 24px rgba(157, 80, 187, 0.3);
+  box-shadow: 0 8px 24px rgba(4, 134, 0, 0.3);
   flex: 1;
   min-width: 0; 
 }
@@ -579,7 +580,7 @@ body {
     width: 150px;
     height: 50px;
     background: white;
-    color: #6e48aa;
+    color: rgb(4, 134, 0);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -711,7 +712,7 @@ body {
 }
 
 .btn-news:hover {
-  color: #6e48aa;
+  color: rgb(4, 134, 0);
   text-decoration: underline;
 }
 
@@ -737,11 +738,11 @@ body {
   width: 400px;
   height: 250px;
   gap: 30px;
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #0d7a00, #18a300);
   border-radius: 20px;
   padding: 30px;
   color: white;
-  box-shadow: 0 8px 24px rgba(157, 80, 187, 0.3);
+  box-shadow: 0 8px 24px rgba(4, 134, 0, 0.3);
   flex: 1;
   min-width: 0;
 }
@@ -750,7 +751,7 @@ body {
     width: 50px;
     height: 50px;
     background: white;
-    color: #6e48aa;
+    color: rgb(4, 134, 0);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -780,10 +781,169 @@ body {
     border:  none;
 }
 
+@keyframes move {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+.kotak-besar:hover,
+.kotak-kecil:hover,
+.kotak-bawah:hover,
+.event-card:hover,
+.news-card:hover,
+.big-news:hover,
+.big-contact:hover {
+    animation: move 2s ease-in-out infinite;
+}
 
 
 
 /* contact section stop */
+
+
+/* footer */
+
+.footer {
+    background: linear-gradient(180deg, #022d0a 0%, #064d1a 100%);
+    color: #e6ffe6;
+    padding: 70px 120px 30px;
+    margin-top: 0px;
+}
+
+.footer-container {
+    color: white;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+}
+
+/* Brand Logo */
+/* .footer-logo {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #0b5c2c, #18a34a);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 12px;
+    animation: float 3s infinite ease-in-out;
+} */
+
+.footer-logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.footer-title {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: white;
+    max-width: 300px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background: #18a300;
+    transform: translateY(-4px);
+}
+
+/* Columns */
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin: 10px 0;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #cfd3e1;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #18a300;
+    padding-left: 5px;
+}
+
+/* Contact text */
+.footer-column p i {
+    color: #18a300;
+    margin-right: 8px;
+}
+
+/* Bottom */
+.footer-bottom {
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer {
+      padding: 50px 40px;
+  }
+  .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+      grid-template-columns: 1fr;
+  }
+  .footer-logo {
+      margin: auto;
+  }
+  .footer-brand {
+      text-align: center;
+  }
+  .footer-social {
+      justify-content: center;
+      display: flex;
+  }
+}
 
 /* note buatkan footer */
 /* perbaiki yang salah  */

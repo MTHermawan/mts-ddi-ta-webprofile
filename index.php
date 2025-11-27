@@ -310,5 +310,62 @@
     
     <script src="script/script.js"></script>
     <script src="script/navbar.js"></script>
+
+    <footer class="footer">
+    <div class="footer-container">
+
+        <!-- Kiri -->
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="style/logo-sekolah.png" alt="footer logo">
+            </div>
+            <h2 class="footer-title">MTS DDI Tani Aman</h2>
+            <p class="footer-desc">
+                Membangun generasi berkarakter, unggul dalam iman, ilmu, dan teknologi.
+            </p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Berita</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-column">
+            <h3>Ikuti Kami</h3>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Youtube</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+            <h3>Kontak</h3>
+            <p><i class="fa-solid fa-location-dot"></i> Jl. Tani Aman, Samboja</p>
+            <p><i class="fa-solid fa-phone"></i> 0898-9988-8899</p>
+            <p><i class="fa-solid fa-envelope"></i> info@mtsdditania.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
+    </div>
+</footer>
+
 </body>
 </html>

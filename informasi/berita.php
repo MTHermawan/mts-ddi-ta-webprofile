@@ -1,61 +1,171 @@
-<?php include_once "../data/koneksi.php"; 
-include_once "../data/data_informasi.php";
-
-$data_berita = GetAllBerita();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita</title>
+    <title>Berita Sekolah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/berita.css">
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
-
 <body>
-    <?php include "../includes/site-header.php"; ?>
 
+    <!-- HEADER -->
     <header>
-        <?php include "../includes/navbar.php"; ?>
-
-        <section id="hero">
-            <div class="hero-content">
-                <h1 class="judul-hero">Update Terkini dari MTs DDI Tani Aman</h1>
-                <h5>Informasi terbaru seputar kegiatan, prestasi, dan pengumuman resmi dari MTs DDI Tani Aman. Kami
-                    berkomitmen memberikan update yang akurat dan bermanfaat bagi siswa, orang tua, dan masyarakat.</h5>
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="../style/logo-sekolah.png" alt="logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Mts Ddi Tani Aman</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, ratione.</p>
+                </div>
             </div>
-        </section>
+
+            <div class="nav-menu">
+                <a href="../index.php">Home</a>
+                <a href="#">About</a>
+                <a href="#">Events</a>
+                <a href="#" class="active">News</a>
+                <a href="#">Galeri</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <section class="data-galeri">
-        <h1 class="head">Berita</h1>
-        <div class="data-galeri-con">
-            <?php foreach ($data_berita as $berita) { ?>
-                <div class="card">
-                    <!-- FOTO -->
-                    <?php if (file_exists("../assets/" . $berita["url_foto"])) { ?>
-                        <img src="<?php echo "../assets/" . $berita["url_foto"]; ?>" alt="" class="img-galeri">
-                    <?php } else { ?>
-                        <div class="empty-img-galeri"></div>
-                    <?php } ?>
+    <!-- CONTENT BERITA -->
+    <section class="berita-section">
+        <h1 class="judul-utama">Berita MTs DDI Tani Aman</h1>
+        <p class="sub-judul-berita">
+            Kumpulan informasi dan berita terbaru seputar kegiatan sekolah.
+        </p>
 
-                    <!-- DETAIL -->
-                    <div class="detail">
-                        <h1 class="judul"><?php echo $berita["judul"]; ?></h1>
-                        <h3 class="desk"><?php echo $berita["konten"]; ?></h3>
-                    </div>
+        <!-- Filter -->
+        <div class="filter-berita">
+            <button class="filter-btn aktif">Semua Berita</button>
+            <button class="filter-btn">Terbaru</button>
+        </div>
+
+        <!-- List berita -->
+        <div class="berita-list">
+
+            <!-- CARD 1 -->
+            <div class="berita-card">
+                <div class="berita-gambar">
+                    <img src="../style/contoh3.jpg" alt="gambar">
                 </div>
-            <?php } ?>
+
+                <div class="berita-teks">
+                    <h2 class="berita-judul"><a href="#">Upacara Hari Guru Nasional 2025</a></h2>
+
+                    <p class="berita-deskripsi">
+                        MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan penuh 
+                        khidmat dan antusiasme para siswa...
+                    </p>
+
+                    <p class="berita-tanggal"><i class="fa-solid fa-calendar"></i> 25 November 2025</p>
+
+                    <a class="btn-baca" href="#">Selengkapnya →</a>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="berita-card">
+                <div class="berita-gambar">
+                    <img src="../style/contoh4.jpg" alt="gambar">
+                </div>
+
+                <div class="berita-teks">
+                    <h2 class="berita-judul"><a href="#">Siswa MTs DDI Juara Lomba MTQ</a></h2>
+
+                    <p class="berita-deskripsi">
+                        Salah satu siswa terbaik berhasil menjuarai lomba MTQ tingkat kecamatan dan membawa nama baik sekolah...
+                    </p>
+
+                    <p class="berita-tanggal"><i class="fa-solid fa-calendar"></i> 20 November 2025</p>
+
+                    <a class="btn-baca" href="#">Selengkapnya →</a>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="berita-card">
+                <div class="berita-gambar">
+                    <img src="../style/contoh1.jpg" alt="gambar">
+                </div>
+
+                <div class="berita-teks">
+                    <h2 class="berita-judul"><a href="#">Pembangunan Ruang Kelas Baru</a></h2>
+
+                    <p class="berita-deskripsi">
+                        Pembangunan fasilitas baru berupa ruang kelas telah mencapai 80% dan diperkirakan selesai sebelum semester baru...
+                    </p>
+
+                    <p class="berita-tanggal"><i class="fa-solid fa-calendar"></i> 15 Oktober 2025</p>
+
+                    <a class="btn-baca" href="#">Selengkapnya →</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <?php include "../includes/footer.php"; ?>
+    <!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
 
-    <script src="../script/script.js"></script>
+        <!-- Kiri -->
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="../style/logo-sekolah.png" alt="footer logo">
+            </div>
+            <h2 class="footer-title">MTS DDI Tani Aman</h2>
+            <p class="footer-desc">
+                Membangun generasi berkarakter, unggul dalam iman, ilmu, dan teknologi.
+            </p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Berita</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+
+        <!-- Ikut Kami -->
+        <div class="footer-column">
+            <h3>Ikuti Kami</h3>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Youtube</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+            <h3>Kontak</h3>
+            <p><i class="fa-solid fa-location-dot"></i> Jl. Tani Aman, Samboja</p>
+            <p><i class="fa-solid fa-phone"></i> 0898-9988-8899</p>
+            <p><i class="fa-solid fa-envelope"></i> info@mtsdditania.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
+    </div>
+</footer>
 </body>
-
 </html>
