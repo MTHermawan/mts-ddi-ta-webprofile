@@ -1,7 +1,7 @@
 <?php include_once "../data/koneksi.php";
-include_once "../data/data_guru.php";
+include_once "../data/data_staff.php";
 
-$data_guru = GetAllGuru();
+$data_staff = GetAllStaff();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $data_guru = GetAllGuru();
     <section class="data-guru">
         <h1 class="head">Data Guru</h1>
         <div class="data-guru-con">
-            <?php foreach ($data_guru as $guru) { ?>
+            <?php foreach ($data_staff as $guru) { ?>
                 <div class="card">
                     <!-- NAMA dan MAPEL -->
                     <h2 class="nama"><?php echo $guru["nama_guru"]; ?></h2>

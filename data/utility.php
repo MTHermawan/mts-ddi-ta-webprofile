@@ -46,4 +46,27 @@ function HapusFile($asset_file_url)
         unlink($target_file);
 }
 
+function ReorganizeFilesArray($files_array)
+{
+    $reorganized = [];
+    
+    // Check if array is in the grouped format (name, type, tmp_name, error, size are arrays)
+    if (isset($files_array['name']) && is_array($files_array['name'])) {
+        $count = count($files_array['name']);
+        
+        for ($i = 0; $i < $count; $i++) {
+            $reorganized[] = [
+                'name' => $files_array['name'][$i],
+                'full_path' => $files_array['full_path'][$i] ?? $files_array['name'][$i],
+                'type' => $files_array['type'][$i],
+                'tmp_name' => $files_array['tmp_name'][$i],
+                'error' => $files_array['error'][$i],
+                'size' => $files_array['size'][$i]
+            ];
+        }
+    }
+    
+    return $reorganized;
+}
+
 ?>

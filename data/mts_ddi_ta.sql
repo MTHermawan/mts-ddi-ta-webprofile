@@ -1,5 +1,28 @@
+DROP DATABASE IF EXISTS mts_ddi_ta;
+
 CREATE DATABASE mts_ddi_ta;
 USE mts_ddi_ta;
+
+-- Table Admin
+CREATE TABLE admin (
+    email VARCHAR(100) PRIMARY KEY,
+    password VARCHAR(25) NOT NULL,
+    nama VARCHAR(50) NOT NULL,
+    tanggal_register DATETIME
+);
+
+-- Tabel token login admin
+CREATE TABLE admin_remember_tokens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    token VARCHAR(64) NOT NULL UNIQUE,
+    expires_at DATETIME NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (email) REFERENCES admin(email) ON DELETE CASCADE,
+    INDEX idx_token (token),
+    INDEX idx_admin_id (email),
+    INDEX idx_expires_at (expires_at)
+);
 
 -- Table Profile
 CREATE TABLE profile (
@@ -18,14 +41,6 @@ CREATE TABLE profile (
     jumlah_lulusan INT
 );
 
--- Table Admin
-CREATE TABLE admin (
-    email VARCHAR(100) PRIMARY KEY,
-    password VARCHAR(25) NOT NULL,
-    nama VARCHAR(50) NOT NULL,
-    tanggal_register DATETIME
-);
-
 -- Table Foto_Galeri
 CREATE TABLE foto_galeri (
     id_foto_galeri INT auto_increment PRIMARY KEY,
@@ -42,26 +57,45 @@ CREATE TABLE ekskul (
     nama_ekskul VARCHAR(20) NOT NULL,
     nama_pembimbing VARCHAR(50) NOT NULL,
     jadwal VARCHAR(25),
-    url_foto VARCHAR(50),
     tanggal_dibuat DATETIME
 );
+
+CREATE TABLE foto_ekskul (
+    id_foto_ekskul INT auto_increment PRIMARY KEY,
+    id_ekskul INT,
+    url_foto VARCHAR(50) NOT NULL,
+    posisi INT,
+    FOREIGN KEY (id_ekskul) REFERENCES ekskul(id_ekskul) ON DELETE CASCADE
+)
+-- Note:
+-- Foto ekskul memiliki tabel terpisah
 
 -- Table Fasilitas
 CREATE TABLE fasilitas (
     id_fasilitas INT auto_increment PRIMARY KEY,
     nama_fasilitas VARCHAR(25) NOT NULL,
-    url_foto VARCHAR(50),
     deskripsi_fasilitas VARCHAR(100),
     tanggal_dibuat DATETIME
 );
 
--- Table Guru
-CREATE TABLE guru (
-    id_guru INT auto_increment PRIMARY KEY,
-    nama_guru VARCHAR(50) NOT NULL,
+CREATE TABLE foto_fasilitas (
+    id_foto_fasilitas INT auto_increment PRIMARY KEY,
+    id_fasilitas INT,
+    url_foto VARCHAR(50) NOT NULL,
+    posisi INT,
+    FOREIGN KEY (id_fasilitas) REFERENCES fasilitas(id_fasilitas) ON DELETE CASCADE
+)
+-- Note:
+-- Foto fasilitas memiliki tabel terpisah
+
+-- Table Staff
+CREATE TABLE staff (
+    id_staff INT auto_increment PRIMARY KEY,
+    nama_staff VARCHAR(50) NOT NULL,
+    jabatan VARCHAR(30),
     mapel VARCHAR(30),
     url_foto VARCHAR(50),
-    gelar VARCHAR(20),
+    pendidikan VARCHAR(20),
     tanggal_dibuat DATETIME
 );
 
@@ -82,16 +116,22 @@ INSERT INTO admin (email, password, nama, tanggal_register) VALUES
 ('admin@mtsddi.sch.id', 'admin123', 'Admin', NOW());
 
 -- Insert data ke tabel guru
-INSERT INTO guru (nama_guru, mapel, url_foto, gelar, tanggal_dibuat) VALUES
-('Muhammad Rizki', 'Guru Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
+INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, pendidikan, tanggal_dibuat) VALUES
+('Muhammad Rizki', "Guru", 'Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
 
 -- Insert data ke tabel ekskul
-INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, url_foto, tanggal_dibuat) VALUES
-('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', '/images/ekskul1.jpg', NOW());
+INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, tanggal_dibuat) VALUES
+('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', NOW());
+
+INSERT INTO foto_ekskul (id_ekskul, url_foto, posisi) VALUES
+(1, '/images/ekskul1.jpg', 1);
 
 -- Insert data ke tabel fasilitas
-INSERT INTO fasilitas (nama_fasilitas, url_foto, deskripsi_fasilitas, tanggal_dibuat) VALUES
-('Perpustakaan', '/images/fasilitas3.jpg', 'Perpustakaan dengan koleksi 500+ buku', NOW());
+INSERT INTO fasilitas (nama_fasilitas, deskripsi_fasilitas, tanggal_dibuat) VALUES
+('Perpustakaan', 'Perpustakaan dengan koleksi 500+ buku', NOW());
+
+INSERT INTO foto_fasilitas (id_fasilitas, url_foto, posisi) VALUES
+(1, '/images/fasilitas3.jpg', 1);
 
 -- Insert data ke tabel foto_galeri
 INSERT INTO foto_galeri (judul_foto_galeri, deskripsi_foto_galeri, url_foto, tanggal_posting, email) VALUES

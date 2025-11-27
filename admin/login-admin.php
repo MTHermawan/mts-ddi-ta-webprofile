@@ -1,13 +1,38 @@
-<?php include_once "../data/koneksi.php";
+<?php 
+session_start();
+include_once "../data/koneksi.php";
 include_once "../data/data_admin.php";
 
+if (rand(1, 100) === 1) {
+    CleanupExpiredTokens();
+}
+
+// if (isset($_SESSION['admin_email'])) {
+//     header("Location: ./halaman-utama.php");
+//     exit();
+// }
+
+// if (isset($_COOKIE['admin_remember'])) {
+//     $admin = ValidateRememberToken($_COOKIE['admin_remember']);
+//     if ($admin) {
+//         $_SESSION['email'] = $admin['email'];
+//         header("Location: ./halaman-utama.php");
+//         exit();
+//     }
+// }
+
+$error_message = '';
 if (isset($_SESSION['login_error'])) {
     $error_message = $_SESSION['login_error'];
     unset($_SESSION['login_error']);
-} else {
-    $error_message = "";
 }
 
+if (isset($_SESSION['last_email_input'])) {
+    $last_email_input = $_SESSION['last_email_input'];
+    unset($_SESSION['last_email_input']);
+} else {
+    $last_email_input = '';
+}
 
 ?>
 
@@ -17,7 +42,9 @@ if (isset($_SESSION['login_error'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Login</title>
+    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
     <link rel="stylesheet" href="./style/login-admin.css" />
+    <link rel="preconnect" href="https://challenges.cloudflare.com">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
 
@@ -40,16 +67,19 @@ if (isset($_SESSION['login_error'])) {
             Masukkan email dan kata sandi untuk masuk ke akun Anda.
           </p>
           <form action="./post/login-admin/validasi-login.php" method="POST" class="login-form">
-            <label class="email-label" for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="email@gmail.com"
-            />
+            <div class="email">  
+              <label class="email-label" for="email">Email -> Note: <font color="red">admin@mtsddi.sch.id</font></label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="email@gmail.com"
+                value="<?php echo htmlspecialchars($last_email_input); ?>"
+              />
+            </div>
             <div class="password">
-              <label class="password-label" for="password">Kata Sandi</label>
+              <label class="password-label" for="password">Kata Sandi -> Note: <font color="red">admin123</font></label>
               <input
                 id="password"
                 name="password"
@@ -64,12 +94,17 @@ if (isset($_SESSION['login_error'])) {
               />
             </div>
             <div class="form-options">
-              <label> <input type="checkbox" /> Ingat saya </label>
+              <label class="remember-me"> <input type="checkbox" name="remember" id="remember"> Ingat saya </label>
             </div>
-            <p class="message-error">
-              <?php echo htmlspecialchars($error_message); ?>
-            </p>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAACDLpnaIbrSMA1VB"></div>
+            <?php if (!empty($error_message)): ?>
+              <p class="message-error">
+                <?php echo htmlspecialchars($error_message); ?>
+              </p>
+            <?php endif ?>
+            <div class="captcha"> 
+              <label class="captcha-label" for="password">Captcha</label>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACDLpnaIbrSMA1VB"></div>
+            </div>
             <button type="submit">Login</button>
           </form>
         </div>

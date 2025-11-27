@@ -1,3 +1,7 @@
+<?php session_start();
+require_once "./includes/check-auth.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -8,6 +8,11 @@
     
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(242, 242, 242);
 }
@@ -188,7 +193,7 @@ body {
   color: white;
   border: none;
   padding: 12px 28px;
-  border-radius: 30px;
+  border-radius: 25% 10%;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -462,9 +467,10 @@ body {
   background: white;
   border-radius: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  flex: 1 1 400px;
+  /* flex: 1 1 400px; */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 400px;
 }
 
 .event-card:hover {
@@ -641,9 +647,10 @@ body {
   background: white;
   border-radius: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  flex: 1 1 400px;
+  /* flex: 1 1 400px; */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 400px;
 }
 
 .news-card:hover {
@@ -871,6 +878,7 @@ body {
     margin-right: 8px;
     color: white;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .footer-social a:hover {
@@ -902,6 +910,10 @@ body {
 .footer-column ul li a:hover {
     color: #18a300;
     padding-left: 5px;
+}
+
+.info-foot {
+    margin-bottom: 10px;
 }
 
 /* Contact text */
