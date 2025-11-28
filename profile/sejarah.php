@@ -36,6 +36,7 @@
             MTs DDI Tani Aman juga mengalami perkembangan baik dari segi fisik bangunan dan tata letak yang dibuktikan dengan banyaknya sarana dan prasarana yang tersedia, serta peningkatan prestasi dibuktikan dengan banyaknya penghargaan dibidang akademis maupun non akademis yang diraih oleh madrasah maupun siswa/i MTs DDI Tani Aman dan juga memiliki alumni yang tersebar keberbagai jenjang pendidikan lanjutan baik sekolah atau madrasah negeri maupun swasta.
             Pada tahun pelajaran 2024/2025 siswa/i MTs DDI Tani Aman Samarinda berjumlah  236   siswa/i dan meluluskan  93 siswa/i yang merupakan angkatan ke XXXIX dengan prosentase kelulusan 100% 
             </p>
+            
         </div>
     </div>
     </section>
