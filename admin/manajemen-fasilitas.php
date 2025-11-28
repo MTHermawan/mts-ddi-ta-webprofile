@@ -51,7 +51,7 @@ require_once "./includes/check-auth.php";
           <button
             class="add button"
             id="btn_tambah_guru"
-            onclick="openPopup()">
+            onclick="openPopup('Tambah Fasilitas')">
             <i class="fa-solid fa-plus"></i> Tambah Fasilitas
           </button>
         </div>
@@ -109,14 +109,12 @@ require_once "./includes/check-auth.php";
               <div class="image-preview-actions">
                 <button
                   type="button"
-                  class="preview-action-btn change"
-                  onclick="triggerImageInput()">
+                  class="preview-action-btn change">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
                 <button
                   type="button"
-                  class="preview-action-btn remove"
-                  onclick="removeImage()">
+                  class="preview-action-btn remove">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -126,7 +124,7 @@ require_once "./includes/check-auth.php";
 
         <!-- Input Teks -->
         <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Nama Fasilitas</label>
+          <label for="titleInput" class="text-input-label" id="inputFacility">Nama Fasilitas</label>
           <input
             type="text"
             class="text-input"
@@ -135,7 +133,7 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="text-input-group">
-          <label for="descriptionInput" class="text-input-label">Deskripsi</label>
+          <label for="descriptionInput" class="text-input-label" id="inputDescription">Deskripsi</label>
           <textarea
             class="text-input"
             id="descriptionInput"
@@ -161,7 +159,7 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
 
-  <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/manajemen-fasilitas.js"></script>
 </body>
 
 </html>

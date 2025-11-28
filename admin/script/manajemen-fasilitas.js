@@ -1,50 +1,20 @@
-// VARIABEL GLOBAL
+// Variabel global
 let currentMode = "add";
 let currentEditId = null;
 let currentDeleteId = null;
 let currentDeleteData = null;
 
-// Data guru hardcoded
-const teachersData = {
-  1: {
-    name: "Lindsey Curtis",
-    subject: "Teknologi Informasi",
-    degree: "S.Kom",
-    photo:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-  },
-  2: {
-    name: "Kaiya George",
-    subject: "Manajemen Proyek",
-    degree: "M.M",
-    photo:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-  },
-  3: {
-    name: "Zain Geldt",
-    subject: "Bahasa Indonesia",
-    degree: "S.S",
-    photo:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-  },
-  4: {
-    name: "Abram Schleifer",
-    subject: "Pemasaran Digital",
-    degree: "M.M",
-    photo:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-  },
-  5: {
-    name: "Carla George",
-    subject: "Pemrograman Web",
-    degree: "S.Kom",
-    photo:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
-  },
-};
+// Fungsi untuk reset form
+function resetForm() {
+  document.getElementById("inputFacility").value = "";
+  document.getElementById("inputDescription").value = "";
+  removeImage();
+  currentMode = "add";
+  currentEditId = null;
+}
 
 // Fungsi buka popup untuk tambah data
-function openPopup(mode = "Tambah Guru") {
+function openPopup(mode = "Tambah Fasilitas") {
   currentMode = "add";
   document.getElementById("popupTitle").textContent = mode;
   resetForm();
@@ -88,7 +58,6 @@ function openDeletePopup(teacherId, name, subject, degree) {
   document.getElementById("dataSubject").textContent = subject;
   document.getElementById("dataDegree").textContent = degree;
 
-  // Menampilkan popup delete
   document.getElementById("deletePopup").style.display = "flex";
 }
 
@@ -106,13 +75,6 @@ function closeDeletePopup() {
   currentDeleteId = null;
   currentDeleteData = null;
 }
-
-// Event untuk input file
-document.getElementById("imageInput").addEventListener("change", function (e) {
-  if (e.target.files.length > 0) {
-    handleImageSelection(e.target.files[0]);
-  }
-});
 
 // Fungsi untuk trigger input file
 function triggerImageInput() {
@@ -171,16 +133,6 @@ function confirmDelete() {
   }
 }
 
-// Fungsi untuk reset form
-function resetForm() {
-  document.getElementById("inputName").value = "";
-  document.getElementById("inputSubject").value = "";
-  document.getElementById("inputDegree").value = "";
-  removeImage();
-  currentMode = "add";
-  currentEditId = null;
-}
-
 // Tutup popup ketika klik di luar konten
 document.getElementById("popup").addEventListener("click", function (e) {
   if (e.target === this) {
@@ -188,60 +140,18 @@ document.getElementById("popup").addEventListener("click", function (e) {
   }
 });
 
-document.getElementById("deletePopup").addEventListener("click", function (e) {
-  if (e.target === this) {
-    closeDeletePopup();
-  }
-});
+// document.getElementById("deletePopup").addEventListener("click", function (e) {
+//   if (e.target === this) {
+//     closeDeletePopup();
+//   }
+// });
 
 // Inisialisasi event untuk gambar error di tabel
 document.addEventListener("DOMContentLoaded", function () {
-  const avatarImages = document.querySelectorAll(".teacher-avatar img");
+
+  // Element DOM upload gambar
   const imageUploadArea = document.getElementById("imageUploadArea");
   const imageInput = document.getElementById("imageInput");
-
-  avatarImages.forEach((img) => {
-    img.addEventListener("error", function () {
-      this.style.display = "none";
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "block";
-      }
-    });
-
-    img.addEventListener("load", function () {
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "none";
-      }
-    });
-  });
-
-  // Tambahkan event listener untuk tombol edit dan hapus di tabel
-  const editButtons = document.querySelectorAll(".btn-edit");
-  const deleteButtons = document.querySelectorAll(".btn-delete");
-
-  editButtons.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      const teacherId = index + 1; // ID berdasarkan urutan (1-5)
-      openEditPopup(teacherId);
-    });
-  });
-
-  deleteButtons.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      const teacherId = index + 1;
-      const teacher = teachersData[teacherId];
-      if (teacher) {
-        openDeletePopup(
-          teacherId,
-          teacher.name,
-          teacher.subject,
-          teacher.degree
-        );
-      }
-    });
-  });
 
   // Event delegation untuk tombol ganti dan hapus gambar di preview
   const changeBtn = document.querySelector(".preview-action-btn.change");

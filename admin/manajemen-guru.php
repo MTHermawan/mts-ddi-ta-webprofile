@@ -225,8 +225,7 @@ include_once "../data/utility.php";
                 </button>
                 <button
                   type="button"
-                  class="preview-action-btn remove"
-                  onclick="removeImage()">
+                  class="preview-action-btn remove">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
