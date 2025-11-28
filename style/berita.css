@@ -6,9 +6,9 @@ body {
 
 
 .berita-section {
-    padding: 150px 125px;
+    padding: 50px 100px;
     width: 90%;
-    max-width: 1100px;
+    /* max-width: 1100px; */
     margin: 50px auto;
 }
 

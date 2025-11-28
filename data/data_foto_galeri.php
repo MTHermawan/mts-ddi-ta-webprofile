@@ -59,7 +59,7 @@ function GetFotoGaleriById($id_foto_galeri)
     return $data;
 }
 
-function GetAllFotoGaleri()
+function GetAllFotoGaleri($id_foto_galeri = null, $judul_foto_galeri = null, $deskripsi_foto_galeri = null)
 {
     global $koneksi;
 
@@ -76,6 +76,83 @@ function GetAllFotoGaleri()
         $koneksi->next_result();
     }
 
+    return $data;
+}
+
+// Mendapatkan data Foto Galeri (READ)
+function GetFotoGaleri($id_foto_galeri = null, $judul_foto_galeri = null, $deskripsi_foto_galeri = null)
+{
+    global $koneksi;
+
+    $data = [];
+    $sql = "SELECT COUNT(*) as jumlah_data FROM foto_galeri;";
+    $result = $koneksi->query($sql);
+
+    $row = $result->fetch_assoc();
+    $total_count = (int) $row['jumlah_data'];
+
+    if ($total_count > 250) {
+        $conditions = [];
+        $params = [];
+        $types = "";
+
+        if ($id_foto_galeri !== null) {
+            $conditions[] = "id_foto_galeri = ?";
+            $params[] = $id_foto_galeri;
+            $types .= "i";
+        }
+        if ($judul_foto_galeri !== null) {
+            $conditions[] = "judul_foto_galeri LIKE ?";
+            $params[] = "%$judul_foto_galeri%";
+            $types .= "s";
+        }
+        if ($deskripsi_foto_galeri !== null) {
+            $conditions[] = "deskripsi_foto_galeri LIKE ?";
+            $params[] = "%$deskripsi_foto_galeri%";
+            $types .= "s";
+        }
+
+        $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
+        $sql = "SELECT * FROM foto_galeri $where_clause ORDER BY tanggal_dibuat DESC";
+        $stmt = $koneksi->prepare($sql);
+
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $stmt->close();
+        $koneksi->next_result();
+    } else {
+        $sql = "SELECT * FROM foto_galeri ORDER BY tanggal_dibuat DESC";
+        $result = $koneksi->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $result->close();
+        $koneksi->next_result();
+
+        foreach ($data as $key => $foto_galeri) {
+            if (($id_foto_galeri !== null && $foto_galeri['id_foto_galeri'] != $id_foto_galeri) ||
+                ($judul_foto_galeri !== null && stripos($foto_galeri['judul_foto_galeri'], $judul_foto_galeri) === false) ||
+                ($deskripsi_foto_galeri !== null && stripos($foto_galeri['deskripsi_foto_galeri'], $deskripsi_foto_galeri) === false)) {
+                unset($data[$key]);
+            }
+        }
+    }
+
+    return $data;
+}
+
+function SearchFotoGaleri($keyword)
+{
+    $data = GetFotoGaleri(judul_foto_galeri: $keyword, deskripsi_foto_galeri: $keyword);
     return $data;
 }
 

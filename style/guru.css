@@ -1,86 +1,152 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
-
-
 body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background-color: rgba(234, 234, 234, 1);
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-header {
-  background-image: url("assets/gambar-sekolah1.png");
-  background-size: 1440px 897px;
-  background-position: center;
-  color: white;
-  position: relative;
-  min-height: 400px;
-}
 
-h5{
-    width: 900px;
-}
 
-.judul-hero{
-    width: 900px;
-}
-
-.head{
-    text-align: center;
-    font-family: "Signika Negative", sans-serif;
-    margin-bottom: 100px;
-    font-size: 48px;
-}
-
-.data-guru-con {
-    display: flex;
-    justify-content: space-between;
-    /* height: 200vh; */
-    max-width: 1200px;
+.staf-section {
+    padding: 50px 100px;
+    width: 100%;
+    /* max-width: 1100px; */
     margin: 50px auto;
-    padding: 0 20px;
 }
 
-.card{
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 30px 50px;
+.judul-utama {
     text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #0a6900; /* hijau tema */
 }
 
-.img-guru{
+.sub-judul-staf {
+    text-align: center;
+    color: #444;
+    margin-bottom: 35px;
+}
+
+.filter-staf {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #d9d9d9;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #cfcfcf;
+    transform: translateY(-3px);
+}
+
+.filter-btn.aktif {
+    background: #0d7a00;
+    color: #fff;
+}
+
+
+.staf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.staf-wrapp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+
+.staf-card {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    height: 380px;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    transition: 0.25s ease;
+}
+
+.staf-card:hover {
+    transform: translateY(-4px);
+}
+
+
+.staf-gambar img {
     width: 240px;
-    height: 250px;
-    border-radius: 20px;
+    height: 160px;
+    border-radius: 18px;
     object-fit: cover;
+    display: flex;
+    margin: auto;
+}
+
+
+.staf-teks {
+    flex: 1;
+}
+
+.staf-judul a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #0d7a00;
 }
 
-.empty-img-guru{
-    width: 240px;
-    height: 250px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    background-color: rgb(222, 222, 222);
+.staf-judul a:hover {
+    text-decoration: underline;
 }
 
-.nama{
-    font-family: "Signika Negative", sans-serif;
-    font-size: 18px;
-}
-
-.mapel{
-    font-family: "Signika Negative", sans-serif;
+.staf-deskripsi {
+    display: flex;
+    text-align: start;
+    margin-top: 20px;
     font-size: 12px;
+    line-height: 1.5rem;
+    color: #444;
 }
 
-.gelar{
-    font-family: "Signika Negative", sans-serif;
-    font-size: 12px;
+.staf-deskripsi i{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+    margin-right: 8px;
+
 }
 
+@media (max-width: 768px) {
+
+    .staf-card {
+        flex-direction: column;
+    }
+
+    .staf-gambar img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .staf-judul a {
+        font-size: 22px;
+    }
+}

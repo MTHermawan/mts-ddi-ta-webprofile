@@ -74,7 +74,7 @@ CREATE TABLE foto_ekskul (
 CREATE TABLE fasilitas (
     id_fasilitas INT auto_increment PRIMARY KEY,
     nama_fasilitas VARCHAR(25) NOT NULL,
-    deskripsi_fasilitas VARCHAR(100),
+    deskripsi_fasilitas VARCHAR(255),
     tanggal_dibuat DATETIME
 );
 
@@ -91,11 +91,11 @@ CREATE TABLE foto_fasilitas (
 -- Table Staff
 CREATE TABLE staff (
     id_staff INT auto_increment PRIMARY KEY,
-    nama_staff VARCHAR(50) NOT NULL,
-    jabatan VARCHAR(30),
-    mapel VARCHAR(30),
+    nama_staff VARCHAR(100) NOT NULL,
+    jabatan VARCHAR(50),
+    mapel VARCHAR(50),
     url_foto VARCHAR(50),
-    pendidikan VARCHAR(20),
+    pendidikan VARCHAR(50),
     tanggal_dibuat DATETIME
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE staff (
 CREATE TABLE informasi (
     id_informasi INT auto_increment PRIMARY KEY,
     judul VARCHAR(50) NOT NULL,
-    konten VARCHAR(100) NOT NULL,
+    konten VARCHAR(5000) NOT NULL,
     jadwal_agenda DATE,
     tanggal_dibuat DATE,
     url_foto VARCHAR(50),
@@ -117,7 +117,7 @@ INSERT INTO admin (email, password, nama, tanggal_register) VALUES
 
 -- Insert data ke tabel guru
 INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, pendidikan, tanggal_dibuat) VALUES
-('Muhammad Rizki', "Guru", 'Matematika', '/images/guru3.jpg', 'S.Pd', NOW());
+('Hj. ST. Fatimah Amin, S.Pd.', "Kepala Madrasah", 'IPS Terpadu', '', 'S.Pd', NOW());
 
 -- Insert data ke tabel ekskul
 INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, tanggal_dibuat) VALUES

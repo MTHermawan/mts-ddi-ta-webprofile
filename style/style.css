@@ -24,14 +24,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    /* background: rgba(10, 10, 30, 0.7); */
-    /* backdrop-filter: blur(10px); */
+    background: rgba(237, 237, 237, 0.7);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo-container {
@@ -79,7 +79,7 @@ body {
 .nav-menu {
     display: flex;
     gap: 1.5rem;
-    background: rgba(20, 20, 50, 0.5);
+    background: rgba(35, 37, 36, 0.5);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     backdrop-filter: blur(5px);
@@ -578,6 +578,7 @@ body {
 .news-image img {
   width: 100%;
   height: 100%;
+  border-radius: 16px;
   object-fit: cover;
   display: block;
 }
@@ -606,7 +607,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #000000;
+    color: #dfdfdf;
 }
 
 .news-date {
@@ -879,7 +880,7 @@ body {
 /* footer */
 
 .footer {
-    background: linear-gradient(180deg, #022d0a 0%, #064d1a 100%);
+    background: #064d1a ;
     color: #e6ffe6;
     padding: 70px 120px 30px;
     margin-top: 0px;
@@ -969,7 +970,7 @@ body {
 
 /* Contact text */
 .footer-column p i {
-    color: #18a300;
+    color: #ddd;
     margin-right: 8px;
 }
 

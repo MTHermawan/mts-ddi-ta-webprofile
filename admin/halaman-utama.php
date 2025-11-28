@@ -98,7 +98,7 @@ require_once "./includes/check-auth.php";
             <div class="stat-info">
               <div class="divider-vertical"></div>
               <div class="stat-details">
-                <h2 class="stat-title">Ekstrakulikuler</h2>
+                <h2 class="stat-title">Ekstrakurikuler</h2>
                 <p class="stat-value">8</p>
               </div>
             </div>

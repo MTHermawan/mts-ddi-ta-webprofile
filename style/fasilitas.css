@@ -1,87 +1,140 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
-
-
-
 body {
-  margin: 0;
-  font-family: "Signika Negative", sans-serif;
-  background-color: rgba(234, 234, 234, 1);
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-header {
-  background-image: url("assets/gambar-sekolah1.png");
-  background-size: 1440px 897px;
-  background-position: center;
-  color: white;
-  position: relative;
-  min-height: 400px;
+
+
+.fasilitas-section {
+    padding: 50px 100px;
+    width: 100%;
+    /* max-width: 1100px; */
+    margin: 50px auto;
 }
 
-h5{
-    width: 900px;
-}
-
-.fasilitas {
-    background-color: #eaeaea;
+.judul-utama {
     text-align: center;
-    padding-bottom: 80px;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #0a6900; /* hijau tema */
 }
 
-.head {
-    font-family: "Signika Negative", sans-serif;
-    font-size: 36px;
-    font-weight: 600;
-    margin: 100px;
-    color: #1a1a1a;
+.sub-judul-fasilitas {
+    text-align: center;
+    color: #444;
+    margin-bottom: 35px;
 }
 
-.fasilitas-con {
+.filter-fasilitas {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 15px;
+    margin-bottom: 35px;
 }
+
+.filter-btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #d9d9d9;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #cfcfcf;
+    transform: translateY(-3px);
+}
+
+.filter-btn.aktif {
+    background: #0d7a00;
+    color: #fff;
+}
+
+
+.fasilitas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.fasilitas-wrapp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
 
 .fasilitas-card {
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 360px;
-    height: 330px;
-    text-align: left;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    height: 320px;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    transition: 0.25s ease;
 }
 
-.nama-fasilitas {
-    font-family: "Signika Negative", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
-    margin: 12px 20px 3px 20px;
+.fasilitas-card:hover {
+    transform: translateY(-4px);
 }
 
-.deskripsi-fasilitas {
-    font-family: "Signika Negative", sans-serif;
+
+.fasilitas-gambar img {
+    width: 240px;
+    height: 160px;
+    border-radius: 18px;
+    object-fit: cover;
+    display: flex;
+    margin: auto;
+}
+
+
+.fasilitas-teks {
+    flex: 1;
+}
+
+.fasilitas-judul a {
+    display: flex;
+    text-align: start;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #0d7a00;
+}
+
+.fasilitas-judul a:hover {
+    text-decoration: underline;
+}
+
+.fasilitas-deskripsi {
+    display: flex;
+    text-align: start;
+    margin-top: 8px;
     font-size: 12px;
-    font-weight: 400;
-    color: #555;
-    margin: 0 20px 10px 20px;
+    line-height: 1.5rem;
+    color: #444;
 }
 
-.img-fasilitas {
-    width: 100%;
-    height: 200px;
-    display: block;
-}
+@media (max-width: 768px) {
 
-.empty-img-fasilitas {
-    width: 100%;
-    height: 200px;
-    display: block;
-    background-color: rgb(222, 222, 222);
+    .fasilitas-card {
+        flex-direction: column;
+    }
+
+    .fasilitas-gambar img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .fasilitas-judul a {
+        font-size: 22px;
+    }
 }

@@ -28,41 +28,14 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 
     // Menarik file kembali jika gagal
     if (!($stmt->execute())) {
-        echo "Error: " . $stmt->error;
         HapusFile($asset_subdir . $file_foto['name']);
         return false;
     }
-    echo "New record created successfully";
 
     return true;
 }
 
-// Mendapatkan data staff (READ)
-function GetStaffById($id_staff)
-{
-    global $koneksi;
-
-    $data = null;
-    $sql = "SELECT * FROM staff WHERE id_staff = ?";
-    $stmt = $koneksi->prepare($sql);
-    
-    $stmt->bind_param("i", $id_staff);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-        while ($result->fetch_assoc()) {
-        }
-
-        $result->close();
-        $koneksi->next_result();
-    }
-
-    return $data;
-}
-
-function GetAllStaff()
+function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null)
 {
     global $koneksi;
 
@@ -79,6 +52,16 @@ function GetAllStaff()
         $koneksi->next_result();
     }
 
+    foreach ($data as $key => $staff) {
+        if (($id !== null && $staff['id_staff'] != $id) ||
+            ($nama !== null && stripos($staff['nama_staff'], $nama) === false) ||
+            ($jabatan !== null && stripos($staff['jabatan'], $jabatan) === false) ||
+            ($mapel !== null && stripos($staff['mapel'], $mapel) === false) ||
+            ($pendidikan !== null && stripos($staff['pendidikan'], $pendidikan) === false)) {
+            unset($data[$key]);
+        }
+    }    
+
     return $data;
 }
 
@@ -89,7 +72,7 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
     global $asset_subdir;
 
     // Mengambil data lama
-    if (!($old_data = GetStaffById($id_staff)))
+    if (!($old_data = GetStaff(id: $id_staff)))
         return false;
 
     // Mengupload foto
@@ -116,7 +99,7 @@ function DeleteStaff($id_staff)
 {
     global $koneksi;
 
-    if (!($data = GetStaffById($id_staff)))
+    if (!($data = GetStaff(id: $id_staff)))
         return false;
 
     $sql = "DELETE FROM staff WHERE id_staff = ?";

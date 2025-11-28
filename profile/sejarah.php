@@ -46,6 +46,7 @@
             <p class="hero-subtitle">
             Selayang pandang tentang MTs DDI Tani Aman Samarinda
             </p>
+            
         </div>
     </section>
 

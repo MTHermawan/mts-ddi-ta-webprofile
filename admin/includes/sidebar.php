@@ -1,4 +1,16 @@
-<?php require_once __DIR__ . "/path.php" ?>
+<?php require_once __DIR__ . "/path.php";
+// echo "DOCUMENT_ROOT: " . $_SERVER['DOCUMENT_ROOT'];
+// echo "<br><br>";
+// echo "HTTP_HOST: " . $_SERVER['HTTP_HOST'];
+// echo "<br><br>";
+// echo "PHP_SELF: " . $_SERVER['PHP_SELF'];
+// echo "<br><br>";
+// echo "REQUEST_URI: " . $_SERVER['REQUEST_URI'];
+// echo "<br><br>";
+// echo "SCRIPT_NAME: " . $_SERVER['SCRIPT_NAME'];
+// echo "<br><br>";
+
+?>
 
 <div class="sidebar">
     <div class="sidebar-header">
