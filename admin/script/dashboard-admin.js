@@ -7,6 +7,12 @@ const imagePreview = document.getElementById("imagePreview");
 const previewImage = document.getElementById("previewImage");
 const popUpTitle = document.getElementById("popupTitle");
 
+function closePopup() {
+  popup.style.display = "none";
+  document.body.style.overflow = "auto";
+  resetForm();
+}
+
 // Tutup popup ketika klik di luar konten
 popup.addEventListener("click", function (e) {
   if (e.target === popup) {
@@ -65,11 +71,4 @@ function handleImageSelection(file) {
   } else {
     alert("Please select a valid image file (PNG, JPG, JPEG)");
   }
-}
-
-// Fungsi untuk menghapus gambar
-function removeImage() {
-  imageInput.value = "";
-  imagePreview.style.display = "none";
-  imagePlaceholder.style.display = "flex";
 }

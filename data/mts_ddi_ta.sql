@@ -66,7 +66,7 @@ CREATE TABLE foto_ekskul (
     url_foto VARCHAR(50) NOT NULL,
     posisi INT,
     FOREIGN KEY (id_ekskul) REFERENCES ekskul(id_ekskul) ON DELETE CASCADE
-)
+);
 -- Note:
 -- Foto ekskul memiliki tabel terpisah
 
@@ -84,7 +84,7 @@ CREATE TABLE foto_fasilitas (
     url_foto VARCHAR(50) NOT NULL,
     posisi INT,
     FOREIGN KEY (id_fasilitas) REFERENCES fasilitas(id_fasilitas) ON DELETE CASCADE
-)
+);
 -- Note:
 -- Foto fasilitas memiliki tabel terpisah
 

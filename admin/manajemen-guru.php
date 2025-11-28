@@ -329,8 +329,6 @@ include_once "../data/utility.php";
     </div>
 
   </div>
-
-  <script src="./script/dashboard-admin.js"></script>
   <script src="./script/manajemen-guru.js"></script>
 </body>
 
