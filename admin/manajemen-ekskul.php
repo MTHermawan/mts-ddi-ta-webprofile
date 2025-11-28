@@ -39,7 +39,7 @@ require_once "./includes/check-auth.php";
 
     <!-- MAIN CONTENT -->
     <!-- Title Menu -->
-    <h1 class="menu-title">Ekstrakulikuler</h1>
+    <h1 class="menu-title">Ekstrakurikuler</h1>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -60,7 +60,7 @@ require_once "./includes/check-auth.php";
             class="add button"
             id="btn_tambah_guru"
             onclick="openPopup()">
-            <i class="fa-solid fa-plus"></i> Tambah Ekstrakulikuler
+            <i class="fa-solid fa-plus"></i> Tambah Ekstrakurikuler
           </button>
         </div>
       </div>
@@ -70,8 +70,8 @@ require_once "./includes/check-auth.php";
         <div class="empty-data" id="emptyData">
           <div class="empty-data-placeholder" id="emptyDataPlaceholder">
             <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
-            <p>Belum ada data ekstrakulikuler yang ditambahkan</p>
-            <p>Klik tombol "Tambah Ekstrakulikuler" untuk menambahkan</p>
+            <p>Belum ada data ekstrakurikuler yang ditambahkan</p>
+            <p>Klik tombol "Tambah Ekstrakurikuler" untuk menambahkan</p>
           </div>
           <img
             class="struktur-organisasi-image"
@@ -89,7 +89,7 @@ require_once "./includes/check-auth.php";
     <div class="popup-overlay-form" id="popup">
       <div class="popup-content-form">
         <div class="popup-header">
-          <h2 class="popup-title" id="popupTitle">Tambah Ekstrakulikuler</h2>
+          <h2 class="popup-title" id="popupTitle">Tambah Ekstrakurikuler</h2>
           <button class="popup-close" onclick="closePopup()">
             <i class="fas fa-times"></i>
           </button>
@@ -97,7 +97,7 @@ require_once "./includes/check-auth.php";
 
         <!-- Input Gambar -->
         <div class="image-input-container">
-          <label class="image-input-label">Foto Ekstrakulikuler</label>
+          <label class="image-input-label">Foto Ekstrakurikuler</label>
           <div class="image-upload-area" id="imageUploadArea">
             <input
               type="file"
@@ -139,7 +139,7 @@ require_once "./includes/check-auth.php";
 
         <!-- Input Teks -->
         <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Nama Ekstrakulikuler</label>
+          <label for="titleInput" class="text-input-label">Nama Ekstrakurikuler</label>
           <input
             type="text"
             class="text-input"
