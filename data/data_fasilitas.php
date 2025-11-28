@@ -95,48 +95,99 @@ function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_fotos)
 }
 
 // Mendapatkan data fasilitas (READ)
-function GetFasilitasById($id_fasilitas)
-{
-    global $koneksi;
-
-    $sql = "SELECT * FROM fasilitas f 
-            LEFT JOIN foto_fasilitas foto ON f.id_fasilitas = foto.id_fasilitas 
-            WHERE f.id_fasilitas = ? 
-            ORDER BY foto.posisi ASC";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id_fasilitas);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    $data = null;
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-    }
-
-    $result->close();
-    $stmt->close();
-
-    return $data;
-}
-
-function GetAllFasilitas()
+function GetFasilitas($id_fasilitas = null, $nama_fasilitas = null)
 {
     global $koneksi;
 
     $data = [];
-    $sql = "SELECT * FROM fasilitas f 
-            LEFT JOIN foto_fasilitas foto ON f.id_fasilitas = foto.id_fasilitas 
-            ORDER BY f.id_fasilitas ASC, foto.posisi ASC";
+    $sql = "SELECT COUNT(*) as jumlah_data FROM fasilitas;";
     $result = $koneksi->query($sql);
 
-    if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $total_count = (int) $row['jumlah_data'];
+
+    if ($total_count > 250) {
+        $conditions = [];
+        $params = [];
+        $types = "";
+
+        if ($id_fasilitas !== null) {
+            $conditions[] = "id_fasilitas = ?";
+            $params[] = $id_fasilitas;
+            $types .= "i";
+        }
+        if ($nama_fasilitas !== null) {
+            $conditions[] = "nama_fasilitas LIKE ?";
+            $params[] = "%$nama_fasilitas%";
+            $types .= "s";
+        }
+
+        $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
+        $sql = "SELECT * FROM fasilitas $where_clause ORDER BY tanggal_dibuat DESC";
+        $stmt = $koneksi->prepare($sql);
+
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
+        $stmt->close();
+
+        $sql_foto = "SELECT * FROM foto_fasilitas WHERE id_fasilitas = ? ORDER BY posisi ASC";
+        $stmt_foto = $koneksi->prepare($sql_foto);
+        foreach ($data as &$fasilitas) {
+            $stmt_foto->bind_param("i", $fasilitas['id_fasilitas']);
+            $stmt_foto->execute();
+            $result_foto = $stmt_foto->get_result();
+            $fasilitas['foto'] = [];
+            while ($foto_row = $result_foto->fetch_assoc()) {
+                $fasilitas['foto'][] = $foto_row;
+            }
+        }
+        $stmt_foto->close();
+        $koneksi->next_result();
+    } else {
+        $sql = "SELECT * FROM fasilitas f ORDER BY f.tanggal_dibuat DESC";
+        $result = $koneksi->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $result->close();
+        $koneksi->next_result();
+
+        $sql_foto = "SELECT * FROM foto_fasilitas WHERE id_fasilitas = ? ORDER BY posisi ASC";
+        $stmt_foto = $koneksi->prepare($sql_foto);
+        foreach ($data as &$fasilitas) {
+            $stmt_foto->bind_param("i", $fasilitas['id_fasilitas']);
+            $stmt_foto->execute();
+            $result_foto = $stmt_foto->get_result();
+            $fasilitas['foto'] = [];
+            while ($foto_row = $result_foto->fetch_assoc()) {
+                $fasilitas['foto'][] = $foto_row;
+            }
+        }
+        $stmt_foto->close();
+
+        foreach ($data as $key => $fasilitas) {
+            if (($id_fasilitas !== null && $fasilitas['id_fasilitas'] != $id_fasilitas) ||
+                ($nama_fasilitas !== null && stripos($fasilitas['nama_fasilitas'], $nama_fasilitas) === false)) {
+                unset($data[$key]);
+            }
+        }
     }
 
-    $result->close();
+    return $data;
+}
 
+function SearchFasilitas($keyword)
+{
+    $data = GetFasilitas(nama_fasilitas: $keyword);
     return $data;
 }
 
@@ -152,7 +203,7 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
     }
 
     // Mengambil data lama
-    if (!GetFasilitasById($id_fasilitas)) {
+    if (!GetFasilitas(id_fasilitas: $id_fasilitas)) {
         return false;
     }
 

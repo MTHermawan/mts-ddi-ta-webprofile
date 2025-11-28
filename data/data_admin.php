@@ -1,36 +1,36 @@
 <?php
 include_once "koneksi.php";
 
-function GetAllAdmin()
+function GetAdmin($email = null)
 {
     global $koneksi;
-    $sql = "SELECT * FROM admin";
-    $result = mysqli_query($koneksi, $sql);
-    
-    if (!$result) {
-        die("Query error: " . mysqli_error($koneksi));
-    }
-    
-    return $result;
-}
 
-function GetAdminByUsername($email)
-{
-    global $koneksi;
-    $email = mysqli_real_escape_string($koneksi, $email);
-    $sql = "SELECT * FROM admin WHERE email = '$email'";
-    $result = mysqli_query($koneksi, $sql);
-    
-    if (!$result) {
-        die("Query error: " . mysqli_error($koneksi));
+    $sql = "SELECT * FROM admin";
+    if ($email !== null) {
+        $sql .= " WHERE email = ?";
     }
     
-    return mysqli_fetch_assoc($result);
+    $stmt = $koneksi->prepare($sql);
+    if ($email !== null) {
+        $stmt->bind_param("s", $email);
+    }
+    
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $admin = null;
+
+    if ($result->num_rows > 0) {
+        $admin = $result->fetch_assoc();
+        $result->close();
+        $koneksi->next_result();
+    }
+
+    return $admin;
 }
 
 function ValidasiLogin($email, $password)
 {
-    $admin = GetAdminByUsername($email);
+    $admin = GetAdmin($email);
     $stored_hash = password_hash($admin['password'], PASSWORD_DEFAULT);
     
     if ($admin && password_verify($password, $stored_hash)) {
