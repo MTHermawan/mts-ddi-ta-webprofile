@@ -1,118 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;600;700&family=Signika+Negative:wght@400;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Google Sans Code", monospace;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background: #f5f5f5;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
-
-#hero-sejarah {
-    position: relative;
-    height: 90vh;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding: 80px 60px;
-    color: white;
-}
-
-.hero-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0; right: 0;
-    height: 60%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-}
-
-.hero-content {
-    z-index: 2;
-    max-width: 650px;
-}
-
-#hero-sejarah h1 {
-    font-family: "Signika Negative";
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 15px;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.5);
-}
-
-.hero-desc {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-/* ================= KONTEN SEJARAH ================= */
 
 .sejarah-section {
-    padding: 120px 130px;
-    background: linear-gradient(180deg, #ffffff 0%, #eaffe4 100%);
+    padding: 50px 100px;
+    width: 90%;
+    margin: 50px auto;
 }
 
-.judul-sejarah {
+.judul-utama {
     text-align: center;
-    font-size: 2.4rem;
-    font-family: "Signika Negative";
-    margin-bottom: 60px;
-    color: #0a5c00;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #0d7a00;
 }
 
-.sejarah-container {
-    display: flex;
-    gap: 40px;
-    align-items: start;
+.sub-judul-berita {
+    text-align: center;
+    color: #444;
+    margin-bottom: 35px;
 }
 
-.sejarah-teks {
-    flex: 1.5;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #333;
+.sejarah-list {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 25px;
 }
 
-.sejarah-gambar {
-    flex: 1;
+.sejarah-card {
+    background: #ffffff;
+    padding: 25px 30px;
     border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    line-height: 1.7rem;
+    color: #333;
+    font-size: 16px;
+    transition: 0.25s ease;
 }
 
-.sejarah-gambar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.sejarah-card:hover {
+    transform: translateY(-4px);
 }
 
-/* Responsive */
-@media(max-width: 900px) {
-    #hero-sejarah {
-        height: 70vh;
-        padding: 60px 30px;
+.sejarah-card p {
+    margin: 0;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .sejarah-section {
+        padding: 30px 20px;
+        margin: 30px auto;
     }
-
-    .sejarah-container {
-        flex-direction: column;
+    .judul-utama {
+        font-size: 32px;
+    }
+    .sejarah-card {
+        padding: 20px;
+        font-size: 15px;
     }
 }
