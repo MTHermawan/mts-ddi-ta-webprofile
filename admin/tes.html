@@ -1,7 +1,3 @@
-<?php session_start();
-require_once "./includes/check-auth.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +14,111 @@ require_once "./includes/check-auth.php";
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Container untuk card fasilitas */
+    .facilities-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Card fasilitas */
+    .facility-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Gambar fasilitas */
+    .facility-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Konten fasilitas */
+    .facility-content {
+      padding: 15px;
+    }
+
+    .facility-title {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .facility-description {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Tombol aksi */
+    .facility-actions {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid #eee;
+      gap: 10px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .action-btn.edit {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .action-btn.edit:hover {
+      background-color: #45a049;
+    }
+
+    .action-btn.delete {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .action-btn.delete:hover {
+      background-color: #d32f2f;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .facilities-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -41,7 +142,8 @@ require_once "./includes/check-auth.php";
           <input
             type="text"
             class="search-input"
-            placeholder="Cari nama guru" />
+            placeholder="Cari nama fasilitas"
+            id="searchInput" />
         </div>
 
         <div class="button-container">
@@ -51,25 +153,15 @@ require_once "./includes/check-auth.php";
           <button
             class="add button"
             id="btn_tambah_guru"
-            onclick="openPopup('Tambah Fasilitas')">
+            onclick="openPopup()">
             <i class="fa-solid fa-plus"></i> Tambah Fasilitas
           </button>
         </div>
       </div>
 
       <div class="main-content-data">
-        <!-- Tampilan Jika Data Kosong -->
-        <div class="empty-data" id="emptyData">
-          <div class="empty-data-placeholder" id="emptyDataPlaceholder">
-            <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
-            <p>Belum ada data fasilitas yang ditambahkan</p>
-            <p>Klik tombol "Tambah Fasilitas" untuk menambahkan</p>
-          </div>
-        </div>
-
         <!-- Data Fasilitas -->
         <div class="facilities-container" id="facilitiesContainer">
-          
           <!-- Card 1: Perpustakaan -->
           <div class="facility-card">
             <div class="facility-image">
@@ -185,7 +277,14 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-
+        <!-- Tampilan Jika Data Kosong (disembunyikan karena ada data) -->
+        <div class="empty-data" id="emptyData" style="display: none;">
+          <div class="empty-data-placeholder" id="emptyDataPlaceholder">
+            <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
+            <p>Belum ada data fasilitas yang ditambahkan</p>
+            <p>Klik tombol "Tambah Fasilitas" untuk menambahkan</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -226,12 +325,14 @@ require_once "./includes/check-auth.php";
               <div class="image-preview-actions">
                 <button
                   type="button"
-                  class="preview-action-btn change">
+                  class="preview-action-btn change"
+                  onclick="triggerImageInput()">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
                 <button
                   type="button"
-                  class="preview-action-btn remove">
+                  class="preview-action-btn remove"
+                  onclick="removeImage()">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -241,7 +342,7 @@ require_once "./includes/check-auth.php";
 
         <!-- Input Teks -->
         <div class="text-input-group">
-          <label for="titleInput" class="text-input-label" id="inputFacility">Nama Fasilitas</label>
+          <label for="titleInput" class="text-input-label">Nama Fasilitas</label>
           <input
             type="text"
             class="text-input"
@@ -250,7 +351,7 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="text-input-group">
-          <label for="descriptionInput" class="text-input-label" id="inputDescription">Deskripsi</label>
+          <label for="descriptionInput" class="text-input-label">Deskripsi</label>
           <textarea
             class="text-input"
             id="descriptionInput"
@@ -276,7 +377,110 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
 
-  <script src="./script/manajemen-fasilitas.js"></script>
+  <script>
+    // Fungsi untuk mengedit fasilitas
+    function editFacility(id) {
+      alert('Edit fasilitas dengan ID: ' + id);
+      // Di sini Anda bisa menambahkan logika untuk mengisi form edit
+      // dengan data fasilitas yang dipilih
+      openPopup();
+    }
+
+    // Fungsi untuk menghapus fasilitas
+    function deleteFacility(id) {
+      if (confirm('Apakah Anda yakin ingin menghapus fasilitas ini?')) {
+        alert('Hapus fasilitas dengan ID: ' + id);
+        // Di sini Anda bisa menambahkan logika untuk menghapus fasilitas
+      }
+    }
+
+    // Fungsi untuk membuka popup
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    // Fungsi untuk menutup popup
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      // Reset form ketika popup ditutup
+      document.getElementById('titleInput').value = '';
+      document.getElementById('descriptionInput').value = '';
+      removeImage();
+    }
+
+    // Fungsi untuk submit form
+    function submitForm() {
+      const title = document.getElementById('titleInput').value;
+      const description = document.getElementById('descriptionInput').value;
+      
+      if (!title || !description) {
+        alert('Harap isi semua field yang diperlukan');
+        return;
+      }
+      
+      alert('Form berhasil disimpan!\nNama: ' + title + '\nDeskripsi: ' + description);
+      closePopup();
+    }
+
+    // Fungsi untuk memicu input file
+    function triggerImageInput() {
+      document.getElementById('imageInput').click();
+    }
+
+    // Fungsi untuk menghapus gambar
+    function removeImage() {
+      document.getElementById('imageInput').value = '';
+      document.getElementById('imagePlaceholder').style.display = 'flex';
+      document.getElementById('imagePreview').style.display = 'none';
+    }
+
+    // Event listener untuk input file
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('previewImage').src = e.target.result;
+          document.getElementById('imagePlaceholder').style.display = 'none';
+          document.getElementById('imagePreview').style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Fungsi pencarian
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.facility-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.querySelector('.facility-title').textContent.toLowerCase();
+        const description = card.querySelector('.facility-description').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Tampilkan pesan jika tidak ada hasil
+      const emptyData = document.getElementById('emptyData');
+      if (visibleCount === 0 && searchTerm !== '') {
+        emptyData.style.display = 'block';
+        emptyData.innerHTML = `
+          <div class="empty-data-placeholder">
+            <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
+            <p>Tidak ada hasil pencarian untuk "${searchTerm}"</p>
+          </div>
+        `;
+      } else {
+        emptyData.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 
 </html>

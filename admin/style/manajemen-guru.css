@@ -5,6 +5,8 @@
   gap: 20px;
 }
 
+/*                 BUTTON DI HEADER             */
+
 .search-container {
   display: flex;
   align-items: center;
@@ -24,6 +26,8 @@
   font-size: 14px;
   color: rgb(102, 112, 133);
 }
+
+/*                 BUTTON DI HEADER             */
 
 .button-container {
   width: 276px;
@@ -96,22 +100,22 @@
 
 .main-content-data {
   width: 100%;
-  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   background-color: #f8fafc;
 }
 
+/*                STYLE UNTUK PLACEHOLDER DATA KOSONG            */
+
 .empty-data {
   box-shadow: 0 0 0 0.9px #dde1e5;
   background-color: white;
-  border-radius: 16px;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -133,6 +137,8 @@
   font-weight: 400px;
   margin-top: 8px;
 }
+
+/*                    STYLE UNTUK TABLE DATA GURU              */
 
 .table-container {
   background: white;
@@ -225,6 +231,8 @@ tr:last-child td {
   font-weight: 500;
   color: #1e293b;
 }
+
+/*                      STYLE UNTUK BUTTON DI TABLE                   */
 
 .action-buttons {
   display: flex;

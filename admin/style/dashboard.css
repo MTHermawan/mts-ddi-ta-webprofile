@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
+/*           CSS RESET          */
 html,
 body,
 div,
@@ -131,6 +132,8 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
+/*           END CSS RESET          */
+
 body {
   background-color: #f8fafc;
   height: auto;
@@ -237,7 +240,7 @@ a {
   margin: 1rem 0;
 }
 
-/* Main Content Area */
+/*            Main Content Area                */
 .main {
   flex: 1;
   display: flex;
@@ -306,6 +309,7 @@ nav {
   color: rgb(102, 112, 133);
 }
 
+/*                  EXIT LOGO                     */
 .exit-logo {
   display: flex;
   align-items: center;
@@ -324,6 +328,8 @@ nav {
   color: #dc2626;
 }
 
+/*                  HEADING MENU                   */
+
 .menu-title {
   margin-left: 20px;
   font-size: 20px;
@@ -340,7 +346,7 @@ nav {
   gap: 20px;
 }
 
-/* POPUP TAMBAH / EDIT STYLES */
+/*              POPUP TAMBAH / EDIT STYLES                */
 .popup-overlay-form {
   position: fixed;
   top: 0;
@@ -397,7 +403,6 @@ nav {
   color: #dc2626;
 }
 
-/* Input Gambar dengan Placeholder */
 .image-input-label {
   display: block;
   font-size: 14px;
@@ -524,7 +529,7 @@ nav {
   display: none;
 }
 
-/* Input Teks */
+/* INPUT TEKS */
 .text-input-group {
   display: flex;
   flex-direction: column;
@@ -560,6 +565,8 @@ textarea.text-input {
   min-height: 100px;
   font-family: inherit;
 }
+
+/* BUTTON DI POPUP */
 
 .popup-actions-form {
   display: flex;
@@ -613,7 +620,7 @@ textarea.text-input {
   background-color: #fecaca;
 }
 
-/* POP UP DELETE STYLES */
+/*                POP UP DELETE STYLES                   */
 .popup-overlay-delete {
   position: fixed;
   top: 0;

@@ -99,7 +99,7 @@
   appearance: none;
   background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
     rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
@@ -159,7 +159,7 @@
   width: 100%;
   background-color: white;
   box-shadow: 0 0 0 0.9px #dde1e5;
-  border-radius: 24px;
+  border-radius: 16px;
   padding: 0px 20px;
   box-sizing: border-box;
 }
