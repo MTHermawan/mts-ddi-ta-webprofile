@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
+/*           CSS RESET          */
 html,
 body,
 div,
@@ -131,6 +132,8 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
+/*           END CSS RESET          */
+
 body {
   background-color: #f8fafc;
   height: auto;
@@ -237,7 +240,7 @@ a {
   margin: 1rem 0;
 }
 
-/* Main Content Area */
+/*            Main Content Area                */
 .main {
   flex: 1;
   display: flex;
@@ -306,6 +309,7 @@ nav {
   color: rgb(102, 112, 133);
 }
 
+/*                  EXIT LOGO                     */
 .exit-logo {
   display: flex;
   align-items: center;
@@ -324,6 +328,8 @@ nav {
   color: #dc2626;
 }
 
+/*                  HEADING MENU                   */
+
 .menu-title {
   margin-left: 20px;
   font-size: 20px;
@@ -340,7 +346,7 @@ nav {
   gap: 20px;
 }
 
-/* POPUP TAMBAH / EDIT STYLES */
+/*              POPUP TAMBAH / EDIT STYLES                */
 .popup-overlay-form {
   position: fixed;
   top: 0;
@@ -384,6 +390,7 @@ nav {
   background: none;
   border: none;
   font-size: 20px;
+  background-color: white;
   color: rgb(29, 41, 57);
   cursor: pointer;
   padding: 4px;
@@ -392,11 +399,10 @@ nav {
 }
 
 .popup-close:hover {
-  background-color: #f1f5f9;
-  color: rgb(29, 41, 57);
+  background-color: #fecaca;
+  color: #dc2626;
 }
 
-/* Input Gambar dengan Placeholder */
 .image-input-label {
   display: block;
   font-size: 14px;
@@ -501,12 +507,9 @@ nav {
   word-wrap: break-word;
 }
 
-.preview-action-btn:hover {
-  background-color: #f1f3f6;
-}
-
 .preview-action-btn.change {
-  background-color: white;
+  background-color: #dbeafe;
+  color: #1d4ed8;
 }
 
 .preview-action-btn.remove {
@@ -514,11 +517,19 @@ nav {
   color: #dc2626;
 }
 
+.preview-action-btn.change:hover {
+  background-color: #bfdbfe;
+}
+
+.preview-action-btn.remove:hover {
+  background-color: #fecaca;
+}
+
 .image-input {
   display: none;
 }
 
-/* Input Teks */
+/* INPUT TEKS */
 .text-input-group {
   display: flex;
   flex-direction: column;
@@ -555,6 +566,8 @@ textarea.text-input {
   font-family: inherit;
 }
 
+/* BUTTON DI POPUP */
+
 .popup-actions-form {
   display: flex;
   gap: 12px;
@@ -588,25 +601,26 @@ textarea.text-input {
 }
 
 .popup-btn-form.submit {
-  background-color: white;
-  color: rgba(4, 134, 0, 1);
+  background-color: #dcfce7;
+  color: #16a34a;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .popup-btn-form.cancel {
+  background-color: #fee2e2;
   color: #dc2626;
 }
 
 .popup-btn-form.submit:hover {
-  background-color: #f1f3f6;
+  background-color: #bbf7d0;
 }
 
 .popup-btn-form.cancel:hover {
-  background-color: #fee2e2;
+  background-color: #fecaca;
 }
 
-/* POP UP DELETE STYLES */
+/*                POP UP DELETE STYLES                   */
 .popup-overlay-delete {
   position: fixed;
   top: 0;
