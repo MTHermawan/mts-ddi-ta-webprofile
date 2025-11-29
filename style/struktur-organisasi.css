@@ -39,8 +39,9 @@
 }
 
 .struktur-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+      transform: translateY(-8px);
+  box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
+  border-color: rgba(13, 122, 0, 0.15);
 }
 
 .img-organisasi {

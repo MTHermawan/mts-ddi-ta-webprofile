@@ -200,22 +200,6 @@ body {
     gap: 40px;
 }
 
-/* Brand Logo */
-/* .footer-logo {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #0b5c2c, #18a34a);
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    color: white;
-    font-weight: 700;
-    margin-bottom: 12px;
-    animation: float 3s infinite ease-in-out;
-} */
-
 .footer-logo img {
     width: 55px;
     height: 55px;
@@ -238,6 +222,7 @@ body {
 .footer-desc {
     font-size: 0.9rem;
     margin-bottom: 20px;
+    line-height: 20px;
     color: white;
     max-width: 300px;
 }
@@ -331,3 +316,10 @@ body {
       display: flex;
   }
 }
+
+/* note buatkan footer */
+/* perbaiki yang salah  */
+/* ubah biar gak ai banget jir  */
+/* tambahin animasi dikit biar kece  */
+/* optimasi buat mobile  */
+/* ganti semua warna */

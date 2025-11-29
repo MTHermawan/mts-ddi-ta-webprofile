@@ -1,71 +1,182 @@
 .visi-misi-section {
-    padding: 50px 100px;
-    width: 90%;
-    margin: 50px auto;
+  /* padding: 60px 20px; */
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto 60px auto;
+  position: relative;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #0d7a00;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: #0d7a00;
+  font-family: "Signika Negative", sans-serif;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.judul-utama::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d7a00, #18a300);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.visi {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 .visi-card, .misi-card {
-    background: #ffffff;
-    padding: 30px 35px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    line-height: 1.8rem;
-    color: #2c2c2c;
-    font-size: 17px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  padding: 36px 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(4, 134, 0, 0.08);
+  line-height: 1.8;
+  color: #2c2c2c;
+  font-size: 17px;
+  position: relative;
+  transition: all 0.35s ease;
+  border: 1px solid rgba(13, 122, 0, 0.08);
 }
 
-.visi-card:hover, .misi-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+.visi-card {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  text-align: center;
 }
 
-.visi-card p, .misi-card li {
-    text-align: justify;
-    margin-bottom: 15px;
-    text-indent: 2em;
-}
-
+/* Kutipan kiri dan kanan */
 .visi-card::before {
-    content: "“";
-    font-size: 50px;
-    color: #0d7a00;
-    position: absolute;
-    top: 25px;
-    left: 15px;
+  content: "“";
+  font-size: 5.2rem;
+  color: rgba(13, 122, 0, 0.12);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  font-weight: 200;
+  line-height: 1;
 }
 
 .visi-card::after {
-    content: "”";
-    font-size: 50px;
-    color: #0d7a00;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
+  content: "”";
+  font-size: 5.2rem;
+  color: rgba(13, 122, 0, 0.12);
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.visi-card p {
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  position: relative;
+  z-index: 2;
+}
+
+/* Misi card — daftar lebih rapi */
+.misi-card {
+  background: white;
+  padding: 32px;
+  border-left: 4px solid #0d7a00;
 }
 
 .misi-card ul {
-    padding-left: 25px;
+  padding-left: 28px;
+  margin-top: 10px;
 }
 
+.misi-card li {
+  text-align: justify;
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.misi-card li::before {
+  content: "•";
+  color: #0d7a00;
+  font-weight: bold;
+  font-size: 1.4rem;
+  position: absolute;
+  left: -22px;
+  top: -4px;
+}
+
+/* Hover effect yang halus */
+.visi-card:hover,
+.misi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
+  border-color: rgba(13, 122, 0, 0.15);
+}
+
+/* Responsif */
 @media (max-width: 768px) {
-    .visi-misi-section {
-        padding: 30px 20px;
-    }
-    .judul-utama {
-        font-size: 28px;
-    }
-    .visi-card, .misi-card {
-        padding: 20px;
-        font-size: 20px;
-    }
+  .visi-misi-section {
+    padding: 40px 15px;
+    margin: 60px auto 40px auto;
+  }
+
+  .judul-utama {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .visi-card,
+  .misi-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .visi-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .visi-card::before,
+  .visi-card::after {
+    font-size: 4rem;
+    opacity: 0.1;
+  }
+
+  .misi-card {
+    border-left-width: 3px;
+  }
+
+  .misi-card li {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visi-card,
+  .misi-card {
+    padding: 24px 16px;
+  }
+
+  .judul-utama {
+    font-size: 1.75rem;
+  }
+
+  .visi-card p {
+    font-size: 1rem;
+  }
+
+  .misi-card ul {
+    padding-left: 22px;
+  }
 }

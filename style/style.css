@@ -213,7 +213,8 @@ body {
 /* about section start */
 #about {
   padding: 100px 125px;
-  background-color: white;
+  /* background-color: white; */
+  background: linear-gradient(160deg, #f8fff8 0%, #edf8ed 100%);
 }
 
 .about-teks{
@@ -221,11 +222,12 @@ body {
     text-align: center;
     justify-content: center;
     font-size: 3rem;
-    margin: 50px;
+    margin: 50px 50px 16px 50px;
 }
 
 .intro-text {
   max-width: 700px;
+  line-height: 30px;
   margin: 0 auto 60px auto;
   text-align: center;
 }
@@ -329,7 +331,7 @@ body {
 
 /* Kotak Kecil Umum */
 .kotak-kecil {
-  background: linear-gradient(135deg, #6BFF6B, #009900);
+  background: linear-gradient(135deg, #0d7a00, #18a300);
   border-radius: 16px;
   padding: 28px 20px; 
   display: flex;
@@ -441,7 +443,8 @@ body {
 /* event section start */
 #event {
   padding: 100px 125px;
-  background-color: rgb(201, 201, 201);
+  /* background-color: rgb(201, 201, 201); */
+  background: linear-gradient(160deg, #f0f9f0 0%, #e6f4e6 100%);
 }
 
 
@@ -552,7 +555,8 @@ body {
 /* news section start */
 #news {
   padding: 100px 125px;
-  background-color: white;
+  /* background-color: white; */
+  background: linear-gradient(160deg, #f8fff8 0%, #f0faf0 100%);
 }
 
 .big-news{
@@ -730,7 +734,8 @@ body {
 .galeri-section {
     width: 100%;
     padding: 150px 125px;
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
+    background: linear-gradient(160deg, #f5fbf5 0%, #e8f5e9 100%);
 }
 
 .galeri-title {
@@ -798,7 +803,8 @@ body {
 /* contact section start */
 #contact {
   padding: 150px 125px;
-  background-color: rgb(201, 201, 201);
+  /* background-color: rgb(201, 201, 201); */
+  background: linear-gradient(160deg, #f0f9f0 0%, #e0f2e0 100%);
 }
 
 .contact-wrapper {
@@ -915,6 +921,7 @@ body {
 .footer-desc {
     font-size: 0.9rem;
     margin-bottom: 20px;
+    line-height: 20px;
     color: white;
     max-width: 300px;
 }

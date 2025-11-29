@@ -1,82 +1,144 @@
 .sejarah-section {
-    padding: 50px 100px;
-    width: 90%;
-    margin: 50px auto;
+  padding: 80px 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 100px auto 80px auto;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #0d7a00;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #0d7a00;
+  font-family: "Signika Negative", sans-serif;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.judul-utama::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d7a00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
 .sub-judul-sejarah {
-    text-align: center;
-    color: #444;
-    margin-bottom: 35px;
+  text-align: center;
+  color: #555;
+  margin-bottom: 45px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sejarah-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .sejarah-card {
-    background: #ffffff;
-    padding: 30px 35px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    line-height: 2rem;
-    color: #2c2c2c;
-    font-size: 20px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #f9fff9, #f0faf0);
+  padding: 48px 52px; /* ← Diperbesar dari 40px → 48px & 52px */
+  border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(4, 134, 0, 0.06);
+  line-height: 2;
+  color: #222;
+  font-size: 17px;
+  position: relative;
+  transition: all 0.35s ease;
+  border: 1px solid rgba(13, 122, 0, 0.08);
+  width: 100%;
+
+  /* Jarak antara teks dan kutipan */
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
-.sejarah-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
-}
-
-.sejarah-card p {
-    margin: 0 0 20px 0;
-    text-align: justify;
-    text-indent: 2em; 
-    letter-spacing: 0.5px; 
-    word-spacing: 2px; 
-}
-
+/* Agar kutipan tetap terlihat tapi tidak mengganggu teks */
 .sejarah-card::before {
-    content: "“";
-    font-size: 50px;
-    color: #0d7a00;
-    position: absolute;
-    top: 25px;
-    left: 15px;
+  content: "“";
+  font-size: 5.4rem;
+  color: rgba(13, 122, 0, 0.08);
+  position: absolute;
+  top: 25px;
+  left: 25px; /* ← Dijauhkan dari teks */
+  font-weight: 200;
+  line-height: 1;
+  z-index: 0;
 }
 
 .sejarah-card::after {
-    content: "”";
-    font-size: 50px;
-    color: #0d7a00;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
+  content: "”";
+  font-size: 5.4rem;
+  color: rgba(13, 122, 0, 0.08);
+  position: absolute;
+  bottom: 25px;
+  right: 25px; /* ← Dijauhkan dari teks */
+  font-weight: 200;
+  line-height: 1;
+  z-index: 0;
 }
 
+.sejarah-card p {
+  margin: 0;
+  text-align: justify;
+  text-indent: 2em;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  color: #1a1a1a;
+
+  /* Jarak tambahan di atas & bawah paragraf */
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* Responsif */
 @media (max-width: 768px) {
-    .sejarah-section {
-        padding: 30px 20px;
-        margin: 30px auto;
-    }
-    .judul-utama {
-        font-size: 32px;
-    }
-    .sejarah-card {
-        padding: 20px;
-        font-size: 20px;
-    }
+  .sejarah-section {
+    padding: 50px 15px;
+    margin: 70px auto 60px auto;
+  }
+
+  .judul-utama {
+    font-size: 2rem;
+  }
+
+  .sub-judul-sejarah {
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+
+  .sejarah-card {
+    padding: 30px 20px;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .sejarah-card::before,
+  .sejarah-card::after {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sejarah-card {
+    padding: 24px 16px;
+  }
+
+  .sejarah-card p {
+    font-size: 15px;
+  }
+
+  .judul-utama {
+    font-size: 1.75rem;
+  }
 }
