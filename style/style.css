@@ -213,8 +213,12 @@ body {
 /* about section start */
 #about {
   padding: 80px 125px;
-  /* background-color: white; */
-  background: linear-gradient(160deg, #f8fff8 0%, #edf8ed 100%);
+  background-color:hsla(0,0%,100%,1);
+  background-image:
+  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
+  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
 }
 
 .about-teks{
@@ -235,7 +239,7 @@ body {
 .about-container h1 {
   font-size: 2.5rem;
   margin-bottom: 16px;
-  color: #333;
+  color: #000000;
 }
 
 /* Wrapper utama untuk 3 kartu */
@@ -444,7 +448,8 @@ body {
 #event {
   padding: 80px 125px;
   /* background-color: rgb(201, 201, 201); */
-  background: linear-gradient(160deg, #f0f9f0 0%, #e6f4e6 100%);
+  /* background: linear-gradient(160deg, #f0f9f0 0%, #e6f4e6 100%); */
+  background: radial-gradient(circle at 45% 50%,#18a300, #74c766, #d0eccc)
 }
 
 
@@ -455,7 +460,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 16px;
-    color: #333;
+    color: #000000;
 }
 .event-wrapper {
   margin: 0 auto;
@@ -555,8 +560,12 @@ body {
 /* news section start */
 #news {
   padding: 80px 125px;
-  /* background-color: white; */
-  background: linear-gradient(160deg, #f8fff8 0%, #f0faf0 100%);
+  background-color:hsla(0,0%,100%,1);
+  background-image:
+  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
+  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
 }
 
 .big-news{
@@ -734,8 +743,7 @@ body {
 .galeri-section {
     width: 100%;
     padding: 80px 125px;
-    /* background: #f7f7f7; */
-    background: linear-gradient(160deg, #f5fbf5 0%, #e8f5e9 100%);
+    background: radial-gradient(circle at 45% 50%,#18a300, #74c766, #d0eccc)
 }
 
 .galeri-title {
@@ -804,7 +812,13 @@ body {
 #contact {
   padding: 80px 125px;
   /* background-color: rgb(201, 201, 201); */
-  background: linear-gradient(160deg, #f0f9f0 0%, #e0f2e0 100%);
+  /* background: linear-gradient(160deg, #f0f9f0 0%, #e0f2e0 100%); */
+  background-color:hsla(0,0%,100%,1);
+  background-image:
+  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
+  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
+  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
 }
 
 .contact-wrapper {
@@ -962,7 +976,7 @@ body {
 
 .footer-column ul li a {
     text-decoration: none;
-    color: #cfd3e1;
+    color: #ffffff;
     transition: 0.3s;
 }
 
@@ -1015,10 +1029,3 @@ body {
       display: flex;
   }
 }
-
-/* note buatkan footer */
-/* perbaiki yang salah  */
-/* ubah biar gak ai banget jir  */
-/* tambahin animasi dikit biar kece  */
-/* optimasi buat mobile  */
-/* ganti semua warna */
