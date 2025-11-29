@@ -13,5 +13,7 @@ $jabatan = $_GET['jabatan'] ?? null;
 $mapel = $_GET['mapel'] ?? null;
 $pendidikan = $_GET['pendidikan'] ?? null;
 
-echo json_encode(GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, pendidikan: $pendidikan));
+$search = $_GET['search'] ?? null;
+
+echo json_encode(GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, pendidikan: $pendidikan, search: $search));
 ?>

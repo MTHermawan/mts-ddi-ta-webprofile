@@ -311,9 +311,6 @@ function ReloadTableEventListener()
   });
 }
 
-// Inisialisasi event untuk gambar error di tabel
-document.addEventListener("DOMContentLoaded", ReloadTableEventListener());
-
 function ReloadDataTable()
 {
   const emptyTable = document.getElementById('emptyData');
@@ -372,18 +369,19 @@ function ReloadDataTable()
 
       tableBody.appendChild(newRow);
     }
-
-    
-  
   );
   }
   ReloadTableEventListener();
 }
 
-function ReloadDataStaff()
+function ReloadDataStaff(keyword = null)
 {
   const xml = new XMLHttpRequest();
-  xml.open('GET', '../api/staff');
+  let url = '../api/staff';
+  if (keyword) {
+    url += `?search=${encodeURIComponent(keyword)}`;
+  }
+  xml.open('GET', url);
   xml.addEventListener('load', () => {
     if (xml.status === 200) {
       staffData = JSON.parse(xml.responseText);
@@ -396,4 +394,14 @@ function ReloadDataStaff()
   xml.send();
 }
 
-ReloadDataStaff();
+const searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('input', function() {
+  const keyword = this.value.trim();
+  clearTimeout(this.searchTimeout);
+  this.searchTimeout = setTimeout(() => {
+    ReloadDataStaff(keyword);
+  }, 100);
+});
+
+// Inisialisasi event untuk gambar error di tabel
+document.addEventListener("DOMContentLoaded", ReloadDataStaff());

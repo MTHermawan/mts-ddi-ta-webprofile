@@ -35,7 +35,7 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
     return true;
 }
 
-function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null)
+function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null, $search = null)
 {
     global $koneksi;
 
@@ -52,15 +52,21 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
         $koneksi->next_result();
     }
 
-    foreach ($data as $key => $staff) {
-        if (($id !== null && $staff['id_staff'] != $id) ||
-            ($nama !== null && stripos($staff['nama_staff'], $nama) === false) ||
-            ($jabatan !== null && stripos($staff['jabatan'], $jabatan) === false) ||
-            ($mapel !== null && stripos($staff['mapel'], $mapel) === false) ||
-            ($pendidikan !== null && stripos($staff['pendidikan'], $pendidikan) === false)) {
+    foreach ($data as $key => $value) {
+        if (($id !== null && $value['id_staff'] != $id) ||
+            ($nama !== null && stripos($value['nama_staff'], $nama) === false) ||
+            ($jabatan !== null && stripos($value['jabatan'], $jabatan) === false) ||
+            ($mapel !== null && stripos($value['mapel'], $mapel) === false) ||
+            ($pendidikan !== null && stripos($value['pendidikan'], $pendidikan) === false) ||
+            ($search !== null && 
+                stripos($value['nama_staff'], $search) === false &&
+                stripos($value['jabatan'], $search) === false &&
+                stripos($value['mapel'], $search) === false &&
+                stripos($value['pendidikan'], $search) === false)
+        ) {
             unset($data[$key]);
         }
-    }    
+    }
 
     return $data;
 }
