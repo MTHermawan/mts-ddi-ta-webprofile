@@ -1,66 +1,123 @@
-<?php include_once "../data/koneksi.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi dan Misi</title>
-    <link rel="stylesheet" href="../style/style.css">
+    <title>Visi Misi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../style/hero-sect.css">
     <link rel="stylesheet" href="../style/visi-misi.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
-
 <body>
-    <?php include "../includes/site-header.php"; ?>
 
+    <!-- HEADER -->
     <header>
-        <?php include "../includes/navbar.php"; ?>
-
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Visi dan Misi MTS DDI Tani Aman</h1>
-                <h5>Sebagai lembaga pendidikan Islam, MTs DDI Tani Aman memiliki visi dan misi yang jelas untuk
-                    membentuk siswa tidak hanya cerdas akademik, tetapi juga berakhlak mulia dan siap menghadapi
-                    tantangan masa depan. Visi dan misi ini menjadi panduan dalam setiap proses pembelajaran dan
-                    pengembangan karakter siswa.</h5>
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="../assets/logo-sekolah.png" alt="logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Mts Ddi Tani Aman</h1>
+                    <p>Madrasah berkarakter & unggul</p>
+                </div>
             </div>
-        </section>
+
+            <div class="nav-menu">
+                <a href="/index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Events</a>
+                <a href="#" class="active">Sejarah</a>
+                <a href="#">Galeri</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <section class="visi-misi">
-        <div class="visi-misi-container">
-            <div class="deskripsi">
-                <h1>Visi, Misi, dan Tujuan</h1>
-                <p class="visi">“BERTAQWA, UNGGUL, DAN BERKARAKTER.”</p>
-                <hr>
-                <p class="misi">
-                    1. Menciptakan Madrasah sebagai sarana untuk mengoptimalkan pengkajian keimanan danketaqwaan terhadap Allah SWT. <br>
-                    2. Membiasakan berperilaku Islami sesuai adab dengan meneladani Rasulullah SAW. <br>
-                    3. Merancang pembelajaran yang menarik dan menyenangkan. <br>
-                    4. Meningkatkan manajemen satuan Pendidikan yang adaptif, unggul dan berkarakter. <br>
-                    5. Menjamin hak belajar setiap anak dalam proses pembelajaran yang menjunjung tinggi nilai kebersamaan. <br>
-                    6. Mewujudkan prestasi peserta didik sesuai dengan potensi yang dimiliki baik secara akademik maupun non akademik. <br>
-                    7. Mewujudkan peserta didik yang berperilaku ramah dan berkarakter baik.
-                </p>
-                <hr>
-                <p class="tujuan">
-                    Tujuan MTs DDI Tani Aman Kecamatan Loa Janan Ilir Kota Samarinda  adalah sebagai berikut: <br>
-                    1. Membiasakan kegiatan ibadah secara rutin. <br>
-                    2. Menciptakan pembelajaran yang mengedepankan ciri khas madrasah yang islami dan bernuansa kebhinekaan yang harmonis. <br>
-                    3. Membentuk peserta didik yang memiliki kemampuan daya saing yang unggul, berkarakter dan taat beribadah. <br>
-                    4. Menghasilkan lulusan yang mampu bersaing dan unggul dalam kehidupan nyata. <br>
-                    5. Mempunyai kecakapaan hidup yang unggul dan mampu beradaptasi dengan perkembangan zaman. <br>
-                    6. Menjadikan madrasah sebagai tempat untuk mengembangkan proses pengembangkan intelektual emosional, sosial, keterampilan dan tumbuh kembang peserta didik sesuai tingkat kemampuan dan kondisi masing-masing peserta didik yang mengedepankan nilai kebersamaan. <br>
-                </p>
+    <!-- HERO -->
+    <section id="hero">
+        <img src="../assets/contoh1.jpg" alt="Latar belakang pendidikan berkarakter" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Visi Misi</h1>
+        </div>
+    </section>
+
+
+    <!-- SECTION VISI MISI -->
+    <section class="visi-misi-section">
+        <h1 class="judul-utama">Visi</h1>
+        <div class="visi-misi-list">
+            <div class="visi-card">
+                <p>“Menjadi lembaga pendidikan Islam yang unggul dalam akademik, berakhlak mulia, dan mampu menghasilkan generasi Qur’ani yang siap menghadapi tantangan zaman.”</p>
             </div>
         </div>
     </section>
 
-    <?php include "../includes/footer.php"; ?>
+    <section class="visi-misi-section">
+        <h1 class="judul-utama">Misi</h1>
+        <div class="visi-misi-list">
+            <div class="misi-card">
+                <ul>
+                    <li>Menyelenggarakan proses pembelajaran yang berkualitas berbasis kurikulum merdeka dan nilai-nilai Islam.</li>
+                    <li>Membentuk karakter siswa yang berakhlakul karimah, disiplin, jujur, dan bertanggung jawab.</li>
+                    <li>Mengembangkan potensi akademik, seni, olahraga, dan keterampilan digital siswa secara seimbang.</li>
+                    <li>Menjalin kerja sama yang harmonis dengan orang tua, masyarakat, dan stakeholders pendidikan.</li>
+                    <li>Menciptakan lingkungan belajar yang aman, nyaman, dan penuh semangat keislaman.</li>
+                    <li>Mengintegrasikan Al-Qur’an dan Sunnah dalam setiap aktivitas pembelajaran dan kehidupan sehari-hari.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <script src="../script/script.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="../assets/logo-sekolah.png" alt="footer logo">
+                </div>
+                <h2 class="footer-title">MTS DDI Tani Aman</h2>
+                <p class="footer-desc">
+                    Membangun generasi berkarakter, unggul dalam iman, ilmu, dan teknologi.
+                </p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ikuti Kami</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak</h3>
+                <p><i class="fa-solid fa-location-dot info-foot"></i> Jl. Tani Aman, Samboja</p>
+                <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
+                <p><i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
+        </div>
+    </footer>
+
 </body>
-
 </html>

@@ -1,40 +1,109 @@
-<?php include_once "../data/koneksi.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struktur Organisasi</title>
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../style/hero-sect.css">
     <link rel="stylesheet" href="../style/struktur-organisasi.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
-    <?php include "../includes/site-header.php"; ?>
 
+    <!-- HEADER -->
     <header>
-        <?php include "../includes/navbar.php"; ?>
-
-        <section id="hero">
-            <div class="hero-content">
-                <h1 class="judul-hero">Susunan Struktur Organisasi MTS DDI Tani Aman</h1>
-                <h5>Susunan organisasi sekolah yang jelas dan terstruktur, memastikan proses pendidikan berjalan efektif dan terkoordinasi.</h5> 
-            </div>
-        </section>
-    </header>
-
-    <section class="data-organisasi">
-        <h1 class="head">Struktur Organisasi</h1>
-            <div class="data-organisasi-con">
-                <div class="card">
-                    <img src="../assets/data-profile/struktur-organisasi.jpg" alt="struktur-organisasi" class="img-organisasi">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="../assets/logo-sekolah.png" alt="logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Mts Ddi Tani Aman</h1>
+                    <p>Madrasah berkarakter & unggul</p>
                 </div>
             </div>
+
+            <div class="nav-menu">
+                <a href="/index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Events</a>
+                <a href="#" class="active">Sejarah</a>
+                <a href="#">Galeri</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <img src="../assets/contoh1.jpg" alt="Latar belakang pendidikan berkarakter" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Struktur Organisasi</h1>
+        </div>
     </section>
 
-    <?php include "../includes/footer.php"; ?>
+    <!-- SECTION SEJARAH -->
+    <section class="sejarah-section">
+        <h1 class="judul-utama">Struktur Organisasi Sekolah</h1>
+        <p class="sub-judul-struktur">
+            Susunan organisasi sekolah yang jelas dan terstruktur, memastikan proses pendidikan berjalan efektif dan terkoordinasi.
+        </p>
+        <div class="struktur-list">
+            <div class="struktur-card">
+            <img src="../assets/data-profile/struktur-organisasi.jpg" alt="struktur-organisasi" class="img-organisasi">
+            </div>
 
-    <script src="../script/script.js"></script>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="../assets/logo-sekolah.png" alt="footer logo">
+                </div>
+                <h2 class="footer-title">MTS DDI Tani Aman</h2>
+                <p class="footer-desc">
+                    Membangun generasi berkarakter, unggul dalam iman, ilmu, dan teknologi.
+                </p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ikuti Kami</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak</h3>
+                <p><i class="fa-solid fa-location-dot info-foot"></i> Jl. Tani Aman, Samboja</p>
+                <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
+                <p><i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
+        </div>
+    </footer>
+
 </body>
 </html>
