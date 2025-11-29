@@ -212,7 +212,7 @@ body {
 
 /* about section start */
 #about {
-  padding: 100px 125px;
+  padding: 80px 125px;
   /* background-color: white; */
   background: linear-gradient(160deg, #f8fff8 0%, #edf8ed 100%);
 }
@@ -442,7 +442,7 @@ body {
 
 /* event section start */
 #event {
-  padding: 100px 125px;
+  padding: 80px 125px;
   /* background-color: rgb(201, 201, 201); */
   background: linear-gradient(160deg, #f0f9f0 0%, #e6f4e6 100%);
 }
@@ -554,7 +554,7 @@ body {
 
 /* news section start */
 #news {
-  padding: 100px 125px;
+  padding: 80px 125px;
   /* background-color: white; */
   background: linear-gradient(160deg, #f8fff8 0%, #f0faf0 100%);
 }
@@ -733,7 +733,7 @@ body {
 /* section galeri */
 .galeri-section {
     width: 100%;
-    padding: 150px 125px;
+    padding: 80px 125px;
     /* background: #f7f7f7; */
     background: linear-gradient(160deg, #f5fbf5 0%, #e8f5e9 100%);
 }
@@ -802,7 +802,7 @@ body {
 
 /* contact section start */
 #contact {
-  padding: 150px 125px;
+  padding: 80px 125px;
   /* background-color: rgb(201, 201, 201); */
   background: linear-gradient(160deg, #f0f9f0 0%, #e0f2e0 100%);
 }

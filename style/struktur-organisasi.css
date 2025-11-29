@@ -5,11 +5,24 @@
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #0d7a00;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #0d7a00;
+  font-family: "Signika Negative", sans-serif;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.judul-utama::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d7a00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
 .sub-judul-struktur {
@@ -31,6 +44,7 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    min-width: 600px;
     max-width: 900px;
     margin: 0 auto;
     display: flex;
