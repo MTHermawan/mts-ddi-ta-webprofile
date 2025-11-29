@@ -1,4 +1,10 @@
-<?php include_once "../../../data/data_foto_galeri.php";
+<?php include_once "../../../data/data_informasi.php";
+include_once "../../includes/check-auth-func.php";
+if (!CheckAuth())
+{
+    http_response_code(403);
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $judul_galeri = htmlspecialchars($_POST['judul_galeri']);

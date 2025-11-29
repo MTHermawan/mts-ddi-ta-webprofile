@@ -335,7 +335,7 @@ include_once "../data/utility.php";
           <button
             type="button"
             class="popup-btn-delete delete"
-            onclick="confirmDelete()">
+            onclick="confirmDelete(this)">
             Hapus
           </button>
         </div>

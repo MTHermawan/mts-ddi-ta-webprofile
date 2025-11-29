@@ -1,5 +1,5 @@
 <?php session_start();
-include_once "./includes/check-auth.php";
+require_once "./includes/check-auth.php";
 ?>
 
 <!DOCTYPE html>
