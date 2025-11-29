@@ -295,7 +295,7 @@ require_once "./includes/check-auth.php";
             <span class="data-label">Nama:</span>
             <span class="data-value" id="dataName">Nama Fasilitas</span>
           </div>
-          <div class="data-item">
+          <div class="data-item description">
             <span class="data-label">Deskripsi:</span>
             <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
           </div>

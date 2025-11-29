@@ -139,6 +139,23 @@
   font-weight: 400px;
   margin-top: 8px;
 }
+/*                OVERRIDE POP UP DELETE                    */
+.popup-data-info {
+  margin: 0;
+}
+
+.data-item.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.data-item.description .data-value {
+  text-align: justify;
+}
 
 /*                STYLE CARD UNTUK DATA FASILITAS            */
 .facilities-container {

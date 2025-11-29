@@ -640,7 +640,7 @@ textarea.text-input {
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 0 0 0.9px #dde1e5;
-  padding: 30px;
+  padding: 20px;
   width: 400px;
   max-width: 90vw;
   text-align: center;
@@ -676,10 +676,10 @@ textarea.text-input {
 .popup-data-info {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 24px;
+  border-radius: 16px;
+  padding: 20px;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .data-item {
