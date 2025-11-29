@@ -213,12 +213,8 @@ body {
 /* about section start */
 #about {
   padding: 80px 125px;
-  background-color:hsla(0,0%,100%,1);
-  background-image:
-  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
-  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
+  /* background-color:hsla(0,0%,100%,1); */
+  background: linear-gradient(135deg, #f7f9f7 0%, #eaf3ed 100%);
 }
 
 .about-teks{
@@ -447,9 +443,7 @@ body {
 /* event section start */
 #event {
   padding: 80px 125px;
-  /* background-color: rgb(201, 201, 201); */
-  /* background: linear-gradient(160deg, #f0f9f0 0%, #e6f4e6 100%); */
-  background: radial-gradient(circle at 45% 50%,#18a300, #74c766, #d0eccc)
+  background: linear-gradient(135deg, #f9f8f7 0%, #f0eee9 100%);
 }
 
 
@@ -560,12 +554,7 @@ body {
 /* news section start */
 #news {
   padding: 80px 125px;
-  background-color:hsla(0,0%,100%,1);
-  background-image:
-  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
-  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
+  background: linear-gradient(135deg, #f6f9f8 0%, #e8f2f0 100%);
 }
 
 .big-news{
@@ -743,7 +732,7 @@ body {
 .galeri-section {
     width: 100%;
     padding: 80px 125px;
-    background: radial-gradient(circle at 45% 50%,#18a300, #74c766, #d0eccc)
+  background: linear-gradient(135deg, #f8f9f5 0%, #edf3e9 100%);
 }
 
 .galeri-title {
@@ -811,14 +800,7 @@ body {
 /* contact section start */
 #contact {
   padding: 80px 125px;
-  /* background-color: rgb(201, 201, 201); */
-  /* background: linear-gradient(160deg, #f0f9f0 0%, #e0f2e0 100%); */
-  background-color:hsla(0,0%,100%,1);
-  background-image:
-  radial-gradient(at 68% 71%, hsla(111,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 12% 77%, hsla(72,82%,93%,1) 0px, transparent 50%),
-  radial-gradient(at 25% 25%, hsla(112,45%,86%,1) 0px, transparent 50%),
-  radial-gradient(at 86% 18%, hsla(72,82%,93%,1) 0px, transparent 50%);
+  background: linear-gradient(135deg, #f9f8f6 0%, #f1eee8 100%);
 }
 
 .contact-wrapper {
