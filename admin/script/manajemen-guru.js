@@ -88,7 +88,7 @@ function openEditPopup(id_staff) {
 
     // Jika ada foto, tampilkan preview
     if (staff.url_foto) {
-      document.getElementById("previewImage").src = staff.url_foto;
+      document.getElementById("previewImage").src = "../assets/" + staff.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
     } else {
@@ -169,11 +169,12 @@ function removeImage() {
 }
 
 // Fungsi untuk submit form
-function submitForm() {
+async function submitForm() {
   const nama = document.getElementById("inputName").value;
   const jabatan = document.getElementById("inputPosition").value;
   const mapel = document.getElementById("inputSubject").value;
   const pendidikan = document.getElementById("inputDegree").value;
+  const foto_staff = document.getElementById("imageInput").files[0] ?? null;
 
   if (!nama.trim()) {
     alert("Nama harus diisi!");
@@ -181,9 +182,23 @@ function submitForm() {
   }
 
   if (currentMode === "add") {
-    alert("Data guru berhasil ditambahkan!");
+    if (PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff))
+    {
+      alert("Data staff berhasil ditambahkan");
+    }
+    else
+    {
+      alert("Data staff gagal ditambahkan");
+    }
   } else {
-    alert(`Data guru ${nama} berhasil diperbarui!`);
+    if (PostEditStaff(currentEditId, nama, jabatan, mapel, pendidikan, foto_staff))
+    {
+      alert(`Data guru ${nama} berhasil diperbarui!`);
+    }
+    else
+    {
+      alert("Data staff gagal diperbarui");
+    }
   }
 
   closePopup();
@@ -191,8 +206,18 @@ function submitForm() {
 
 // Fungsi untuk konfirmasi delete
 function confirmDelete() {
-  if (currentDeleteId && currentDeleteData) {
-    alert(`Data guru ${currentDeleteData.name} berhasil dihapus!`);
+  if (currentDeleteId) {
+    const staff = GetStaffById(currentDeleteId);
+    if (!staff) return;
+     
+    if (DeleteStaff(staff['id_staff']))
+    {
+      alert(`Data guru ${staff['nama_staff']} berhasil dihapus!`);
+    }
+    else
+    {
+      alert(`Data guru ${staff['nama_staff']} gagal dihapus!`);
+    }
     closeDeletePopup();
   }
 }
