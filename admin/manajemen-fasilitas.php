@@ -274,6 +274,49 @@ require_once "./includes/check-auth.php";
         </div>
       </div>
     </div>
+
+    <!-- POP UP KONFIRMASI DELETE -->
+    <div class="popup-overlay-delete" id="deletePopup">
+      <div class="popup-content-delete">
+        <div class="popup-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+
+        <h2 class="popup-title">Hapus Data?</h2>
+
+        <p class="popup-message">
+          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+          dihapus sudah benar.
+        </p>
+
+        <!-- Informasi Data yang Akan Dihapus -->
+        <div class="popup-data-info">
+          <div class="data-item">
+            <span class="data-label">Nama:</span>
+            <span class="data-value" id="dataName">Nama Fasilitas</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Deskripsi:</span>
+            <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
+          </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete(this)">
+            Hapus
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="./script/manajemen-fasilitas.js"></script>

@@ -8,58 +8,48 @@ let facilitiesData = [
   {
     id_fasilitas: 1,
     nama_fasilitas: "Perpustakaan Sekolah",
-    deskripsi:
-      "Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.",
-    url_foto:
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    deskripsi: "Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
     id_fasilitas: 2,
     nama_fasilitas: "Laboratorium Komputer",
-    deskripsi:
-      "Laboratorium komputer modern dengan 40 unit komputer terbaru, jaringan internet cepat, dan perangkat lunak pendidikan terkini untuk mendukung proses belajar mengajar.",
-    url_foto:
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    deskripsi: "Laboratorium komputer modern dengan 40 unit komputer terbaru, jaringan internet cepat, dan perangkat lunak pendidikan terkini untuk mendukung proses belajar mengajar.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
     id_fasilitas: 3,
     nama_fasilitas: "Lapangan Olahraga",
-    deskripsi:
-      "Lapangan olahraga multifungsi dengan ukuran standar untuk sepak bola, basket, voli, dan atletik. Dilengkapi dengan tribun penonton dan pencahayaan untuk kegiatan malam.",
-    url_foto:
-      "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    deskripsi: "Lapangan olahraga multifungsi dengan ukuran standar untuk sepak bola, basket, voli, dan atletik. Dilengkapi dengan tribun penonton dan pencahayaan untuk kegiatan malam.",
+    url_foto: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
     id_fasilitas: 4,
     nama_fasilitas: "Laboratorium Sains",
-    deskripsi:
-      "Laboratorium sains lengkap untuk praktikum fisika, kimia, dan biologi. Dilengkapi dengan peralatan modern, bahan praktikum, dan sistem keamanan yang memadai.",
-    url_foto:
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    deskripsi: "Laboratorium sains lengkap untuk praktikum fisika, kimia, dan biologi. Dilengkapi dengan peralatan modern, bahan praktikum, dan sistem keamanan yang memadai.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
     id_fasilitas: 5,
     nama_fasilitas: "Aula Serbaguna",
-    deskripsi:
-      "Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.",
-    url_foto:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    deskripsi: "Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.",
+    url_foto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
     id_fasilitas: 6,
     nama_fasilitas: "Kantin Sekolah",
-    deskripsi:
-      "Kantin sekolah yang bersih dan sehat dengan berbagai pilihan makanan dan minuman. Dilengkapi dengan area makan yang nyaman dan sistem pembayaran digital.",
-    url_foto:
-      "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  },
+    deskripsi: "Kantin sekolah yang bersih dan sehat dengan berbagai pilihan makanan dan minuman. Dilengkapi dengan area makan yang nyaman dan sistem pembayaran digital.",
+    url_foto: "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  }
 ];
 
-// Fungsi untuk mendapatkan fasilitas berdasarkan ID
 function GetFacilityById(id_fasilitas) {
-  return facilitiesData.find(
-    (facility) => facility.id_fasilitas === id_fasilitas
-  );
+  for (let i = 0; i < facilitiesData.length; i++) {
+    if (facilitiesData[i]['id_fasilitas'] == id_fasilitas) {
+      return facilitiesData[i];
+    }
+  }
+  return null;
 }
 
 // Fungsi buka popup untuk tambah data
@@ -101,18 +91,17 @@ function openEditPopup(id_fasilitas) {
 // Fungsi buka popup konfirmasi delete
 function openDeletePopup(id_fasilitas) {
   const facility = GetFacilityById(id_fasilitas);
-  currentDeleteId = facility["id_fasilitas"];
+  currentDeleteId = facility['id_fasilitas'];
 
   if (!facility) return;
 
-  // Tampilkan konfirmasi delete
-  if (
-    confirm(
-      `Apakah Anda yakin ingin menghapus fasilitas "${facility.nama_fasilitas}"?`
-    )
-  ) {
-    confirmDelete();
-  }
+  // Isi data yang akan dihapus
+  document.getElementById("dataName").textContent = facility['nama_fasilitas'];
+  document.getElementById("dataDescription").textContent = facility['deskripsi'];
+
+  // Menampilkan popup delete
+  document.getElementById("deletePopup").style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 // Fungsi tutup popup form
@@ -122,17 +111,11 @@ function closePopup() {
   resetForm();
 }
 
-// Fungsi untuk konfirmasi delete
-function confirmDelete() {
-  if (currentDeleteId) {
-    const facility = GetFacilityById(currentDeleteId);
-    if (facility) {
-      alert(`Fasilitas "${facility.nama_fasilitas}" berhasil dihapus!`);
-      // Di sini Anda bisa menambahkan logika untuk menghapus dari array atau database
-      // facilitiesData = facilitiesData.filter(f => f.id_fasilitas !== currentDeleteId);
-    }
-    currentDeleteId = null;
-  }
+// Fungsi tutup popup delete
+function closeDeletePopup() {
+  document.getElementById("deletePopup").style.display = "none";
+  document.body.style.overflow = "auto";
+  currentDeleteId = null;
 }
 
 // Event untuk input file
@@ -195,6 +178,19 @@ function submitForm() {
   closePopup();
 }
 
+// Fungsi untuk konfirmasi delete
+function confirmDelete() {
+  if (currentDeleteId) {
+    const facility = GetFacilityById(currentDeleteId);
+    if (facility) {
+      alert(`Fasilitas "${facility.nama_fasilitas}" berhasil dihapus!`);
+      // Di sini Anda bisa menambahkan logika untuk menghapus dari array atau database
+      // facilitiesData = facilitiesData.filter(f => f.id_fasilitas !== currentDeleteId);
+    }
+    closeDeletePopup();
+  }
+}
+
 // Fungsi untuk reset form
 function resetForm() {
   document.getElementById("titleInput").value = "";
@@ -208,6 +204,12 @@ function resetForm() {
 document.getElementById("popup").addEventListener("click", function (e) {
   if (e.target === this) {
     closePopup();
+  }
+});
+
+document.getElementById("deletePopup").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeDeletePopup();
   }
 });
 
