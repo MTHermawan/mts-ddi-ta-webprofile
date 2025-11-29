@@ -65,8 +65,10 @@ include_once "../data/utility.php";
             <thead>
               <tr>
                 <th>Nama</th>
+                <th>Jabatan</th>
                 <th>Mata Pelajaran</th>
                 <th>Gelar</th>
+                <th>Aksi</th>
                 <th></th>
               </tr>
             </thead>
@@ -244,6 +246,15 @@ include_once "../data/utility.php";
         </div>
 
         <div class="text-input-group">
+          <label for="titleInput" class="text-input-label">Jabatan</label>
+          <input
+            type="text"
+            class="text-input"
+            id="inputPosition"
+            placeholder="Masukkan mata pelajaran yang diampu" />
+        </div>
+
+        <div class="text-input-group">
           <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
           <input
             type="text"
@@ -298,6 +309,10 @@ include_once "../data/utility.php";
           <div class="data-item">
             <span class="data-label">Nama:</span>
             <span class="data-value" id="dataName">Lindsey Curtis</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Jabatan:</span>
+            <span class="data-value" id="dataPosition">Guru</span>
           </div>
           <div class="data-item">
             <span class="data-label">Mata Pelajaran:</span>
