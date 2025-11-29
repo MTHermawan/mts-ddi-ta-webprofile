@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   editButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const id_staff = 1; // ID berdasarkan urutan (1-5)
+      const id_staff = index + 1; // ID berdasarkan urutan (1-5)
       openEditPopup(id_staff);
     });
   });
