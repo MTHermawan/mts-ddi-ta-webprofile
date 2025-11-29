@@ -44,9 +44,8 @@ let staffData = {
   // },
 };
 
-function GetStaffById(id_staff)
-{
-  return staffData.find(staff => staff.id === id_staff);
+function GetStaffById(id_staff) {
+  return staffData.find(staff => staff['id_staff'] === id_staff) || null;
 }
 
 // Fungsi buka popup untuk tambah data
@@ -64,8 +63,8 @@ function openEditPopup(id_staff) {
   document.getElementById("popupTitle").textContent = "Edit Guru";
 
   // Isi form dengan data guru yang akan diedit
-  const staff = staffData.find(staff => staff.id === id_staff);
-  if (staff){
+  const staff = GetStaffById(id_staff);
+  if (staff) {
     document.getElementById("inputName").value = staff.nama_staff;
     document.getElementById("inputPosition").value = staff.jabatan;
     document.getElementById("inputSubject").value = staff.mapel;
@@ -87,8 +86,8 @@ function openEditPopup(id_staff) {
 
 // Fungsi buka popup konfirmasi delete
 function openDeletePopup(id_staff) {
-  currentDeleteId = id_staff;
   const staff = GetStaffById(id_staff);
+  currentDeleteId = staff['id_staff'];
 
   if (!staff) return;
 
@@ -174,10 +173,23 @@ function submitForm() {
 }
 
 // Fungsi untuk konfirmasi delete
-function confirmDelete() {
-  if (currentDeleteId) {
-    alert(`Data guru ${GetStaffById(currentDeleteId)['nama_staff']} berhasil dihapus!`);
-    closeDeletePopup();
+async function confirmDelete(e) {
+  try {
+    const deletedStaff = GetStaffById(currentDeleteId);
+    if (deletedStaff == null) throw new Error("ID Staff tidak ada!");
+
+    e.setAttribute("disabled");
+    const deleteProcess = await DeleteStaff(currentDeleteId);
+    if (deleteProcess) {
+      alert(`Data guru ${deletedStaff['nama_staff']} berhasil dihapus!`);
+      closeDeletePopup();
+    }
+    else {
+      alert(`Gagal menghapus ${GetStaffById(currentDeleteId)['nama_staff']}!`);
+    }
+  }
+  catch (error) {
+    console.error("Caught an error: " + error);
   }
 }
 
@@ -207,8 +219,7 @@ document.getElementById("deletePopup").addEventListener("click", function (e) {
   }
 });
 
-function ReloadTableEventListener()
-{
+function ReloadTableEventListener() {
   const avatarImages = document.querySelectorAll(".teacher-avatar img");
   const imageUploadArea = document.getElementById("imageUploadArea");
   const imageInput = document.getElementById("imageInput");
@@ -255,25 +266,25 @@ function ReloadTableEventListener()
   //     }
   //   });
   // });
-  
+
   // Event delegation untuk tombol ganti dan hapus gambar di preview
   const changeBtn = document.querySelector(".preview-action-btn.change");
   const removeBtn = document.querySelector(".preview-action-btn.remove");
-  
+
   if (changeBtn) {
     changeBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       triggerImageInput();
     });
   }
-  
+
   if (removeBtn) {
     removeBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       removeImage();
     });
   }
-  
+
   // Event untuk upload area
   imageUploadArea.addEventListener("click", function (e) {
     // Cek apakah elemen yang diklik berada di dalam container tombol aksi (.image-preview-actions)
@@ -283,26 +294,26 @@ function ReloadTableEventListener()
     }
     imageInput.click();
   });
-  
+
   imageUploadArea.addEventListener("dragover", function (e) {
     e.preventDefault();
     imageUploadArea.classList.add("dragover");
   });
-  
+
   imageUploadArea.addEventListener("dragleave", function () {
     imageUploadArea.classList.remove("dragover");
   });
-  
+
   imageUploadArea.addEventListener("drop", function (e) {
     e.preventDefault();
     imageUploadArea.classList.remove("dragover");
-    
+
     const files = e.dataTransfer.files;
     if (files.length > 0) {
       handleImageSelection(files[0]);
     }
   });
-  
+
   // Event untuk input file
   imageInput.addEventListener("change", function (e) {
     if (e.target.files.length > 0) {
@@ -311,31 +322,28 @@ function ReloadTableEventListener()
   });
 }
 
-function ReloadDataTable()
-{
+function ReloadDataTable() {
   const emptyTable = document.getElementById('emptyData');
   const table = document.querySelector('.table-container');
-  
+
   if (emptyTable == null || table == null) return;
   const tableBody = table.querySelector('tbody');
-  
-  if (staffData.length < 1)
-    {
-      emptyTable.style.display = 'flex';
+
+  if (staffData.length < 1) {
+    emptyTable.style.display = 'flex';
     table.style.display = 'none';
   }
-  else
-  {
+  else {
     emptyTable.style.display = 'none';
     table.style.display = 'flex';
-    
+
     tableBody.innerHTML = '';
     staffData.forEach(staff => {
       const initials = staff['nama_staff'].split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
       const photoUrl = staff['url_foto'] ? `../assets/${staff['url_foto']}` : '';
 
       const newRow = document.createElement('tr');
-      newRow.innerHTML =`<td>
+      newRow.innerHTML = `<td>
       <div class="teacher-info">
       <div class="teacher-avatar">
       ${photoUrl ? `<img src="${photoUrl}" alt="${staff['nama_staff']}" onerror="this.style.display='none'">` : ''}
@@ -359,23 +367,22 @@ function ReloadDataTable()
 
       editButton = newRow.querySelector(".btn-edit");
       deleteButton = newRow.querySelector(".btn-delete");
-      
+
       editButton.addEventListener("click", function () {
-        openEditPopup(staff['id']);
+        openEditPopup(staff['id_staff']);
       });
       deleteButton.addEventListener("click", function () {
-        openDeletePopup(staff['id'])
+        openDeletePopup(staff['id_staff']);
       });
 
       tableBody.appendChild(newRow);
     }
-  );
+    );
   }
   ReloadTableEventListener();
 }
 
-function ReloadDataStaff(keyword = null)
-{
+function ReloadDataStaff(keyword = null) {
   const xml = new XMLHttpRequest();
   let url = '../api/staff';
   if (keyword) {
@@ -394,13 +401,44 @@ function ReloadDataStaff(keyword = null)
   xml.send();
 }
 
+async function DeleteStaff(id_staff) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let xml = new XMLHttpRequest();
+      xml.open('POST', './post/manajemen-staff/hapus-staff.php');
+      xml.setRequestHeader('Content-Type', 'multipart/form-data');
+      xml.addEventListener('load', () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(xhr.responseXML);
+        } else {
+          reject({
+            status: xhr.status,
+            statusText: xhr.statusText
+          });
+        }
+      });
+      xhr.onerror = function () {
+        reject({
+          status: xhr.status,
+          statusText: xhr.statusText
+        });
+      };
+      const formData = new FormData();
+      formData.append('id_staff', id_staff);
+      xml.send(formData);
+    }, 5000);
+  });
+
+}
+
 const searchInput = document.querySelector('.search-input');
-searchInput.addEventListener('input', function() {
+searchInput.addEventListener('input', function () {
   const keyword = this.value.trim();
   clearTimeout(this.searchTimeout);
   this.searchTimeout = setTimeout(() => {
     ReloadDataStaff(keyword);
-  }, 100);
+    highlightMatches(keyword);
+  }, 500);
 });
 
 // Inisialisasi event untuk gambar error di tabel

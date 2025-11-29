@@ -1,4 +1,4 @@
-<?php
+<?php include_once __DIR__ . DIRECTORY_SEPARATOR . "api_utility.php";
 if (!defined('IN_API')) {
     http_response_code(403);
     exit("Forbidden");
@@ -14,6 +14,8 @@ $mapel = $_GET['mapel'] ?? null;
 $pendidikan = $_GET['pendidikan'] ?? null;
 
 $search = $_GET['search'] ?? null;
+$data = GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, pendidikan: $pendidikan, search: $search);
+$data = RemoveProperties($data, ["tanggal_dibuat"]);
 
-echo json_encode(GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, pendidikan: $pendidikan, search: $search));
+echo json_encode($data);
 ?>
