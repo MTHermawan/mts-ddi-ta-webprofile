@@ -199,13 +199,13 @@
   margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: rgb(29, 41, 57);
 }
 
 .facility-description {
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: rgb(102, 112, 133);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-box-orient: vertical;

@@ -51,7 +51,7 @@ require_once "./includes/check-auth.php";
           <button
             class="add button"
             id="btn_tambah_guru"
-            onclick="openPopup()">
+            onclick="openPopup('Tambah Berita')">
             <i class="fa-solid fa-plus"></i> Tambah Berita
           </button>
         </div>
@@ -73,6 +73,164 @@ require_once "./includes/check-auth.php";
         </div>
 
         <!-- Data Berita -->
+        <div class="berita-container" id="beritaContainer">
+          <!-- Card 1: Penerimaan Siswa Baru -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Olimpiade Sains">
+              <div class="berita-date">15 Mar 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka</h3>
+              <p class="berita-description">Pendaftaran siswa baru untuk tahun ajaran 2024/2025 telah dibuka. Kuota terbatas hanya untuk 200 siswa. Segera daftarkan putra-putri Anda untuk mendapatkan pendidikan terbaik.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>Admin Sekolah</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Olimpiade Sains -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Olimpiade Sains">
+              <div class="berita-date">10 Mar 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Siswa SMA Kita Juara Olimpiade Sains Nasional 2024</h3>
+              <p class="berita-description">Bangga! Tim olimpiade sains SMA Kita berhasil meraih medali emas dalam Olimpiade Sains Nasional 2024. Prestasi ini membuktikan kualitas pendidikan sains di sekolah kita.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>Guru Sains</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Renovasi Perpustakaan -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Renovasi Perpustakaan">
+              <div class="berita-date">5 Mar 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Perpustakaan Sekolah Selesai Direnovasi, Kini Lebih Nyaman</h3>
+              <p class="berita-description">Setelah proses renovasi selama 2 bulan, perpustakaan sekolah kini telah dibuka kembali dengan fasilitas yang lebih lengkap dan suasana yang lebih nyaman untuk membaca.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>Kepala Perpustakaan</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4: Kegiatan Bakti Sosial -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Bakti Sosial">
+              <div class="berita-date">28 Feb 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Kegiatan Bakti Sosial Siswa di Panti Asuhan Kasih Bunda</h3>
+              <p class="berita-description">Siswa-siswi SMA Kita mengadakan kegiatan bakti sosial di Panti Asuhan Kasih Bunda. Kegiatan ini bertujuan untuk menumbuhkan rasa empati dan kepedulian sosial.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>OSIS Sekolah</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 5: Workshop Teknologi -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Olimpiade Sains">
+              <div class="berita-date">22 Feb 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Workshop Teknologi: Mempersiapkan Siswa untuk Era Digital</h3>
+              <p class="berita-description">Sekolah mengadakan workshop teknologi selama 3 hari untuk mempersiapkan siswa menghadapi tantangan era digital. Workshop mencakup pemrograman, desain grafis, dan digital marketing.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>Tim IT Sekolah</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 6: Prestasi Olahraga -->
+          <div class="berita-card">
+            <div class="berita-image">
+              <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Prestasi Olahraga">
+              <div class="berita-date">18 Feb 2024</div>
+            </div>
+            <div class="berita-content">
+              <h3 class="berita-title">Tim Futsal SMA Kita Juara Turnamen Antar Sekolah Se-Kota</h3>
+              <p class="berita-description">Tim futsal SMA Kita berhasil menjadi juara dalam turnamen futsal antar sekolah se-kota. Kemenangan ini diraih setelah pertandingan final yang sangat menegangkan.</p>
+              <div class="berita-meta">
+                <div class="berita-author">
+                  <i class="fas fa-user"></i>
+                  <span>Pelatih Olahraga</span>
+                </div>
+              </div>
+            </div>
+            <div class="berita-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+        </div>
+
 
       </div>
     </div>
@@ -114,14 +272,12 @@ require_once "./includes/check-auth.php";
               <div class="image-preview-actions">
                 <button
                   type="button"
-                  class="preview-action-btn change"
-                  onclick="triggerImageInput()">
+                  class="preview-action-btn change">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
                 <button
                   type="button"
-                  class="preview-action-btn remove"
-                  onclick="removeImage()">
+                  class="preview-action-btn remove">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -165,9 +321,54 @@ require_once "./includes/check-auth.php";
       </div>
     </div>
 
+    <!-- POP UP KONFIRMASI DELETE -->
+    <div class="popup-overlay-delete" id="deletePopup">
+      <div class="popup-content-delete">
+        <div class="popup-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+
+        <h2 class="popup-title">Hapus Data?</h2>
+
+        <p class="popup-message">
+          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+          dihapus sudah benar.
+        </p>
+
+        <!-- Informasi Data yang Akan Dihapus -->
+        <div class="popup-data-info">
+          <div class="data-item">
+            <span class="data-label">Judul Berita:</span>
+            <span class="data-value" id="dataName">judul Berita</span>
+          </div>
+          <div class="data-item description">
+            <span class="data-label">Deskripsi:</span>
+            <span class="data-value" id="dataDescription">Deskripsi Berita</span>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete()">
+            Hapus
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/manajemen-berita.js"></script>
 </body>
 
 </html>

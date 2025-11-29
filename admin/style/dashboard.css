@@ -453,7 +453,7 @@ nav {
 }
 
 .image-placeholder-text {
-  color: #64748b;
+  color: rgb(102, 112, 133);
   font-size: 14px;
 }
 
@@ -542,7 +542,7 @@ nav {
   display: block;
   font-size: 14px;
   font-weight: 500;
-  color: rgb(102, 112, 133);
+  color: rgb(29, 41, 57);
 }
 
 .text-input {
@@ -554,6 +554,8 @@ nav {
   box-sizing: border-box;
   width: 100%;
   transition: all 0.2s ease;
+  color: rgb(29, 41, 57);
+  font-weight: 400;
 }
 
 .text-input:focus {

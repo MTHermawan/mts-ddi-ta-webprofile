@@ -69,7 +69,7 @@ require_once "./includes/check-auth.php";
 
         <!-- Data Fasilitas -->
         <div class="facilities-container" id="facilitiesContainer">
-          
+
           <!-- Card 1: Perpustakaan -->
           <div class="facility-card">
             <div class="facility-image">
@@ -189,7 +189,7 @@ require_once "./includes/check-auth.php";
       </div>
     </div>
 
-    <!-- POP UP TAMBAH FASILITAS -->
+    <!-- POP UP TAMBAH/EDIT FASILITAS -->
     <div class="popup-overlay-form" id="popup">
       <div class="popup-content-form">
         <div class="popup-header">
@@ -300,26 +300,26 @@ require_once "./includes/check-auth.php";
             <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
           </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-delete">
-          <button
-            type="button"
-            class="popup-btn-delete cancel"
-            onclick="closeDeletePopup()">
-            Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-delete delete"
-            onclick="confirmDelete(this)">
-            Hapus
-          </button>
+          <!-- Tombol Aksi -->
+          <div class="popup-actions-delete">
+            <button
+              type="button"
+              class="popup-btn-delete cancel"
+              onclick="closeDeletePopup()">
+              Batal
+            </button>
+            <button
+              type="button"
+              class="popup-btn-delete delete"
+              onclick="confirmDelete(this)">
+              Hapus
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="./script/manajemen-fasilitas.js"></script>
+    <script src="./script/manajemen-fasilitas.js"></script>
 </body>
 
 </html>

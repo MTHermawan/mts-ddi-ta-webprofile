@@ -71,7 +71,7 @@ require_once "./includes/check-auth.php";
       </div>
     </div>
 
-    <!-- POP UP TAMBAH GALERI -->
+    <!-- POP UP TAMBAH/EDIT GALERI -->
     <div class="popup-overlay-form" id="popup">
       <div class="popup-content-form">
         <div class="popup-header">
