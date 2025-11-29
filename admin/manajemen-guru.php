@@ -89,8 +89,8 @@ include_once "../data/utility.php";
                 <td><span class="degree">S.Kom</span></td>
                 <td>
                   <div class="action-buttons">
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
                 </td>
               </tr>
@@ -111,8 +111,8 @@ include_once "../data/utility.php";
                 <td><span class="degree">M.M</span></td>
                 <td>
                   <div class="action-buttons">
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
                 </td>
               </tr>
@@ -132,9 +132,9 @@ include_once "../data/utility.php";
                 <td><span class="subject">Bahasa Indonesia</span></td>
                 <td><span class="degree">S.S</span></td>
                 <td>
-                  <div class="action-buttons">
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <div class="action-buttons">
+                    <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
                 </td>
               </tr>
@@ -155,8 +155,8 @@ include_once "../data/utility.php";
                 <td><span class="degree">M.M</span></td>
                 <td>
                   <div class="action-buttons">
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
                 </td>
               </tr>
@@ -177,8 +177,8 @@ include_once "../data/utility.php";
                 <td><span class="degree">S.Kom</span></td>
                 <td>
                   <div class="action-buttons">
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete">Hapus</button>
+                    <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                    <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
                 </td>
               </tr>
@@ -340,13 +340,13 @@ include_once "../data/utility.php";
             type="button"
             class="popup-btn-delete cancel"
             onclick="closeDeletePopup()">
-            Batal
+            <i class="fas fa-times"></i> Batal
           </button>
           <button
             type="button"
             class="popup-btn-delete delete"
             onclick="confirmDelete(this)">
-            Hapus
+            <i class="fas fa-trash"></i> Hapus
           </button>
         </div>
       </div>

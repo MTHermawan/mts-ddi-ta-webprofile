@@ -151,7 +151,7 @@
 .facility-card {
   background: white;
   border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0.9px #dde1e5;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

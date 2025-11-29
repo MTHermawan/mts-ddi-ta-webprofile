@@ -92,7 +92,7 @@ require_once "./includes/check-auth.php";
           <!-- Card 2: Laboratorium Komputer -->
           <div class="facility-card">
             <div class="facility-image">
-              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Laboratorium Komputer">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Laboratorium Komputer">
             </div>
             <div class="facility-content">
               <h3 class="facility-title">Laboratorium Komputer</h3>
@@ -130,7 +130,7 @@ require_once "./includes/check-auth.php";
           <!-- Card 4: Laboratorium Sains -->
           <div class="facility-card">
             <div class="facility-image">
-              <img src="https://images.unsplash.com/photo-1581093458791-8a6b6d47d0b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Laboratorium Sains">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Laboratorium Sains">
             </div>
             <div class="facility-content">
               <h3 class="facility-title">Laboratorium Sains</h3>
@@ -270,6 +270,49 @@ require_once "./includes/check-auth.php";
             class="popup-btn-form submit"
             onclick="submitForm()">
             <i class="fa-regular fa-floppy-disk"></i> Simpan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- POP UP KONFIRMASI DELETE -->
+    <div class="popup-overlay-delete" id="deletePopup">
+      <div class="popup-content-delete">
+        <div class="popup-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+
+        <h2 class="popup-title">Hapus Data?</h2>
+
+        <p class="popup-message">
+          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+          dihapus sudah benar.
+        </p>
+
+        <!-- Informasi Data yang Akan Dihapus -->
+        <div class="popup-data-info">
+          <div class="data-item">
+            <span class="data-label">Nama:</span>
+            <span class="data-value" id="dataName">Nama Fasilitas</span>
+          </div>
+          <div class="data-item">
+            <span class="data-label">Deskripsi:</span>
+            <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
+          </div>
+
+        <!-- Tombol Aksi -->
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete(this)">
+            Hapus
           </button>
         </div>
       </div>

@@ -1,16 +1,55 @@
-// Variabel global
+// VARIABEL GLOBAL
 let currentMode = "add";
 let currentEditId = null;
 let currentDeleteId = null;
-let currentDeleteData = null;
 
-// Fungsi untuk reset form
-function resetForm() {
-  document.getElementById("inputFacility").value = "";
-  document.getElementById("inputDescription").value = "";
-  removeImage();
-  currentMode = "add";
-  currentEditId = null;
+// Data fasilitas hardcoded
+let facilitiesData = [
+  {
+    id_fasilitas: 1,
+    nama_fasilitas: "Perpustakaan Sekolah",
+    deskripsi: "Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id_fasilitas: 2,
+    nama_fasilitas: "Laboratorium Komputer",
+    deskripsi: "Laboratorium komputer modern dengan 40 unit komputer terbaru, jaringan internet cepat, dan perangkat lunak pendidikan terkini untuk mendukung proses belajar mengajar.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id_fasilitas: 3,
+    nama_fasilitas: "Lapangan Olahraga",
+    deskripsi: "Lapangan olahraga multifungsi dengan ukuran standar untuk sepak bola, basket, voli, dan atletik. Dilengkapi dengan tribun penonton dan pencahayaan untuk kegiatan malam.",
+    url_foto: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id_fasilitas: 4,
+    nama_fasilitas: "Laboratorium Sains",
+    deskripsi: "Laboratorium sains lengkap untuk praktikum fisika, kimia, dan biologi. Dilengkapi dengan peralatan modern, bahan praktikum, dan sistem keamanan yang memadai.",
+    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id_fasilitas: 5,
+    nama_fasilitas: "Aula Serbaguna",
+    deskripsi: "Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.",
+    url_foto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id_fasilitas: 6,
+    nama_fasilitas: "Kantin Sekolah",
+    deskripsi: "Kantin sekolah yang bersih dan sehat dengan berbagai pilihan makanan dan minuman. Dilengkapi dengan area makan yang nyaman dan sistem pembayaran digital.",
+    url_foto: "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  }
+];
+
+function GetFacilityById(id_fasilitas) {
+  for (let i = 0; i < facilitiesData.length; i++) {
+    if (facilitiesData[i]['id_fasilitas'] == id_fasilitas) {
+      return facilitiesData[i];
+    }
+  }
+  return null;
 }
 
 // Fungsi buka popup untuk tambah data
@@ -19,24 +58,24 @@ function openPopup(mode = "Tambah Fasilitas") {
   document.getElementById("popupTitle").textContent = mode;
   resetForm();
   document.getElementById("popup").style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 // Fungsi buka popup untuk edit data
-function openEditPopup(teacherId) {
+function openEditPopup(id_fasilitas) {
   currentMode = "edit";
-  currentEditId = teacherId;
-  document.getElementById("popupTitle").textContent = "Edit Guru";
+  currentEditId = id_fasilitas;
+  document.getElementById("popupTitle").textContent = "Edit Fasilitas";
 
-  // Isi form dengan data guru yang akan diedit
-  const teacher = teachersData[teacherId];
-  if (teacher) {
-    document.getElementById("inputName").value = teacher.name;
-    document.getElementById("inputSubject").value = teacher.subject;
-    document.getElementById("inputDegree").value = teacher.degree;
+  // Isi form dengan data fasilitas yang akan diedit
+  const facility = GetFacilityById(currentEditId);
+  if (facility) {
+    document.getElementById("titleInput").value = facility.nama_fasilitas;
+    document.getElementById("descriptionInput").value = facility.deskripsi;
 
     // Jika ada foto, tampilkan preview
-    if (teacher.photo) {
-      document.getElementById("previewImage").src = teacher.photo;
+    if (facility.url_foto) {
+      document.getElementById("previewImage").src = facility.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
     } else {
@@ -46,19 +85,23 @@ function openEditPopup(teacherId) {
   }
 
   document.getElementById("popup").style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 // Fungsi buka popup konfirmasi delete
-function openDeletePopup(teacherId, name, subject, degree) {
-  currentDeleteId = teacherId;
-  currentDeleteData = { name, subject, degree };
+function openDeletePopup(id_fasilitas) {
+  const facility = GetFacilityById(id_fasilitas);
+  currentDeleteId = facility['id_fasilitas'];
+
+  if (!facility) return;
 
   // Isi data yang akan dihapus
-  document.getElementById("dataName").textContent = name;
-  document.getElementById("dataSubject").textContent = subject;
-  document.getElementById("dataDegree").textContent = degree;
+  document.getElementById("dataName").textContent = facility['nama_fasilitas'];
+  document.getElementById("dataDescription").textContent = facility['deskripsi'];
 
+  // Menampilkan popup delete
   document.getElementById("deletePopup").style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 // Fungsi tutup popup form
@@ -73,8 +116,14 @@ function closeDeletePopup() {
   document.getElementById("deletePopup").style.display = "none";
   document.body.style.overflow = "auto";
   currentDeleteId = null;
-  currentDeleteData = null;
 }
+
+// Event untuk input file
+document.getElementById("imageInput").addEventListener("change", function (e) {
+  if (e.target.files.length > 0) {
+    handleImageSelection(e.target.files[0]);
+  }
+});
 
 // Fungsi untuk trigger input file
 function triggerImageInput() {
@@ -107,19 +156,23 @@ function removeImage() {
 
 // Fungsi untuk submit form
 function submitForm() {
-  const nama = document.getElementById("inputName").value;
-  const mapel = document.getElementById("inputSubject").value;
-  const gelar = document.getElementById("inputDegree").value;
+  const nama = document.getElementById("titleInput").value;
+  const deskripsi = document.getElementById("descriptionInput").value;
 
   if (!nama.trim()) {
-    alert("Nama harus diisi!");
+    alert("Nama fasilitas harus diisi!");
+    return;
+  }
+
+  if (!deskripsi.trim()) {
+    alert("Deskripsi fasilitas harus diisi!");
     return;
   }
 
   if (currentMode === "add") {
-    alert("Data guru berhasil ditambahkan!");
+    alert("Fasilitas berhasil ditambahkan!");
   } else {
-    alert(`Data guru ${nama} berhasil diperbarui!`);
+    alert(`Fasilitas "${nama}" berhasil diperbarui!`);
   }
 
   closePopup();
@@ -127,10 +180,24 @@ function submitForm() {
 
 // Fungsi untuk konfirmasi delete
 function confirmDelete() {
-  if (currentDeleteId && currentDeleteData) {
-    alert(`Data guru ${currentDeleteData.name} berhasil dihapus!`);
+  if (currentDeleteId) {
+    const facility = GetFacilityById(currentDeleteId);
+    if (facility) {
+      alert(`Fasilitas "${facility.nama_fasilitas}" berhasil dihapus!`);
+      // Di sini Anda bisa menambahkan logika untuk menghapus dari array atau database
+      // facilitiesData = facilitiesData.filter(f => f.id_fasilitas !== currentDeleteId);
+    }
     closeDeletePopup();
   }
+}
+
+// Fungsi untuk reset form
+function resetForm() {
+  document.getElementById("titleInput").value = "";
+  document.getElementById("descriptionInput").value = "";
+  removeImage();
+  currentMode = "add";
+  currentEditId = null;
 }
 
 // Tutup popup ketika klik di luar konten
@@ -140,44 +207,39 @@ document.getElementById("popup").addEventListener("click", function (e) {
   }
 });
 
-// document.getElementById("deletePopup").addEventListener("click", function (e) {
-//   if (e.target === this) {
-//     closeDeletePopup();
-//   }
-// });
+document.getElementById("deletePopup").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeDeletePopup();
+  }
+});
 
-// Inisialisasi event untuk gambar error di tabel
+// Inisialisasi event ketika DOM siap
 document.addEventListener("DOMContentLoaded", function () {
+  const imageUploadArea = document.getElementById("imageUploadArea");
+  const imageInput = document.getElementById("imageInput");
 
+  // Tambahkan event listener untuk tombol edit dan hapus di card
   const editButtons = document.querySelectorAll(".action-btn.edit");
   const deleteButtons = document.querySelectorAll(".action-btn.delete");
 
   editButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const id_guru = 1;
-      openEditPopup(id_guru);
+      const id_fasilitas = index + 1; // ID berdasarkan urutan (1-6)
+      openEditPopup(id_fasilitas);
     });
   });
 
   deleteButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      const id_staff = index + 1;
-      const staff = staffData.find((staff) => staff.id === id_staff);
-      if (staff) {
-        openDeletePopup(
-          id_staff,
-          staff.nama_staff,
-          staff.jabatan,
-          staff.mapel,
-          staff.pendidikan
-        );
+      const id_fasilitas = index + 1;
+      const facility = GetFacilityById(id_fasilitas);
+      if (facility) {
+        openDeletePopup(id_fasilitas);
+      } else {
+        console.log("Fasilitas tidak ditemukan dengan ID:", id_fasilitas);
       }
     });
   });
-
-  // Element DOM upload gambar
-  const imageUploadArea = document.getElementById("imageUploadArea");
-  const imageInput = document.getElementById("imageInput");
 
   // Event delegation untuk tombol ganti dan hapus gambar di preview
   const changeBtn = document.querySelector(".preview-action-btn.change");
