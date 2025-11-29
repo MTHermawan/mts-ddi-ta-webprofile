@@ -359,6 +359,7 @@ nav {
   align-items: center;
   z-index: 1000;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 .popup-content-form {
@@ -402,6 +403,7 @@ nav {
   background-color: #fecaca;
   color: #dc2626;
 }
+/* INPUT GAMBAR */
 
 .image-input-label {
   display: block;
@@ -413,8 +415,8 @@ nav {
 
 .image-upload-area {
   border: 2px dashed #d1d5db;
-  border-radius: 12px;
-  padding: 30px 20px;
+  border-radius: 16px;
+  padding: 20px 20px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -468,8 +470,8 @@ nav {
 }
 
 .image-preview img {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 180px;
+  max-height: 180px;
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

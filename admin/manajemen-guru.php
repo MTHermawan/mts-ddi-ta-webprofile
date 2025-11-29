@@ -68,7 +68,6 @@ include_once "../data/utility.php";
                 <th>Jabatan</th>
                 <th>Mata Pelajaran</th>
                 <th>Gelar</th>
-                <th>Aksi</th>
                 <th></th>
               </tr>
             </thead>
@@ -85,6 +84,7 @@ include_once "../data/utility.php";
                     </div>
                   </div>
                 </td>
+                <td><span class="position">Guru</span></td>
                 <td><span class="subject">Teknologi Informasi</span></td>
                 <td><span class="degree">S.Kom</span></td>
                 <td>
@@ -106,6 +106,7 @@ include_once "../data/utility.php";
                     </div>
                   </div>
                 </td>
+                <td><span class="position">Guru</span></td>
                 <td><span class="subject">Manajemen Proyek</span></td>
                 <td><span class="degree">M.M</span></td>
                 <td>
@@ -127,6 +128,7 @@ include_once "../data/utility.php";
                     </div>
                   </div>
                 </td>
+                <td><span class="position">Guru</span></td>
                 <td><span class="subject">Bahasa Indonesia</span></td>
                 <td><span class="degree">S.S</span></td>
                 <td>
@@ -148,6 +150,7 @@ include_once "../data/utility.php";
                     </div>
                   </div>
                 </td>
+                <td><span class="position">Guru</span></td>
                 <td><span class="subject">Pemasaran Digital</span></td>
                 <td><span class="degree">M.M</span></td>
                 <td>
@@ -169,6 +172,7 @@ include_once "../data/utility.php";
                     </div>
                   </div>
                 </td>
+                <td><span class="position">Guru</span></td>
                 <td><span class="subject">Pemrograman Web</span></td>
                 <td><span class="degree">S.Kom</span></td>
                 <td>
@@ -195,81 +199,87 @@ include_once "../data/utility.php";
           </button>
         </div>
 
-        <!-- Input Gambar -->
-        <div class="image-input-container">
-          <label class="image-input-label">Foto Guru</label>
-          <div class="image-upload-area" id="imageUploadArea">
-            <input
-              type="file"
-              class="image-input"
-              id="imageInput"
-              accept="image/*" />
+        <div class="input-container">
 
-            <!-- Placeholder (default state) -->
-            <div class="image-placeholder" id="imagePlaceholder">
-              <div class="image-placeholder-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <div class="image-placeholder-text">
-                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG.</p>
-              </div>
-            </div>
+          <!-- Input Gambar -->
+          <div class="image-input-container">
+            <label class="image-input-label">Foto Guru</label>
+            <div class="image-upload-area" id="imageUploadArea">
+              <input
+                type="file"
+                class="image-input"
+                id="imageInput"
+                accept="image/*" />
 
-            <!-- Preview gambar -->
-            <div class="image-preview" id="imagePreview">
-              <img id="previewImage" src="" alt="Preview" />
-              <div class="image-preview-actions">
-                <button
-                  type="button"
-                  class="preview-action-btn change">
-                  <i class="fas fa-sync-alt"></i> Ganti
-                </button>
-                <button
-                  type="button"
-                  class="preview-action-btn remove">
-                  <i class="fas fa-trash"></i> Hapus
-                </button>
+              <!-- Placeholder (default state) -->
+              <div class="image-placeholder" id="imagePlaceholder">
+                <div class="image-placeholder-icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="image-placeholder-text">
+                  <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+                  <p>PNG, JPG, JPEG.</p>
+                </div>
+              </div>
+
+              <!-- Preview gambar -->
+              <div class="image-preview" id="imagePreview">
+                <img id="previewImage" src="" alt="Preview" />
+                <div class="image-preview-actions">
+                  <button
+                    type="button"
+                    class="preview-action-btn change">
+                    <i class="fas fa-sync-alt"></i> Ganti
+                  </button>
+                  <button
+                    type="button"
+                    class="preview-action-btn remove">
+                    <i class="fas fa-trash"></i> Hapus
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Input Teks -->
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Nama</label>
-          <input
-            type="text"
-            class="text-input"
-            id="inputName"
-            placeholder="Masukkan nama guru" />
-        </div>
+          <!-- Input Teks -->
+          <div class="text-input-container">
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Nama</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputName"
+                placeholder="Masukkan nama guru" />
+            </div>
 
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Jabatan</label>
-          <input
-            type="text"
-            class="text-input"
-            id="inputPosition"
-            placeholder="Masukkan mata pelajaran yang diampu" />
-        </div>
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Jabatan</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputPosition"
+                placeholder="Masukkan jabatan yang dipegang" />
+            </div>
 
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-          <input
-            type="text"
-            class="text-input"
-            id="inputSubject"
-            placeholder="Masukkan mata pelajaran yang diampu" />
-        </div>
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputSubject"
+                placeholder="Masukkan mata pelajaran yang diampu" />
+            </div>
 
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Gelar</label>
-          <input
-            type="text"
-            class="text-input"
-            id="inputDegree"
-            placeholder="Masukkan gelar guru" />
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Gelar</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputDegree"
+                placeholder="Masukkan gelar guru" />
+            </div>
+          </div>
+
         </div>
 
         <!-- Tombol Aksi -->

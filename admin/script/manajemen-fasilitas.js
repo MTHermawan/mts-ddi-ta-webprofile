@@ -149,6 +149,32 @@ document.getElementById("popup").addEventListener("click", function (e) {
 // Inisialisasi event untuk gambar error di tabel
 document.addEventListener("DOMContentLoaded", function () {
 
+  const editButtons = document.querySelectorAll(".action-btn.edit");
+  const deleteButtons = document.querySelectorAll(".action-btn.delete");
+
+  editButtons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      const id_guru = 1;
+      openEditPopup(id_guru);
+    });
+  });
+
+  deleteButtons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      const id_staff = index + 1;
+      const staff = staffData.find((staff) => staff.id === id_staff);
+      if (staff) {
+        openDeletePopup(
+          id_staff,
+          staff.nama_staff,
+          staff.jabatan,
+          staff.mapel,
+          staff.pendidikan
+        );
+      }
+    });
+  });
+
   // Element DOM upload gambar
   const imageUploadArea = document.getElementById("imageUploadArea");
   const imageInput = document.getElementById("imageInput");

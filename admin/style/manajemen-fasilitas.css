@@ -219,21 +219,21 @@
 }
 
 .action-btn.edit {
-  background-color: #4caf50;
-  color: white;
+  background-color: #dbeafe;
+  color: #1d4ed8;
 }
 
 .action-btn.edit:hover {
-  background-color: #45a049;
+  background-color: #bfdbfe;
 }
 
 .action-btn.delete {
-  background-color: #f44336;
-  color: white;
+  background-color: #fee2e2;
+  color: #dc2626;
 }
 
 .action-btn.delete:hover {
-  background-color: #d32f2f;
+  background-color: #fecaca;
 }
 
 /*                  RESPONSIVE MOBILE             */

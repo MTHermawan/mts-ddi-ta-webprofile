@@ -80,10 +80,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(1)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(1)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
@@ -99,10 +99,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Laboratorium komputer modern dengan 40 unit komputer terbaru, jaringan internet cepat, dan perangkat lunak pendidikan terkini untuk mendukung proses belajar mengajar.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(2)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(2)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
@@ -118,10 +118,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Lapangan olahraga multifungsi dengan ukuran standar untuk sepak bola, basket, voli, dan atletik. Dilengkapi dengan tribun penonton dan pencahayaan untuk kegiatan malam.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(3)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(3)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
@@ -137,10 +137,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Laboratorium sains lengkap untuk praktikum fisika, kimia, dan biologi. Dilengkapi dengan peralatan modern, bahan praktikum, dan sistem keamanan yang memadai.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(4)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(4)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
@@ -156,10 +156,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(5)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(5)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
@@ -175,10 +175,10 @@ require_once "./includes/check-auth.php";
               <p class="facility-description">Kantin sekolah yang bersih dan sehat dengan berbagai pilihan makanan dan minuman. Dilengkapi dengan area makan yang nyaman dan sistem pembayaran digital.</p>
             </div>
             <div class="facility-actions">
-              <button class="action-btn edit" onclick="editFacility(6)">
+              <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
-              <button class="action-btn delete" onclick="deleteFacility(6)">
+              <button class="action-btn delete">
                 <i class="fas fa-trash"></i> Hapus
               </button>
             </div>
