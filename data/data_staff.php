@@ -17,10 +17,10 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 {
     global $koneksi;
     global $asset_subdir;
+    echo "<script>console.log('Debug Objects: " . json_encode($file_foto) . "' );</script>";
 
     // Upload File
-    if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
-        return false;
+    $url_foto = TambahFile($file_foto, $asset_subdir);
 
     $sql = "INSERT INTO staff (nama_staff, jabatan, mapel, pendidikan, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
@@ -76,16 +76,16 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
 {
     global $koneksi;
     global $asset_subdir;
+    echo "<script>console.log('Debug Objects: " . json_encode($file_foto) . "' );</script>";
 
     // Mengambil data lama
     if (!($old_data = GetStaff(id: $id_staff)))
         return false;
 
     // Mengupload foto
-    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
-        return false;
+    $url_foto_baru = TambahFile($file_foto, $asset_subdir);        
 
-    $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, pendidikan = ?, url_foto = ?, WHERE id_staff = ?";
+    $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, pendidikan = ?, url_foto = ? WHERE id_staff = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto_baru, $id_staff);
 

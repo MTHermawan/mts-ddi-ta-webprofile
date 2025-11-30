@@ -41,9 +41,9 @@ function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_fotos)
 
         // Upload File
         if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
-            foreach ($uploaded_files as $uploaded_url) {
-                HapusFile($uploaded_url);
-            }
+            // foreach ($uploaded_files as $uploaded_url) {
+            //     HapusFile($uploaded_url);
+            // }
             
             // Delete fasilitas yang baru dibuat
             $sql_delete = "DELETE FROM fasilitas WHERE id_fasilitas = ?";
@@ -251,10 +251,9 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
             // Upload File
             if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir))) {
                 // Rollback jika gagal
-                foreach ($uploaded_files as $uploaded_url) {
-                    HapusFile($uploaded_url);
-                }
-                return false;
+                // foreach ($uploaded_files as $uploaded_url) {
+                //     HapusFile($uploaded_url);
+                // }
             }
 
             // Insert foto ke database dengan posisi

@@ -55,9 +55,9 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_fotos)
         // Upload File
         if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
             // Rollback jika gagal
-            foreach ($uploaded_files as $uploaded_url) {
-                HapusFile($uploaded_url);
-            }
+            // foreach ($uploaded_files as $uploaded_url) {
+            //     HapusFile($uploaded_url);
+            // }
 
             // Delete ekskul yang baru dibuat
             $sql_delete = "DELETE FROM ekskul WHERE id_ekskul = ?";
@@ -277,11 +277,10 @@ function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file
 
             // Upload File
             if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir))) {
-                // Rollback jika gagal
-                foreach ($uploaded_files as $uploaded_url) {
-                    HapusFile($uploaded_url);
-                }
-                return false;
+                // // Rollback jika gagal
+                // foreach ($uploaded_files as $uploaded_url) {
+                //     HapusFile($uploaded_url);
+                // }
             }
 
             // Insert foto ke database dengan posisi

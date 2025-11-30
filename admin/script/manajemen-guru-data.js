@@ -133,7 +133,7 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
     if (foto_staff) formData.append('foto_staff', foto_staff);
     
     let process = await MakeXMLRequest(method, url, formData);
-    SearchStaffEvent();
+    SearchFasilitasEvent();
 
     return process;
   } catch (error) {
@@ -145,10 +145,10 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
 async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_staff) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-staff/tambah-staff.php';
+    const url = './post/manajemen-staff/update-staff.php';
 
     const formData = new FormData();
-    formData.append('id', id_staff);
+    formData.append('id_staff', id_staff);
     formData.append('nama_staff', nama);
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
@@ -157,7 +157,7 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
     if (foto_staff) formData.append('foto_staff', foto_staff);
 
     const process = await MakeXMLRequest(method, url, formData)
-    SearchStaffEvent();
+    SearchFasilitasEvent();
 
     return process;
   } catch (error) {
@@ -174,7 +174,7 @@ async function DeleteStaff(id_staff) {
     formData.append('id_staff', id_staff);
 
     const process = await MakeXMLRequest(method, url, formData);
-    SearchStaffEvent();
+    SearchFasilitasEvent();
 
     return process;
   } catch (error) {
@@ -184,13 +184,13 @@ async function DeleteStaff(id_staff) {
 }
 
 const searchInput = document.querySelector('.search-input');
-function SearchStaffEvent(delay = 0) {
+function SearchFasilitasEvent(delay = 0) {
   const keyword = searchInput.value.trim();
   clearTimeout(this.searchTimeout);
   searchInput.searchTimeout = setTimeout(() => {
     ReloadDataStaff(keyword);
   }, delay);
 }
-searchInput.addEventListener('input', () => { SearchStaffEvent(500); });
+searchInput.addEventListener('input', () => { SearchFasilitasEvent(500); });
 
 document.addEventListener("DOMContentLoaded", ReloadDataStaff());

@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jabatan = htmlspecialchars($_POST['jabatan']);
     $mapel = htmlspecialchars($_POST['mapel']);
     $pendidikan = htmlspecialchars($_POST['pendidikan']);
-
+    $file_foto = null;
+    
     if (isset($_FILES['foto_staff']))
         $file_foto = $_FILES['foto_staff'];
 

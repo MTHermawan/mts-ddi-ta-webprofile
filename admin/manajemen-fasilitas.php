@@ -322,6 +322,7 @@ require_once "./includes/check-auth.php";
     </div>
 
     <script src="./script/manajemen-fasilitas.js"></script>
+    <script src="./script/manajemen-fasilitas-data.js"></script>
 </body>
 
 </html>

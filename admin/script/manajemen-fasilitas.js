@@ -158,6 +158,8 @@ function removeImage() {
 function submitForm() {
   const nama = document.getElementById("titleInput").value;
   const deskripsi = document.getElementById("descriptionInput").value;
+  const foto_fasilitas = document.getElementById("imageInput").files[0] ?? null;
+
 
   if (!nama.trim()) {
     alert("Nama fasilitas harus diisi!");
@@ -170,9 +172,15 @@ function submitForm() {
   }
 
   if (currentMode === "add") {
-    alert("Fasilitas berhasil ditambahkan!");
+    // Submit form tambah
+    PostTambahFasilitas(nama, deskripsi, foto_fasilitas)
+    ? alert("Data fasilitas berhasil ditambahkan")
+    : alert("Data fasilitas gagal ditambahkan");
   } else {
-    alert(`Fasilitas "${nama}" berhasil diperbarui!`);
+    // Submit form edit
+    PostEditFasilitas(currentEditId, nama, deskripsi, foto_fasilitas)
+    ? alert(`Data fasilitas ${nama} berhasil diperbarui!`)
+    : alert("Data fasilitas gagal diperbarui");
   }
 
   closePopup();
@@ -182,10 +190,14 @@ function submitForm() {
 function confirmDelete() {
   if (currentDeleteId) {
     const facility = GetFacilityById(currentDeleteId);
-    if (facility) {
-      alert(`Fasilitas "${facility.nama_fasilitas}" berhasil dihapus!`);
-      // Di sini Anda bisa menambahkan logika untuk menghapus dari array atau database
-      // facilitiesData = facilitiesData.filter(f => f.id_fasilitas !== currentDeleteId);
+     
+    if (facility &&DeleteFasilitas(facility['id_fasilitas']))
+    {
+      alert(`Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!`);
+    }
+    else
+    {
+      alert(`Data fasilitas ${facility['nama_fasilitas']} gagal dihapus!`);
     }
     closeDeletePopup();
   }
