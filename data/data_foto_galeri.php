@@ -18,7 +18,7 @@ function InsertFotoGaleri($judul_foto_galeri, $deskripsi_foto_galeri, $file_foto
     global $asset_subdir;
 
     // Upload File
-    $url_foto = TambahFile($file_foto, $asset_subdir)
+    $url_foto = TambahFile($file_foto, $asset_subdir);
 
     $sql = "INSERT INTO foto_galeri (judul_foto_galeri, deskripsi_foto_galeri, url_foto, email, tanggal_posting) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
@@ -162,11 +162,10 @@ function UpdateFotoGaleri($id_foto_galeri, $judul_foto_galeri, $deskripsi_foto_g
     global $asset_subdir;
 
     // Mengambil data lama
-    if (!($old_data = GetFotoGaleriById($id_foto_galeri)))
-        return false;
+    $old_data = GetFotoGaleriById($id_foto_galeri);
 
     // Upload Foto
-    $url_foto_baru = TambahFile($file_foto, $asset_subdir)
+    $url_foto_baru = TambahFile($file_foto, $asset_subdir);
 
     $sql = "UPDATE foto_galeri SET judul_foto_galeri = ?, deskripsi_foto_galeri = ?, url_foto = ? WHERE id_foto_galeri = ?";
     $stmt = $koneksi->prepare($sql);
@@ -174,7 +173,7 @@ function UpdateFotoGaleri($id_foto_galeri, $judul_foto_galeri, $deskripsi_foto_g
 
     // Menarik kembali foto baru jika gagal
     if (!($stmt->execute())) {
-        HapusFile($asset_subdir . $file_foto['name']);
+        if ($url_foto_baru) HapusFile($asset_subdir . $file_foto['name']);
         return false;
     }
 

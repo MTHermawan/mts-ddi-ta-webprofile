@@ -28,13 +28,13 @@ function TambahFile($file_foto, $asset_subdir)
     global $asset_dir;
     $target_dir = $asset_dir ."/". $asset_subdir;
 
-    if ($target_path = GenerateImagePath($file_foto['name'], $target_dir)) {
+    if (isset($file_foto) && $target_path = GenerateImagePath($file_foto['name'], $target_dir)) {
         if (move_uploaded_file($file_foto['tmp_name'], $target_path)) {
             $filename = basename($target_path);
             return $asset_subdir . $filename;
         }
     }
-    return null;
+    return "";
 }
 
 function HapusFile($asset_file_url)
@@ -68,5 +68,31 @@ function ReorganizeFilesArray($files_array)
     
     return $reorganized;
 }
+
+function SendServerError($e = null)
+{
+    header("Content-Type: application/json");
+    if ($e instanceof Exception)
+        {
+            $errorArr = [
+                "message" => $e->getMessage(),
+                "code" => $e->getCode(),
+                "file" => basename($e->getFile()),
+                "line" => $e->getLine()
+            ];
+            echo json_encode($errorArr);
+        }
+    http_response_code(500);
+    die();
+}
+
+// class ServerException extends Exception {
+//   public function ErrorMessage() {
+//     header("Content-type: application/json");
+//     http_response_code(500);
+//     echo json_encode(["error" => $this->getMessage(), "line" => $this->getLine(), "file" => $this->getFile()]);
+//     die();
+//   }
+// }
 
 ?>

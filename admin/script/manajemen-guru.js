@@ -169,7 +169,7 @@ function removeImage() {
 }
 
 // Fungsi untuk submit form
-function submitForm() {
+async function submitForm() {
   // Mengumpulkan data form
   const nama = document.getElementById("inputName").value;
   const jabatan = document.getElementById("inputPosition").value;
@@ -184,26 +184,36 @@ function submitForm() {
 
   if (currentMode === "add") {
     // Submit form tambah
-    PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff)
-    ? alert("Data staff berhasil ditambahkan")
-    : alert("Data staff gagal ditambahkan");
+    if (await PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff))
+    {
+      alert("Data staff berhasil ditambahkan")
+    }
+    else
+    {
+      alert("Data staff gagal ditambahkan");
+    }
   } else {
     // Submit form edit
-    PostEditStaff(currentEditId, nama, jabatan, mapel, pendidikan, foto_staff)
-    ? alert(`Data guru ${nama} berhasil diperbarui!`)
-    : alert("Data staff gagal diperbarui");
+    if (await PostEditStaff(currentEditId, nama, jabatan, mapel, pendidikan, foto_staff))
+    {
+      alert(`Data guru ${nama} berhasil diperbarui!`)
+    }
+    else
+    {
+      alert("Data staff gagal diperbarui");
+    }
   }
 
   closePopup();
 }
 
 // Fungsi untuk konfirmasi delete
-function confirmDelete() {
+async function confirmDelete() {
   if (currentDeleteId) {
     const staff = GetStaffById(currentDeleteId);
-    if (!staff) return;
+    if (!staff) alert('Staff tidak ditemukan!');
      
-    if (DeleteStaff(staff['id_staff']))
+    if (await DeleteStaff(staff['id_staff']))
     {
       alert(`Data guru ${staff['nama_staff']} berhasil dihapus!`);
     }

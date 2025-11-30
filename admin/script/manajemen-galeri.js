@@ -191,7 +191,7 @@ async function submitForm() {
 async function confirmDelete() {
   if (currentDeleteId) {
     const galeri = GetGaleriById(currentDeleteId);
-    if (!galeri) return;
+    if (!galeri) alert('Foto galeri tidak ditemukan!');
      
     if (await DeleteGaleri(galeri['id_galeri'])) {
       alert(`Galeri "${galeri['judul_galeri']}" berhasil dihapus!`);

@@ -3,7 +3,7 @@ session_start();
 include_once "../../../data/koneksi.php";
 include_once "../../../data/data_admin.php";
 
-$redirect_url = "../login-admin.php";
+$redirect_url = "../../login-admin.php";
 
 function ValidateTurnstile($token, $secret, $remoteip = null)
 {

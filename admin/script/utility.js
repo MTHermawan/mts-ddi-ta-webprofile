@@ -32,15 +32,17 @@ async function MakeXMLRequest(method, url, formData = null) {
             } else {
                 reject({
                     status: xhr.status,
-                    statusText: xhr.statusText
+                    statusText: xhr.statusText,
+                    responseText: JSON.parse(xhr.responseText)
                 });
             }
         });
 
-        xhr.onerror = function () {
+        xhr.onerror = () => {
             reject({
                 status: xhr.status,
-                statusText: xhr.statusText
+                statusText: xhr.statusText,
+                responseText: JSON.parse(xhr.responseText)
             });
         };
         if (formData) {

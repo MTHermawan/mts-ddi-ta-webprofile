@@ -1,24 +1,3 @@
-function ReloadTableEventListener() {
-  const avatarImages = document.querySelectorAll(".teacher-avatar img");
-
-  avatarImages.forEach((img) => {
-    img.addEventListener("error", function () {
-      this.style.display = "none";
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "block";
-      }
-    });
-
-    img.addEventListener("load", function () {
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "none";
-      }
-    });
-  });
-}
-
 async function ReloadDataTable() {
   const emptyData = document.getElementById('emptyData');
   const dataContainer = document.getElementById('facilitiesContainer');
@@ -130,7 +109,7 @@ async function PostTambahGaleri(nama, deskripsi, foto_fasilitas) {
   return false;
 }
 
-async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi_fasilitas, file_foto) {
+async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi, file_foto) {
   try {
     const method = 'POST';
     const url = './post/manajemen-fasilitas/update-fasilitas.php';
@@ -138,7 +117,7 @@ async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi_fasilit
     const formData = new FormData();
     formData.append('id_fasilitas', id_fasilitas);
     formData.append('nama_faslitas', nama_fasilitas);
-    formData.append('deskripsi_fasilitas', deskripsi_fasilitas);
+    formData.append('deskripsi_fasilitas', deskripsi);
 
     if (file_foto) formData.append('foto_fasilitas', file_foto);
 
