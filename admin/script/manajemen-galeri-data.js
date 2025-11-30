@@ -35,17 +35,17 @@ async function ReloadDataTable() {
   dataContainer.style.display = 'flex';
 
   const processedData = await Promise.all(
-    galeriData.map(async fasilitas => {
+    galeriData.map(async galeri => {
       let photoUrl = null;
 
-      if (fasilitas['url_foto']) {
-        const check = await IsUrlFound("assets/" + fasilitas['url_foto']);
+      if (galeri['url_foto']) {
+        const check = await IsUrlFound("assets/" + galeri['url_foto']);
         if (check) {
-          photoUrl = fasilitas['url_foto'];
+          photoUrl = galeri['url_foto'];
         }
       }
 
-      return { ...fasilitas, photoUrl };
+      return { ...galeri, photoUrl };
     })
   );
 
@@ -92,8 +92,8 @@ async function ReloadDataTable() {
 async function ReloadDataGaleri(keyword = null) {
   try {
     const url = keyword
-      ? `../api/fasilitas?search=${encodeURIComponent(keyword)}`
-      : '../api/fasilitas';
+      ? `../api/gaelri?search=${encodeURIComponent(keyword)}`
+      : '../api/galeri';
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Network error");
@@ -108,17 +108,16 @@ async function ReloadDataGaleri(keyword = null) {
   return false;
 }
 
-
-async function PostTambahGaleri(nama, deskripsi, foto_fasilitas) {
+async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-fasilitas/tambah-fasilitas.php';
+    const url = './post/manajemen-galeri/tambah-galeri.php';
 
     const formData = new FormData();
-    formData.append('nama_fasilitas', nama);
-    formData.append('deskripsi_fasilitas', deskripsi);
+    formData.append('judul_foto_galeri', judul);
+    formData.append('deskripsi_foto_galeri', deskripsi);
     
-    if (foto_fasilitas) formData.append('foto_fasilitas', foto_fasilitas);
+    if (foto_galeri) formData.append('foto_galeri', foto_galeri);
     
     let process = await MakeXMLRequest(method, url, formData);
     SearchGaleriEvent();
@@ -130,17 +129,17 @@ async function PostTambahGaleri(nama, deskripsi, foto_fasilitas) {
   return false;
 }
 
-async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi_fasilitas, file_foto) {
+async function PostEditFasilitas(id_galeri, judul_galeri, deskripsi, foto_galeri) {
   try {
     const method = 'POST';
     const url = './post/manajemen-fasilitas/update-fasilitas.php';
 
     const formData = new FormData();
-    formData.append('id_fasilitas', id_fasilitas);
-    formData.append('nama_faslitas', nama_fasilitas);
-    formData.append('deskripsi_fasilitas', deskripsi_fasilitas);
+    formData.append('id_galeri', id_galeri);
+    formData.append('nama_galeri', judul_galeri);
+    formData.append('deskripsi', deskripsi);
 
-    if (file_foto) formData.append('foto_fasilitas', file_foto);
+    if (foto_galeri) formData.append('foto_galeri', foto_galeri);
 
     const process = await MakeXMLRequest(method, url, formData)
     SearchGaleriEvent();
@@ -152,12 +151,12 @@ async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi_fasilit
   return false;
 }
 
-async function DeleteFasilitas(id_fasilitas) {
+async function DeleteFasilitas(id_galeri) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-fasilitas/hapus-fasilitas.php';
+    const url = './post/manajemen-galeri/hapus-galeri.php';
     const formData = new FormData();
-    formData.append('id_fasilitas', id_fasilitas);
+    formData.append('id_galeri', id_galeri);
 
     const process = await MakeXMLRequest(method, url, formData);
     SearchGaleriEvent();

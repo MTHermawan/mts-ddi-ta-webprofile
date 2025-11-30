@@ -4,7 +4,7 @@ let currentEditId = null;
 let currentDeleteId = null;
 
 // Data fasilitas hardcoded
-let facilitiesData = [
+let galeriData = [
   {
     id_fasilitas: 1,
     nama_fasilitas: "Perpustakaan Sekolah",
@@ -44,9 +44,9 @@ let facilitiesData = [
 ];
 
 function GetFacilityById(id_fasilitas) {
-  for (let i = 0; i < facilitiesData.length; i++) {
-    if (facilitiesData[i]['id_fasilitas'] == id_fasilitas) {
-      return facilitiesData[i];
+  for (let i = 0; i < galeriData.length; i++) {
+    if (galeriData[i]['id_fasilitas'] == id_fasilitas) {
+      return galeriData[i];
     }
   }
   return null;
@@ -173,7 +173,7 @@ function submitForm() {
 
   if (currentMode === "add") {
     // Submit form tambah
-    PostTambahFasilitas(nama, deskripsi, foto_fasilitas)
+    PostTambahGaleri(nama, deskripsi, foto_fasilitas)
     ? alert("Data fasilitas berhasil ditambahkan")
     : alert("Data fasilitas gagal ditambahkan");
   } else {
