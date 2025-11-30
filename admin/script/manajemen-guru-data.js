@@ -1,7 +1,5 @@
 function ReloadTableEventListener() {
   const avatarImages = document.querySelectorAll(".teacher-avatar img");
-  const imageUploadArea = document.getElementById("imageUploadArea");
-  const imageInput = document.getElementById("imageInput");
 
   avatarImages.forEach((img) => {
     img.addEventListener("error", function () {
@@ -62,19 +60,19 @@ async function ReloadDataTable() {
         <div class="teacher-info">
           <div class="teacher-avatar">
             ${staff['photoUrl'] ? `<img src="../assets/${staff['photoUrl']}" alt="${staff['nama_staff']}" onerror="this.style.display='none'">` : ''}
-            <div class="teacher-avatar-initials" style="display: ${staff.photoUrl ? 'none' : 'flex'}">
-              ${staff.initials}
+            <div class="teacher-avatar-initials" style="display: ${staff['photoUrl'] ? 'none' : 'flex'}">
+              ${staff['initials']}
             </div>
           </div>
           <div class="teacher-details">
-            <h3>${staff.nama_staff}</h3>
+            <h3>${staff['nama_staff']}</h3>
           </div>
         </div>
       </td>
 
-      <td><span class="position">${staff.jabatan}</span></td>
-      <td><span class="subject">${staff.mapel}</span></td>
-      <td><span class="degree">${staff.pendidikan}</span></td>
+      <td><span class="position">${staff['jabatan']}</span></td>
+      <td><span class="subject">${staff['mapel']}</span></td>
+      <td><span class="degree">${staff['pendidikan']}</span></td>
 
       <td>
         <div class="action-buttons">
@@ -101,30 +99,8 @@ async function ReloadDataTable() {
   ReloadTableEventListener();
 }
 
-
-// function ReloadDataStaff(keyword = null) {
-//   const xml = new XMLHttpRequest();
-//   let url = '../api/staff';
-//   if (keyword) {
-//     url += `?search=${encodeURIComponent(keyword)}`;
-//   }
-//   xml.open('GET', url);
-//   xml.addEventListener('load', () => {
-//     if (xml.status === 200) {
-//       staffData = JSON.parse(xml.responseText);
-//       ReloadDataTable();
-//     }
-//     else {
-//       console.error("Bad request!");
-//     }
-//   });
-//   xml.send();
-// }
-
 async function ReloadDataStaff(keyword = null) {
   try {
-    const method = 'GET';
-
     const url = keyword
       ? `../api/staff?search=${encodeURIComponent(keyword)}`
       : '../api/staff';
@@ -133,7 +109,6 @@ async function ReloadDataStaff(keyword = null) {
     if (!response.ok) throw new Error("Network error");
 
     staffData = await response.json();
-    console.log(staffData);
     ReloadDataTable();
 
     return staffData;
@@ -148,13 +123,14 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
   try {
     const method = 'POST';
     const url = './post/manajemen-staff/tambah-staff.php';
+
     const formData = new FormData();
     formData.append('nama_staff', nama);
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
     formData.append('pendidikan', pendidikan);
+    
     if (foto_staff) formData.append('foto_staff', foto_staff);
-
     
     let process = await MakeXMLRequest(method, url, formData);
     SearchStaffEvent();
@@ -170,12 +146,14 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
   try {
     const method = 'POST';
     const url = './post/manajemen-staff/tambah-staff.php';
+
     const formData = new FormData();
     formData.append('id', id_staff);
     formData.append('nama_staff', nama);
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
     formData.append('pendidikan', pendidikan);
+
     if (foto_staff) formData.append('foto_staff', foto_staff);
 
     const process = await MakeXMLRequest(method, url, formData)
@@ -214,6 +192,5 @@ function SearchStaffEvent(delay = 0) {
   }, delay);
 }
 searchInput.addEventListener('input', () => { SearchStaffEvent(500); });
-
 
 document.addEventListener("DOMContentLoaded", ReloadDataStaff());

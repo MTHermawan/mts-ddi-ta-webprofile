@@ -36,6 +36,7 @@ async function MakeXMLRequest(method, url, formData = null) {
                 });
             }
         });
+
         xhr.onerror = function () {
             reject({
                 status: xhr.status,
@@ -50,3 +51,5 @@ async function MakeXMLRequest(method, url, formData = null) {
         }
     });
 }
+
+
