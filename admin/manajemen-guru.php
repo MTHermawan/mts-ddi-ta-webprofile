@@ -350,7 +350,7 @@ include_once "../data/utility.php";
             type="button"
             class="popup-btn-delete delete"
             onclick="confirmDelete()">
-            Hapus
+            <i class="fas fa-trash"></i> Hapus
           </button>
         </div>
       </div>

@@ -67,6 +67,152 @@ require_once "./includes/check-auth.php";
         </div>
 
         <!-- Data Galeri -->
+        <div class="galeri-container" id="galeriContainer">
+          <!-- Card 1: Kegiatan Belajar Mengajar -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Ekstrakurikuler" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Kegiatan Belajar Mengajar di Kelas</h3>
+              <p class="galeri-description">
+                Momen seru siswa-siswi dalam proses pembelajaran interaktif
+                dengan metode modern yang menyenangkan.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Ekstrakurikuler -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Ekstrakurikuler" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Kegiatan Ekstrakurikuler Pramuka</h3>
+              <p class="galeri-description">
+                Siswa-siswi mengikuti latihan kepramukaan untuk mengembangkan
+                karakter dan keterampilan kepemimpinan.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Laboratorium -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Ekstrakurikuler" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Praktikum di Laboratorium Sains</h3>
+              <p class="galeri-description">
+                Siswa melakukan eksperimen sains dengan peralatan modern untuk
+                memahami konsep ilmiah secara langsung.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4: Perpustakaan -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Perpustakaan" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Kegiatan Membaca di Perpustakaan</h3>
+              <p class="galeri-description">
+                Siswa menikmati waktu membaca di perpustakaan sekolah yang
+                nyaman dengan koleksi buku terlengkap.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 5: Seni Budaya -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Seni Budaya" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Pentas Seni dan Budaya</h3>
+              <p class="galeri-description">
+                Penampilan spektakuler siswa dalam pentas seni yang
+                menampilkan bakat di bidang musik, tari, dan teater.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 6: Olahraga -->
+          <div class="galeri-card">
+            <div class="galeri-image">
+              <img
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Olahraga" />
+            </div>
+            <div class="galeri-content">
+              <h3 class="galeri-title">Kegiatan Olahraga Sekolah</h3>
+              <p class="galeri-description">
+                Siswa berpartisipasi dalam berbagai kegiatan olahraga untuk
+                menjaga kebugaran dan mengembangkan sportivitas.
+              </p>
+            </div>
+            <div class="galeri-actions">
+              <button class="action-btn edit">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="action-btn delete">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </div>
@@ -108,14 +254,12 @@ require_once "./includes/check-auth.php";
               <div class="image-preview-actions">
                 <button
                   type="button"
-                  class="preview-action-btn change"
-                  onclick="triggerImageInput()">
+                  class="preview-action-btn change">
                   <i class="fas fa-sync-alt"></i> Ganti
                 </button>
                 <button
                   type="button"
-                  class="preview-action-btn remove"
-                  onclick="removeImage()">
+                  class="preview-action-btn remove">
                   <i class="fas fa-trash"></i> Hapus
                 </button>
               </div>
@@ -158,9 +302,55 @@ require_once "./includes/check-auth.php";
         </div>
       </div>
     </div>
+
+    <!-- POP UP KONFIRMASI DELETE -->
+    <div class="popup-overlay-delete" id="deletePopup">
+      <div class="popup-content-delete">
+        <div class="popup-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+
+        <h2 class="popup-title">Hapus Data?</h2>
+
+        <p class="popup-message">
+          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+          dihapus sudah benar.
+        </p>
+
+        <!-- Informasi Data yang Akan Dihapus -->
+        <div class="popup-data-info">
+          <div class="data-item">
+            <span class="data-label">Judul Galeri:</span>
+            <span class="data-value" id="dataName">judul Galeri</span>
+          </div>
+          <div class="data-item description">
+            <span class="data-label">Deskripsi Galeri:</span>
+            <span class="data-value" id="dataDescription">Deskripsi Galeri</span>
+          </div>
+        </div>
+
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete()">
+            <i class="fas fa-trash"></i> Hapus
+          </button>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/manajemen-galeri.js"></script>
 </body>
 
 </html>

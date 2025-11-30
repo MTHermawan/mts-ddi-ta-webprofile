@@ -112,7 +112,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
   overflow: hidden;
   height: 100%;
   display: flex;
@@ -136,108 +135,232 @@
   margin-top: 8px;
 }
 
-.table-container {
+/*                OVERRIDE POP UP DELETE                    */
+.popup-data-info {
+  margin-bottom: 20px;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  line-height: 1.5;
+}
+
+.data-item.description .data-value {
+  text-align: justify;
+}
+
+/*                 STYLE CARD UNTUK DATA AGENDA              */
+/* Container untuk card agenda */
+.agenda-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+/* Card agenda */
+.agenda-card {
   background: white;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 0.9px #dde1e5;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-table {
+.agenda-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Gambar agenda */
+.agenda-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.agenda-image img {
   width: 100%;
-  border-collapse: collapse;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-thead {
-  background-color: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+.agenda-card:hover .agenda-image img {
+  transform: scale(1.05);
 }
 
-th {
-  padding: 14px 20px;
-  text-align: left;
-  font-weight: 600;
-  color: #475569;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-td {
-  padding: 12px 20px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #334155;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-.teacher-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.teacher-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #e0f2fe;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: #0369a1;
-  font-weight: 600;
-}
-
-.teacher-details h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.subject {
-  font-size: 14px;
-  color: #334155;
-  font-weight: 500;
-}
-
-.degree {
-  font-weight: 500;
-  color: #1e293b;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.btn {
+/* Badge tanggal dan status */
+.agenda-date {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2d3748;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s ease;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
 }
 
-.btn-edit {
+.agenda-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.status-upcoming {
   background-color: #dbeafe;
   color: #1d4ed8;
 }
 
-.btn-edit:hover {
+.status-ongoing {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.status-completed {
+  background-color: rgb(102, 112, 133);
+  color: rgb(29, 41, 57);
+}
+
+/* Konten agenda */
+.agenda-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 244px;
+  padding: 20px;
+}
+
+.agenda-information {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agenda-title {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(29, 41, 57);
+  line-height: 1.4;
+  display: block;
+  line-clamp: 3;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+.agenda-description {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(102, 112, 133);
+  line-height: 1.5;
+  display: block;
+  line-clamp: 3;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Info tambahan */
+.agenda-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 12px;
+  color: #718096;
+}
+
+.agenda-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agenda-time i {
+  color: #4299e1;
+}
+
+.agenda-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agenda-location i {
+  color: #f56565;
+}
+
+/* Tombol aksi */
+.agenda-actions {
+  display: flex;
+  padding: 16px 20px;
+  border-top: 1px solid #e2e8f0;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.action-btn.edit {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.action-btn.edit:hover {
   background-color: #bfdbfe;
 }
 
-.btn-delete {
+.action-btn.delete {
   background-color: #fee2e2;
   color: #dc2626;
 }
 
-.btn-delete:hover {
+.action-btn.delete:hover {
   background-color: #fecaca;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .agenda-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .agenda-content {
+    padding: 16px;
+  }
+
+  .agenda-actions {
+    padding: 12px 16px;
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
 }

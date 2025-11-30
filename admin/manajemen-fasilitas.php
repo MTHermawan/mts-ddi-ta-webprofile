@@ -300,21 +300,23 @@ require_once "./includes/check-auth.php";
             <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
           </div>
 
-          <!-- Tombol Aksi -->
-          <div class="popup-actions-delete">
-            <button
-              type="button"
-              class="popup-btn-delete cancel"
-              onclick="closeDeletePopup()">
-              Batal
-            </button>
-            <button
-              type="button"
-              class="popup-btn-delete delete"
-              onclick="confirmDelete(this)">
-              Hapus
-            </button>
-          </div>
+        <!-- Tombol Aksi -->
+        <div class="popup-actions-delete">
+          <button
+            type="button"
+            class="popup-btn-delete cancel"
+            onclick="closeDeletePopup()">
+            <i class="fas fa-times"></i> Batal
+          </button>
+          <button
+            type="button"
+            class="popup-btn-delete delete"
+            onclick="confirmDelete()">
+            <i class="fas fa-trash"></i> Hapus
+          </button>
+        </div>
+
+        
         </div>
       </div>
     </div>

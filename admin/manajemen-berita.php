@@ -235,7 +235,7 @@ require_once "./includes/check-auth.php";
       </div>
     </div>
 
-    <!-- POP UP TAMBAH BERITA -->
+    <!-- POP UP TAMBAH/EDIT BERITA -->
     <div class="popup-overlay-form" id="popup">
       <div class="popup-content-form">
         <div class="popup-header">
@@ -262,7 +262,7 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="image-placeholder-text">
                 <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG (Max. 5MB)</p>
+                <p>PNG, JPG, JPEG.</p>
               </div>
             </div>
 
@@ -342,7 +342,7 @@ require_once "./includes/check-auth.php";
             <span class="data-value" id="dataName">judul Berita</span>
           </div>
           <div class="data-item description">
-            <span class="data-label">Deskripsi:</span>
+            <span class="data-label">Deskripsi Berita:</span>
             <span class="data-value" id="dataDescription">Deskripsi Berita</span>
           </div>
         </div>
@@ -353,13 +353,13 @@ require_once "./includes/check-auth.php";
             type="button"
             class="popup-btn-delete cancel"
             onclick="closeDeletePopup()">
-            Batal
+            <i class="fas fa-times"></i> Batal
           </button>
           <button
             type="button"
             class="popup-btn-delete delete"
             onclick="confirmDelete()">
-            Hapus
+            <i class="fas fa-trash"></i> Hapus
           </button>
         </div>
       </div>
