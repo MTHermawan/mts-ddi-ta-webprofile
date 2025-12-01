@@ -115,7 +115,7 @@
 }
 
 .image-upload-area {
-  width: 360px;
+  /* width: 360px; */
   height: 93%;
   display: flex;
   justify-content: center;
@@ -129,8 +129,12 @@
   gap: 20px;
 }
 
+.image-input-container {
+  width: 100%;
+}
+
 .popup-content-form {
-  width: 850px;
+  /* width: 850px; */
 }
 
 .image-preview img {

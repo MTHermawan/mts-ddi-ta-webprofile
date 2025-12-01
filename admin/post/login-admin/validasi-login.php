@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($data) {
         $_SESSION['admin_email'] = $data['email'];
 
-        if (isset($_POST['remember']) && $_POST['remember'] == 'on') {
-            $remember_token = bin2hex(random_bytes(32));
+        if ((isset($_POST['remember']) && $_POST['remember'] == 'on' ) || true) {
+            $remember_token = bin2hex(string: random_bytes(32));
 
             CreateRememberToken($data['email'], $remember_token, 30);
 

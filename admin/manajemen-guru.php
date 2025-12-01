@@ -242,6 +242,7 @@ include_once "../data/utility.php";
               </div>
             </div>
           </div>
+        </div>
 
         <!-- Input Teks -->
         <div class="text-input-container">
