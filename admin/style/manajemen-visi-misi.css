@@ -68,7 +68,7 @@
 .form-label {
   font-size: 16px;
   font-weight: 500;
-  color: rgb(102, 112, 133);
+  color: rgb(29, 41, 57);
 }
 
 .form-input-container {
@@ -103,6 +103,7 @@
   transition: all 0.2s ease;
   height: 112px;
   line-height: 1.5;
+  color: rgb(29, 41, 57);
 }
 
 #tujuan {

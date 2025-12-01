@@ -247,7 +247,7 @@
 .social-label {
   font-size: 16px;
   font-weight: 500;
-  color: rgb(102, 112, 133);
+  color: rgb(29, 41, 57);
 }
 
 #instagram,
@@ -264,6 +264,7 @@
   box-sizing: border-box;
   width: 100%;
   transition: all 0.2s ease;
+  color: rgb(29, 41, 57);
 }
 
 input#instagram:focus,

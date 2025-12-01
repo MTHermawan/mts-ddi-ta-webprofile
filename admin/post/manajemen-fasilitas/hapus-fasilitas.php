@@ -1,4 +1,4 @@
-<?php include_once "../../../data/data_informasi.php";
+<?php include_once "../../../data/data_fasilitas.php";
 include_once "../../includes/check-auth-func.php";
 if (!CheckAuth())
 {

@@ -19,8 +19,7 @@ function InsertInformasi($judul, $konten, $file_foto, $jadwal_agenda = null)
     global $asset_subdir;
 
     // Upload File
-    if (!($url_foto = TambahFile($file_foto, $asset_subdir)))
-        return false;
+    $url_foto = TambahFile($file_foto, $asset_subdir);
 
     $sql = "INSERT INTO informasi (judul, konten, jadwal_agenda, url_foto, email_admin, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $koneksi->prepare($sql);
@@ -140,8 +139,7 @@ function UpdateBerita($id, $judul, $konten, $file_foto)
         return false;
 
     // Mengupload foto
-    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
-        return false;
+    $url_foto_baru = TambahFile($file_foto, $asset_subdir);
 
     $sql = "UPDATE informasi SET judul = ?, konten = ?, url_foto = ? WHERE id = ? AND jadwal_agenda IS NULL";
     $stmt = $koneksi->prepare($sql);
@@ -168,8 +166,7 @@ function UpdateAgenda($id, $judul, $konten, $jadwal_agenda, $file_foto)
         return false;
 
     // Mengupload foto
-    if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir)))
-        return false;
+    $url_foto_baru = TambahFile($file_foto, $asset_subdir);
 
     $sql = "UPDATE informasi SET judul = ?, konten = ?, jadwal_agenda = ?, url_foto = ? WHERE id = ? AND jadwal_agenda IS NOT NULL";
     $stmt = $koneksi->prepare($sql);

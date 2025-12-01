@@ -67,7 +67,8 @@ include_once "../data/utility.php";
                 <th>Nama</th>
                 <th>Jabatan</th>
                 <th>Mata Pelajaran</th>
-                <th>Gelar</th>
+                <th>Pendidikan</th>
+                <th>Aksi</th>
                 <th></th>
               </tr>
             </thead>
@@ -209,7 +210,8 @@ include_once "../data/utility.php";
                 type="file"
                 class="image-input"
                 id="imageInput"
-                accept="image/*" />
+                accept="image/*"
+                name="foto_staff" />
 
               <!-- Placeholder (default state) -->
               <div class="image-placeholder" id="imagePlaceholder">
@@ -241,45 +243,47 @@ include_once "../data/utility.php";
             </div>
           </div>
 
-          <!-- Input Teks -->
-          <div class="text-input-container">
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Nama</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputName"
-                placeholder="Masukkan nama guru" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Jabatan</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputPosition"
-                placeholder="Masukkan jabatan yang dipegang" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputSubject"
-                placeholder="Masukkan mata pelajaran yang diampu" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Gelar</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputDegree"
-                placeholder="Masukkan gelar guru" />
-            </div>
+        <!-- Input Teks -->
+        <div class="text-input-container">
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Nama</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputName"
+              placeholder="Masukkan nama guru"
+              name="nama_staff"/>
           </div>
 
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Jabatan</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputPosition"
+              name="jabatan"
+              placeholder="Masukkan mata pelajaran yang diampu" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputSubject"
+              name="mapel"
+              placeholder="Masukkan mata pelajaran yang diampu" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Pendidikan</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputDegree"
+              name="pendidikan"
+              placeholder="Masukkan gelar guru" />
+          </div>
         </div>
 
         <!-- Tombol Aksi -->
@@ -345,7 +349,7 @@ include_once "../data/utility.php";
           <button
             type="button"
             class="popup-btn-delete delete"
-            onclick="confirmDelete(this)">
+            onclick="confirmDelete()">
             <i class="fas fa-trash"></i> Hapus
           </button>
         </div>
@@ -353,7 +357,9 @@ include_once "../data/utility.php";
     </div>
 
   </div>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-guru.js"></script>
+  <script src="./script/manajemen-guru-data.js"></script>
 </body>
 
 </html>

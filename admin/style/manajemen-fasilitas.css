@@ -139,6 +139,23 @@
   font-weight: 400px;
   margin-top: 8px;
 }
+/*                OVERRIDE POP UP DELETE                    */
+.popup-data-info {
+  margin: 0;
+}
+
+.data-item.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.data-item.description .data-value {
+  text-align: justify;
+}
 
 /*                STYLE CARD UNTUK DATA FASILITAS            */
 .facilities-container {
@@ -182,13 +199,13 @@
   margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: rgb(29, 41, 57);
 }
 
 .facility-description {
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: rgb(102, 112, 133);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-box-orient: vertical;

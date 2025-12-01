@@ -55,9 +55,9 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_fotos)
         // Upload File
         if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
             // Rollback jika gagal
-            foreach ($uploaded_files as $uploaded_url) {
-                HapusFile($uploaded_url);
-            }
+            // foreach ($uploaded_files as $uploaded_url) {
+            //     HapusFile($uploaded_url);
+            // }
 
             // Delete ekskul yang baru dibuat
             $sql_delete = "DELETE FROM ekskul WHERE id_ekskul = ?";
@@ -277,11 +277,10 @@ function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file
 
             // Upload File
             if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir))) {
-                // Rollback jika gagal
-                foreach ($uploaded_files as $uploaded_url) {
-                    HapusFile($uploaded_url);
-                }
-                return false;
+                // // Rollback jika gagal
+                // foreach ($uploaded_files as $uploaded_url) {
+                //     HapusFile($uploaded_url);
+                // }
             }
 
             // Insert foto ke database dengan posisi
@@ -356,63 +355,6 @@ function DeleteEkskul($id_ekskul)
     foreach ($photos as $photo_url) {
         HapusFile($photo_url);
     }
-
-    return true;
-}
-
-// Menghapus foto spesifik berdasarkan ID foto
-function DeleteFoto($id_foto_ekskul)
-{
-    global $koneksi;
-
-    // Get photo URL
-    $sql_get = "SELECT url_foto, id_ekskul FROM foto_ekskul WHERE id_foto_ekskul = ?";
-    $stmt_get = $koneksi->prepare($sql_get);
-    $stmt_get->bind_param("i", $id_foto_ekskul);
-    $stmt_get->execute();
-    $result = $stmt_get->get_result();
-
-    if ($result->num_rows === 0) {
-        return false;
-    }
-
-    $row = $result->fetch_assoc();
-    $url_foto = $row['url_foto'];
-    $id_ekskul = $row['id_ekskul'];
-    $stmt_get->close();
-
-    // Delete photo record
-    $sql = "DELETE FROM foto_ekskul WHERE id_foto_ekskul = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $id_foto_ekskul);
-
-    if (!$stmt->execute()) {
-        return false;
-    }
-
-    $stmt->close();
-
-    // Delete photo file from filesystem
-    HapusFile($url_foto);
-
-    // Reorder remaining photos (re-assign posisi sequentially)
-    $sql_reorder = "SELECT id_foto_ekskul FROM foto_ekskul WHERE id_ekskul = ? ORDER BY posisi ASC";
-    $stmt_reorder = $koneksi->prepare($sql_reorder);
-    $stmt_reorder->bind_param("i", $id_ekskul);
-    $stmt_reorder->execute();
-    $result_reorder = $stmt_reorder->get_result();
-
-    $new_posisi = 1;
-    while ($row_reorder = $result_reorder->fetch_assoc()) {
-        $sql_update = "UPDATE foto_ekskul SET posisi = ? WHERE id_foto_ekskul = ?";
-        $stmt_update = $koneksi->prepare($sql_update);
-        $stmt_update->bind_param("ii", $new_posisi, $row_reorder['id_foto_ekskul']);
-        $stmt_update->execute();
-        $stmt_update->close();
-        $new_posisi++;
-    }
-
-    $stmt_reorder->close();
 
     return true;
 }
