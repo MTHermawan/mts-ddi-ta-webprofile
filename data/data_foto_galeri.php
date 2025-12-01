@@ -87,7 +87,7 @@ function GetFotoGaleri($id_foto_galeri = null, $judul_foto_galeri = null, $deskr
             $stmt->close();
             $koneksi->next_result();
         } else {
-            $sql = "SELECT * FROM foto_galeri ORDER BY tanggal_dibuat DESC";
+            $sql = "SELECT * FROM foto_galeri ORDER BY tanggal_posting DESC";
             $result = $koneksi->query($sql);
 
             while ($row = $result->fetch_assoc()) {

@@ -86,6 +86,41 @@ function SendServerError($e = null)
     die();
 }
 
+function CompareFiles($file_a, $file_b)
+{
+    if (filesize($file_a) != filesize($file_b))
+        return false;
+
+    $chunksize = 4096;
+
+    $fp_a = fopen($file_a, 'rb');
+    $fp_b = fopen($file_b, 'rb');
+
+    try
+    {
+        while (!feof($fp_a) && !feof($fp_b))
+        {
+            $d_a = fread($fp_a, $chunksize);
+            $d_b = fread($fp_b, $chunksize);
+            if ($d_a === false || $d_b === false || $d_a !== $d_b)
+                return false;
+        }
+          
+        return true;
+    }
+    finally
+    {
+        fclose($fp_a);
+        fclose($fp_b);
+    }
+}
+
+function GetAssetPath($url_asset)
+{
+    global $asset_dir;
+    return $asset_dir ."/". $url_asset;
+}
+
 // class ServerException extends Exception {
 //   public function ErrorMessage() {
 //     header("Content-type: application/json");

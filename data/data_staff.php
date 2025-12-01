@@ -121,7 +121,7 @@ function DeleteStaff($id_staff)
         
         $sql = "DELETE FROM staff WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $id_staff);
+        $stmt->bind_param("i", $data['id_staff']);
         $stmt->execute();
         
         // Menghapus gambar jika record berhasil dihapus

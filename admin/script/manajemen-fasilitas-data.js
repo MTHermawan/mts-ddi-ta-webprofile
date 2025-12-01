@@ -131,7 +131,7 @@ async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi, file_f
   return false;
 }
 
-async function DeleteFasilitas(id_fasilitas) {
+async function PostDeleteFasilitas(id_fasilitas) {
   try {
     const method = 'POST';
     const url = './post/manajemen-fasilitas/hapus-fasilitas.php';

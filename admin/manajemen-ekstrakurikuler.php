@@ -405,7 +405,7 @@ require_once "./includes/check-auth.php";
           <button
             type="button"
             class="popup-btn-delete delete"
-            onclick="confirmDelete(this)">
+            onclick="confirmDelete()">
             <i class="fas fa-trash"></i> Hapus
           </button>
         </div>
@@ -416,7 +416,9 @@ require_once "./includes/check-auth.php";
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-ekstrakurikuler.js"></script>
+  <!-- <script src="./script/manajemen-ekstrakurikuler-data.js"></script> -->
 </body>
 
 </html>

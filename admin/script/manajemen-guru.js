@@ -213,7 +213,7 @@ async function confirmDelete() {
     const staff = GetStaffById(currentDeleteId);
     if (!staff) alert('Staff tidak ditemukan!');
      
-    if (await DeleteStaff(staff['id_staff']))
+    if (await PostDeleteStaff(staff['id_staff']))
     {
       alert(`Data guru ${staff['nama_staff']} berhasil dihapus!`);
     }

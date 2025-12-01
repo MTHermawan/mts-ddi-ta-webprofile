@@ -133,7 +133,7 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
     if (foto_staff) formData.append('foto_staff', foto_staff);
     
     let process = await MakeXMLRequest(method, url, formData);
-    SearchFasilitasEvent();
+    SearchEkskulEvent();
 
     return process;
   } catch (error) {
@@ -157,7 +157,7 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
     if (foto_staff) formData.append('foto_staff', foto_staff);
 
     const process = await MakeXMLRequest(method, url, formData)
-    SearchFasilitasEvent();
+    SearchEkskulEvent();
 
     return process;
   } catch (error) {
@@ -166,7 +166,7 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
   return false;
 }
 
-async function DeleteStaff(id_staff) {
+async function PostDeleteStaff(id_staff) {
   try {
     const method = 'POST';
     const url = './post/manajemen-staff/hapus-staff.php';
@@ -174,7 +174,7 @@ async function DeleteStaff(id_staff) {
     formData.append('id_staff', id_staff);
 
     const process = await MakeXMLRequest(method, url, formData);
-    SearchFasilitasEvent();
+    SearchEkskulEvent();
 
     return process;
   } catch (error) {
@@ -184,13 +184,13 @@ async function DeleteStaff(id_staff) {
 }
 
 const searchInput = document.querySelector('.search-input');
-function SearchFasilitasEvent(delay = 0) {
+function SearchEkskulEvent(delay = 0) {
   const keyword = searchInput.value.trim();
   clearTimeout(this.searchTimeout);
   searchInput.searchTimeout = setTimeout(() => {
     ReloadDataStaff(keyword);
   }, delay);
 }
-searchInput.addEventListener('input', () => { SearchFasilitasEvent(500); });
+searchInput.addEventListener('input', () => { SearchEkskulEvent(500); });
 
 document.addEventListener("DOMContentLoaded", ReloadDataStaff());

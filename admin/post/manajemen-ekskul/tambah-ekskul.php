@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto);
 }
-header('Location: ../../manajemen-ekskul.php');
+header('Location: ../../manajemen-ekstrakurikuler.php');
 
 ?>

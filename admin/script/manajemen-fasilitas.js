@@ -191,7 +191,7 @@ async function confirmDelete() {
     const facility = GetFacilityById(currentDeleteId);
     if (!facility) alert('Fasilitas tidak ditemukan!');
 
-    if (await DeleteGaleri(facility['id_fasilitas']))
+    if (await PostDeleteFasilitas(facility['id_fasilitas']))
     {
       alert(`Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!`);
     }

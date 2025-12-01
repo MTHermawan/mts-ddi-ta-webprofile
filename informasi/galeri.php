@@ -1,7 +1,7 @@
 <?php include_once "../data/koneksi.php";
 include_once "../data/data_foto_galeri.php";
 
-$data_galeri = GetAllFotoGaleri();
+$data_galeri = GetFotoGaleri();
 ?>
 
 <!DOCTYPE html>

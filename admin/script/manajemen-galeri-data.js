@@ -1,24 +1,3 @@
-function ReloadTableEventListener() {
-  const avatarImages = document.querySelectorAll(".teacher-avatar img");
-
-  avatarImages.forEach((img) => {
-    img.addEventListener("error", function () {
-      this.style.display = "none";
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "block";
-      }
-    });
-
-    img.addEventListener("load", function () {
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "none";
-      }
-    });
-  });
-}
-
 async function ReloadDataTable() {
   const emptyData = document.getElementById('emptyData');
   const dataContainer = document.getElementById('galeriContainer');
@@ -154,7 +133,7 @@ async function PostEditGaleri(id_galeri, judul, deskripsi, foto_galeri) {
   return false;
 }
 
-async function DeleteGaleri(id_galeri) {
+async function PostDeleteFasilitas(id_galeri) {
   try {
     const method = 'POST';
     const url = './post/manajemen-galeri/hapus-galeri.php';

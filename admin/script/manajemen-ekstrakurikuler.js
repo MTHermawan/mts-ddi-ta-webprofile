@@ -8,50 +8,80 @@ let ekskulData = [
   {
     id_ekskul: 1,
     nama_ekskul: "Pramuka",
-    pembimbing: "Budi Santoso, S.Pd.",
+    nama_pembimbing: "Budi Santoso, S.Pd.",
     jadwal: "Sabtu, 08.00 - 11.00 WIB",
-    url_foto:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    foto: [
+        {
+            "id_foto_ekskul": 1,
+            "id_ekskul": 1,
+            "url_foto": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            "posisi": 1
+        }
+    ]
   },
   {
     id_ekskul: 2,
     nama_ekskul: "Futsal",
-    pembimbing: "Ahmad Rizki, M.Pd.",
+    nama_pembimbing: "Ahmad Rizki, M.Pd.",
     jadwal: "Selasa & Kamis, 15.00 - 17.00 WIB",
-    url_foto:
-      "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    foto: [
+        {
+            "id_foto_ekskul": 1,
+            "id_ekskul": 1,
+            "url_foto": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            "posisi": 1
+        }
+    ]
   },
   {
     id_ekskul: 3,
     nama_ekskul: "Paduan Suara",
-    pembimbing: "Diana Sari, S.Sn.",
+    nama_pembimbing: "Diana Sari, S.Sn.",
     jadwal: "Rabu, 14.00 - 16.00 WIB",
-    url_foto:
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    foto: [
+        {
+            "id_foto_ekskul": 1,
+            "id_ekskul": 1,
+            "url_foto": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            "posisi": 1
+        }
+    ] 
   },
   {
     id_ekskul: 4,
     nama_ekskul: "Robotika",
-    pembimbing: "Rizki Pratama, S.Kom.",
+    nama_pembimbing: "Rizki Pratama, S.Kom.",
     jadwal: "Jumat, 13.00 - 15.30 WIB",
-    url_foto:
+    foto:
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     id_ekskul: 5,
     nama_ekskul: "Teater",
-    pembimbing: "Sari Dewi, S.S.",
+    nama_pembimbing: "Sari Dewi, S.S.",
     jadwal: "Senin, 14.30 - 16.30 WIB",
-    url_foto:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    foto: [
+        {
+            "id_foto_ekskul": 1,
+            "id_ekskul": 1,
+            "url_foto": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            "posisi": 1
+        }
+    ]
   },
   {
     id_ekskul: 6,
     nama_ekskul: "KIR (Karya Ilmiah Remaja)",
-    pembimbing: "Dr. Maya Sari, M.Si.",
+    nama_pembimbing: "Dr. Maya Sari, M.Si.",
     jadwal: "Kamis, 15.00 - 17.00 WIB",
-    url_foto:
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    foto: [
+        {
+            "id_foto_ekskul": 1,
+            "id_ekskul": 1,
+            "url_foto": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            "posisi": 1
+        }
+    ]
   },
 ];
 
@@ -83,12 +113,12 @@ function openEditPopup(id_ekskul) {
   const ekskul = GetEkskulById(currentEditId);
   if (ekskul) {
     document.getElementById("titleInput").value = ekskul.nama_ekskul;
-    document.getElementById("pembimbingInput").value = ekskul.pembimbing;
+    document.getElementById("pembimbingInput").value = ekskul.nama_pembimbing;
     document.getElementById("jadwalInput").value = ekskul.jadwal;
 
     // Jika ada foto, tampilkan preview
-    if (ekskul.url_foto) {
-      document.getElementById("previewImage").src = ekskul.url_foto;
+    if (ekskul.foto) {
+      document.getElementById("previewImage").src = ekskul['foto'][0]['url_foto'];
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
     } else {
@@ -110,7 +140,7 @@ function openDeletePopup(id_ekskul) {
 
   // Isi data yang akan dihapus
   document.getElementById("dataName").textContent = ekskul["nama_ekskul"];
-  document.getElementById("dataPosition").textContent = ekskul["pembimbing"];
+  document.getElementById("dataPosition").textContent = ekskul["nama_pembimbing"];
   document.getElementById("dataSubject").textContent = ekskul["jadwal"];
 
   // Menampilkan popup delete
@@ -162,10 +192,11 @@ function removeImage() {
 }
 
 // Fungsi untuk submit form
-function submitForm() {
+async function submitForm() {
   const nama = document.getElementById("titleInput").value;
   const pembimbing = document.getElementById("pembimbingInput").value;
   const jadwal = document.getElementById("jadwalInput").value;
+  const foto_ekskul = document.getElementById("imageInput").files[0] ?? null;
 
   if (!nama.trim()) {
     alert("Nama ekstrakurikuler harus diisi!");
@@ -183,22 +214,32 @@ function submitForm() {
   }
 
   if (currentMode === "add") {
-    alert("Ekstrakurikuler berhasil ditambahkan!");
+    await PostTambahEkskul(nama, pembimbing, jadwal, foto_ekskul)
+    ? alert("Data ekstrakurikuler berhasil ditambahkan")
+    : alert("Data ekstrakurikuler gagal ditambahkan");
   } else {
-    alert(`Ekstrakurikuler "${nama}" berhasil diperbarui!`);
+    // Submit form edit
+    await PostEditEkskul(currentEditId, nama, pembimbing, jadwal, foto_ekskul)
+    ? alert(`Data ekstrakurikuler ${nama} berhasil diperbarui!`)
+    : alert("Data ekstrakurikuler gagal diperbarui");
   }
 
   closePopup();
 }
 
 // Fungsi untuk konfirmasi delete
-function confirmDelete() {
+async function confirmDelete() {
   if (currentDeleteId) {
-    const ekskul = GetEkskulById(currentDeleteId);
-    if (ekskul) {
-      alert(`Ekstrakurikuler "${ekskul.nama_ekskul}" berhasil dihapus!`);
-      // Di sini Anda bisa menambahkan logika untuk menghapus dari array atau database
-      // ekskulData = ekskulData.filter(e => e.id_ekskul !== currentDeleteId);
+    const facility = GetEkskulById(currentDeleteId);
+    if (!facility) alert('Fasilitas tidak ditemukan!');
+
+    if (await PostDeleteFasilitas(facility['id_fasilitas']))
+    {
+      alert(`Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!`);
+    }
+    else
+    {
+      alert(`Data fasilitas ${facility['nama_fasilitas']} gagal dihapus!`);
     }
     closeDeletePopup();
   }
