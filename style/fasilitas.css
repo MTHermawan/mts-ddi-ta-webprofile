@@ -14,24 +14,27 @@ body {
 
 .judul-utama {
     text-align: center;
-    font-size: 38px;
+    font-size: 2.6rem;
     font-weight: 700;
-    margin-bottom: 5px;
-    color: #0a6900; /* hijau tema */
+    margin-bottom: 12px;
+    color: #0b5e00;
+    font-family: 'Inter', sans-serif;
 }
 .judul-utama::after {
     content: "";
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #0d7a00, #18a300);
+    background: linear-gradient(90deg, #0b5e00, #18a300);
     margin: 12px auto 0;
     border-radius: 2px;
 }
 .sub-judul-fasilitas {
     text-align: center;
-    color: #444;
-    margin-bottom: 35px;
+    color: #555;
+    margin: 0 auto 50px;
+    font-size: 1.15rem;
+    /* max-width: 650px; */
 }
 
 .filter-fasilitas {

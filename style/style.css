@@ -113,7 +113,7 @@ body {
 
 .nav-menu a:hover {
     color: white;
-    box-shadow: 0 4px 12px rgb(4, 134, 0);
+    box-shadow: 0 4px 6px rgb(4, 134, 0);
 }
 
 .nav-menu a:hover::before {
