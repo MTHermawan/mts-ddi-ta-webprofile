@@ -18,6 +18,7 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
     global $koneksi;
     global $asset_subdir;
 
+    $success = false;
     try {
         // Upload File
         $url_foto = TambahFile($file_foto, $asset_subdir);
@@ -27,20 +28,22 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
         $stmt->bind_param("sssss", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto);
         $stmt->execute();
 
-        return true;
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
+
+        // Menarik kembali file 
         HapusFile($asset_subdir . $file_foto['name']);
-        return false;
     }
+    return $success;
 }
 
 function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null, $search = null)
 {
     global $koneksi;
-
+    
+    $data = [];
     try {
-        $data = [];
         $sql = "SELECT * FROM staff";
         $result = $koneksi->query($sql);
     
@@ -69,12 +72,10 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
                 unset($data[$key]);
             }
         }
-    
-        return $data;
     } catch (Exception $e) {
         SendServerError($e);
-        return [];
     }
+    return $data;
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
@@ -83,8 +84,10 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
     global $koneksi;
     global $asset_subdir;
 
+    $success = false;
     try {
-        $old_data = GetStaff(id: $id_staff);
+        if (!($old_data = GetStaff(id: $id_staff)))
+            throw new Exception("Data staff tidak ditemukan!");
     
         // Mengupload foto
         $url_foto_baru = TambahFile($file_foto, $asset_subdir);
@@ -96,12 +99,14 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
         
         // Menghapus foto lama
         HapusFile($old_data['url_foto']);
-        return true;
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
+
+        // Menarik kembali file 
         HapusFile($asset_subdir . $file_foto['name']);
-        return false;
     }
+    return $success;
 }
 
 // Menghapus baris data staff berdasarkan ID (DELETE)
@@ -109,21 +114,23 @@ function DeleteStaff($id_staff)
 {
     global $koneksi;
 
+    $success = false;
     try {
         if (!($data = GetStaff(id: $id_staff)))
             throw new Exception("Data staff tidak ditemukan!");
-    
+        
         $sql = "DELETE FROM staff WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("i", $id_staff);
         $stmt->execute();
-    
+        
         // Menghapus gambar jika record berhasil dihapus
         HapusFile($data["url_foto"]);
-        return true;
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
     }
+    return $success;
 }
 
 function GetInitialName($nama_staff)

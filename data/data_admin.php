@@ -6,6 +6,7 @@ function GetAdmin($email = null)
 {
     global $koneksi;
 
+    $admin = [];
     try {
         $sql = "SELECT * FROM admin";
         if ($email !== null) {
@@ -26,11 +27,10 @@ function GetAdmin($email = null)
         $result->close();
         $koneksi->next_result();
 
-        return $admin;
     } catch (Exception $e) {
         SendServerError($e);
-        return null;
     }
+    return $admin;
 }
 
 
@@ -51,6 +51,7 @@ function CreateRememberToken($email, $token, $expires_days = 30)
 {
     global $koneksi;
 
+    $success = false;
     try {
         $email = mysqli_real_escape_string($koneksi, $email);
         $token = mysqli_real_escape_string($koneksi, $token);
@@ -60,17 +61,18 @@ function CreateRememberToken($email, $token, $expires_days = 30)
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param('sss', $email, $token, $expires_at);
         $stmt->execute();
-
-        return true;
+        
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
-        return false;
     }
+    return $success;
 }
 
 function ValidateRememberToken($token)
 {
     global $koneksi;
+    $admin = null;
 
     try {
         $token = mysqli_real_escape_string($koneksi, $token);
@@ -90,69 +92,67 @@ function ValidateRememberToken($token)
         if (!$admin) {
             // Token tidak ditemukan atau sudah kadaluarsa, maka dihapus
             DeleteRememberToken($token);
-            return false;
+            return null;
         }
-
-        return $admin;
     } catch (Exception $e) {
         SendServerError($e);
-        return null;
     }
+    return $admin;
 }
 
 function DeleteRememberToken($token)
 {
     global $koneksi;
 
+    $success = false;
     try {
         $token = mysqli_real_escape_string($koneksi, $token);
-
-        $sql = "DELETE FROM admin_remember_tokens WHERE token = '$token'";
-        $result = mysqli_query($koneksi, $sql);
-
-        if (!$result) {
-            SendServerError(mysqli_error($koneksi));
-        }
-
-        return true;
+        
+        $sql = "DELETE FROM admin_remember_tokens WHERE token = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param('s', $token);
+        $stmt->execute();
+        
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
-        return false;
     }
+    return $success;
 }
 
 function DeleteAdminRememberTokens($email)
 {
     global $koneksi;
+    
+    $success = false;
     try {
         $email = mysqli_real_escape_string($koneksi, $email);
 
-        $sql = "DELETE FROM admin_remember_tokens WHERE email = '$email'";
-        $result = mysqli_query($koneksi, $sql);
+        $sql = "DELETE FROM admin_remember_tokens WHERE email = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
 
-        if (!$result) {
-            SendServerError(mysqli_error($koneksi));
-        }
-
-        return true;
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
-        return false;
     }
+    return $success;
 }
 
 function CleanupExpiredTokens()
 {
     global $koneksi;
 
+    $success = false;
     try {
         $sql = "DELETE FROM admin_remember_tokens WHERE expires_at < NOW()";
         $koneksi->query($sql);
+        $success = true;
     } catch (Exception $e) {
         SendServerError($e);
     }
-
-    return true;
+    return $success;
 }
 
 function LogoutAdmin()
