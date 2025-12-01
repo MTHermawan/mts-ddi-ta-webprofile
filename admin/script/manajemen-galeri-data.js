@@ -21,7 +21,7 @@ function ReloadTableEventListener() {
 
 async function ReloadDataTable() {
   const emptyData = document.getElementById('emptyData');
-  const dataContainer = document.getElementById('facilitiesContainer');
+  const dataContainer = document.getElementById('galeriContainer');
 
   if (!emptyData || !dataContainer) return;
 
@@ -52,17 +52,19 @@ async function ReloadDataTable() {
   dataContainer.innerHTML = '';
   processedData.forEach(data => {
     const newCard = document.createElement('div');
-    newCard.classList.add('facility-card');
+    newCard.classList.add('galeri-card');
 
     newCard.innerHTML = `
-       <div class="facility-image">
+        <div class="galeri-image">
               ${data['photoUrl'] ? `<img src="../assets/${data['photoUrl']}" alt="${data['nama_fasilitas']}" onerror="this.style.display='none'">` : ''}
             </div>
-            <div class="facility-content">
-              <h3 class="facility-title">${data['nama_fasilitas']}</h3>
-              <p class="facility-description">${data['deskripsi_fasilitas']}</p>
+            <div class="galeri-content">
+              <h3 class="galeri-title">${data['nama_fasilitas']}</h3>
+              <p class="galeri-description">
+                ${data['deskripsi_fasilitas']}
+              </p>
             </div>
-            <div class="facility-actions">
+            <div class="galeri-actions">
               <button class="action-btn edit">
                 <i class="fas fa-edit"></i> Edit
               </button>
@@ -71,16 +73,17 @@ async function ReloadDataTable() {
               </button>
             </div>
     `;
+       
 
     const editButton = newCard.querySelector(".edit");
     const deleteButton = newCard.querySelector(".delete");
 
     editButton.addEventListener("click", () => {
-      openEditPopup(data.id_fasilitas);
+      openEditPopup(data.id_galeri);
     });
 
     deleteButton.addEventListener("click", () => {
-      openDeletePopup(data.id_fasilitas);
+      openDeletePopup(data.id_galeri);
     });
 
     dataContainer.appendChild(newCard);
@@ -129,15 +132,15 @@ async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
   return false;
 }
 
-async function PostEditFasilitas(id_galeri, judul_galeri, deskripsi, foto_galeri) {
+async function PostEditGaleri(id_galeri, judul, deskripsi, foto_galeri) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-fasilitas/update-fasilitas.php';
+    const url = './post/manajemen-galeri/update-gakeri.php';
 
     const formData = new FormData();
     formData.append('id_galeri', id_galeri);
-    formData.append('nama_galeri', judul_galeri);
-    formData.append('deskripsi', deskripsi);
+    formData.append('judul_foto_galeri', judul);
+    formData.append('deskripsi_foto_galeri', deskripsi);
 
     if (foto_galeri) formData.append('foto_galeri', foto_galeri);
 
@@ -151,7 +154,7 @@ async function PostEditFasilitas(id_galeri, judul_galeri, deskripsi, foto_galeri
   return false;
 }
 
-async function DeleteFasilitas(id_galeri) {
+async function DeleteGaleri(id_galeri) {
   try {
     const method = 'POST';
     const url = './post/manajemen-galeri/hapus-galeri.php';

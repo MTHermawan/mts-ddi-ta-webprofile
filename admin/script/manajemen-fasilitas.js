@@ -6,7 +6,7 @@ let currentDeleteId = null;
 // Data fasilitas hardcoded
 let galeriData = [
   {
-    id_fasilitas: 1,
+    id_galeri: 1,
     nama_fasilitas: "Perpustakaan Sekolah",
     deskripsi_fasilitas: "Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.",
     url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -30,7 +30,7 @@ let galeriData = [
     url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
   },
   {
-    id_fasilitas: 5,
+    id_galeri: 5,
     nama_fasilitas: "Aula Serbaguna",
     deskrdeskripsi_fasilitasipsi: "Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.",
     url_foto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -45,7 +45,7 @@ let galeriData = [
 
 function GetFacilityById(id_fasilitas) {
   for (let i = 0; i < galeriData.length; i++) {
-    if (galeriData[i]['id_fasilitas'] == id_fasilitas) {
+    if (galeriData[i]['id_galeri'] == id_fasilitas) {
       return galeriData[i];
     }
   }
@@ -177,7 +177,7 @@ async function submitForm() {
     : alert("Data fasilitas gagal ditambahkan");
   } else {
     // Submit form edit
-    await PostEditFasilitas(currentEditId, nama, deskripsi, foto_fasilitas)
+    await PostEditGaleri(currentEditId, nama, deskripsi, foto_fasilitas)
     ? alert(`Data fasilitas ${nama} berhasil diperbarui!`)
     : alert("Data fasilitas gagal diperbarui");
   }
@@ -191,7 +191,7 @@ async function confirmDelete() {
     const facility = GetFacilityById(currentDeleteId);
     if (!facility) alert('Fasilitas tidak ditemukan!');
 
-    if (await DeleteFasilitas(facility['id_fasilitas']))
+    if (await DeleteGaleri(facility['id_fasilitas']))
     {
       alert(`Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!`);
     }
