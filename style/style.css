@@ -387,13 +387,13 @@ body {
 
 
 .kotak-1 .small-icon {
-  background: linear-gradient(135deg, #7CFF86, #0d9400);
-  color: white;
+  background: white;
+  color: #0b6b00;
 }
 
 .kotak-2 .small-icon {
-  background: linear-gradient(135deg, #7CFF86, #0d9400);
-  color: white;
+  background: white;
+  color: #0b6b00;
 }
 
 /* Container utama untuk 3 kotak bawah */
@@ -436,6 +436,11 @@ body {
   line-height: 1.5;
   margin: 0;
   max-width: 250px;
+}
+
+.small-icon{
+  background: white;
+  color: #0b6b00;
 }
 
 /* about section stop */
