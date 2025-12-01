@@ -93,9 +93,6 @@ if (isset($_SESSION['last_email_input'])) {
                 alt="logo show"
               />
             </div>
-            <div class="form-options">
-              <label class="remember-me"> <input type="checkbox" name="remember" id="remember"> Ingat saya </label>
-            </div>
             <?php if (!empty($error_message)): ?>
               <p class="message-error">
                 <?php echo htmlspecialchars($error_message); ?>
