@@ -162,7 +162,7 @@
 /* Card galeri */
 .galeri-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 0 0 0.9px #dde1e5;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
