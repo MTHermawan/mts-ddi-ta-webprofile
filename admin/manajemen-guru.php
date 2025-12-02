@@ -185,178 +185,202 @@ include_once "../data/utility.php";
               </tr>
             </tbody>
           </table>
-        </div>
 
-      </div>
-    </div>
-
-    <!-- POP UP TAMBAH/EDIT -->
-    <div class="popup-overlay-form" id="popup">
-      <div class="popup-content-form">
-        <div class="popup-header">
-          <h2 class="popup-title" id="popupTitle">Tambah Guru</h2>
-          <button class="popup-close" onclick="closePopup()">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <div class="input-container">
-
-          <!-- Input Gambar -->
-          <div class="image-input-container">
-            <label class="image-input-label">Foto Guru</label>
-            <div class="image-upload-area" id="imageUploadArea">
-              <input
-                type="file"
-                class="image-input"
-                id="imageInput"
-                accept="image/*"
-                name="foto_staff" />
-
-              <!-- Placeholder (default state) -->
-              <div class="image-placeholder" id="imagePlaceholder">
-                <div class="image-placeholder-icon">
-                  <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="image-placeholder-text">
-                  <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                  <p>PNG, JPG, JPEG.</p>
-                </div>
+          <!-- Pagination -->
+          <div class="pagination-container" id="paginationContainer">
+            <div class="pagination-info" id="paginationInfo">
+              Menampilkan 1-5 dari 5 data
+            </div>
+            <div class="pagination-controls">
+              <button class="pagination-btn prev" id="prevPage" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="page-numbers" id="pageNumbers">
+                <span class="page-number active">1</span>
               </div>
+              <button class="pagination-btn next" id="nextPage" disabled>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
 
-              <!-- Preview gambar -->
-              <div class="image-preview" id="imagePreview">
-                <img id="previewImage" src="" alt="Preview" />
-                <div class="image-preview-actions">
-                  <button
-                    type="button"
-                    class="preview-action-btn change">
-                    <i class="fas fa-sync-alt"></i> Ganti
-                  </button>
-                  <button
-                    type="button"
-                    class="preview-action-btn remove">
-                    <i class="fas fa-trash"></i> Hapus
-                  </button>
-                </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  </div>
+
+  <!-- POP UP TAMBAH/EDIT -->
+  <div class="popup-overlay-form" id="popup">
+    <div class="popup-content-form">
+      <div class="popup-header">
+        <h2 class="popup-title" id="popupTitle">Tambah Guru</h2>
+        <button class="popup-close" onclick="closePopup()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="input-container">
+
+        <!-- Input Gambar -->
+        <div class="image-input-container">
+          <label class="image-input-label">Foto Guru</label>
+          <div class="image-upload-area" id="imageUploadArea">
+            <input
+              type="file"
+              class="image-input"
+              id="imageInput"
+              accept="image/*"
+              name="foto_staff" />
+
+            <!-- Placeholder (default state) -->
+            <div class="image-placeholder" id="imagePlaceholder">
+              <div class="image-placeholder-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <div class="image-placeholder-text">
+                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+                <p>PNG, JPG, JPEG.</p>
+              </div>
+            </div>
+
+            <!-- Preview gambar -->
+            <div class="image-preview" id="imagePreview">
+              <img id="previewImage" src="" alt="Preview" />
+              <div class="image-preview-actions">
+                <button
+                  type="button"
+                  class="preview-action-btn change">
+                  <i class="fas fa-sync-alt"></i> Ganti
+                </button>
+                <button
+                  type="button"
+                  class="preview-action-btn remove">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Input Teks -->
-          <div class="text-input-container">
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Nama</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputName"
-                placeholder="Masukkan nama guru"
-                name="nama_staff" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Jabatan</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputPosition"
-                name="jabatan"
-                placeholder="Masukkan mata pelajaran yang diampu" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputSubject"
-                name="mapel"
-                placeholder="Masukkan mata pelajaran yang diampu" />
-            </div>
-
-            <div class="text-input-group">
-              <label for="titleInput" class="text-input-label">Pendidikan</label>
-              <input
-                type="text"
-                class="text-input"
-                id="inputDegree"
-                name="pendidikan"
-                placeholder="Masukkan gelar guru" />
-            </div>
+        <!-- Input Teks -->
+        <div class="text-input-container">
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Nama</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputName"
+              placeholder="Masukkan nama guru"
+              name="nama_staff" />
           </div>
 
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Jabatan</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputPosition"
+              name="jabatan"
+              placeholder="Masukkan mata pelajaran yang diampu" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputSubject"
+              name="mapel"
+              placeholder="Masukkan mata pelajaran yang diampu" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Pendidikan</label>
+            <input
+              type="text"
+              class="text-input"
+              id="inputDegree"
+              name="pendidikan"
+              placeholder="Masukkan gelar guru" />
+          </div>
         </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-form">
-          <button
-            type="button"
-            class="popup-btn-form cancel"
-            onclick="closePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-form submit"
-            onclick="submitForm()">
-            <i class="fa-regular fa-floppy-disk"></i> Simpan
-          </button>
-        </div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-form">
+        <button
+          type="button"
+          class="popup-btn-form cancel"
+          onclick="closePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-form submit"
+          onclick="submitForm()">
+          <i class="fa-regular fa-floppy-disk"></i> Simpan
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- POP UP KONFIRMASI DELETE -->
-    <div class="popup-overlay-delete" id="deletePopup">
-      <div class="popup-content-delete">
-        <div class="popup-icon">
-          <i class="fas fa-exclamation-triangle"></i>
+  <!-- POP UP KONFIRMASI DELETE -->
+  <div class="popup-overlay-delete" id="deletePopup">
+    <div class="popup-content-delete">
+      <div class="popup-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+
+      <h2 class="popup-title">Hapus Data?</h2>
+
+      <p class="popup-message">
+        Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+        dihapus sudah benar.
+      </p>
+
+      <!-- Informasi Data yang Akan Dihapus -->
+      <div class="popup-data-info">
+        <div class="data-item">
+          <span class="data-label">Nama:</span>
+          <span class="data-value" id="dataName">Lindsey Curtis</span>
         </div>
-
-        <h2 class="popup-title">Hapus Data?</h2>
-
-        <p class="popup-message">
-          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
-          dihapus sudah benar.
-        </p>
-
-        <!-- Informasi Data yang Akan Dihapus -->
-        <div class="popup-data-info">
-          <div class="data-item">
-            <span class="data-label">Nama:</span>
-            <span class="data-value" id="dataName">Lindsey Curtis</span>
-          </div>
-          <div class="data-item">
-            <span class="data-label">Jabatan:</span>
-            <span class="data-value" id="dataPosition">Guru</span>
-          </div>
-          <div class="data-item">
-            <span class="data-label">Mata Pelajaran:</span>
-            <span class="data-value" id="dataSubject">Teknologi Informasi</span>
-          </div>
-          <div class="data-item">
-            <span class="data-label">Pendidikan:</span>
-            <span class="data-value" id="dataDegree">S.Kom</span>
-          </div>
+        <div class="data-item">
+          <span class="data-label">Jabatan:</span>
+          <span class="data-value" id="dataPosition">Guru</span>
         </div>
-
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-delete">
-          <button
-            type="button"
-            class="popup-btn-delete cancel"
-            onclick="closeDeletePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-delete delete"
-            onclick="confirmDelete()">
-            <i class="fas fa-trash"></i> Hapus
-          </button>
+        <div class="data-item">
+          <span class="data-label">Mata Pelajaran:</span>
+          <span class="data-value" id="dataSubject">Teknologi Informasi</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Pendidikan:</span>
+          <span class="data-value" id="dataDegree">S.Kom</span>
         </div>
       </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-delete">
+        <button
+          type="button"
+          class="popup-btn-delete cancel"
+          onclick="closeDeletePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-delete delete"
+          onclick="confirmDelete()">
+          <i class="fas fa-trash"></i> Hapus
+        </button>
+      </div>
     </div>
+  </div>
 
   </div>
   <script src="./script/utility.js"></script>

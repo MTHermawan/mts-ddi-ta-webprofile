@@ -182,7 +182,7 @@
   top: 100%;
   width: 2px;
   height: 20px;
-  background: #4299e1;
+  background-color: #dbeafe;
   z-index: 1;
 }
 
@@ -193,7 +193,7 @@
   top: 20px;
   width: 40px;
   height: 40px;
-  background: #4299e1;
+  background-color: rgba(4, 134, 0, 1);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -206,14 +206,23 @@
 
 /* Konten sejarah */
 .sejarah-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding: 20px 20px 20px 80px;
   min-height: 80px;
 }
 
+.sejarah-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(29, 41, 57);
+}
 .sejarah-description {
   margin: 0;
   font-size: 15px;
-  color: #4a5568;
+  color: rgb(102, 112, 133);
   line-height: 1.6;
 }
 

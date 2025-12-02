@@ -7,31 +7,37 @@ let currentDeleteId = null;
 let sejarahData = [
   {
     id_sejarah: 1,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "1985",
     deskripsi: "Sekolah ini didirikan dengan nama SMP Negeri 1 Jakarta oleh Bapak Dr. Soetomo sebagai bentuk komitmen untuk memberikan pendidikan berkualitas bagi generasi muda. Awalnya sekolah hanya memiliki 3 ruang kelas dengan 50 siswa."
   },
   {
     id_sejarah: 2,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "1995",
     deskripsi: "Dibangunnya perpustakaan sekolah dan laboratorium sains pertama. Jumlah siswa meningkat menjadi 200 orang. Sekolah mulai mengembangkan kurikulum yang lebih komprehensif dan memperkenalkan program ekstrakurikuler."
   },
   {
     id_sejarah: 3,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "2005",
     deskripsi: "Sekolah meraih akreditasi A dari Badan Akreditasi Nasional. Laboratorium komputer pertama dibangun dengan 20 unit komputer. Program bahasa Inggris intensif diperkenalkan untuk meningkatkan kompetensi global siswa."
   },
   {
     id_sejarah: 4,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "2015",
     deskripsi: "Renovasi besar-besaran dilakukan pada seluruh bangunan sekolah. Smart classroom diperkenalkan dengan teknologi pembelajaran terbaru. Sekolah mulai menerapkan sistem manajemen berbasis digital untuk meningkatkan efisiensi administrasi."
   },
   {
     id_sejarah: 5,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "2020",
     deskripsi: "Sekolah meraih penghargaan 'Sekolah Adiwiyata Nasional' dan memenangkan kompetisi sains internasional pertama. Kerjasama dengan sekolah-sekolah di luar negeri dimulai untuk program pertukaran pelajar dan guru."
   },
   {
     id_sejarah: 6,
+    judul_sejarah: "Pendirian Sekolah",
     tahun_sejarah: "2023",
     deskripsi: "Peluncuran program 'Sekolah Digital 4.0' dengan integrasi teknologi AI dalam pembelajaran. Pembangunan gedung olahraga bertaraf internasional dan pusat kreativitas siswa. Sekolah menetapkan target menjadi sekolah berstandar internasional pada tahun 2025."
   }
@@ -64,7 +70,8 @@ function openEditPopup(id_sejarah) {
   // Isi form dengan data sejarah yang akan diedit
   const sejarah = GetSejarahById(currentEditId);
   if (sejarah) {
-    document.getElementById("titleInput").value = sejarah.tahun_sejarah;
+    document.getElementById("titleInput").value = sejarah.judul_sejarah;
+    document.getElementById("yearInput").value = sejarah.tahun_sejarah;
     document.getElementById("descriptionInput").value = sejarah.deskripsi;
   }
 
@@ -98,7 +105,8 @@ function deleteSejarah(id) {
   const sejarah = GetSejarahById(id);
   if (sejarah) {
     currentDeleteId = id;
-    document.getElementById("dataName").textContent = sejarah.tahun_sejarah;
+    document.getElementById("dataName").textContent = sejarah.judul_sejarah;
+    document.getElementById("dataYear").textContent = sejarah.tahun_sejarah;
     document.getElementById("dataDescription").textContent = sejarah.deskripsi;
     document.getElementById("deletePopup").style.display = "flex";
     document.body.style.overflow = "hidden";

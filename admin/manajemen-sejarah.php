@@ -53,10 +53,12 @@ include_once "../data/utility.php";
 
         <!-- Data Sejarah -->
         <div class="sejarah-container" id="sejarahContainer">
+          
           <!-- Card 1: Pendirian Sekolah -->
           <div class="sejarah-card">
             <div class="sejarah-year">1985</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Sekolah ini didirikan dengan nama SMP Negeri 1 Jakarta oleh
                 Bapak Dr. Soetomo sebagai bentuk komitmen untuk memberikan
@@ -78,6 +80,7 @@ include_once "../data/utility.php";
           <div class="sejarah-card">
             <div class="sejarah-year">1995</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Dibangunnya perpustakaan sekolah dan laboratorium sains
                 pertama. Jumlah siswa meningkat menjadi 200 orang. Sekolah
@@ -99,6 +102,7 @@ include_once "../data/utility.php";
           <div class="sejarah-card">
             <div class="sejarah-year">2005</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Sekolah meraih akreditasi A dari Badan Akreditasi Nasional.
                 Laboratorium komputer pertama dibangun dengan 20 unit
@@ -120,6 +124,7 @@ include_once "../data/utility.php";
           <div class="sejarah-card">
             <div class="sejarah-year">2015</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Renovasi besar-besaran dilakukan pada seluruh bangunan
                 sekolah. Smart classroom diperkenalkan dengan teknologi
@@ -142,6 +147,7 @@ include_once "../data/utility.php";
           <div class="sejarah-card">
             <div class="sejarah-year">2020</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Sekolah meraih penghargaan "Sekolah Adiwiyata Nasional" dan
                 memenangkan kompetisi sains internasional pertama. Kerjasama
@@ -163,6 +169,7 @@ include_once "../data/utility.php";
           <div class="sejarah-card">
             <div class="sejarah-year">2023</div>
             <div class="sejarah-content">
+              <h2 class="sejarah-title">Pendirian Sekolah</h2>
               <p class="sejarah-description">
                 Peluncuran program "Sekolah Digital 4.0" dengan integrasi
                 teknologi AI dalam pembelajaran. Pembangunan gedung olahraga
@@ -197,16 +204,25 @@ include_once "../data/utility.php";
 
         <!-- Input Teks -->
         <div class="text-input-group">
-          <label for="titleInput" class="text-input-label" id="inputFacility">Tahun Sejarah</label>
+          <label for="titleInput" class="text-input-label">Judul Sejarah</label>
           <input
             type="text"
             class="text-input"
             id="titleInput"
+            placeholder="Masukkan judul sejarah" />
+        </div>
+
+        <div class="text-input-group">
+          <label for="yearInput" class="text-input-label">Tahun Sejarah</label>
+          <input
+            type="text"
+            class="text-input"
+            id="yearInput"
             placeholder="Masukkan tahun sejarah" />
         </div>
 
         <div class="text-input-group">
-          <label for="descriptionInput" class="text-input-label" id="inputDescription">Deskripsi Sejarah</label>
+          <label for="descriptionInput" class="text-input-label">Deskripsi Sejarah</label>
           <textarea
             class="text-input"
             id="descriptionInput"
@@ -248,8 +264,12 @@ include_once "../data/utility.php";
         <!-- Informasi Data yang Akan Dihapus -->
         <div class="popup-data-info">
           <div class="data-item year">
+            <span class="data-label">Judul Sejarah:</span>
+            <span class="data-value" id="dataName">Judul Sejarah</span>
+          </div>
+          <div class="data-item year">
             <span class="data-label">Tahun Sejarah:</span>
-            <span class="data-value" id="dataName">Tahun Sejarah</span>
+            <span class="data-value" id="dataYear">Tahun Sejarah</span>
           </div>
           <div class="data-item description">
             <span class="data-label">Deskripsi Sejarah:</span>
