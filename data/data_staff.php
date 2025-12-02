@@ -22,7 +22,7 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
     try {
         // Upload File
         $url_foto = TambahFile($file_foto, $asset_subdir);
-        
+
         $sql = "INSERT INTO staff (nama_staff, jabatan, mapel, pendidikan, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("sssss", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto);
@@ -84,8 +84,8 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
             $types .= "ssss";
         }
 
-        $where_clause = !empty($conditions) 
-            ? "WHERE " . implode(" AND ", $conditions) 
+        $where_clause = !empty($conditions)
+            ? "WHERE " . implode(" AND ", $conditions)
             : "";
 
         $sql = "SELECT * FROM staff $where_clause";
@@ -103,8 +103,7 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
         }
 
         $stmt->close();
-    } 
-    catch (Exception $e) {
+    } catch (Exception $e) {
         SendServerError($e);
     }
 
@@ -121,17 +120,25 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
     try {
         if (!($old_data = GetStaff(id: $id_staff)[0]))
             throw new Exception("Data staff tidak ditemukan!");
-    
+
         // Mengupload foto
-        $url_foto_baru = TambahFile($file_foto, $asset_subdir);
-    
+        $url_foto = $old_data['url_foto'];
+        $isDeleteOld = false;
+        if (basename($url_foto) != $file_foto['name']) {
+            $url_foto = TambahFile($file_foto, $asset_subdir);
+            $isDeleteOld = true;
+        }
+
         $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, pendidikan = ?, url_foto = ? WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto_baru, $id_staff);
+        $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto, $id_staff);
         $stmt->execute();
-        
+
         // Menghapus foto lama
-        HapusFile($old_data['url_foto']);
+        if ($isDeleteOld) {
+            HapusFile($old_data['url_foto']);
+        }
+
         $success = true;
     } catch (Exception $e) {
         SendServerError($e);
@@ -151,7 +158,7 @@ function DeleteStaff($id_staff)
     try {
         if (!($data = GetStaff(id: $id_staff)[0]))
             throw new Exception("Data staff tidak ditemukan!");
-        
+
         $sql = "DELETE FROM staff WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("i", $data['id_staff']);

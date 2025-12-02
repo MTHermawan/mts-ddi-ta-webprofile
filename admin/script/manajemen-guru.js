@@ -88,6 +88,8 @@ function openEditPopup(id_staff) {
       document.getElementById("previewImage").src = staff.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+
+      handleResumeInput(staff.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";

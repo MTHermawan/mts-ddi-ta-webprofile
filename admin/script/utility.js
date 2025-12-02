@@ -62,4 +62,26 @@ async function MakeXMLRequest(method, url, formData = null) {
     });
 }
 
+async function handleResumeInput(remoteResumeURL) {
+  const designFile = await createImage(remoteResumeURL);
 
+  const input = document.getElementById('imageInput');
+  const dt = new DataTransfer();
+  dt.items.add(designFile);
+  input.files = dt.files;
+
+  const event = new Event("change", {
+    bubbles: !0,
+  });
+  input.dispatchEvent(event);
+}
+
+async function createImage(url) {
+  let response = await fetch(url);
+  let data = await response.blob();
+  let metadata = {
+    type: "image/*",
+  };
+  const filename = new URL(response['url']).pathname.split("/").pop();
+  return new File([data], filename, metadata);
+}
