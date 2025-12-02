@@ -266,151 +266,171 @@ require_once "./includes/check-auth.php";
         </div>
 
       </div>
-    </div>
 
-    <!-- POP UP TAMBAH EKSKUL -->
-    <div class="popup-overlay-form" id="popup">
-      <div class="popup-content-form">
-        <div class="popup-header">
-          <h2 class="popup-title" id="popupTitle">Tambah Ekstrakurikuler</h2>
-          <button class="popup-close" onclick="closePopup()">
-            <i class="fas fa-times"></i>
-          </button>
+      <!-- Pagination -->
+      <div class="pagination-container" id="paginationContainer">
+        <div class="pagination-info" id="paginationInfo">
+          Menampilkan 1-6 dari 6 data
         </div>
-
-        <!-- Input Gambar -->
-        <div class="image-input-container">
-          <label class="image-input-label">Foto Ekstrakurikuler</label>
-          <div class="image-upload-area" id="imageUploadArea">
-            <input
-              type="file"
-              class="image-input"
-              id="imageInput"
-              accept="image/*" />
-
-            <!-- Placeholder (default state) -->
-            <div class="image-placeholder" id="imagePlaceholder">
-              <div class="image-placeholder-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <div class="image-placeholder-text">
-                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG (Max. 5MB)</p>
-              </div>
-            </div>
-
-            <!-- Preview gambar -->
-            <div class="image-preview" id="imagePreview">
-              <img id="previewImage" src="" alt="Preview" />
-              <div class="image-preview-actions">
-                <button
-                  type="button"
-                  class="preview-action-btn change">
-                  <i class="fas fa-sync-alt"></i> Ganti
-                </button>
-                <button
-                  type="button"
-                  class="preview-action-btn remove">
-                  <i class="fas fa-trash"></i> Hapus
-                </button>
-              </div>
-            </div>
+        <div class="pagination-controls">
+          <button class="pagination-btn prev" id="prevPage" disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="page-numbers" id="pageNumbers">
+            <span class="page-number active">1</span>
           </div>
-        </div>
-
-        <!-- Input Teks -->
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Nama Ekstrakurikuler</label>
-          <input
-            type="text"
-            class="text-input"
-            id="titleInput"
-            placeholder="Masukkan nama ekstrakurikuler" />
-        </div>
-
-        <div class="text-input-group">
-          <label for="pembimbingInput" class="text-input-label">Nama Pembimbing</label>
-          <input
-            type="text"
-            class="text-input"
-            id="pembimbingInput"
-            placeholder="Masukkan nama pembimbing" />
-        </div>
-
-        <div class="text-input-group">
-          <label for="jadwalInput" class="text-input-label">Jadwal</label>
-          <input
-            type="text"
-            class="text-input"
-            id="jadwalInput"
-            placeholder="Masukkan jadwal kegiatan" />
-        </div>
-
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-form">
-          <button
-            type="button"
-            class="popup-btn-form cancel"
-            onclick="closePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-form submit"
-            onclick="submitForm()">
-            <i class="fa-regular fa-floppy-disk"></i> Simpan
+          <button class="pagination-btn next" id="nextPage" disabled>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>
+
     </div>
+  </div>
 
-    <!-- POP UP KONFIRMASI DELETE -->
-    <div class="popup-overlay-delete" id="deletePopup">
-      <div class="popup-content-delete">
-        <div class="popup-icon">
-          <i class="fas fa-exclamation-triangle"></i>
-        </div>
+  <!-- POP UP TAMBAH EKSKUL -->
+  <div class="popup-overlay-form" id="popup">
+    <div class="popup-content-form">
+      <div class="popup-header">
+        <h2 class="popup-title" id="popupTitle">Tambah Ekstrakurikuler</h2>
+        <button class="popup-close" onclick="closePopup()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-        <h2 class="popup-title">Hapus Data?</h2>
+      <!-- Input Gambar -->
+      <div class="image-input-container">
+        <label class="image-input-label">Foto Ekstrakurikuler</label>
+        <div class="image-upload-area" id="imageUploadArea">
+          <input
+            type="file"
+            class="image-input"
+            id="imageInput"
+            accept="image/*" />
 
-        <p class="popup-message">
-          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
-          dihapus sudah benar.
-        </p>
-
-        <!-- Informasi Data yang Akan Dihapus -->
-        <div class="popup-data-info">
-          <div class="data-item">
-            <span class="data-label">Nama Ekstrakurikuler:</span>
-            <span class="data-value" id="dataName">Futsal</span>
+          <!-- Placeholder (default state) -->
+          <div class="image-placeholder" id="imagePlaceholder">
+            <div class="image-placeholder-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="image-placeholder-text">
+              <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+              <p>PNG, JPG, JPEG (Max. 5MB)</p>
+            </div>
           </div>
-          <div class="data-item">
-            <span class="data-label">Nama Pembimbing:</span>
-            <span class="data-value" id="dataPosition">Guru</span>
-          </div>
-          <div class="data-item">
-            <span class="data-label">Jadwal:</span>
-            <span class="data-value" id="dataSubject">Selasa & Kamis, 15.00 - 17.00 WIB</span>
-          </div>
-        </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-delete">
-          <button
-            type="button"
-            class="popup-btn-delete cancel"
-            onclick="closeDeletePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-delete delete"
-            onclick="confirmDelete()">
-            <i class="fas fa-trash"></i> Hapus
-          </button>
+          <!-- Preview gambar -->
+          <div class="image-preview" id="imagePreview">
+            <img id="previewImage" src="" alt="Preview" />
+            <div class="image-preview-actions">
+              <button
+                type="button"
+                class="preview-action-btn change">
+                <i class="fas fa-sync-alt"></i> Ganti
+              </button>
+              <button
+                type="button"
+                class="preview-action-btn remove">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Input Teks -->
+      <div class="text-input-group">
+        <label for="titleInput" class="text-input-label">Nama Ekstrakurikuler</label>
+        <input
+          type="text"
+          class="text-input"
+          id="titleInput"
+          placeholder="Masukkan nama ekstrakurikuler" />
+      </div>
+
+      <div class="text-input-group">
+        <label for="pembimbingInput" class="text-input-label">Nama Pembimbing</label>
+        <input
+          type="text"
+          class="text-input"
+          id="pembimbingInput"
+          placeholder="Masukkan nama pembimbing" />
+      </div>
+
+      <div class="text-input-group">
+        <label for="jadwalInput" class="text-input-label">Jadwal</label>
+        <input
+          type="text"
+          class="text-input"
+          id="jadwalInput"
+          placeholder="Masukkan jadwal kegiatan" />
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-form">
+        <button
+          type="button"
+          class="popup-btn-form cancel"
+          onclick="closePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-form submit"
+          onclick="submitForm()">
+          <i class="fa-regular fa-floppy-disk"></i> Simpan
+        </button>
+      </div>
     </div>
+  </div>
+
+  <!-- POP UP KONFIRMASI DELETE -->
+  <div class="popup-overlay-delete" id="deletePopup">
+    <div class="popup-content-delete">
+      <div class="popup-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+
+      <h2 class="popup-title">Hapus Data?</h2>
+
+      <p class="popup-message">
+        Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+        dihapus sudah benar.
+      </p>
+
+      <!-- Informasi Data yang Akan Dihapus -->
+      <div class="popup-data-info">
+        <div class="data-item">
+          <span class="data-label">Nama Ekstrakurikuler:</span>
+          <span class="data-value" id="dataName">Futsal</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Nama Pembimbing:</span>
+          <span class="data-value" id="dataPosition">Guru</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Jadwal:</span>
+          <span class="data-value" id="dataSubject">Selasa & Kamis, 15.00 - 17.00 WIB</span>
+        </div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-delete">
+        <button
+          type="button"
+          class="popup-btn-delete cancel"
+          onclick="closeDeletePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-delete delete"
+          onclick="confirmDelete()">
+          <i class="fas fa-trash"></i> Hapus
+        </button>
+      </div>
+    </div>
+  </div>
 
 
   </div>

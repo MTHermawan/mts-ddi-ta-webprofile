@@ -185,120 +185,141 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-
       </div>
-    </div>
 
-    <!-- POP UP TAMBAH/EDIT FASILITAS -->
-    <div class="popup-overlay-form" id="popup">
-      <div class="popup-content-form">
-        <div class="popup-header">
-          <h2 class="popup-title" id="popupTitle">Tambah Fasilitas</h2>
-          <button class="popup-close" onclick="closePopup()">
-            <i class="fas fa-times"></i>
+      <!-- Pagination -->
+      <div class="pagination-container" id="paginationContainer">
+        <div class="pagination-info" id="paginationInfo">
+          Menampilkan 1-6 dari 6 data
+        </div>
+        <div class="pagination-controls">
+          <button class="pagination-btn prev" id="prevPage" disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="page-numbers" id="pageNumbers">
+            <span class="page-number active">1</span>
+          </div>
+          <button class="pagination-btn next" id="nextPage" disabled>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
+      </div>
+      
+    </div>
 
-        <!-- Input Gambar -->
-        <div class="image-input-container">
-          <label class="image-input-label">Foto Fasilitas</label>
-          <div class="image-upload-area" id="imageUploadArea">
-            <input
-              type="file"
-              class="image-input"
-              id="imageInput"
-              accept="image/*" />
 
-            <!-- Placeholder (default state) -->
-            <div class="image-placeholder" id="imagePlaceholder">
-              <div class="image-placeholder-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <div class="image-placeholder-text">
-                <p><strong>Klik untuk upload</strong> atau drag & drop</p>
-                <p>PNG, JPG, JPEG.</p>
-              </div>
-            </div>
+  </div>
 
-            <!-- Preview gambar -->
-            <div class="image-preview" id="imagePreview">
-              <img id="previewImage" src="" alt="Preview" />
-              <div class="image-preview-actions">
-                <button
-                  type="button"
-                  class="preview-action-btn change">
-                  <i class="fas fa-sync-alt"></i> Ganti
-                </button>
-                <button
-                  type="button"
-                  class="preview-action-btn remove">
-                  <i class="fas fa-trash"></i> Hapus
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- POP UP TAMBAH/EDIT FASILITAS -->
+  <div class="popup-overlay-form" id="popup">
+    <div class="popup-content-form">
+      <div class="popup-header">
+        <h2 class="popup-title" id="popupTitle">Tambah Fasilitas</h2>
+        <button class="popup-close" onclick="closePopup()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-        <!-- Input Teks -->
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label" id="inputFacility">Nama Fasilitas</label>
+      <!-- Input Gambar -->
+      <div class="image-input-container">
+        <label class="image-input-label">Foto Fasilitas</label>
+        <div class="image-upload-area" id="imageUploadArea">
           <input
-            type="text"
-            class="text-input"
-            id="titleInput"
-            placeholder="Masukkan nama fasilitas" />
-        </div>
+            type="file"
+            class="image-input"
+            id="imageInput"
+            accept="image/*" />
 
-        <div class="text-input-group">
-          <label for="descriptionInput" class="text-input-label" id="inputDescription">Deskripsi</label>
-          <textarea
-            class="text-input"
-            id="descriptionInput"
-            placeholder="Masukkan deskripsi fasilitas"></textarea>
-        </div>
+          <!-- Placeholder (default state) -->
+          <div class="image-placeholder" id="imagePlaceholder">
+            <div class="image-placeholder-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="image-placeholder-text">
+              <p><strong>Klik untuk upload</strong> atau drag & drop</p>
+              <p>PNG, JPG, JPEG.</p>
+            </div>
+          </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-form">
-          <button
-            type="button"
-            class="popup-btn-form cancel"
-            onclick="closePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-form submit"
-            onclick="submitForm()">
-            <i class="fa-regular fa-floppy-disk"></i> Simpan
-          </button>
+          <!-- Preview gambar -->
+          <div class="image-preview" id="imagePreview">
+            <img id="previewImage" src="" alt="Preview" />
+            <div class="image-preview-actions">
+              <button
+                type="button"
+                class="preview-action-btn change">
+                <i class="fas fa-sync-alt"></i> Ganti
+              </button>
+              <button
+                type="button"
+                class="preview-action-btn remove">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Input Teks -->
+      <div class="text-input-group">
+        <label for="titleInput" class="text-input-label" id="inputFacility">Nama Fasilitas</label>
+        <input
+          type="text"
+          class="text-input"
+          id="titleInput"
+          placeholder="Masukkan nama fasilitas" />
+      </div>
+
+      <div class="text-input-group">
+        <label for="descriptionInput" class="text-input-label" id="inputDescription">Deskripsi</label>
+        <textarea
+          class="text-input"
+          id="descriptionInput"
+          placeholder="Masukkan deskripsi fasilitas"></textarea>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-form">
+        <button
+          type="button"
+          class="popup-btn-form cancel"
+          onclick="closePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-form submit"
+          onclick="submitForm()">
+          <i class="fa-regular fa-floppy-disk"></i> Simpan
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- POP UP KONFIRMASI DELETE -->
-    <div class="popup-overlay-delete" id="deletePopup">
-      <div class="popup-content-delete">
-        <div class="popup-icon">
-          <i class="fas fa-exclamation-triangle"></i>
+  <!-- POP UP KONFIRMASI DELETE -->
+  <div class="popup-overlay-delete" id="deletePopup">
+    <div class="popup-content-delete">
+      <div class="popup-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+
+      <h2 class="popup-title">Hapus Data?</h2>
+
+      <p class="popup-message">
+        Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+        dihapus sudah benar.
+      </p>
+
+      <!-- Informasi Data yang Akan Dihapus -->
+      <div class="popup-data-info">
+        <div class="data-item">
+          <span class="data-label">Nama:</span>
+          <span class="data-value" id="dataName">Nama Fasilitas</span>
         </div>
-
-        <h2 class="popup-title">Hapus Data?</h2>
-
-        <p class="popup-message">
-          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
-          dihapus sudah benar.
-        </p>
-
-        <!-- Informasi Data yang Akan Dihapus -->
-        <div class="popup-data-info">
-          <div class="data-item">
-            <span class="data-label">Nama:</span>
-            <span class="data-value" id="dataName">Nama Fasilitas</span>
-          </div>
-          <div class="data-item description">
-            <span class="data-label">Deskripsi:</span>
-            <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
-          </div>
+        <div class="data-item description">
+          <span class="data-label">Deskripsi:</span>
+          <span class="data-value" id="dataDescription">Deskripsi Fasilitas</span>
+        </div>
 
         <!-- Tombol Aksi -->
         <div class="popup-actions-delete">
@@ -316,14 +337,14 @@ require_once "./includes/check-auth.php";
           </button>
         </div>
 
-        
-        </div>
+
       </div>
     </div>
+  </div>
 
-    <script src="./script/utility.js"></script>
-    <script src="./script/manajemen-fasilitas.js"></script>
-    <!-- <script src="./script/manajemen-fasilitas-data.js"></script> -->
+  <script src="./script/utility.js"></script>
+  <script src="./script/manajemen-fasilitas.js"></script>
+  <!-- <script src="./script/manajemen-fasilitas-data.js"></script> -->
 </body>
 
 </html>

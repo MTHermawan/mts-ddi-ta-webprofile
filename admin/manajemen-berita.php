@@ -231,20 +231,41 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-
       </div>
-    </div>
 
-    <!-- POP UP TAMBAH/EDIT BERITA -->
-    <div class="popup-overlay-form" id="popup">
-      <div class="popup-content-form">
-        <div class="popup-header">
-          <h2 class="popup-title" id="popupTitle">Tambah Berita</h2>
-          <button class="popup-close" onclick="closePopup()">
-            <i class="fas fa-times"></i>
+      <!-- Pagination -->
+      <div class="pagination-container" id="paginationContainer">
+        <div class="pagination-info" id="paginationInfo">
+          Menampilkan 1-6 dari 6 data
+        </div>
+        <div class="pagination-controls">
+          <button class="pagination-btn prev" id="prevPage" disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="page-numbers" id="pageNumbers">
+            <span class="page-number active">1</span>
+          </div>
+          <button class="pagination-btn next" id="nextPage" disabled>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
+      </div>
+      
+    </div>
 
+  </div>
+
+  <!-- POP UP TAMBAH/EDIT BERITA -->
+  <div class="popup-overlay-form" id="popup">
+    <div class="popup-content-form">
+      <div class="popup-header">
+        <h2 class="popup-title" id="popupTitle">Tambah Berita</h2>
+        <button class="popup-close" onclick="closePopup()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="input-container">
         <!-- Input Gambar -->
         <div class="image-input-container">
           <label class="image-input-label">Foto Berita</label>
@@ -285,85 +306,115 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-        <!-- Input Teks -->
-        <div class="text-input-group">
-          <label for="titleInput" class="text-input-label">Judul Berita</label>
-          <input
-            type="text"
-            class="text-input"
-            id="titleInput"
-            placeholder="Masukkan judul berita" />
-        </div>
-
-        <div class="text-input-group">
-          <label for="descriptionInput" class="text-input-label">Deskripsi Berita</label>
-          <textarea
-            class="text-input"
-            id="descriptionInput"
-            placeholder="Masukkan deskripsi berita"></textarea>
-        </div>
-
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-form">
-          <button
-            type="button"
-            class="popup-btn-form cancel"
-            onclick="closePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-form submit"
-            onclick="submitForm()">
-            <i class="fa-regular fa-floppy-disk"></i> Simpan
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- POP UP KONFIRMASI DELETE -->
-    <div class="popup-overlay-delete" id="deletePopup">
-      <div class="popup-content-delete">
-        <div class="popup-icon">
-          <i class="fas fa-exclamation-triangle"></i>
-        </div>
-
-        <h2 class="popup-title">Hapus Data?</h2>
-
-        <p class="popup-message">
-          Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
-          dihapus sudah benar.
-        </p>
-
-        <!-- Informasi Data yang Akan Dihapus -->
-        <div class="popup-data-info">
-          <div class="data-item">
-            <span class="data-label">Judul Berita:</span>
-            <span class="data-value" id="dataName">judul Berita</span>
+        <div class="text-input-container">
+          <!-- Input Teks -->
+          <div class="text-input-group">
+            <label for="titleInput" class="text-input-label">Judul Berita</label>
+            <input
+              type="text"
+              class="text-input"
+              id="titleInput"
+              placeholder="Masukkan judul berita" />
           </div>
-          <div class="data-item description">
-            <span class="data-label">Deskripsi Berita:</span>
-            <span class="data-value" id="dataDescription">Deskripsi Berita</span>
+
+          <div class="text-input-group">
+            <label for="dateInput" class="text-input-label">Tanggal Diterbitkan</label>
+            <input
+              type="text"
+              class="text-input"
+              id="dateInput"
+              placeholder="Masukkan tanggal diterbitkan" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="creatorInput" class="text-input-label">Pembuat Berita</label>
+            <input
+              type="text"
+              class="text-input"
+              id="creatorInput"
+              placeholder="Masukkan judul berita" />
+          </div>
+
+          <div class="text-input-group">
+            <label for="descriptionInput" class="text-input-label">Deskripsi Berita</label>
+            <textarea
+              class="text-input"
+              id="descriptionInput"
+              placeholder="Masukkan deskripsi berita"></textarea>
           </div>
         </div>
 
-        <!-- Tombol Aksi -->
-        <div class="popup-actions-delete">
-          <button
-            type="button"
-            class="popup-btn-delete cancel"
-            onclick="closeDeletePopup()">
-            <i class="fas fa-times"></i> Batal
-          </button>
-          <button
-            type="button"
-            class="popup-btn-delete delete"
-            onclick="confirmDelete()">
-            <i class="fas fa-trash"></i> Hapus
-          </button>
-        </div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-form">
+        <button
+          type="button"
+          class="popup-btn-form cancel"
+          onclick="closePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-form submit"
+          onclick="submitForm()">
+          <i class="fa-regular fa-floppy-disk"></i> Simpan
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- POP UP KONFIRMASI DELETE -->
+  <div class="popup-overlay-delete" id="deletePopup">
+    <div class="popup-content-delete">
+      <div class="popup-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+
+      <h2 class="popup-title">Hapus Data?</h2>
+
+      <p class="popup-message">
+        Data yang dihapus tidak dapat dikembalikan. Pastikan data yang akan
+        dihapus sudah benar.
+      </p>
+
+      <!-- Informasi Data yang Akan Dihapus -->
+      <div class="popup-data-info">
+        <div class="data-item">
+          <span class="data-label">Judul Berita:</span>
+          <span class="data-value" id="dataName">judul Berita</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Tanggal Diterbitkan:</span>
+          <span class="data-value" id="dataDate">tanggal Berita</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Pembuat Berita:</span>
+          <span class="data-value" id="dataCreator">pembuat Berita</span>
+        </div>
+        <div class="data-item description">
+          <span class="data-label">Deskripsi Berita:</span>
+          <span class="data-value" id="dataDescription">Deskripsi Berita</span>
+        </div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="popup-actions-delete">
+        <button
+          type="button"
+          class="popup-btn-delete cancel"
+          onclick="closeDeletePopup()">
+          <i class="fas fa-times"></i> Batal
+        </button>
+        <button
+          type="button"
+          class="popup-btn-delete delete"
+          onclick="confirmDelete()">
+          <i class="fas fa-trash"></i> Hapus
+        </button>
+      </div>
+    </div>
+  </div>
 
   </div>
 
