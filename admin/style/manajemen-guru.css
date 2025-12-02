@@ -242,6 +242,7 @@ tr:last-child td {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  z-index: 1;
 }
 
 .teacher-avatar-initials {

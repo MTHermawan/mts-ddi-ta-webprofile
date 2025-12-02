@@ -19,97 +19,26 @@ function ReloadTableEventListener() {
   });
 }
 
-async function ReloadDataTable() {
-  const emptyTable = document.getElementById('emptyData');
-  const table = document.querySelector('.table-container');
-
-  if (!emptyTable || !table) return;
-
-  const tableBody = table.querySelector('tbody');
-  if (staffData.length === 0) {
-    emptyTable.style.display = 'flex';
-    table.style.display = 'none';
-    return;
-  }
-
-  emptyTable.style.display = 'none';
-  table.style.display = 'flex';
-
-  const processedStaff = await Promise.all(
-    staffData.map(async staff => {
-      const initials = staff['nama_staff'].split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
-      let photoUrl = null;
-
-      if (staff['url_foto']) {
-        const check = await IsUrlFound("assets/" + staff['url_foto']);
-        if (check) {
-          photoUrl = staff['url_foto'];
-        }
-      }
-
-      return { ...staff, initials, photoUrl };
-    })
-  );
-
-  tableBody.innerHTML = '';
-  processedStaff.forEach(staff => {
-    const newRow = document.createElement('tr');
-
-    newRow.innerHTML = `
-      <td>
-        <div class="teacher-info">
-          <div class="teacher-avatar">
-            ${staff['photoUrl'] ? `<img src="../assets/${staff['photoUrl']}" alt="${staff['nama_staff']}" onerror="this.style.display='none'">` : ''}
-            <div class="teacher-avatar-initials" style="display: ${staff['photoUrl'] ? 'none' : 'flex'}">
-              ${staff['initials']}
-            </div>
-          </div>
-          <div class="teacher-details">
-            <h3>${staff['nama_staff']}</h3>
-          </div>
-        </div>
-      </td>
-
-      <td><span class="position">${staff['jabatan']}</span></td>
-      <td><span class="subject">${staff['mapel']}</span></td>
-      <td><span class="degree">${staff['pendidikan']}</span></td>
-
-      <td>
-        <div class="action-buttons">
-          <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-delete">Hapus</button>
-        </div>
-      </td>
-    `;
-
-    const editButton = newRow.querySelector(".btn-edit");
-    const deleteButton = newRow.querySelector(".btn-delete");
-
-    editButton.addEventListener("click", () => {
-      openEditPopup(staff.id_staff);
-    });
-
-    deleteButton.addEventListener("click", () => {
-      openDeletePopup(staff.id_staff);
-    });
-
-    tableBody.appendChild(newRow);
-  });
-
-  ReloadTableEventListener();
-}
-
 async function ReloadDataStaff(keyword = null) {
   try {
-    const url = keyword
-      ? `../api/staff?search=${encodeURIComponent(keyword)}`
-      : '../api/staff';
+    let url = '../api/staff';
+    let param = [];
+    keyword ? param.push(`search=${encodeURIComponent(keyword)}`) : "";
+
+    for (let i = 0; i < param.length; i++) {
+      url += ((i > 0) ? "&" : "?") + param[i];
+    }
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Network error");
 
     staffData = await response.json();
-    ReloadDataTable();
+    for (let staff of staffData) {
+      if (staff['url_foto']) {
+        staff['url_foto'] = (await IsUrlFound("assets/" + staff['url_foto'])) ? "../assets/" + staff['url_foto'] : "";
+      }
+    }
+    displayTableData();
 
     return staffData;
   } catch (error) {
@@ -129,9 +58,9 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
     formData.append('pendidikan', pendidikan);
-    
+
     if (foto_staff) formData.append('foto_staff', foto_staff);
-    
+
     let process = await MakeXMLRequest(method, url, formData);
     SearchEkskulEvent();
 

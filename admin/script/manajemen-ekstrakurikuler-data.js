@@ -119,13 +119,13 @@ async function PostTambahEkskul(nama_ekskul, nama_pembimbing, jadwal, foto_eksku
   return false;
 }
 
-async function PostEditStaff(id_ekskul, nama_ekskul, nama_pembimbing, jadwal, foto_ekskul) {
+async function PostEditEkskul(id_ekskul, nama_ekskul, nama_pembimbing, jadwal, foto_ekskul) {
   try {
     const method = 'POST';
     const url = './post/manajemen-ekskul/update-staff.php';
 
     const formData = new FormData();
-    formData.append('id_ekskul', nama_ekskul);
+    formData.append('id_ekskul', id_ekskul);
     formData.append('nama_ekskul', nama_ekskul);
     formData.append('nama_pembimbing', nama_pembimbing);
     formData.append('jadwal', jadwal);
@@ -142,7 +142,7 @@ async function PostEditStaff(id_ekskul, nama_ekskul, nama_pembimbing, jadwal, fo
   return false;
 }
 
-async function PostDeleteStaff(id_ekskul) {
+async function PostDeleteEkskul(id_ekskul) {
   try {
     const method = 'POST';
     const url = './post/manajemen-ekskul/hapus-ekskul.php';

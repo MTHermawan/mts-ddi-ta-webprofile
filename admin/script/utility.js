@@ -1,3 +1,11 @@
+let selectedImageFile = null;
+
+async function urlToFile(url, filename) {
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return new File([blob], filename, { type: blob.type });
+}
+
 async function IsUrlFound(url) {
     const checkerUrl = './post/utility/check_url.php';
     const encodedUrl = encodeURIComponent(url); 

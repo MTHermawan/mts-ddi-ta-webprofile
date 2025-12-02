@@ -24,18 +24,19 @@ CREATE TABLE admin_remember_tokens (
     INDEX idx_expires_at (expires_at)
 );
 
+
+
 -- Table Profile
-CREATE TABLE profile (
+CREATE TABLE profil (
     visi VARCHAR(2000),
     misi VARCHAR(2000),
     tujuan VARCHAR(2000),
     alamat VARCHAR(100),
-    email_sekolah VARCHAR(50),
-    url_google_maps VARCHAR(50),
-    url_instagram VARCHAR(50),
-    url_facebook VARCHAR(50),
-    url_youtube VARCHAR(50),
-    url_foto_struktur VARCHAR(50),
+);
+
+-- Table Profile
+CREATE TABLE profil_stat (
+    id_profil_stat,
     jumlah_siswa INT,
     jumlah_guru INT,
     jumlah_lulusan INT
@@ -44,8 +45,8 @@ CREATE TABLE profile (
 -- Table Foto_Galeri
 CREATE TABLE foto_galeri (
     id_foto_galeri INT auto_increment PRIMARY KEY,
-    judul_foto_galeri VARCHAR(30),
-    deskripsi_foto_galeri VARCHAR(100),
+    judul_foto_galeri VARCHAR(50),
+    deskripsi_foto_galeri VARCHAR(255),
     url_foto VARCHAR(50) NOT NULL,
     tanggal_posting DATE,
     email VARCHAR(255)
@@ -54,9 +55,9 @@ CREATE TABLE foto_galeri (
 -- Table Ekskul
 CREATE TABLE ekskul (
     id_ekskul INT auto_increment PRIMARY KEY,
-    nama_ekskul VARCHAR(20) NOT NULL,
+    nama_ekskul VARCHAR(30) NOT NULL,
     nama_pembimbing VARCHAR(50) NOT NULL,
-    jadwal VARCHAR(25),
+    jadwal VARCHAR(30),
     tanggal_dibuat DATETIME
 );
 
@@ -67,13 +68,11 @@ CREATE TABLE foto_ekskul (
     posisi INT,
     FOREIGN KEY (id_ekskul) REFERENCES ekskul(id_ekskul) ON DELETE CASCADE
 );
--- Note:
--- Foto ekskul memiliki tabel terpisah
 
 -- Table Fasilitas
 CREATE TABLE fasilitas (
     id_fasilitas INT auto_increment PRIMARY KEY,
-    nama_fasilitas VARCHAR(25) NOT NULL,
+    nama_fasilitas VARCHAR(30) NOT NULL,
     deskripsi_fasilitas VARCHAR(255),
     tanggal_dibuat DATETIME
 );
@@ -109,6 +108,30 @@ CREATE TABLE informasi (
     url_foto VARCHAR(50),
     email_admin VARCHAR(255),
     FOREIGN KEY (email_admin) REFERENCES admin(email)
+);
+
+-- Table Sejarah
+CREATE TABLE sejarah (
+    id_sejarah INT auto_increment PRIMARY KEY,
+    judul_sejarah VARCHAR(50) NOT NULL,
+    deskripsi_sejarah VARCHAR(500) NOT NULL,
+    tanggal_dibuat DATETIME
+);
+
+-- Table Sosial Media
+CREATE TABLE sosial_media (
+    id_sosmed INT AUTO_INCREMENT PRIMARY KEY,
+    nama_sosmed VARCHAR(30) NOT NULL,
+    url_sosmed TEXT,
+    url_icon VARCHAR(50)
+);
+
+-- Table Settings
+CREATE TABLE settings (
+    id_setting INT AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(100) NOT NULL UNIQUE,
+    setting_value TEXT,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Insert data ke tabel admin

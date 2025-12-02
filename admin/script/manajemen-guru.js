@@ -165,35 +165,6 @@ function removeImage() {
   document.getElementById("imagePlaceholder").style.display = "flex";
 }
 
-// Fungsi untuk submit form
-function submitForm() {
-  const nama = document.getElementById("inputName").value;
-  const jabatan = document.getElementById("inputPosition").value;
-  const mapel = document.getElementById("inputSubject").value;
-  const pendidikan = document.getElementById("inputDegree").value;
-
-  if (!nama.trim()) {
-    alert("Nama harus diisi!");
-    return;
-  }
-
-  if (currentMode === "add") {
-    alert("Data guru berhasil ditambahkan!");
-  } else {
-    alert(`Data guru ${nama} berhasil diperbarui!`);
-  }
-
-  closePopup();
-}
-
-// Fungsi untuk konfirmasi delete
-function confirmDelete() {
-  if (currentDeleteId && currentDeleteData) {
-    alert(`Data guru ${currentDeleteData.name} berhasil dihapus!`);
-    closeDeletePopup();
-  }
-}
-
 // Fungsi untuk reset form
 function resetForm() {
   document.getElementById("inputName").value = "";
@@ -421,9 +392,9 @@ function displayTableData(page = 1) {
           </div>
         </div>
       </td>
-      <td><span class="position">${staff.jabatan}</span></td>
-      <td><span class="subject">${staff.mapel}</span></td>
-      <td><span class="degree">${staff.pendidikan}</span></td>
+      <td><span class="position">${staff.jabatan ? staff.jabatan : "-"}</span></td>
+      <td><span class="subject">${staff.mapel ? staff.jabatan : "-"}</span></td>
+      <td><span class="degree">${staff.pendidikan ? staff.jabatan : "-"}</span></td>
       <td>
         <div class="action-buttons">
           <button class="btn btn-edit" data-id="${staff.id_staff}">

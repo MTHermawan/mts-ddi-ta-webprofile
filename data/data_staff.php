@@ -41,40 +41,73 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null, $search = null)
 {
     global $koneksi;
-    
+
     $data = [];
+
     try {
-        $sql = "SELECT * FROM staff";
-        $result = $koneksi->query($sql);
-    
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
-            }
-    
-            $result->close();
-            $koneksi->next_result();
+        $conditions = [];
+        $params = [];
+        $types = "";
+
+        if ($id !== null) {
+            $conditions[] = "id_staff = ?";
+            $params[] = $id;
+            $types .= "i";
         }
-    
-        foreach ($data as $key => $value) {
-            if (
-                ($id !== null && $value['id_staff'] != $id) ||
-                ($nama !== null && stripos($value['nama_staff'], $nama) === false) ||
-                ($jabatan !== null && stripos($value['jabatan'], $jabatan) === false) ||
-                ($mapel !== null && stripos($value['mapel'], $mapel) === false) ||
-                ($pendidikan !== null && stripos($value['pendidikan'], $pendidikan) === false) ||
-                ($search !== null &&
-                    stripos($value['nama_staff'], $search) === false &&
-                    stripos($value['jabatan'], $search) === false &&
-                    stripos($value['mapel'], $search) === false &&
-                    stripos($value['pendidikan'], $search) === false)
-            ) {
-                unset($data[$key]);
-            }
+        if ($nama !== null) {
+            $conditions[] = "nama_staff LIKE ?";
+            $params[] = "%$nama%";
+            $types .= "s";
         }
-    } catch (Exception $e) {
+        if ($jabatan !== null) {
+            $conditions[] = "jabatan LIKE ?";
+            $params[] = "%$jabatan%";
+            $types .= "s";
+        }
+        if ($mapel !== null) {
+            $conditions[] = "mapel LIKE ?";
+            $params[] = "%$mapel%";
+            $types .= "s";
+        }
+        if ($pendidikan !== null) {
+            $conditions[] = "pendidikan LIKE ?";
+            $params[] = "%$pendidikan%";
+            $types .= "s";
+        }
+
+        if ($search !== null) {
+            $conditions[] = "(nama_staff LIKE ? OR jabatan LIKE ? OR mapel LIKE ? OR pendidikan LIKE ?)";
+            $params[] = "%$search%";
+            $params[] = "%$search%";
+            $params[] = "%$search%";
+            $params[] = "%$search%";
+            $types .= "ssss";
+        }
+
+        $where_clause = !empty($conditions) 
+            ? "WHERE " . implode(" AND ", $conditions) 
+            : "";
+
+        $sql = "SELECT * FROM staff $where_clause";
+        $stmt = $koneksi->prepare($sql);
+
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $stmt->close();
+    } 
+    catch (Exception $e) {
         SendServerError($e);
     }
+
     return $data;
 }
 
@@ -86,7 +119,7 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
 
     $success = false;
     try {
-        if (!($old_data = GetStaff(id: $id_staff)))
+        if (!($old_data = GetStaff(id: $id_staff)[0]))
             throw new Exception("Data staff tidak ditemukan!");
     
         // Mengupload foto
@@ -116,16 +149,17 @@ function DeleteStaff($id_staff)
 
     $success = false;
     try {
-        if (!($data = GetStaff(id: $id_staff)))
+        if (!($data = GetStaff(id: $id_staff)[0]))
             throw new Exception("Data staff tidak ditemukan!");
         
         $sql = "DELETE FROM staff WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("i", $data['id_staff']);
         $stmt->execute();
-        
+        echo var_dump($data);
+
         // Menghapus gambar jika record berhasil dihapus
-        HapusFile($data["url_foto"]);
+        HapusFile($data['url_foto']);
         $success = true;
     } catch (Exception $e) {
         SendServerError($e);
