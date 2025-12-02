@@ -383,9 +383,23 @@ include_once "../data/utility.php";
   </div>
 
   </div>
+
+  <!-- Notifikasi Popup Global -->
+  <div id="global-notification" class="notification-popup">
+    <div class="notification-icon">
+      <i class="fa-solid fa-check-circle"></i>
+    </div>
+    <div class="notification-content">
+      <div class="notification-title">Berhasil!</div>
+      <div class="notification-message">Pesan notifikasi</div>
+    </div>
+  </div>
+
+
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-guru.js"></script>
   <script src="./script/manajemen-guru-data.js"></script>
+    <script src="./script/notification.js"></script>
 </body>
 
 </html>

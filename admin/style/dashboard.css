@@ -755,3 +755,67 @@ textarea.text-input {
 .popup-btn-delete.delete:hover {
   background-color: #fecaca;
 }
+
+/*             NOTIFIKASI POP UP             */
+.notification-popup {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  background-color: rgba(4, 134, 0, 1);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 0.9px #dde1e5;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(150%);
+  transition: transform 0.3s ease-in-out;
+  max-width: 350px;
+  min-width: 300px;
+}
+
+.notification-popup.show {
+  transform: translateX(0);
+}
+
+.notification-popup.success {
+  background-color: rgba(4, 134, 0, 1);
+  color: white;
+}
+
+.notification-popup.error {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.notification-popup.warning {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.notification-popup.info {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.notification-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.notification-message {
+  font-size: 14px;
+  opacity: 0.9;
+}

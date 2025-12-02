@@ -506,9 +506,20 @@ require_once "./includes/check-auth.php";
 
 
   </div>
+      <!-- Notifikasi Popup Global -->
+  <div id="global-notification" class="notification-popup">
+    <div class="notification-icon">
+      <i class="fa-solid fa-check-circle"></i>
+    </div>
+    <div class="notification-content">
+      <div class="notification-title">Berhasil!</div>
+      <div class="notification-message">Pesan notifikasi</div>
+    </div>
+  </div>
 
   <script src="./script/dashboard-admin.js"></script>
   <script src="./script/manajemen-agenda.js"></script>
+    <script src="./script/notification.js"></script>
 </body>
 
 </html>
