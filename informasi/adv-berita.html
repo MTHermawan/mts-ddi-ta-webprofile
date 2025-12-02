@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sejarah Sekolah</title>
+    <title>Berita</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../style/hero-sect.css">
-    <link rel="stylesheet" href="../style/sejarahh.css">
+    <link rel="stylesheet" href="../style/adv.info.css">
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
 
     <!-- HEADER -->
-     <header>
+    <header>
         <nav class="navbar">
             <div class="logo-container">
             <div class="logo"><img src="../assets/logo-sekolah.png" alt="logo"></div> 
@@ -25,8 +25,8 @@
 
             <div class="nav-menu">
             <a href="../index.html" >Home</a>
-            <a href="#about" class="active">Profil</a>
-            <a href="../informasi/agenda.html">Agenda</a>
+            <a href="../index.html #about" >Profil</a>
+            <a href="../informasi/agenda.html"  class="active">Agenda</a>
             <a href="../informasi/berita.html">Berita</a>
             <a href="../informasi/galeri.php">Galeri</a>
             <a href="../index.html #contact">Kontak</a>
@@ -34,74 +34,107 @@
         </nav>
     </header>
 
-    <!-- HERO -->
+
     <section id="hero">
+        <!-- Gambar sebagai background -->
         <img src="../assets/contoh1.jpg" alt="Latar belakang pendidikan berkarakter" class="hero-bg-img">
+
+        <!-- Overlay gelap untuk kontras teks -->
         <div class="hero-overlay"></div>
+
+        <!-- Konten utama -->
         <div class="hero-content">
-            <h1>Sejarah Sekolah</h1>
+            <h1>Berita</h1>
         </div>
     </section>
 
-    <!-- SECTION SEJARAH -->
+    <section class="breadcrumb">
+    <a href="../index.html">Home</a> › 
+    <a href="../informasi/berita.html">Berita</a> › 
+    <span>Detail Berita</span>
+</section>
 
-<section class="sejarah-section">
-    <div class="container">
-        <h1 class="judul-utama">Sejarah Singkat</h1>
-        <p class="sub-judul-sejarah">
-            Dari Mimpi Kecil Menuju Generasi Qur’ani
+<section class="news-detail-container">
+
+    <!-- Sidebar -->
+    <aside class="news-sidebar">
+        <h3>Berita Terbaru</h3>
+        <ul>
+            <li><a href="#">Siswa Raih Juara Lomba Tilawah</a></li>
+            <li><a href="#">Peresmian Website Sekolah</a></li>
+            <li><a href="#">Kegiatan Maulid Nabi</a></li>
+        </ul>
+
+        <h3>Kategori</h3>
+        <ul>
+            <li><a href="#">Prestasi</a></li>
+            <li><a href="#">Acara Sekolah</a></li>
+            <li><a href="#">Edukasi</a></li>
+        </ul>
+    </aside>
+
+    <!-- Konten Utama -->
+    <article class="news-detail">
+
+        <img src="../assets/contoh3.jpg" class="news-detail-img" alt="Gambar Berita">
+
+        <h1 class="news-detail-title">
+            Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat Kabupaten
+        </h1>
+
+        <p class="news-info">
+            <i class="fa-solid fa-calendar"></i> 20 November 2025 • Prestasi
         </p>
 
-        <div class="timeline-alternate">
-            <!-- 1984 - Kiri -->
-            <div class="timeline-item left">
-                <div class="timeline-year">1984</div>
-                <div class="timeline-content">
-                    <h3>Berdirinya MTs DDI Tani Aman</h3>
-                    <p>
-                        Madrasah Tsanawiyah Darud Da’wah Wal Irsyad (MTs DDI) Tani Aman Samarinda resmi berdiri di bawah naungan Yayasan DDI Tani Aman. Pada awal berdiri, madrasah ini dipimpin oleh Bapak H. Jamaluddin, A.Md. sebagai kepala madrasah, dengan jumlah siswa sekitar <strong>21 siswa</strong>.
-                    </p>
-                </div>
-            </div>
+        <p>
+            Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda Rizky Fauzan,
+            berhasil meraih juara pertama dalam lomba tilawah Al-Qur’an tingkat
+            kabupaten...
+        </p>
 
-            <!-- 2013 - Kanan -->
-            <div class="timeline-item right">
-                <div class="timeline-year">2013</div>
-                <div class="timeline-content">
-                    <h3>Regenerasi Kepemimpinan</h3>
-                    <p>
-                        Setelah 29 tahun memimpin, Bapak H. Jamaluddin menyerahkan tongkat estafet kepemimpinan kepada Bapak H. Suwardi, A.Md. Di bawah kepemimpinannya, madrasah terus berkembang hingga tahun 2019.
-                    </p>
-                </div>
-            </div>
+        <blockquote class="news-quote">
+            “Prestasi ini menjadi kebanggaan besar bagi seluruh keluarga besar MTs
+            DDI Tani Aman.”
+        </blockquote>
 
-            <!-- 2021 - Kiri -->
-            <div class="timeline-item left">
-                <div class="timeline-year">2021</div>
-                <div class="timeline-content">
-                    <h3>Akreditasi "A" Nasional</h3>
-                    <p>
-                        MTs DDI Tani Aman meraih <strong>akreditasi "A"</strong> dari Badan Akreditasi Nasional (BAN-SM) dengan SK Nomor: 999/BAN-SM/SK/2021. Saat ini dipimpin oleh Ibu ST. Fatimah Amin, S.Pd., dengan total <strong>23 tenaga pendidik dan kependidikan</strong>.
-                    </p>
-                </div>
-            </div>
+        <p>
+            Kegiatan lomba berlangsung di kantor Kemenag pada hari Selasa, dengan
+            peserta dari berbagai sekolah dan madrasah...
+        </p>
 
-            <!-- 2024/2025 - Kanan -->
-            <div class="timeline-item right">
-                <div class="timeline-year">2024/ <br> 2025</div>
-                <div class="timeline-content">
-                    <h3>Prestasi & Pertumbuhan</h3>
-                    <p>
-                        Madrasah kini memiliki <strong>236 siswa aktif</strong> dan telah meluluskan lebih dari <strong>3.000 alumni</strong>. Pada tahun ajaran ini, angkatan ke-39 lulus dengan <strong>100% kelulusan</strong>. Fasilitas fisik, prestasi akademik-nonakademik, dan jaringan alumni terus berkembang pesat.
-                    </p>
-                </div>
-            </div>
+    </article>
+
+</section>
+
+<!-- Rekomendasi -->
+<section class="related-news">
+    <h2>Berita Lainnya</h2>
+
+    <div class="related-grid">
+        <div class="card-rel">
+            <img src="../assets/contoh4.jpg">
+            <h3>Peresmian Website Sekolah</h3>
+            <button class="btn-news">Lihat Selengkapnya -></button>
+        </div>
+
+        <div class="card-rel">
+            <img src="../assets/contoh4.jpg">
+            <h3>Pengajian Akbar Semester Ini</h3>
+            <button class="btn-news">Lihat Selengkapnya -></button>
+        </div>
+
+        <div class="card-rel">
+            <img src="../assets/contoh4.jpg">
+            <h3>Program Literasi Baru Diluncurkan</h3>
+            <button class="btn-news">Lihat Selengkapnya -></button>
         </div>
     </div>
 </section>
 
+
+
     <!-- FOOTER -->
-        <footer class="footer">
+    <footer class="footer">
     <div class="footer-container">
 
         <!-- Brand Sekolah -->
@@ -158,7 +191,5 @@
         <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
     </div>
 </footer>
-
-    <script src="script/nav-active.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 125px;
     background: rgba(237, 237, 237, 0.7);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -185,57 +185,90 @@ body {
 }
 
 /* footer */
-
 .footer {
-    background: #064d1a ;
+    padding: 80px 125px 40px 125px;
+    background: #064d1a;
     color: #e6ffe6;
-    padding: 70px 120px 30px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .footer-container {
-    color: white;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px; /* seragam */
+    color: white;
 }
 
-.footer-logo img {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
+/*BRAND: LOGO KIRI, TEKS KANAN*/
+.footer-brand-full {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px; 
+}
+
+.brand-left img {
+    width: 85px;
+    height: 85px;
     object-fit: cover;
+    border-radius: 16px;
+    
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+/*TEKS BRAND*/
+.brand-right h2,
+.brand-right p,
+.footer-kemenag,
+.footer-social {
+    margin-bottom: 15px; 
 }
 
 .footer-title {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin: 0;
     color: white;
 }
 
 .footer-desc {
     font-size: 0.9rem;
-    margin-bottom: 20px;
-    line-height: 20px;
+    line-height: 1.5;
+    max-width: 380px;
+    margin: 0;
     color: white;
-    max-width: 300px;
 }
 
+.footer-desc a{
+    color: #ffffff;
+    /* text-decoration: none; */
+}
+
+/* ==========================
+   BADGE KEMENAG
+========================== */
+.footer-kemenag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 10px 14px;
+    border-radius: 12px;
+    border-left: 4px solid #1fae51;
+    margin: 0;
+}
+
+.footer-kemenag img {
+    width: 45px;
+}
+
+/*SOSIAL MEDIA*/
 .footer-social a {
     display: inline-flex;
     width: 40px;
     height: 40px;
     border-radius: 10px;
+    margin-top: 10px;
     background: rgba(255, 255, 255, 0.08);
     justify-content: center;
     align-items: center;
-    margin-right: 8px;
     color: white;
     transition: 0.3s;
     text-decoration: none;
@@ -246,7 +279,8 @@ body {
     transform: translateY(-4px);
 }
 
-/* Columns */
+/* kontak */
+
 .footer-column h3 {
     font-size: 1.1rem;
     margin-bottom: 15px;
@@ -255,15 +289,17 @@ body {
 
 .footer-column ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-column ul li {
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .footer-column ul li a {
     text-decoration: none;
-    color: #cfd3e1;
+    color: #ffffff;
     transition: 0.3s;
 }
 
@@ -272,54 +308,61 @@ body {
     padding-left: 5px;
 }
 
-.info-foot {
-    margin-bottom: 10px;
+/* Kontak */
+.footer-column p {
+    margin: 23px 0;
 }
 
-/* Contact text */
 .footer-column p i {
     color: #ddd;
     margin-right: 8px;
 }
 
-/* Bottom */
+.footer-ornament {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #1fae51, #ffffff, #1fae51, transparent);
+    margin: 40px 0;
+    opacity: 0.5;
+}
+
+/* ==========================
+   FOOTER BOTTOM
+========================== */
 .footer-bottom {
     color: white;
     text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
-/* Responsive */
+/* ==========================
+   RESPONSIVE
+========================== */
 @media (max-width: 900px) {
-  .footer {
-      padding: 50px 40px;
-  }
-  .footer-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-  }
+    .footer {
+        padding: 50px 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr ;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .footer-brand-full {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .brand-right {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
 }
 
-@media (max-width: 600px) {
-  .footer-container {
-      grid-template-columns: 1fr;
-  }
-  .footer-logo {
-      margin: auto;
-  }
-  .footer-brand {
-      text-align: center;
-  }
-  .footer-social {
-      justify-content: center;
-      display: flex;
-  }
-}
 
-/* note buatkan footer */
-/* perbaiki yang salah  */
-/* ubah biar gak ai banget jir  */
-/* tambahin animasi dikit biar kece  */
-/* optimasi buat mobile  */
-/* ganti semua warna */
+
