@@ -24,24 +24,6 @@ CREATE TABLE admin_remember_tokens (
     INDEX idx_expires_at (expires_at)
 );
 
-
-
--- Table Profile
-CREATE TABLE profil (
-    visi VARCHAR(2000),
-    misi VARCHAR(2000),
-    tujuan VARCHAR(2000),
-    alamat VARCHAR(100),
-);
-
--- Table Profile
-CREATE TABLE profil_stat (
-    id_profil_stat,
-    jumlah_siswa INT,
-    jumlah_guru INT,
-    jumlah_lulusan INT
-);
-
 -- Table Foto_Galeri
 CREATE TABLE foto_galeri (
     id_foto_galeri INT auto_increment PRIMARY KEY,
@@ -84,8 +66,6 @@ CREATE TABLE foto_fasilitas (
     posisi INT,
     FOREIGN KEY (id_fasilitas) REFERENCES fasilitas(id_fasilitas) ON DELETE CASCADE
 );
--- Note:
--- Foto fasilitas memiliki tabel terpisah
 
 -- Table Staff
 CREATE TABLE staff (
@@ -118,20 +98,12 @@ CREATE TABLE sejarah (
     tanggal_dibuat DATETIME
 );
 
--- Table Sosial Media
-CREATE TABLE sosial_media (
-    id_sosmed INT AUTO_INCREMENT PRIMARY KEY,
-    nama_sosmed VARCHAR(30) NOT NULL,
-    url_sosmed TEXT,
-    url_icon VARCHAR(50)
-);
-
--- Table Settings
-CREATE TABLE settings (
+-- Table Settingan Profile
+CREATE TABLE profile_settings (
     id_setting INT AUTO_INCREMENT PRIMARY KEY,
     setting_key VARCHAR(100) NOT NULL UNIQUE,
     setting_value TEXT,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    tanggal_diperbarui DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Insert data ke tabel admin
@@ -144,7 +116,7 @@ INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, pendidikan, tanggal_dib
 
 -- Insert data ke tabel ekskul
 INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, tanggal_dibuat) VALUES
-('Pramuka', 'Muhammad Rizki', '2024-11-08 15:00:00', NOW());
+('Pramuka', 'Muhammad Rizki', 'Sabtu, 15.00', NOW());
 
 INSERT INTO foto_ekskul (id_ekskul, url_foto, posisi) VALUES
 (1, '/images/ekskul1.jpg', 1);
