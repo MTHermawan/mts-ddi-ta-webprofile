@@ -35,9 +35,15 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo ADMIN_PATH; ?>manajemen-visi-misi-sejarah.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-visi-misi-sejarah.php") echo "active"; ?>">
+            <a href="<?php echo ADMIN_PATH; ?>manajemen-visi-misi.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-visi-misi.php") echo "active"; ?>">
                 <i class="fa-regular fa-address-card"></i>
-                <span class="menu-text">Visi Misi & Sejarah</span>
+                <span class="menu-text">Visi Misi</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo ADMIN_PATH; ?>manajemen-sejarah.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-sejarah.php") echo "active"; ?>">
+                <i class="fa-solid fa-timeline"></i>
+                <span class="menu-text">Sejarah</span>
             </a>
         </li>
         <li>

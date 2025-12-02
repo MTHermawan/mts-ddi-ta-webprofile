@@ -41,7 +41,7 @@ require_once "./includes/check-auth.php";
           <input
             type="text"
             class="search-input"
-            placeholder="Cari nama guru" />
+            placeholder="Cari judul agenda" />
         </div>
 
         <div class="button-container">

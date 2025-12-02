@@ -8,7 +8,7 @@ require_once "./includes/check-auth.php";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manajemen Visi Misi & Sejarah</title>
+  <title>Manajemen Visi Misi</title>
   <link rel="stylesheet" href="./style/dashboard.css" />
   <link rel="stylesheet" href="./style/manajemen-visi-misi-sejarah.css" />
   <link
@@ -102,28 +102,6 @@ require_once "./includes/check-auth.php";
                     name="tujuan"
                     id="tujuan"
                     placeholder="Tujuan MTs DDI Tani Aman"></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-card">
-            <div class="form-card-content">
-              <div class="form-card-header">
-                <div class="form-icon">
-                  <img
-                    src="../assets/icon-sejarah.svg"
-                    alt="sejarah Icon" />
-                </div>
-                <label class="form-label" for="sejarah">Sejarah Sekolah</label>
-              </div>
-              <div class="form-input-container">
-                <div class="form-input-wrapper">
-                  <textarea
-                    class="form-textarea"
-                    name="sejarah"
-                    id="sejarah"
-                    placeholder="Sejarah MTs DDI Tani Aman"></textarea>
                 </div>
               </div>
             </div>

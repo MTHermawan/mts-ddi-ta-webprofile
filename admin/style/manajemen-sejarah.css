@@ -1,0 +1,292 @@
+/*                REWRITE MENU-TITLE        */
+.menu-title {
+  margin: 0;
+}
+
+/*                MAIN CONTENT              */
+.main-content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/*                 BUTTON DI HEADER             */
+
+.button-container {
+  width: 148px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 132px;
+  appearance: none;
+  background-color: white;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: rgb(29, 41, 57);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button.add {
+  width: 148px;
+}
+
+.button:hover {
+  background-color: #f1f3f6;
+  color: rgb(29, 41, 57);
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button:disabled {
+  background-color: #fafbfc;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959da5;
+  cursor: default;
+}
+
+.button:active {
+  background-color: #edeff2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.button:focus {
+  outline: 1px transparent;
+}
+
+.button:before {
+  display: none;
+}
+
+.button:-webkit-details-marker {
+  display: none;
+}
+
+.main-content-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f8fafc;
+}
+
+/*                STYLE UNTUK PLACEHOLDER DATA KOSONG            */
+
+.empty-data {
+  box-shadow: 0 0 0 0.9px #dde1e5;
+  background-color: white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+}
+
+.empty-data-placeholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-data-placeholder img {
+  width: 80px;
+}
+
+.empty-data-placeholder p {
+  color: rgb(29, 41, 57);
+  font-weight: 400px;
+  margin-top: 8px;
+}
+
+/*                OVERRIDE POP UP DELETE                    */
+.popup-data-info {
+  margin: 0;
+}
+
+.data-item.year {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.data-item.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.popup-actions-delete {
+  margin-top: 20px;
+}
+
+
+/*              STYLE UNTUK CARD DATA SEJARAH               */
+/* Container untuk card sejarah */
+.sejarah-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Card sejarah */
+.sejarah-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0.9px #dde1e5;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.sejarah-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline connector */
+.sejarah-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 40px;
+  top: 100%;
+  width: 2px;
+  height: 20px;
+  background: #4299e1;
+  z-index: 1;
+}
+
+/* Tahun sejarah */
+.sejarah-year {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background: #4299e1;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* Konten sejarah */
+.sejarah-content {
+  padding: 20px 20px 20px 80px;
+  min-height: 80px;
+}
+
+.sejarah-description {
+  margin: 0;
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Tombol aksi */
+.sejarah-actions {
+  display: flex;
+  padding: 12px 20px;
+  border-top: 1px solid #e2e8f0;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.action-btn.edit {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.action-btn.edit:hover {
+  background-color: #bfdbfe;
+}
+
+.action-btn.delete {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.action-btn.delete:hover {
+  background-color: #fecaca;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .sejarah-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .sejarah-content {
+    padding: 16px 16px 16px 70px;
+  }
+
+  .sejarah-year {
+    left: 15px;
+    top: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .sejarah-card:not(:last-child)::after {
+    left: 32px;
+  }
+
+  .sejarah-actions {
+    padding: 10px 16px;
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
