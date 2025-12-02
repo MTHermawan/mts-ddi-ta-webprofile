@@ -958,6 +958,11 @@ section.show {
     color: white;
 }
 
+.footer-desc a{
+    color: #ffffff;
+    /* text-decoration: none; */
+}
+
 /* ==========================
    BADGE KEMENAG
 ========================== */
