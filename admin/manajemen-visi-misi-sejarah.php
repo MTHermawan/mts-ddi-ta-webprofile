@@ -8,9 +8,9 @@ require_once "./includes/check-auth.php";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manajemen Visi Misi</title>
+  <title>Manajemen Visi Misi & Sejarah</title>
   <link rel="stylesheet" href="./style/dashboard.css" />
-  <link rel="stylesheet" href="./style/manajemen-visi-misi.css" />
+  <link rel="stylesheet" href="./style/manajemen-visi-misi-sejarah.css" />
   <link
     rel="icon"
     href="../assets/logo-sekolah.png"
@@ -30,7 +30,7 @@ require_once "./includes/check-auth.php";
     <?php include "./includes/header.php" ?>
 
     <!-- Title Menu -->
-    <h1 class="menu-title">Visi Misi</h1>
+    <h1 class="menu-title">Visi Misi & Sejarah</h1>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -56,7 +56,7 @@ require_once "./includes/check-auth.php";
                       class="form-textarea"
                       name="visi"
                       id="visi"
-                      placeholder="Visi MTs Tani Aman"></textarea>
+                      placeholder="Visi MTs DDI Tani Aman"></textarea>
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ require_once "./includes/check-auth.php";
                       class="form-textarea"
                       name="misi"
                       id="misi"
-                      placeholder="Misi MTs Tani Aman"></textarea>
+                      placeholder="Misi MTs DDI Tani Aman"></textarea>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,29 @@ require_once "./includes/check-auth.php";
                     class="form-textarea"
                     name="tujuan"
                     id="tujuan"
-                    placeholder="Tujuan MTs Tani Aman"></textarea>
+                    placeholder="Tujuan MTs DDI Tani Aman"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-card-content">
+              <div class="form-card-header">
+                <div class="form-icon">
+                  <img
+                    src="../assets/icon-sejarah.svg"
+                    alt="sejarah Icon" />
+                </div>
+                <label class="form-label" for="sejarah">Sejarah Sekolah</label>
+              </div>
+              <div class="form-input-container">
+                <div class="form-input-wrapper">
+                  <textarea
+                    class="form-textarea"
+                    name="sejarah"
+                    id="sejarah"
+                    placeholder="Sejarah MTs DDI Tani Aman"></textarea>
                 </div>
               </div>
             </div>

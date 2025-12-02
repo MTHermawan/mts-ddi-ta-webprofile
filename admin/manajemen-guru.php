@@ -133,7 +133,7 @@ include_once "../data/utility.php";
                 <td><span class="subject">Bahasa Indonesia</span></td>
                 <td><span class="degree">S.S</span></td>
                 <td>
-                    <div class="action-buttons">
+                  <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
                     <button class="btn btn-delete"><i class="fas fa-trash"></i> Hapus</button>
                   </div>
@@ -242,49 +242,50 @@ include_once "../data/utility.php";
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Input Teks -->
-        <div class="text-input-container">
-          <div class="text-input-group">
-            <label for="titleInput" class="text-input-label">Nama</label>
-            <input
-              type="text"
-              class="text-input"
-              id="inputName"
-              placeholder="Masukkan nama guru"
-              name="nama_staff"/>
+          <!-- Input Teks -->
+          <div class="text-input-container">
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Nama</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputName"
+                placeholder="Masukkan nama guru"
+                name="nama_staff" />
+            </div>
+
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Jabatan</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputPosition"
+                name="jabatan"
+                placeholder="Masukkan mata pelajaran yang diampu" />
+            </div>
+
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputSubject"
+                name="mapel"
+                placeholder="Masukkan mata pelajaran yang diampu" />
+            </div>
+
+            <div class="text-input-group">
+              <label for="titleInput" class="text-input-label">Pendidikan</label>
+              <input
+                type="text"
+                class="text-input"
+                id="inputDegree"
+                name="pendidikan"
+                placeholder="Masukkan gelar guru" />
+            </div>
           </div>
 
-          <div class="text-input-group">
-            <label for="titleInput" class="text-input-label">Jabatan</label>
-            <input
-              type="text"
-              class="text-input"
-              id="inputPosition"
-              name="jabatan"
-              placeholder="Masukkan mata pelajaran yang diampu" />
-          </div>
-
-          <div class="text-input-group">
-            <label for="titleInput" class="text-input-label">Mata Pelajaran</label>
-            <input
-              type="text"
-              class="text-input"
-              id="inputSubject"
-              name="mapel"
-              placeholder="Masukkan mata pelajaran yang diampu" />
-          </div>
-
-          <div class="text-input-group">
-            <label for="titleInput" class="text-input-label">Pendidikan</label>
-            <input
-              type="text"
-              class="text-input"
-              id="inputDegree"
-              name="pendidikan"
-              placeholder="Masukkan gelar guru" />
-          </div>
         </div>
 
         <!-- Tombol Aksi -->
@@ -334,7 +335,7 @@ include_once "../data/utility.php";
             <span class="data-value" id="dataSubject">Teknologi Informasi</span>
           </div>
           <div class="data-item">
-            <span class="data-label">Gelar:</span>
+            <span class="data-label">Pendidikan:</span>
             <span class="data-value" id="dataDegree">S.Kom</span>
           </div>
         </div>

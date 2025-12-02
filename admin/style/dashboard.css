@@ -409,7 +409,7 @@ nav {
   display: block;
   font-size: 14px;
   font-weight: 500;
-  color: rgb(102, 112, 133);
+  color: rgb(29, 41, 57);
   margin-bottom: 8px;
 }
 
@@ -605,8 +605,8 @@ textarea.text-input {
 }
 
 .popup-btn-form.submit {
-  background-color: #dcfce7;
-  color: #16a34a;
+  background-color: white;
+  color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
@@ -617,7 +617,7 @@ textarea.text-input {
 }
 
 .popup-btn-form.submit:hover {
-  background-color: #bbf7d0;
+  background-color: #f1f3f6;
 }
 
 .popup-btn-form.cancel:hover {

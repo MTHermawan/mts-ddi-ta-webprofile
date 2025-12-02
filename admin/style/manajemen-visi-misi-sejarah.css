@@ -110,6 +110,10 @@
   height: 132px;
 }
 
+#sejarah {
+  height: 160px;
+}
+
 textarea.form-textarea:focus {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);

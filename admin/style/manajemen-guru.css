@@ -116,7 +116,8 @@
 
 .image-upload-area {
   /* width: 360px; */
-  height: 93%;
+  min-height: 93%;
+  max-height: 93%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,11 +131,11 @@
 }
 
 .image-input-container {
-  width: 100%;
+  width: 340px;
 }
 
 .popup-content-form {
-  /* width: 850px; */
+  width: 850px;
 }
 
 .image-preview img {

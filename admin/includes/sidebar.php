@@ -35,9 +35,9 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo ADMIN_PATH; ?>manajemen-visi-misi.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-visi-misi.php") echo "active"; ?>">
+            <a href="<?php echo ADMIN_PATH; ?>manajemen-visi-misi-sejarah.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-visi-misi-sejarah.php") echo "active"; ?>">
                 <i class="fa-regular fa-address-card"></i>
-                <span class="menu-text">Visi Misi</span>
+                <span class="menu-text">Visi Misi & Sejarah</span>
             </a>
         </li>
         <li>
