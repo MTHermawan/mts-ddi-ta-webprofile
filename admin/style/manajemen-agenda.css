@@ -135,6 +135,46 @@
   margin-top: 8px;
 }
 
+/*               OVERRIDE POP UP TAMBAH/EDIT                     */
+.input-container {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.image-upload-area {
+  /* width: 360px; */
+  min-height: 95%;
+  max-height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview img {
+  max-width: 300px;
+  max-height: 185px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.image-input-container {
+  width: 340px;
+}
+
+.popup-content-form {
+  width: 850px;
+}
+
 /*                OVERRIDE POP UP DELETE                    */
 .popup-data-info {
   margin-bottom: 20px;
@@ -204,32 +244,6 @@
   font-size: 12px;
   font-weight: 600;
   backdrop-filter: blur(4px);
-}
-
-.agenda-status {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  backdrop-filter: blur(4px);
-}
-
-.status-upcoming {
-  background-color: #dbeafe;
-  color: #1d4ed8;
-}
-
-.status-ongoing {
-  background-color: #dcfce7;
-  color: #16a34a;
-}
-
-.status-completed {
-  background-color: rgb(102, 112, 133);
-  color: rgb(29, 41, 57);
 }
 
 /* Konten agenda */
@@ -343,24 +357,109 @@
   background-color: #fecaca;
 }
 
-/* Responsif */
+/*                  STYLE UNTUK PAGINATION                */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 0 0 0.9px #dde1e5;
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: rgb(102, 112, 133);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(102, 112, 133);
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #d0d5dd;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 6px;
+}
+
+.page-number {
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgb(102, 112, 133);
+  transition: all 0.2s ease;
+  padding: 0 8px;
+}
+
+.page-number:hover:not(.active) {
+  background: #f8fafc;
+  border-color: #d0d5dd;
+}
+
+.page-number.active {
+  background-color: rgba(4, 134, 0, 1);
+  color: white;
+  border-color: rgb(102, 112, 133);
+  font-weight: 600;
+}
+
+/* Responsif pagination */
 @media (max-width: 768px) {
-  .agenda-container {
-    grid-template-columns: 1fr;
+  .pagination-container {
+    flex-direction: column;
     gap: 16px;
     padding: 16px;
   }
 
-  .agenda-content {
-    padding: 16px;
-  }
-
-  .agenda-actions {
-    padding: 12px 16px;
-    flex-direction: column;
-  }
-
-  .action-btn {
+  .pagination-controls {
     width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .pagination-btn {
+    width: 32px;
+    height: 32px;
   }
 }
