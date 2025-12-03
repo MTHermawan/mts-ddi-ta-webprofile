@@ -335,15 +335,16 @@ require_once "./includes/check-auth.php";
               placeholder="Masukkan judul berita" />
           </div>
 
-          <div class="text-input-group">
-            <label for="descriptionInput" class="text-input-label">Deskripsi Berita</label>
-            <textarea
-              class="text-input"
-              id="descriptionInput"
-              placeholder="Masukkan deskripsi berita"></textarea>
-          </div>
         </div>
 
+      </div>
+
+      <div class="text-input-group">
+        <label for="descriptionInput" class="text-input-label">Deskripsi Berita</label>
+        <textarea
+          class="text-input"
+          id="descriptionInput"
+          placeholder="Masukkan deskripsi berita"></textarea>
       </div>
 
       <!-- Tombol Aksi -->
@@ -429,7 +430,7 @@ require_once "./includes/check-auth.php";
   </div>
   <script src="./script/dashboard-admin.js"></script>
   <script src="./script/manajemen-berita.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
 </body>
 
 </html>

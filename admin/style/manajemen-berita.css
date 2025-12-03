@@ -154,7 +154,7 @@
 
 .image-preview img {
   max-width: 300px;
-  max-height: 185px;
+  max-height: 100px;
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -175,6 +175,10 @@
   width: 850px;
 }
 
+#description {
+  height: 150px;
+}
+
 /*                OVERRIDE POP UP DELETE                    */
 .popup-data-info {
   margin-bottom: 20px;
@@ -186,6 +190,15 @@
   justify-content: none;
   align-items: none;
   line-height: 1.5;
+}
+
+.description {
+  line-clamp: 3;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .data-item.description .data-value {
@@ -249,7 +262,6 @@
 /* Konten berita */
 .berita-content {
   padding: 20px;
-  min-height: 300px;
 }
 
 .berita-title {
@@ -261,6 +273,12 @@
   line-clamp: 3;
   box-orient: vertical;
   overflow: hidden;
+  line-clamp: 1;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .berita-description {
@@ -268,9 +286,12 @@
   font-size: 14px;
   color: rgb(102, 112, 133);
   line-height: 1.6;
-  line-clamp: 3;
+  line-clamp: 4;
   box-orient: vertical;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 /* Info tambahan */

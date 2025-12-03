@@ -418,16 +418,16 @@ require_once "./includes/check-auth.php";
                 id="timeInput"
                 placeholder="Masukkan waktu agenda berlangsung" />
             </div>
-
-            <div class="text-input-group">
-              <label for="descriptionInput" class="text-input-label">Deskripsi Agenda</label>
-              <textarea
-                class="text-input"
-                id="descriptionInput"
-                placeholder="Masukkan deskripsi agenda"></textarea>
-            </div>
           </div>
 
+        </div>
+
+        <div class="text-input-group">
+          <label for="descriptionInput" class="text-input-label">Deskripsi Agenda</label>
+          <textarea
+            class="text-input"
+            id="descriptionInput"
+            placeholder="Masukkan deskripsi agenda"></textarea>
         </div>
 
         <!-- Tombol Aksi -->
@@ -506,7 +506,7 @@ require_once "./includes/check-auth.php";
 
 
   </div>
-      <!-- Notifikasi Popup Global -->
+  <!-- Notifikasi Popup Global -->
   <div id="global-notification" class="notification-popup">
     <div class="notification-icon">
       <i class="fa-solid fa-check-circle"></i>
@@ -519,7 +519,7 @@ require_once "./includes/check-auth.php";
 
   <script src="./script/dashboard-admin.js"></script>
   <script src="./script/manajemen-agenda.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
 </body>
 
 </html>

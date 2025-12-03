@@ -145,8 +145,8 @@
 
 .image-upload-area {
   /* width: 360px; */
-  min-height: 95%;
-  max-height: 95%;
+  min-height: 93%;
+  max-height: 93%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,6 +175,10 @@
   width: 850px;
 }
 
+#descriptionInput {
+  height: 160px;
+}
+
 /*                OVERRIDE POP UP DELETE                    */
 .popup-data-info {
   margin-bottom: 20px;
@@ -186,6 +190,15 @@
   justify-content: none;
   align-items: none;
   line-height: 1.5;
+}
+
+.description {
+  line-clamp: 3;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .data-item.description .data-value {
@@ -251,7 +264,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 244px;
   padding: 20px;
 }
 
@@ -271,9 +283,13 @@
   line-clamp: 3;
   box-orient: vertical;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .agenda-description {
+  min-height: 88px;
   margin: 0;
   font-size: 14px;
   color: rgb(102, 112, 133);
@@ -282,6 +298,9 @@
   line-clamp: 3;
   box-orient: vertical;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 /* Info tambahan */
