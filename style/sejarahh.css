@@ -152,6 +152,103 @@
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
+/* ==== ANIMASI FADE IN ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==== RESPONSIVE TABLET ==== */
+@media (max-width: 1024px) {
+    .judul-utama {
+        font-size: 2.2rem;
+    }
+
+    .sub-judul-sejarah {
+        font-size: 1.05rem;
+    }
+
+    .timeline-content {
+        padding: 25px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ==== RESPONSIVE MOBILE ==== */
+@media (max-width: 768px) {
+
+    .judul-utama {
+        font-size: 2rem;
+    }
+
+    .sub-judul-sejarah {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    .timeline-alternate::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        padding-left: 65px;
+        margin: 50px 0;
+    }
+
+    .timeline-year {
+        width: 60px;
+        height: 60px;
+        font-size: 0.9rem;
+        left: 20px;
+    }
+
+    .timeline-item::after {
+        left: 20px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+        padding: 22px;
+        margin-top: 20px !important;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+/* ==== VERY SMALL DEVICES (HP kecil) ==== */
+@media (max-width: 480px) {
+    .judul-utama {
+        font-size: 1.8rem;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-year {
+        width: 55px;
+        height: 55px;
+        font-size: 0.8rem;
+    }
+}
+
+
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
     .timeline-alternate::before {

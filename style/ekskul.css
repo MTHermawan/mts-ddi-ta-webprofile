@@ -150,6 +150,98 @@ body {
 
 }
 
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE TAMBAHAN UNTUK MOBILE & TABLET */
+@media (max-width: 992px) {
+    .ekstrakurikuler-section {
+        padding: 40px 40px;
+    }
+
+    .ekstrakurikuler-wrapp {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .ekstrakurikuler-card {
+        width: 280px;
+        min-height: 340px;
+    }
+
+    .ekstrakurikuler-gambar img {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ekstrakurikuler-section {
+        padding: 40px 25px;
+        margin: 40px auto;
+    }
+
+    .judul-utama {
+        font-size: 2rem;
+    }
+
+    .ekstrakurikuler-wrapp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ekstrakurikuler-card {
+        width: 100%;
+        max-width: 350px;
+        padding: 20px;
+        min-height: 400px;
+    }
+
+    .ekstrakurikuler-gambar img {
+        width: 100%;
+        height: 210px;
+        border-radius: 15px;
+    }
+
+    .ekstrakurikuler-judul a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ekstrakurikuler-section {
+        padding: 30px 15px;
+    }
+
+    .judul-utama {
+        font-size: 1.75rem;
+    }
+
+    .ekstrakurikuler-card {
+        padding: 18px;
+    }
+
+    .ekstrakurikuler-gambar img {
+        height: 190px;
+    }
+
+    .ekstrakurikuler-deskripsi {
+        font-size: 11.5px;
+        line-height: 1.4rem;
+    }
+}
+
+
 @media (max-width: 768px) {
 
     .ekstrakurikuler-card {

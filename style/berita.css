@@ -145,6 +145,65 @@ body {
     background: #095900;
 }
 
+/* ==== ANIMASI FADE IN ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==== RESPONSIF TAMBAHAN UNTUK MOBILE ==== */
+@media (max-width: 600px) {
+    .berita-section {
+        padding: 30px 20px;
+        width: 100%;
+    }
+
+    .judul-utama {
+        font-size: 2rem;
+    }
+
+    .sub-judul-berita {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .berita-card {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .berita-gambar img {
+        height: 180px;
+        border-radius: 14px;
+    }
+
+    .berita-judul a {
+        font-size: 20px;
+    }
+
+    .berita-deskripsi {
+        font-size: 14px;
+    }
+
+    .btn-baca {
+        padding: 8px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+}
+
+
 
 @media (max-width: 768px) {
 

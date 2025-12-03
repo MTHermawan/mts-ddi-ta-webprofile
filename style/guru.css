@@ -150,6 +150,150 @@ body {
 
 }
 
+
+/* --- RESPONSIVE LAYOUT --- */
+
+/* ===== Perbaikan mobile (paste di akhir guru.css) ===== */
+
+/* pastikan box-sizing agar padding tidak nambah lebar */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Container staf lebih ramping di mobile */
+@media (max-width: 480px) {
+  .staf-section {
+    padding: 30px 16px;     /* kurangi padding */
+    margin: 20px auto;
+  }
+
+  .sub-judul-staf {
+    font-size: 1rem;
+    margin-bottom: 22px;
+    padding: 0 8px;
+    color: #444;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* tombol filter lebih proporsional */
+  .filter-staf {
+    margin-bottom: 20px;
+  }
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-radius: 28px;
+  }
+
+  /* GRID: satu kolom penuh, card centered */
+  .staf-list {
+    display: block; /* agar card mengantri vertikal */
+  }
+  .staf-wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+
+  /* Card: kontrol lebar maksimum supaya tidak melebar */
+  .staf-card {
+    width: 92%;
+    max-width: 360px;   /* batasi maksimal, agar masih bagus di hp besar */
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  /* Judul di dalam card (nama) */
+  .staf-judul a {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  /* Gambar: responsive, tidak pakai fixed width */
+  .staf-gambar img {
+    width: 80%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+    margin: 6px auto 12px;
+  }
+
+  /* teks deskripsi lebih besar dan rapih */
+  .staf-deskripsi {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 8px;
+    gap: 8px;
+  }
+
+  .staf-deskripsi i {
+    margin-right: 10px;
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+  }
+
+  /* kurangi bayangan sedikit supaya lebih tipis di layar kecil */
+  .staf-card {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  /* spacing bawah halaman lebih kecil */
+  footer.footer {
+    padding-top: 24px;
+  }
+}
+
+/* Tablet: sedikit penyesuaian */
+@media (min-width: 481px) and (max-width: 992px) {
+  .staf-section {
+    padding: 50px 28px;
+  }
+
+  .staf-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .staf-card {
+    width: 100%;
+    max-width: none;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .staf-gambar img {
+    width: 100%;
+    max-width: none;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  .staf-judul a {
+    font-size: 20px;
+  }
+}
+
+/* Optional: animasi fade-in sama seperti sejarah */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 @media (max-width: 768px) {
 
     .staf-card {

@@ -146,6 +146,67 @@ body {
     background: #095900;
 }
 
+/* ==== ANIMASI FADE IN ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==== RESPONSIF TAMBAHAN UNTUK MOBILE ==== */
+@media (max-width: 600px) {
+
+    .agenda-section {
+        padding: 30px 20px;
+        width: 100%;
+    }
+
+    .judul-utama {
+        font-size: 2rem;
+    }
+
+    .sub-judul-agenda {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .agenda-card {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .agenda-gambar img {
+        height: 180px;
+        border-radius: 14px;
+    }
+
+    .agenda-judul a {
+        font-size: 20px;
+    }
+
+    .agenda-deskripsi {
+        font-size: 14px;
+    }
+
+    .btn-baca {
+        padding: 8px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+}
+
+
 
 @media (max-width: 768px) {
 

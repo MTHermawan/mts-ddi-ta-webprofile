@@ -120,33 +120,49 @@
   border-color: rgba(13, 122, 0, 0.15);
 }
 
-/* Responsif */
+
+/* ==== ANIMASI FADE IN ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   📱 Tablet (max-width: 768px)
+   =========================== */
 @media (max-width: 768px) {
   .visi-misi-section {
-    padding: 40px 15px;
-    margin: 60px auto 40px auto;
+    padding: 50px 20px;
+    margin: 70px auto 50px auto;
   }
 
   .judul-utama {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+    text-align: center;
   }
 
   .visi-card,
   .misi-card {
-    padding: 28px 20px;
-    border-radius: 20px;
+    padding: 32px 24px;
+    border-radius: 22px;
   }
 
   .visi-card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
+    line-height: 1.75;
   }
 
   .visi-card::before,
   .visi-card::after {
-    font-size: 4rem;
-    opacity: 0.1;
+    font-size: 4.2rem;
+    opacity: 0.12;
   }
 
   .misi-card {
@@ -154,26 +170,68 @@
   }
 
   .misi-card li {
-    font-size: 0.95rem;
-    margin-bottom: 14px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.65;
   }
 }
 
+
+/* ===========================
+   📱 Smartphone Kecil (max-width: 480px)
+   =========================== */
 @media (max-width: 480px) {
-  .visi-card,
-  .misi-card {
-    padding: 24px 16px;
+  .visi-misi-section {
+    padding: 45px 16px;
+    margin: 60px auto 40px auto;
   }
 
   .judul-utama {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
+    margin-bottom: 28px;
+  }
+
+  .visi-card,
+  .misi-card {
+    padding: 26px 18px;
+    border-radius: 18px;
   }
 
   .visi-card p {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
 
   .misi-card ul {
-    padding-left: 22px;
+    padding-left: 20px;
+  }
+
+  .misi-card li {
+    font-size: 0.98rem;
+    margin-bottom: 13px;
+  }
+}
+
+
+/* ===========================
+   📱 Smartphone Mini (max-width: 360px)
+   — tambahan untuk HP kecil
+   =========================== */
+@media (max-width: 360px) {
+  .judul-utama {
+    font-size: 1.7rem;
+  }
+
+  .visi-card,
+  .misi-card {
+    padding: 22px 14px;
+  }
+
+  .visi-card p {
+    font-size: 0.95rem;
+  }
+
+  .misi-card li {
+    font-size: 0.9rem;
   }
 }
