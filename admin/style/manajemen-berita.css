@@ -177,6 +177,7 @@
 
 #description {
   height: 150px;
+  white-space: pre-wrap;
 }
 
 /*                OVERRIDE POP UP DELETE                    */
@@ -436,31 +437,4 @@
   color: white;
   border-color: rgb(102, 112, 133);
   font-weight: 600;
-}
-
-/* Responsif pagination */
-@media (max-width: 768px) {
-  .pagination-container {
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-  }
-
-  .pagination-controls {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-number {
-    min-width: 32px;
-    height: 32px;
-    font-size: 13px;
-  }
-
-  .pagination-btn {
-    width: 32px;
-    height: 32px;
-  }
 }

@@ -177,6 +177,7 @@
 
 #descriptionInput {
   height: 160px;
+  white-space: pre-wrap;
 }
 
 /*                OVERRIDE POP UP DELETE                    */
@@ -193,7 +194,7 @@
 }
 
 .description {
-  line-clamp: 3;
+  line-clamp: 4;
   box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
