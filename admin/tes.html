@@ -1,0 +1,140 @@
+<?php session_start();
+require_once "./includes/check-auth.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manajemen Berita</title>
+  <link rel="stylesheet" href="./style/dashboard.css" />
+  <link rel="stylesheet" href="./style/manajemen-berita.css" />
+  <link
+    rel="icon"
+    href="../assets/logo-sekolah.png"
+    type="image/png/jpeg/jpg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    
+
+    /* Notifikasi yang diperbarui */
+    .notification-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+      min-width: 300px;
+      max-width: 400px;
+      border-left: 4px solid #4CAF50;
+    }
+
+    .notification-popup.show {
+      transform: translateX(0);
+    }
+
+    .notification-popup.success {
+      border-left-color: #4CAF50;
+    }
+
+    .notification-popup.error {
+      border-left-color: #f44336;
+    }
+
+    .notification-popup.warning {
+      border-left-color: #ff9800;
+    }
+
+    .notification-icon {
+      font-size: 24px;
+    }
+
+    .notification-icon.success {
+      color: #4CAF50;
+    }
+
+    .notification-icon.error {
+      color: #f44336;
+    }
+
+    .notification-icon.warning {
+      color: #ff9800;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .notification-message {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .notification-close:hover {
+      color: #333;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  
+
+  <!-- Notifikasi Popup Global (Diperbarui) -->
+  <div id="global-notification" class="notification-popup success">
+    <div class="notification-icon success">
+      <i class="fa-solid fa-check-circle"></i>
+    </div>
+    <div class="notification-icon error" style="display: none;">
+      <i class="fa-solid fa-exclamation-circle"></i>
+    </div>
+    <div class="notification-icon warning" style="display: none;">
+      <i class="fa-solid fa-exclamation-triangle"></i>
+    </div>
+    <div class="notification-content">
+      <div class="notification-title">Berhasil!</div>
+      <div class="notification-message">Pesan notifikasi akan muncul di sini</div>
+    </div>
+    <button class="notification-close" onclick="hideNotification()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <script src="./script/dashboard-admin.js"></script>
+  <script>
+    
+  </script>
+</body>
+
+</html>
