@@ -12,6 +12,7 @@ async function ReloadDataFasilitas(keyword = null) {
         foto['url_foto'] = (await IsUrlFound("assets/" + foto['url_foto'])) ? "../assets/" + foto['url_foto'] : "";
       }
     }
+    console.log(fasilitasData);
     displayFacilitiesCards(); 
 
     return fasilitasData;

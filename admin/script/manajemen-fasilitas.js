@@ -337,10 +337,12 @@ function openEditPopup(id_fasilitas) {
   if (facility) {
     document.getElementById("titleInput").value = facility.nama_fasilitas;
     document.getElementById("descriptionInput").value = facility.deskripsi_fasilitas;
-    url_foto_arr = Object.values(facility.foto).map(foto => foto.url_foto);
-
+    url_foto_arr = Object.values(facility.foto).map(foto => foto.url_foto).filter(url => url);
+    console.log(url_foto_arr);
+    
     // Jika ada foto, tampilkan preview
     if (url_foto_arr.length > 0) {
+
       document.getElementById("previewImage").src = url_foto_arr[0];
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";

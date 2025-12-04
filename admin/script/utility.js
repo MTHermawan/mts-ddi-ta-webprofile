@@ -73,14 +73,17 @@ async function handleResumeInput(remoteResumeURL) {
 
     if (Array.isArray(remoteResumeURL)) {
         for (const url of remoteResumeURL) {
+            if (!url) continue;
+
             const designFile = await createImage(url);
             dt.items.add(designFile);
         }
     }
-    else {
+    else if (remoteResumeURL) {
         const designFile = await createImage(remoteResumeURL);
         dt.items.add(designFile);
     }
+    if (!dt.items) return;
     input.files = dt.files;
 
     const event = new Event("change", {
