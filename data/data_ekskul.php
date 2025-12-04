@@ -1,27 +1,16 @@
 <?php include_once 'koneksi.php';
 include_once 'utility.php';
 
-// Referensi Model Data ekskul
-// - id_ekskul int (auto increment)
-// - nama_ekskul string
-// - nama_pembimbing string
-// - jadwal string
-// - tanggal_dibuat string
-//
-// Referensi Model Data foto_ekskul
-// - id_foto_ekskul int (auto increment)
-// - id_ekskul int (foreign key)
-// - url_foto string
-// - posisi int
-
 $asset_subdir = "ekstrakurikuler/";
 
 // Menambahkan baris data ekskul baru (CREATE)
-function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $array_file_foto)
+function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $file_foto_arr)
 {
-    global $koneksi;
-    global $asset_subdir;
-
+    global $koneksi, $asset_subdir;
+    
+    $uploaded_files = [];
+    $posisi = 1;
+    
     $success = false;
     try {
         $koneksi->begin_transaction();
@@ -35,23 +24,21 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $array_file_foto)
         $id_ekskul = $koneksi->insert_id;
 
         // Reorganize files array if needed
-        if (isset($array_file_foto['name']) && is_array($array_file_foto['name'])) {
-            $array_file_foto = ReorganizeFilesArray($array_file_foto);
+        if (isset($file_foto_arr['name']) && is_array($file_foto_arr['name'])) {
+            $file_foto_arr = ReorganizeFilesArray($file_foto_arr);
         }
-
-        $posisi = 1;
-        
         
         // Loop untuk setiap file foto
-        foreach ($array_file_foto as $file_foto) {
-            throw new Exception("Error Processing Request", 1);
-            // Skip jika file tidak ada atau error
+        foreach ($file_foto_arr as $file_foto) {
             if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
                 continue;
             }
 
             // Upload File
-            $url_foto = TambahFile($file_foto, $asset_subdir);
+            if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
+                throw new Exception("Gagal mengunggah foto!");
+            }
+            $uploaded_files[] = $url_foto;
 
             // Insert foto ke database dengan posisi
             $sql = "INSERT INTO foto_ekskul (id_ekskul, url_foto, posisi) VALUES (?, ?, ?)";
@@ -67,6 +54,9 @@ function InsertEkskul($nama_ekskul, $nama_pembimbing, $jadwal, $array_file_foto)
         $success = true;
     } catch (Exception $e) {
         $koneksi->rollback();
+        foreach ($uploaded_files as $uploaded_file) {
+            HapusFile($uploaded_file);
+        }
         SendServerError($e);
     }
 
@@ -99,10 +89,14 @@ function GetEkskul($id = null, $nama_ekskul = null, $nama_pembimbing = null, $se
             $params[] = "%$nama_pembimbing%";
             $types .= "s";
         }
+        if ($search !== null) {
+            $conditions[] = "(nama_ekskul LIKE ? OR nama_pembimbing LIKE ?)";
+            $params[] = "%$search%";
+            $params[] = "%$search%";
+            $types .= "ss";
+        }
 
         $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
-
-        // --- Query utama ekskul
         $sql = "SELECT * FROM ekskul $where_clause ORDER BY tanggal_dibuat DESC";
         $stmt = $koneksi->prepare($sql);
 
@@ -118,52 +112,41 @@ function GetEkskul($id = null, $nama_ekskul = null, $nama_pembimbing = null, $se
         }
         $stmt->close();
 
-        // --- Query foto untuk setiap ekskul
         $sql_foto = "SELECT * FROM foto_ekskul WHERE id_ekskul = ?";
         $stmt_foto = $koneksi->prepare($sql_foto);
 
         foreach ($data as &$ekskul) {
             $stmt_foto->bind_param("i", $ekskul['id_ekskul']);
             $stmt_foto->execute();
-
             $result_foto = $stmt_foto->get_result();
             $ekskul['foto'] = [];
-
             while ($foto_row = $result_foto->fetch_assoc()) {
                 $ekskul['foto'][] = $foto_row;
             }
         }
-
         $stmt_foto->close();
+        $koneksi->next_result();
     }
     catch (Exception $e) {
-        throw $e;
+        SendServerError($e);
     }
     return $data;
 }
 
 // Memperbarui data ekskul berdasarkan ID (UPDATE)
-function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $array_file_foto = null)
+function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto_arr = null)
 {
     global $koneksi, $asset_subdir;
 
+    $uploaded_files = [];
+    $posisi = 1;
+
     $success = false;
-
     try {
-        // Ambil data lama
-        $old_data = GetEkskul(id: $id_ekskul);
-        if (!$old_data)
-            throw new Exception("Data ekskul tidak ditemukan!");
-
-        // Ambil semua foto lama
-        $sql = "SELECT * FROM foto_ekskul WHERE id_ekskul = ? ORDER BY posisi ASC";
-        $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $id_ekskul);
-        $stmt->execute();
-        $old_foto_result = $stmt->get_result();
-        $old_fotos = $old_foto_result->fetch_all(MYSQLI_ASSOC);
-
         $koneksi->begin_transaction();
+        
+        if (!($old_data = GetEkskul(id: $id_ekskul)[0]))
+            throw new Exception("Data staff tidak ditemukan!");
 
         // Update data utama
         $sql = "UPDATE ekskul SET nama_ekskul = ?, nama_pembimbing = ?, jadwal = ? WHERE id_ekskul = ?";
@@ -172,135 +155,74 @@ function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $arra
         $stmt->execute();
 
         // Reorganize jika array file
-        if (isset($array_file_foto['name']) && is_array($array_file_foto['name'])) {
-            $array_file_foto = ReorganizeFilesArray($array_file_foto);
+        if (isset($file_foto_arr['name']) && is_array($file_foto_arr['name'])) {
+            $file_foto_arr = ReorganizeFilesArray($file_foto_arr);
         }
 
-        $posisi = 1;
-        $used_old_ids = [];
-
-        foreach ($array_file_foto as $file_foto) {
-
-            // --- Skip jika file kosong / error
+        
+        foreach ($file_foto_arr as $file_foto) {
             if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
                 continue;
             }
-
-            $file_hash_new = hash_file("sha256", $file_foto['tmp_name']);
-            $same_found = false;
-
-            foreach ($old_fotos as $old) {
-                $old_path = GetAssetPath($old['url_foto']);
-
-                if (!file_exists($old_path))
-                    continue;
-
-                $file_hash_old = hash_file("sha256", $old_path);
-
-                if ($file_hash_new === $file_hash_old) {
-                    if (UpdatePosisiFoto($old['id_foto_ekskul'], $posisi)) {
-                        $used_old_ids[] = $old['id_foto_ekskul'];
-                        $same_found = true;
+            
+            // Upload File
+            $isFotoExist = false;
+            foreach ($old_data['foto'] as $old_foto) {
+                if ($file_foto['name'] == basename($old_foto['url_foto'])) {
+                    $uploaded_files[] = $old_foto['url_foto'];
+                    if ($old_foto['posisi'] == $posisi) {
+                        $isFotoExist = true;
                         break;
-                    } else {
-                        throw new Exception("Gagal memperbarui data ekskul saat memperbarui posisi!");
                     }
+                    
+                    UpdateFotoEkskul($old_foto['id_foto_ekskul'], $posisi);
                 }
             }
-
-            if (!$same_found) {
-                $url_foto = TambahFile($file_foto, $asset_subdir);
-
-                $sql = "INSERT INTO foto_ekskul (id_ekskul, url_foto, posisi) VALUES (?, ?, ?)";
-                $stmt = $koneksi->prepare($sql);
-                $stmt->bind_param("isi", $id_ekskul, $url_foto, $posisi);
-                $stmt->execute();
+            if ($isFotoExist) {
+                $posisi++;
+                continue;
             }
 
+            // Proses jika foto bukan dari foto lama
+            if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
+                throw new Exception("Gagal mengunggah foto!");
+            }
+            $uploaded_files[] = $url_foto;
+
+            // Insert foto ke database dengan posisi
+            $sql_foto = "INSERT INTO foto_ekskul (id_ekskul, url_foto, posisi) VALUES (?, ?, ?)";
+            $stmt_foto = $koneksi->prepare($sql_foto);
+            $stmt_foto->bind_param("isi", $id_ekskul, $url_foto, $posisi);
+            $stmt_foto->execute();
+
+            $stmt_foto->close();
             $posisi++;
         }
 
-        foreach ($old_fotos as $old) {
-            if (!in_array($old['id_foto_ekskul'], $used_old_ids)) {
-                // Hapus file fisik
-                $old_path = GetAssetPath($old['url_foto']);
-                if (file_exists($old_path))
-                    unlink($old_path);
-
-                // Hapus di database
-                DeleteFotoEkskul($old['id_foto_ekskul']);
+        foreach ($old_data['foto'] as $foto) {
+            if (in_array($foto, $uploaded_files)) {
+                continue;
             }
+            
+            // Menghapus foto lama
+            $sql_del_foto = "DELETE FROM foto_ekskul WHERE id_foto_ekskul = ?";
+            $stmt_del_foto = $koneksi->prepare($sql_del_foto);
+            $stmt_del_foto->bind_param("i", $foto['id_foto_ekskul']);
+            $stmt_del_foto->execute();
+            
+            HapusFile($foto['url_foto']);
         }
 
         $koneksi->commit();
         $success = true;
-
     } catch (Exception $e) {
         $koneksi->rollback();
+        foreach ($uploaded_files as $uploaded_file) {
+            HapusFile($uploaded_file);
+        }
         SendServerError($e);
     }
 
-    return $success;
-}
-
-
-// Update posisi foto (untuk reorder/sorting)
-function UpdatePosisiFoto($id_foto_ekskul, $posisi)
-{
-    global $koneksi;
-
-    $success = false;
-    try {
-        $sql = "UPDATE foto_ekskul SET posisi = ? WHERE id_foto_ekskul = ?";
-        $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("ii", $posisi, $id_foto_ekskul);
-        $stmt->execute();
-
-        $stmt->close();
-        $success = true;
-    } catch (Exception $e) {
-        throw $e;
-    }
-    return $success;
-}
-
-// Fungsi hanya menghapus foto
-function DeleteFotoEkskul($id_foto_ekskul)
-{
-    global $koneksi;
-
-    $success = false;
-    try {
-        $sql = "DELETE FROM foto_ekskul WHERE id_foto_ekskul = ?";
-        $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $id_foto_ekskul);
-        $stmt->execute();
-
-        $stmt->close();
-        $success = true;
-    } catch (Exception $e) {
-        throw $e;
-    }
-    return $success;
-}
-
-// Fungsi hanya menghapus foto
-function DeleteAllFotoEkskul($id_ekskul)
-{
-    global $koneksi;
-
-    $success = false;
-    try {
-        $sql = "DELETE foto_ekskul WHERE id_ekskul = ?";
-        $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $id_ekskul);
-        $stmt->execute();
-
-        $stmt->close();
-        $success = true;
-    } catch (Exception $e) {
-        throw $e;
-    }
     return $success;
 }
 
@@ -311,34 +233,139 @@ function DeleteEkskul($id_ekskul)
 
     $success = false;
     try {
-        $koneksi->begin_transaction();
-
-        if (!($data = GetEkskul(id: $id_ekskul)))
-            throw new Exception("Data ekskul tidak ditemukan");
-
-        if (!(DeleteAllFotoEkskul($data['id_ekskul']))) {
-            throw new Exception("Gagal menghapus foto ekskul");
+        // Get all photos for this ekskul
+        $sql_get_photos = "SELECT url_foto FROM foto_ekskul WHERE id_ekskul = ?";
+        $stmt_get = $koneksi->prepare($sql_get_photos);
+        $stmt_get->bind_param("i", $id_ekskul);
+        $stmt_get->execute();
+        $result = $stmt_get->get_result();
+    
+        $photos = [];
+        while ($row = $result->fetch_assoc()) {
+            $photos[] = $row['url_foto'];
         }
-
-        // Menghapus data utama
+        $stmt_get->close();
+    
+        // Delete ekskul
         $sql = "DELETE FROM ekskul WHERE id_ekskul = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $data['id_ekskul']);
+        $stmt->bind_param("i", $id_ekskul);
+        $stmt->execute();
+    
+        $stmt->close();
+    
+        // Delete all associated photos from filesystem
+        foreach ($photos as $photo_url) {
+            HapusFile($photo_url);
+        }
+    
+        $success = true;
+    } catch (Exception $e) {
+        SendServerError($e);
+    }
+    return $success;
+}
+
+// Update posisi foto (untuk reorder/sorting)
+function UpdateFotoEkskul($id_foto, $posisi)
+{
+    global $koneksi;
+
+    $success = false;
+    try {
+        $sql_get = "SELECT * FROM foto_ekskul WHERE id_foto_ekskul = ?";
+        $stmt_get = $koneksi->prepare($sql_get);
+        $stmt_get->bind_param("i", $id_foto);
+        $stmt_get->execute();
+        $result_get = $stmt_get->get_result();
+
+        if ($result_get->num_rows === 0) {
+            return false;
+        }
+
+        $row = $result_get->fetch_assoc();
+        $old_posisi = $row['posisi'];
+        $id_ekskul = $row['id_ekskul'];
+        $stmt_get->close();
+
+        $sql = "UPDATE foto_ekskul SET posisi = ? WHERE id_foto_ekskul = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("ii", $posisi, $id_foto);
         $stmt->execute();
         $stmt->close();
 
-        // Menghapus semua file foto
-        foreach ($data['foto'] as $foto) {
-            HapusFile($foto['url_foto']);
-        }
+        $sql_decrease = "UPDATE foto_ekskul SET posisi = posisi - 1 WHERE id_ekskul = ? AND posisi > ? AND posisi <= ?";
+        $stmt_decrease = $koneksi->prepare($sql_decrease);
+        $max_posisi = max($old_posisi, $posisi);
+        $min_posisi = min($old_posisi, $posisi);
+        $stmt_decrease->bind_param("iii", $id_ekskul, $min_posisi, $max_posisi);
+        $stmt_decrease->execute();
+        $stmt_decrease->close();
 
-        $koneksi->commit();
         $success = true;
     } catch (Exception $e) {
-        $koneksi->rollback();
-        SendServerError($e);
+        throw $e;
     }
 
+    return $success;
+}
+
+// Menghapus foto spesifik berdasarkan ID foto
+function DeleteFotoEkskul($id_foto_ekskul)
+{
+    global $koneksi;
+
+    $success = false;
+    try {
+        // Get photo URL
+        $sql_get = "SELECT id_ekskul, id_foto_ekskul FROM foto_ekskul WHERE id_foto_ekskul = ?";
+        $stmt_get = $koneksi->prepare($sql_get);
+        $stmt_get->bind_param("i", $id_foto_ekskul);
+        $stmt_get->execute();
+        $result = $stmt_get->get_result();
+    
+        if ($result->num_rows === 0) {
+            return false;
+        }
+    
+        $row = $result->fetch_assoc();
+        $url_foto = $row['url_foto'];
+        $id_ekskul = $row['id_ekskul'];
+        $stmt_get->close();
+    
+        // Delete photo record
+        $sql = "DELETE FROM foto_ekskul WHERE id_foto_ekskul = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("i", $id_foto_ekskul);
+        $stmt->execute();
+    
+        $stmt->close();
+    
+        // Delete photo file from filesystem
+        HapusFile($url_foto);
+    
+        // Reorder remaining photos (re-assign posisi sequentially)
+        $sql_reorder = "SELECT id_foto FROM foto_ekskul WHERE id_ekskul = ? ORDER BY posisi ASC";
+        $stmt_reorder = $koneksi->prepare($sql_reorder);
+        $stmt_reorder->bind_param("i", $id_ekskul);
+        $stmt_reorder->execute();
+        $result_reorder = $stmt_reorder->get_result();
+    
+        $new_posisi = 1;
+        while ($row_reorder = $result_reorder->fetch_assoc()) {
+            $sql_update = "UPDATE foto_ekskul SET posisi = ? WHERE id_foto_ekskul = ?";
+            $stmt_update = $koneksi->prepare($sql_update);
+            $stmt_update->bind_param("ii", $new_posisi, $row_reorder['id_foto']);
+            $stmt_update->execute();
+            $stmt_update->close();
+            $new_posisi++;
+        }
+    
+        $stmt_reorder->close();
+        $success = true;
+    } catch (Exception $e) {
+        SendServerError($e);
+    }
     return $success;
 }
 ?>

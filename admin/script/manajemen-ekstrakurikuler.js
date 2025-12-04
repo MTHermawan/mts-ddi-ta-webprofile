@@ -17,7 +17,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
   {
     id_ekskul: 2,
@@ -32,7 +32,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
   {
     id_ekskul: 3,
@@ -47,7 +47,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
   {
     id_ekskul: 4,
@@ -62,7 +62,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
   {
     id_ekskul: 5,
@@ -77,7 +77,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
   {
     id_ekskul: 6,
@@ -92,7 +92,7 @@ let ekskulData = [
           "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
         posisi: 1,
       },
-    ],
+    ]
   },
 ];
 
@@ -189,9 +189,6 @@ function generateDummyData(count) {
     });
   }
 }
-
-// Generate 30 data dummy untuk demo pagination
-generateDummyData(30);
 
 function GetEkskulById(id_ekskul) {
   for (let i = 0; i < ekskulData.length; i++) {
@@ -386,12 +383,15 @@ function openEditPopup(id_ekskul) {
     document.getElementById("titleInput").value = ekskul.nama_ekskul;
     document.getElementById("pembimbingInput").value = ekskul.nama_pembimbing;
     document.getElementById("jadwalInput").value = ekskul.jadwal;
+    url_foto_arr = Object.values(ekskul.foto).map(foto => foto.url_foto).filter(url => url);
 
     // Jika ada foto, tampilkan preview
-    if (ekskul.foto && ekskul.foto.length > 0 && ekskul.foto[0].url_foto) {
-      document.getElementById("previewImage").src = ekskul.foto[0].url_foto;
+    if (url_foto_arr.length > 0) {
+      document.getElementById("previewImage").src = url_foto_arr[0];
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+      
+      handleResumeInput(url_foto_arr);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
@@ -468,7 +468,7 @@ async function submitForm() {
   const nama = document.getElementById("titleInput").value;
   const pembimbing = document.getElementById("pembimbingInput").value;
   const jadwal = document.getElementById("jadwalInput").value;
-  const foto_ekskul = document.getElementById("imageInput").files[0] ?? null;
+  const foto_ekskul = document.getElementById("imageInput").files[0] ? document.getElementById("imageInput").files : null;
 
   if (!nama.trim()) {
     alert("Nama ekstrakurikuler harus diisi!");
@@ -511,7 +511,7 @@ async function submitForm() {
 
   if (success) {
     // Refresh ekskul cards
-    displayEkskulCards(currentPage);
+    // displayEkskulCards(currentPage);
     closePopup();
   }
 }
@@ -525,7 +525,7 @@ async function confirmDelete() {
       return;
     }
 
-    const success = await DeleteEkskul(ekskul["id_ekskul"]);
+    const success = await PostDeleteEkskul(ekskul["id_ekskul"]);
     alert(
       success
         ? `Data ekstrakurikuler ${ekskul["nama_ekskul"]} berhasil dihapus!`
@@ -565,9 +565,6 @@ document.addEventListener("DOMContentLoaded", function () {
       changePage(currentPage + 1);
     }
   });
-
-  // Tampilkan ekskul halaman pertama
-  displayEkskulCards(currentPage);
 
   // Event delegation untuk tombol edit dan delete di card ekskul
   document.addEventListener("click", function (e) {
@@ -667,26 +664,40 @@ document.addEventListener("DOMContentLoaded", function () {
         closeDeletePopup();
       }
     });
+
+    window.onload = () => {
+    if (typeof ReloadDataEkskul == "function") {
+      // Reload data jika modul database ditemukan
+      ReloadDataEkskul();
+    }
+    else {
+      // Generate 30 data dummy untuk demo pagination
+      generateDummyData(30);
+      displayEkskulCards(currentPage);
+    }
+  }
 });
 
+
+
 // Fungsi API placeholder
-async function PostTambahEkskul(nama, pembimbing, jadwal, foto_ekskul) {
-  console.log("Menambah ekskul:", { nama, pembimbing, jadwal, foto_ekskul });
-  return true;
-}
+// async function PostTambahEkskul(nama, pembimbing, jadwal, foto_ekskul) {
+//   console.log("Menambah ekskul:", { nama, pembimbing, jadwal, foto_ekskul });
+//   return true;
+// }
 
-async function PostEditEkskul(id, nama, pembimbing, jadwal, foto_ekskul) {
-  console.log("Mengedit ekskul:", {
-    id,
-    nama,
-    pembimbing,
-    jadwal,
-    foto_ekskul,
-  });
-  return true;
-}
+// async function PostEditEkskul(id, nama, pembimbing, jadwal, foto_ekskul) {
+//   console.log("Mengedit ekskul:", {
+//     id,
+//     nama,
+//     pembimbing,
+//     jadwal,
+//     foto_ekskul,
+//   });
+//   return true;
+// }
 
-async function DeleteEkskul(id) {
-  console.log("Menghapus ekskul dengan ID:", id);
-  return true;
-}
+// async function DeleteEkskul(id) {
+//   console.log("Menghapus ekskul dengan ID:", id);
+//   return true;
+// }

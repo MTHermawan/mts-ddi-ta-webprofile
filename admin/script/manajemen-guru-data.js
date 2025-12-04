@@ -1,33 +1,8 @@
-function ReloadTableEventListener() {
-  const avatarImages = document.querySelectorAll(".teacher-avatar img");
-
-  avatarImages.forEach((img) => {
-    img.addEventListener("error", function () {
-      this.style.display = "none";
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "block";
-      }
-    });
-
-    img.addEventListener("load", function () {
-      const initials = this.nextElementSibling;
-      if (initials && initials.classList.contains("teacher-avatar-initials")) {
-        initials.style.display = "none";
-      }
-    });
-  });
-}
-
 async function ReloadDataStaff(keyword = null) {
   try {
-    let url = '../api/staff';
-    let param = [];
-    keyword ? param.push(`search=${encodeURIComponent(keyword)}`) : "";
-
-    for (let i = 0; i < param.length; i++) {
-      url += ((i > 0) ? "&" : "?") + param[i];
-    }
+    const url = keyword
+      ? `../api/staff?search=${encodeURIComponent(keyword)}`
+      : '../api/staff';
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Network error");
@@ -38,6 +13,7 @@ async function ReloadDataStaff(keyword = null) {
         staff['url_foto'] = (await IsUrlFound("assets/" + staff['url_foto'])) ? "../assets/" + staff['url_foto'] : "";
       }
     }
+    displayTableData();
 
     return staffData;
   } catch (error) {
@@ -45,7 +21,6 @@ async function ReloadDataStaff(keyword = null) {
   }
   return false;
 }
-
 
 async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
   try {
@@ -114,11 +89,15 @@ async function PostDeleteStaff(id_staff) {
 const searchInput = document.querySelector('.search-input');
 function SearchEkskulEvent(delay = 0) {
   const keyword = searchInput.value.trim();
-  clearTimeout(this.searchTimeout);
+  if (searchInput.searchTimeout) {
+    clearTimeout(searchInput.searchTimeout);
+  }
+
   searchInput.searchTimeout = setTimeout(() => {
     ReloadDataStaff(keyword);
   }, delay);
 }
-searchInput.addEventListener('input', () => { SearchEkskulEvent(500); });
 
-document.addEventListener("DOMContentLoaded", ReloadDataStaff());
+document.addEventListener("DOMContentLoaded", () => {
+  searchInput.addEventListener('input', () => { SearchEkskulEvent(500); });
+});

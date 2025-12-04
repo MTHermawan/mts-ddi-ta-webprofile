@@ -15,8 +15,7 @@ $asset_subdir = "staff/";
 // Menambahkan baris data staff baru (CREATE)
 function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     $success = false;
     try {
@@ -112,8 +111,7 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
 // Memperbarui data informasi berdasarkan ID (UPDATE)
 function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     $success = false;
     try {

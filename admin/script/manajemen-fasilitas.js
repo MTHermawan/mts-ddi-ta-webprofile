@@ -338,7 +338,6 @@ function openEditPopup(id_fasilitas) {
     document.getElementById("titleInput").value = facility.nama_fasilitas;
     document.getElementById("descriptionInput").value = facility.deskripsi_fasilitas;
     url_foto_arr = Object.values(facility.foto).map(foto => foto.url_foto).filter(url => url);
-    console.log(url_foto_arr);
 
     // Jika ada foto, tampilkan preview
     if (url_foto_arr.length > 0) {
@@ -453,7 +452,7 @@ async function submitForm() {
 
   if (success) {
     // Refresh fasilitas cards
-    displayFacilitiesCards(currentPage);
+    // displayFacilitiesCards(currentPage);
     closePopup();
   }
 }
@@ -592,12 +591,14 @@ document.addEventListener("DOMContentLoaded", function () {
   
   window.onload = () => {
     if (typeof ReloadDataFasilitas == "function") {
+      // Reload data jika modul database ditemukan
       ReloadDataFasilitas();
     }
     else {
+      // Generate 30 data dummy untuk demo pagination
       generateDummyData(30);
+      displayFacilitiesCards(currentPage);
     }
-    displayFacilitiesCards(currentPage);
   }
 });
 

@@ -5,6 +5,7 @@ async function ReloadDataFasilitas(keyword = null) {
       : '../api/fasilitas';
 
     const response = await fetch(url);
+    if (!response.ok) throw new Error("Network error");
 
     fasilitasData = await response.json();
     for (let fasilitas of fasilitasData) {
@@ -12,8 +13,7 @@ async function ReloadDataFasilitas(keyword = null) {
         foto['url_foto'] = (await IsUrlFound("assets/" + foto['url_foto'])) ? "../assets/" + foto['url_foto'] : "";
       }
     }
-    console.log(fasilitasData);
-    displayFacilitiesCards();
+    displayFacilitiesCards(currentPage);
 
     return fasilitasData;
   } catch (error) {
@@ -94,13 +94,15 @@ async function PostDeleteFasilitas(id_fasilitas) {
 const searchInput = document.querySelector('.search-input');
 function SearchFasilitasEvent(delay = 0) {
   const keyword = searchInput.value.trim();
-  clearTimeout(this.searchTimeout);
+  if (searchInput.searchTimeout) {
+    clearTimeout(searchInput.searchTimeout);
+  }
+
   searchInput.searchTimeout = setTimeout(() => {
     ReloadDataFasilitas(keyword);
   }, delay);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ReloadDataFasilitas();
-  // searchInput.addEventListener('input', () => { SearcFasilitasEvent(500); });
+  searchInput.addEventListener('input', () => { SearchFasilitasEvent(500); });
 });

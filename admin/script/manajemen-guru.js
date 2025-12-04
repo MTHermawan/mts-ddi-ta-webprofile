@@ -557,8 +557,8 @@ document.addEventListener("DOMContentLoaded", function () {
       else {
         // Generate 30 data dummy untuk demo pagination
         generateDummyData(30);
+        displayTableData(currentPage);
       }
-      displayTableData(currentPage);
     }
 });
 

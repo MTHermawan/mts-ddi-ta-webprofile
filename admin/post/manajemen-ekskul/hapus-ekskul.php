@@ -7,9 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_ekskul = htmlspecialchars($_POST['id_ekskul']);
+    $id_ekskul = htmlspecialchars($_POST['id_ekskul'] ?? -1);
 
-    DeleteEkskul($id_guru);
+    DeleteEkskul($id_ekskul);
 }
 header('Location: ../../manajemen-ekstrakurikuler.php');
 

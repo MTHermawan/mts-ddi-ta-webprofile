@@ -14,8 +14,7 @@ $asset_subdir = "galeri/";
 // Menambahkan baris data foto galeri baru (CREATE)
 function InsertFotoGaleri($judul_foto_galeri, $deskripsi_foto_galeri, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     $success = false;
     try {
@@ -116,8 +115,7 @@ function GetFotoGaleri($id_foto_galeri = null, $judul_foto_galeri = null, $deskr
 // Memperbarui data foto galeri berdasarkan ID (UPDATE)
 function UpdateFotoGaleri($id_foto_galeri, $judul_foto_galeri, $deskripsi_foto_galeri, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
     
     $success = false;
     try {

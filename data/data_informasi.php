@@ -15,8 +15,7 @@ $asset_subdir = "informasi/";
 // Menambahkan data informasi baru (CREATE)
 function InsertInformasi($judul, $konten, $file_foto, $jadwal_agenda = null)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     // Upload File
     $url_foto = TambahFile($file_foto, $asset_subdir);
@@ -131,8 +130,7 @@ function GetAgenda($id = null, $judul = null, $konten = null, $jadwal_agenda_awa
 
 function UpdateBerita($id, $judul, $konten, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     // Mengambil data lama
     if (!($old_data = GetBerita($id)))
@@ -158,8 +156,7 @@ function UpdateBerita($id, $judul, $konten, $file_foto)
 
 function UpdateAgenda($id, $judul, $konten, $jadwal_agenda, $file_foto)
 {
-    global $koneksi;
-    global $asset_subdir;
+    global $koneksi, $asset_subdir;
 
     // Mengambil data lama
     if (!($old_data = GetAgenda($id)))
