@@ -1,4 +1,4 @@
-<?php include_once "../../../data/data_foto_galeri.php";
+<?php include_once "../../../data/data_galeri.php";
 include_once "../../includes/check-auth-func.php";
 if (!CheckAuth())
 {
@@ -7,9 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_foto_galeri = htmlspecialchars($_POST['id_foto_galeri']);
+    $id_galeri = htmlspecialchars($_POST['id_galeri']);
 
-    DeleteFotoGaleri($id_foto_galeri);
+    DeleteFotoGaleri($id_galeri);
 }
 header('Location: ../../manajemen-galeri.php');
 

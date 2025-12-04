@@ -1,7 +1,7 @@
 <?php include_once "../data/koneksi.php";
-include_once "../data/data_foto_galeri.php";
+include_once "../data/data_galeri.php";
 
-$data_galeri = GetFotoGaleri();
+$data_galeri = GetGaleri();
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +44,8 @@ $data_galeri = GetFotoGaleri();
                         <div class="empty-img-galeri"></div>
                     <?php } ?>
                     
-                    <h1 class="judul"><?php echo $galeri["judul_foto_galeri"]; ?></h1>
-                    <h3 class="desk"><?php echo $galeri["deskripsi_foto_galeri"]; ?></h3>
+                    <h1 class="judul"><?php echo $galeri["judul_galeri"]; ?></h1>
+                    <h3 class="desk"><?php echo $galeri["deskripsi_galeri"]; ?></h3>
                 </div>
             <?php } ?>
             <div class="card">

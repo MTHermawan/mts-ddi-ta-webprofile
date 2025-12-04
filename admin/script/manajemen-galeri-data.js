@@ -96,8 +96,8 @@ async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
     const url = './post/manajemen-galeri/tambah-galeri.php';
 
     const formData = new FormData();
-    formData.append('judul_foto_galeri', judul);
-    formData.append('deskripsi_foto_galeri', deskripsi);
+    formData.append('judul_galeri', judul);
+    formData.append('deskripsi_galeri', deskripsi);
     
     if (foto_galeri) formData.append('foto_galeri', foto_galeri);
     
@@ -118,8 +118,8 @@ async function PostEditGaleri(id_galeri, judul, deskripsi, foto_galeri) {
 
     const formData = new FormData();
     formData.append('id_galeri', id_galeri);
-    formData.append('judul_foto_galeri', judul);
-    formData.append('deskripsi_foto_galeri', deskripsi);
+    formData.append('judul_galeri', judul);
+    formData.append('deskripsi_galeri', deskripsi);
 
     if (foto_galeri) formData.append('foto_galeri', foto_galeri);
 

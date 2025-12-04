@@ -39,7 +39,6 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null, $search = null)
 {
     global $koneksi;
-
     $data = [];
 
     try {

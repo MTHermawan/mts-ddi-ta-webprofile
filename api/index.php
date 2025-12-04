@@ -24,9 +24,9 @@ else if ($segments[0] === "fasilitas") {
     require "./controllers/fasilitas.php";
     exit;
 }
-else if ($segments[0] === "foto_galeri") {
-    $id_foto_galeri = $segments[1] ?? null;
-    require "./controllers/foto_galeri.php";
+else if ($segments[0] === "galeri") {
+    $id_galeri = $segments[1] ?? null;
+    require "./controllers/galeri.php";
     exit;
 }
 else if ($segments[0] === "agenda") {

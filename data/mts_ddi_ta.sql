@@ -24,11 +24,11 @@ CREATE TABLE admin_remember_tokens (
     INDEX idx_expires_at (expires_at)
 );
 
--- Table Foto_Galeri
-CREATE TABLE foto_galeri (
-    id_foto_galeri INT auto_increment PRIMARY KEY,
-    judul_foto_galeri VARCHAR(50),
-    deskripsi_foto_galeri VARCHAR(255),
+-- Table Galeri
+CREATE TABLE galeri (
+    id_galeri INT auto_increment PRIMARY KEY,
+    judul_galeri VARCHAR(50),
+    deskripsi_galeri VARCHAR(255),
     url_foto VARCHAR(50) NOT NULL,
     tanggal_posting DATE,
     email VARCHAR(255)
@@ -128,8 +128,8 @@ INSERT INTO fasilitas (nama_fasilitas, deskripsi_fasilitas, tanggal_dibuat) VALU
 INSERT INTO foto_fasilitas (id_fasilitas, url_foto, posisi) VALUES
 (1, '/images/fasilitas3.jpg', 1);
 
--- Insert data ke tabel foto_galeri
-INSERT INTO foto_galeri (judul_foto_galeri, deskripsi_foto_galeri, url_foto, tanggal_posting, email) VALUES
+-- Insert data ke tabel galeri
+INSERT INTO galeri (judul_galeri, deskripsi_galeri, url_foto, tanggal_posting, email) VALUES
 ('Upacara Bendera', 'Upacara Bendera Hari Senin', '/images/galeri1.jpg', '2024-11-04', 'admin@mtsddi.sch.id');
 
 -- Insert data ke tabel informasi
