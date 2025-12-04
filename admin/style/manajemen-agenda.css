@@ -313,7 +313,7 @@
   padding-top: 16px;
   border-top: 1px solid #e2e8f0;
   font-size: 12px;
-  color: #718096;
+  color: rgb(102, 112, 133);
 }
 
 .agenda-time {
@@ -323,7 +323,7 @@
 }
 
 .agenda-time i {
-  color: #4299e1;
+  color: rgb(102, 112, 133);
 }
 
 .agenda-location {
@@ -333,7 +333,7 @@
 }
 
 .agenda-location i {
-  color: #f56565;
+  color: rgb(102, 112, 133);;
 }
 
 /* Tombol aksi */

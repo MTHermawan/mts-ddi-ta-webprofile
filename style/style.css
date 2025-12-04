@@ -184,7 +184,7 @@ section.show {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 32px;
-  color: #e0e0e0;
+  color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -207,7 +207,6 @@ section.show {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(4, 134, 0, 0.4);
 }
-
 /* hero section stop */
 
 /*     SECTION STYLE    */
@@ -523,12 +522,13 @@ section.show {
 }
 
 .events-grid {
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 28px;
-  justify-content: center;
 }
 
 .event-card {
@@ -710,27 +710,39 @@ section.show {
 }
 
 .featured-title {
-  font-size: 2rem;
+  font-size: 28px;
   margin-bottom: 15px;
-  max-width: 800px;
+  width: 100%;
+  line-clamp: 2;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .featured-desc {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.8;
   margin-bottom: 20px;
-  color: #dfdfdf;
+  color: rgba(255, 255, 255, 0.95);
+  line-clamp: 4;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
-.featured-date {
-  font-size: 0.9rem;
-  color: #ddd;
-  margin-top: 10px;
+.featured-meta {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 12px;
 }
 
-.news-icon {
-  margin-right: 8px;
-  color: #000000;
+.featured-meta span {
+  margin-left: 8px;
 }
 
 .btn-news {
@@ -789,45 +801,67 @@ section.show {
   transform: scale(1.05);
 }
 
-.news-item-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 15px;
-  color: #333;
+.news-title {
+  width: 100%;
+  min-height: 60px;
 }
 
-.news-item-desc {
-  color: #666;
-  margin: 0 15px 10px 15px;
-  font-size: 0.9rem;
+.news-name {
+  color: rgb(29, 41, 57);
+  text-align: left;
+  font-size: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-clamp: 2;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.news-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-date,
+.news-publisher {
+  color: rgb(102, 112, 133);
+  font-weight: 600;
+}
+
+.news-content .news-icon {
+  margin-right: 8px;
+  color: rgb(4, 134, 0);
 }
 
 .btn-news-item {
   background-color: transparent;
-  color: #333;
+  width: fit-content;
+  color: rgb(29, 41, 57);
   border: none;
-  padding: 10px 0;
   border-radius: 30px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 16px;
-  margin: 0 15px 15px 15px;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .btn-news-item:hover {
   color: rgb(4, 134, 0);
   text-decoration: underline;
 }
-
 /* news section stop */
 
 /* section galeri */
 .gallery-section {
   width: 100%;
-  padding: 80px 125px;
+  padding: 80px 124px;
   background: linear-gradient(135deg, #f8f9f5 0%, #edf3e9 100%);
 }
 
@@ -835,7 +869,7 @@ section.show {
 .gallery-grid {
   column-count: 3;
   column-gap: 18px;
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -886,7 +920,7 @@ section.show {
 
 /* contact section start */
 #contact {
-  padding: 80px 125px;
+  padding: 80px 124px;
   background: linear-gradient(135deg, #f9f8f6 0%, #f1eee8 100%);
 }
 
@@ -896,17 +930,18 @@ section.show {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 28px;
-  justify-content: center;
 }
 
-.contact-item {
+/* Ganti selector dari .contact-item ke .contact-card */
+.contact-card {
   display: flex;
+  flex-direction: column;
   width: 400px;
-  height: 250px;
-  gap: 30px;
-  background: linear-gradient(135deg, #0d7a00, #18a300);
+  height: 240px;
+  gap: 12px;
+  background-color: rgb(4, 134, 0);
   border-radius: 20px;
-  padding: 30px;
+  padding: 32px;
   color: white;
   box-shadow: 0 8px 24px rgba(4, 134, 0, 0.3);
   flex: 1;
@@ -914,18 +949,21 @@ section.show {
 }
 
 .contact-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: white;
   color: rgb(4, 134, 0);
-  border-radius: 16px;
+  border-radius: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
+  align-items: center;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.contact-icon i {
+  font-size: 28px;
 }
 
 .contact-title {
@@ -965,7 +1003,8 @@ section.show {
 .event-card:hover,
 .news-item:hover,
 .featured-content:hover,
-.contact-item:hover {
+.contact-item:hover, 
+.card:hover {
   animation: move 2s ease-in-out infinite;
 }
 
