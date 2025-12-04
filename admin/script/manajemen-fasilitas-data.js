@@ -13,7 +13,7 @@ async function ReloadDataFasilitas(keyword = null) {
       }
     }
     console.log(fasilitasData);
-    displayFacilitiesCards(); 
+    displayFacilitiesCards();
 
     return fasilitasData;
   } catch (error) {
@@ -32,9 +32,10 @@ async function PostTambahFasilitas(nama, deskripsi, foto_fasilitas) {
     formData.append('nama_fasilitas', nama);
     formData.append('deskripsi_fasilitas', deskripsi);
 
-    for (const foto of foto_fasilitas)
-    {
-      if (foto) formData.append('foto_fasilitas[]', foto);
+    if (foto_fasilitas) {
+      for (const foto of foto_fasilitas) {
+        if (foto) formData.append('foto_fasilitas[]', foto);
+      }
     }
 
     let process = await MakeXMLRequest(method, url, formData);
@@ -47,7 +48,7 @@ async function PostTambahFasilitas(nama, deskripsi, foto_fasilitas) {
   return false;
 }
 
-async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi, file_foto) {
+async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi, foto_fasilitas) {
   try {
     const method = 'POST';
     const url = './post/manajemen-fasilitas/update-fasilitas.php';
@@ -57,7 +58,11 @@ async function PostEditFasilitas(id_fasilitas, nama_fasilitas, deskripsi, file_f
     formData.append('nama_fasilitas', nama_fasilitas);
     formData.append('deskripsi_fasilitas', deskripsi);
 
-    if (file_foto) formData.append('foto_fasilitas[]', file_foto);
+    if (foto_fasilitas) {
+      for (const foto of foto_fasilitas) {
+        if (foto) formData.append('foto_fasilitas[]', foto);
+      }
+    }
 
     const process = await MakeXMLRequest(method, url, formData)
     SearchFasilitasEvent();

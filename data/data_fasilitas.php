@@ -4,7 +4,7 @@ include_once 'utility.php';
 $asset_subdir = "fasilitas/";
 
 // Menambahkan baris data fasilitas baru (CREATE)
-function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_fotos)
+function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_fotos = [])
 {
     global $koneksi;
     global $asset_subdir;
@@ -132,7 +132,7 @@ function GetFasilitas($id = null, $nama_fasilitas = null, $deskripsi_fasilitas =
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $file_fotos = null)
+function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $file_fotos = [])
 {
     global $koneksi;
     global $asset_subdir;
@@ -159,6 +159,7 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
         }
 
         foreach ($file_fotos as $file_foto) {
+
             if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
                 continue;
             }
@@ -167,8 +168,9 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
             $isFotoExist = false;
             foreach ($old_data['foto'] as $old_foto) {
                 if ($file_foto['name'] == basename($old_foto['url_foto'])) {
-                    $isFotoExist = true;
+                    $uploaded_files[] = $old_foto['url_foto'];
                     if ($old_foto['posisi'] == $posisi) {
+                        $isFotoExist = true;
                         break;
                     }
 
@@ -179,6 +181,8 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
                 $posisi++;
                 continue;
             }
+
+
 
             // Proses jika foto bukan dari foto lama
             if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
@@ -192,14 +196,31 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
             $stmt_foto->bind_param("isi", $id_fasilitas, $url_foto, $posisi);
             $stmt_foto->execute();
 
-            // Menghapus foto lama
-            HapusFile($old_data['url_foto']);
-
             $stmt_foto->close();
             $posisi++;
         }
-
         $koneksi->commit();
+
+        foreach ($old_data['foto'] as $foto) {
+            $skip = false;
+            foreach ($uploaded_files as $upload_url) {
+                if ($foto['url_foto'] == $upload_url) {
+                    $skip = true;
+                }
+            }
+            if ($skip) {
+                continue;
+            }
+
+            // Menghapus foto lama
+            $sql_del_foto = "DELETE FROM foto_fasilitas WHERE id_foto_fasilitas = ?";
+            $stmt_del_foto = $koneksi->prepare($sql_del_foto);
+            $stmt_del_foto->bind_param("i", $foto['id_foto_fasilitas']);
+            $stmt_del_foto->execute();
+
+            HapusFile($foto['url_foto']);
+        }
+
         $success = true;
     } catch (Exception $e) {
         $koneksi->rollback();

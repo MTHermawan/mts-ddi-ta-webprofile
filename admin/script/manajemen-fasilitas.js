@@ -206,7 +206,7 @@ function displayFacilitiesCards(page = 1) {
     card.innerHTML = `
       <div class="facility-image">
         <img src="${urlFoto}" alt="${fasilitas.nama_fasilitas}" 
-             onerror="this.style.display='none'">
+             onerror="src=''; this.style.display='none';">
       </div>
       <div class="facility-content">
         <h3 class="facility-title">${fasilitas.nama_fasilitas}</h3>
@@ -339,7 +339,7 @@ function openEditPopup(id_fasilitas) {
     document.getElementById("descriptionInput").value = facility.deskripsi_fasilitas;
     url_foto_arr = Object.values(facility.foto).map(foto => foto.url_foto).filter(url => url);
     console.log(url_foto_arr);
-    
+
     // Jika ada foto, tampilkan preview
     if (url_foto_arr.length > 0) {
 
