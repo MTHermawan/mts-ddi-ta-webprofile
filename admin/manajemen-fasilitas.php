@@ -228,7 +228,8 @@ require_once "./includes/check-auth.php";
             type="file"
             class="image-input"
             id="imageInput"
-            accept="image/*" />
+            accept="image/*" 
+            multiple/>
 
           <!-- Placeholder (default state) -->
           <div class="image-placeholder" id="imagePlaceholder">
@@ -353,8 +354,8 @@ require_once "./includes/check-auth.php";
   </div>
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-fasilitas.js"></script>
-  <!-- <script src="./script/manajemen-fasilitas-data.js"></script> -->
-     <script src="./script/notification.js"></script>
+  <script src="./script/manajemen-fasilitas-data.js"></script>
+  <script src="./script/notification.js"></script>
 </body>
 
 </html>

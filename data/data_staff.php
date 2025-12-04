@@ -30,10 +30,9 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
 
         $success = true;
     } catch (Exception $e) {
-        SendServerError($e);
-
         // Menarik kembali file 
         HapusFile($asset_subdir . $file_foto['name']);
+        SendServerError($e);
     }
     return $success;
 }
@@ -141,10 +140,10 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
 
         $success = true;
     } catch (Exception $e) {
-        SendServerError($e);
-
         // Menarik kembali file 
         HapusFile($asset_subdir . $file_foto['name']);
+        SendServerError($e);
+
     }
     return $success;
 }
@@ -172,19 +171,5 @@ function DeleteStaff($id_staff)
         SendServerError($e);
     }
     return $success;
-}
-
-function GetInitialName($nama_staff)
-{
-    $words = explode(" ", trim($nama_staff));
-    $initials = "";
-
-    foreach ($words as $word) {
-        if (!empty($word)) {
-            $initials .= strtoupper($word[0]);
-        }
-    }
-
-    return $initials;
 }
 ?>

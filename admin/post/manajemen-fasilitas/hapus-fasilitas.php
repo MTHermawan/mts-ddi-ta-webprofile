@@ -7,9 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_fasilitas = htmlspecialchars($_POST['id_fasilitas']);
+    $id_fasilitas = htmlspecialchars($_POST['id_fasilitas'] ?? -1);
 
-    DeleteFasilitas($id_guru);
+    DeleteFasilitas($id_fasilitas);
 }
 header('Location: ../../manajemen-fasilitas.php');
 

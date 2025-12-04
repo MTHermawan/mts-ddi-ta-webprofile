@@ -1,14 +1,14 @@
 let selectedImageFile = null;
 
 async function urlToFile(url, filename) {
-  const response = await fetch(url);
-  const blob = await response.blob();
-  return new File([blob], filename, { type: blob.type });
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new File([blob], filename, { type: blob.type });
 }
 
 async function IsUrlFound(url) {
     const checkerUrl = './post/utility/check_url.php';
-    const encodedUrl = encodeURIComponent(url); 
+    const encodedUrl = encodeURIComponent(url);
     const fullRequestUrl = `${checkerUrl}?url=${encodedUrl}`;
 
     try {
@@ -22,9 +22,9 @@ async function IsUrlFound(url) {
             return data.found === true;
         }
 
-        return false; 
+        return false;
 
-    } catch(error) {
+    } catch (error) {
         console.warn("Network error during file check:", error.message);
         return false;
     }
@@ -63,25 +63,38 @@ async function MakeXMLRequest(method, url, formData = null) {
 }
 
 async function handleResumeInput(remoteResumeURL) {
-  const designFile = await createImage(remoteResumeURL);
 
-  const input = document.getElementById('imageInput');
-  const dt = new DataTransfer();
-  dt.items.add(designFile);
-  input.files = dt.files;
+    const input = document.getElementById('imageInput');
+    const dt = new DataTransfer();
 
-  const event = new Event("change", {
-    bubbles: !0,
-  });
-  input.dispatchEvent(event);
+    if (!input) {
+        return console.error("Input image tidak ditemukan!");
+    }
+
+    if (Array.isArray(remoteResumeURL)) {
+        for (const url of remoteResumeURL) {
+            const designFile = await createImage(url);
+            dt.items.add(designFile);
+        }
+    }
+    else {
+        const designFile = await createImage(remoteResumeURL);
+        dt.items.add(designFile);
+    }
+    input.files = dt.files;
+
+    const event = new Event("change", {
+        bubbles: !0,
+    });
+    input.dispatchEvent(event);
 }
 
 async function createImage(url) {
-  let response = await fetch(url);
-  let data = await response.blob();
-  let metadata = {
-    type: "image/*",
-  };
-  const filename = new URL(response['url']).pathname.split("/").pop();
-  return new File([data], filename, metadata);
+    let response = await fetch(url);
+    let data = await response.blob();
+    let metadata = {
+        type: "image/*",
+    };
+    const filename = new URL(response['url']).pathname.split("/").pop();
+    return new File([data], filename, metadata);
 }

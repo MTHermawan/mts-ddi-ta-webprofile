@@ -9,117 +9,91 @@ function InsertFasilitas($nama_fasilitas, $deskripsi_fasilitas, $file_fotos)
     global $koneksi;
     global $asset_subdir;
 
-    // Reorganize files array if needed
-    if (isset($file_fotos['name']) && is_array($file_fotos['name'])) {
-        $file_fotos = ReorganizeFilesArray($file_fotos);
-    }
-
-    // Validasi input file_fotos harus array
-    if (!is_array($file_fotos) || empty($file_fotos)) {
-        return false;
-    }
-
-    // Insert fasilitas terlebih dahulu
-    $sql = "INSERT INTO fasilitas (nama_fasilitas, deskripsi_fasilitas, tanggal_dibuat) VALUES (?, ?, NOW())";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ss", $nama_fasilitas, $deskripsi_fasilitas);
-    
-    if (!$stmt->execute()) {
-        return false;
-    }
-
-    $id_fasilitas = $koneksi->insert_id;
     $uploaded_files = [];
     $posisi = 1;
 
-    // Loop untuk setiap file foto
-    foreach ($file_fotos as $file_foto) {
-        // Skip jika file tidak ada atau error
-        if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
-            continue;
+    $success = false;
+    try {
+        $koneksi->begin_transaction();
+
+        // Insert fasilitas terlebih dahulu
+        $sql = "INSERT INTO fasilitas (nama_fasilitas, deskripsi_fasilitas, tanggal_dibuat) VALUES (?, ?, NOW())";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("ss", $nama_fasilitas, $deskripsi_fasilitas);
+        $stmt->execute();
+
+        $id_fasilitas = $koneksi->insert_id;
+
+        // Reorganize files array if needed
+        if (isset($file_fotos['name']) && is_array($file_fotos['name'])) {
+            $file_fotos = ReorganizeFilesArray($file_fotos);
         }
 
-        // Upload File
-        if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
-            // foreach ($uploaded_files as $uploaded_url) {
-            //     HapusFile($uploaded_url);
-            // }
-            
-            // Delete fasilitas yang baru dibuat
-            $sql_delete = "DELETE FROM fasilitas WHERE id_fasilitas = ?";
-            $stmt_delete = $koneksi->prepare($sql_delete);
-            $stmt_delete->bind_param("i", $id_fasilitas);
-            $stmt_delete->execute();
-            return false;
-        }
-
-        // Insert foto ke database dengan posisi
-        $sql_foto = "INSERT INTO foto_fasilitas (id_fasilitas, url_foto, posisi) VALUES (?, ?, ?)";
-        $stmt_foto = $koneksi->prepare($sql_foto);
-        $stmt_foto->bind_param("isi", $id_fasilitas, $url_foto, $posisi);
-        
-        if (!$stmt_foto->execute()) {
-            // Jika insert gagal, hapus file yang baru diupload
-            HapusFile($url_foto);
-            
-            // Rollback semua file sebelumnya
-            foreach ($uploaded_files as $uploaded_url) {
-                HapusFile($uploaded_url);
+        foreach ($file_fotos as $file_foto) {
+            if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
+                continue;
             }
-            
-            // Delete fasilitas yang baru dibuat
-            $sql_delete = "DELETE FROM fasilitas WHERE id_fasilitas = ?";
-            $stmt_delete = $koneksi->prepare($sql_delete);
-            $stmt_delete->bind_param("i", $id_fasilitas);
-            $stmt_delete->execute();
-            
-            return false;
+
+            // Upload File
+            if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
+                throw new Exception("Gagal mengunggah foto!");
+            }
+            $uploaded_files[] = $url_foto;
+
+            // Insert foto ke database dengan posisi
+            $sql_foto = "INSERT INTO foto_fasilitas (id_fasilitas, url_foto, posisi) VALUES (?, ?, ?)";
+            $stmt_foto = $koneksi->prepare($sql_foto);
+            $stmt_foto->bind_param("isi", $id_fasilitas, $url_foto, $posisi);
+            $stmt_foto->execute();
+
+            $stmt_foto->close();
+            $posisi++;
         }
 
-        // Tambahkan ke list file yang berhasil diupload
-        $uploaded_files[] = $url_foto;
-        $stmt_foto->close();
-        $posisi++;
+        $koneksi->commit();
+        $success = true;
+    } catch (Exception $e) {
+        $koneksi->rollback();
+        foreach ($uploaded_files as $uploaded_file) {
+            HapusFile($uploaded_file);
+        }
+        SendServerError($e);
     }
-
-    // Hapus data fasilitas jika tidak ada foto yang berhasil diupload
-    if (empty($uploaded_files)) {
-        $sql_delete = "DELETE FROM fasilitas WHERE id_fasilitas = ?";
-        $stmt_delete = $koneksi->prepare($sql_delete);
-        $stmt_delete->bind_param("i", $id_fasilitas);
-        $stmt_delete->execute();
-        return false;
-    }
-
-    return true;
+    return $success;
 }
 
 // Mendapatkan data fasilitas (READ)
-function GetFasilitas($id_fasilitas = null, $nama_fasilitas = null)
+function GetFasilitas($id = null, $nama_fasilitas = null, $deskripsi_fasilitas = null, $search = null)
 {
     global $koneksi;
 
     $data = [];
-    $sql = "SELECT COUNT(*) as jumlah_data FROM fasilitas;";
-    $result = $koneksi->query($sql);
 
-    $row = $result->fetch_assoc();
-    $total_count = (int) $row['jumlah_data'];
-
-    if ($total_count > 250) {
+    try {
         $conditions = [];
         $params = [];
         $types = "";
 
-        if ($id_fasilitas !== null) {
+        if ($id !== null) {
             $conditions[] = "id_fasilitas = ?";
-            $params[] = $id_fasilitas;
+            $params[] = $id;
             $types .= "i";
         }
         if ($nama_fasilitas !== null) {
             $conditions[] = "nama_fasilitas LIKE ?";
             $params[] = "%$nama_fasilitas%";
             $types .= "s";
+        }
+        if ($deskripsi_fasilitas !== null) {
+            $conditions[] = "deskripsi_fasilitas LIKE ?";
+            $params[] = "%$deskripsi_fasilitas%";
+            $types .= "s";
+        }
+        if ($search !== null) {
+            $conditions[] = "(nama_fasilitas LIKE ? OR deskripsi_fasilitas LIEK ?)";
+            $params[] = "%$nama_fasilitas%";
+            $params[] = "%$deskripsi_fasilitas%";
+            $types .= "ss";
         }
 
         $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
@@ -150,44 +124,10 @@ function GetFasilitas($id_fasilitas = null, $nama_fasilitas = null)
         }
         $stmt_foto->close();
         $koneksi->next_result();
-    } else {
-        $sql = "SELECT * FROM fasilitas f ORDER BY f.tanggal_dibuat DESC";
-        $result = $koneksi->query($sql);
-
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
-
-        $result->close();
-        $koneksi->next_result();
-
-        $sql_foto = "SELECT * FROM foto_fasilitas WHERE id_fasilitas = ? ORDER BY posisi ASC";
-        $stmt_foto = $koneksi->prepare($sql_foto);
-        foreach ($data as &$fasilitas) {
-            $stmt_foto->bind_param("i", $fasilitas['id_fasilitas']);
-            $stmt_foto->execute();
-            $result_foto = $stmt_foto->get_result();
-            $fasilitas['foto'] = [];
-            while ($foto_row = $result_foto->fetch_assoc()) {
-                $fasilitas['foto'][] = $foto_row;
-            }
-        }
-        $stmt_foto->close();
-
-        foreach ($data as $key => $fasilitas) {
-            if (($id_fasilitas !== null && $fasilitas['id_fasilitas'] != $id_fasilitas) ||
-                ($nama_fasilitas !== null && stripos($fasilitas['nama_fasilitas'], $nama_fasilitas) === false)) {
-                unset($data[$key]);
-            }
-        }
+    } catch (Exception $e) {
+        SendServerError($e);
     }
 
-    return $data;
-}
-
-function SearchFasilitas($keyword)
-{
-    $data = GetFasilitas(nama_fasilitas: $keyword);
     return $data;
 }
 
@@ -197,126 +137,122 @@ function UpdateFasilitas($id_fasilitas, $nama_fasilitas, $deskripsi_fasilitas, $
     global $koneksi;
     global $asset_subdir;
 
-    // Reorganize files array if needed
-    if (!empty($file_fotos) && isset($file_fotos['name']) && is_array($file_fotos['name'])) {
-        $file_fotos = ReorganizeFilesArray($file_fotos);
-    }
+    $uploaded_files = [];
+    $posisi = 1;
 
-    // Mengambil data lama
-    if (!GetFasilitas(id_fasilitas: $id_fasilitas)) {
-        return false;
-    }
+    $success = false;
+    try {
+        $koneksi->begin_transaction();
 
-    // Update fasilitas info
-    $sql = "UPDATE fasilitas SET nama_fasilitas = ?, deskripsi_fasilitas = ? WHERE id_fasilitas = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssi", $nama_fasilitas, $deskripsi_fasilitas, $id_fasilitas);
-    
-    if (!$stmt->execute()) {
-        return false;
-    }
+        if (!($old_data = GetFasilitas(id: $id_fasilitas)[0]))
+            throw new Exception("Data staff tidak ditemukan!");
 
-    // Jika ada file foto baru, update foto
-    if (!empty($file_fotos) && is_array($file_fotos)) {
-        $sql_old_photos = "SELECT id_foto, url_foto FROM foto_fasilitas WHERE id_fasilitas = ? ORDER BY posisi ASC";
-        $stmt_old = $koneksi->prepare($sql_old_photos);
-        $stmt_old->bind_param("i", $id_fasilitas);
-        $stmt_old->execute();
-        $result_old = $stmt_old->get_result();
+        // Insert fasilitas terlebih dahulu
+        $sql = "UPDATE fasilitas SET nama_fasilitas = ?, deskripsi_fasilitas = ? WHERE id_fasilitas = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("sss", $nama_fasilitas, $deskripsi_fasilitas, $id_fasilitas);
+        $stmt->execute();
 
-        $old_photos = [];
-        while ($row = $result_old->fetch_assoc()) {
-            $old_photos[] = $row;
-            HapusFile($row['url_foto']);
+        // Reorganize files array if needed
+        if (isset($file_fotos['name']) && is_array($file_fotos['name'])) {
+            $file_fotos = ReorganizeFilesArray($file_fotos);
         }
-        $stmt_old->close();
-
-        // Delete all old photo records
-        $sql_delete_old = "DELETE FROM foto_fasilitas WHERE id_fasilitas = ?";
-        $stmt_delete = $koneksi->prepare($sql_delete_old);
-        $stmt_delete->bind_param("i", $id_fasilitas);
-        $stmt_delete->execute();
-        $stmt_delete->close();
-
-        // Upload new files dan insert dengan posisi baru
-        $uploaded_files = [];
-        $posisi = 1;
 
         foreach ($file_fotos as $file_foto) {
-            // Skip jika file tidak ada atau error
             if (!isset($file_foto['tmp_name']) || $file_foto['error'] !== UPLOAD_ERR_OK) {
                 continue;
             }
 
             // Upload File
-            if (!($url_foto_baru = TambahFile($file_foto, $asset_subdir))) {
-                // Rollback jika gagal
-                // foreach ($uploaded_files as $uploaded_url) {
-                //     HapusFile($uploaded_url);
-                // }
+            $isFotoExist = false;
+            foreach ($old_data['foto'] as $old_foto) {
+                if ($file_foto['name'] == basename($old_foto['url_foto'])) {
+                    $isFotoExist = true;
+                    if ($old_foto['posisi'] == $posisi) {
+                        break;
+                    }
+
+                    UpdatePosisiFoto($old_foto['id_foto_fasilitas'], $posisi);
+                }
             }
+            if ($isFotoExist) {
+                $posisi++;
+                continue;
+            }
+
+            // Proses jika foto bukan dari foto lama
+            if (!($url_foto = TambahFile($file_foto, $asset_subdir))) {
+                throw new Exception("Gagal mengunggah foto!");
+            }
+            $uploaded_files[] = $url_foto;
 
             // Insert foto ke database dengan posisi
             $sql_foto = "INSERT INTO foto_fasilitas (id_fasilitas, url_foto, posisi) VALUES (?, ?, ?)";
             $stmt_foto = $koneksi->prepare($sql_foto);
-            $stmt_foto->bind_param("isi", $id_fasilitas, $url_foto_baru, $posisi);
-            
-            if (!$stmt_foto->execute()) {
-                HapusFile($url_foto_baru);
-                foreach ($uploaded_files as $uploaded_url) {
-                    HapusFile($uploaded_url);
-                }
-                return false;
-            }
+            $stmt_foto->bind_param("isi", $id_fasilitas, $url_foto, $posisi);
+            $stmt_foto->execute();
 
-            $uploaded_files[] = $url_foto_baru;
+            // Menghapus foto lama
+            HapusFile($old_data['url_foto']);
+
             $stmt_foto->close();
             $posisi++;
         }
-    }
 
-    return true;
+        $koneksi->commit();
+        $success = true;
+    } catch (Exception $e) {
+        $koneksi->rollback();
+        foreach ($uploaded_files as $uploaded_file) {
+            HapusFile($uploaded_file);
+        }
+        SendServerError($e);
+    }
+    return $success;
 }
 
 // Update posisi foto (untuk reorder/sorting)
-function UpdateFotoPosition($id_foto, $posisi)
+function UpdatePosisiFoto($id_foto, $posisi)
 {
     global $koneksi;
 
-    $sql_get = "SELECT posisi, id_fasilitas FROM foto_fasilitas WHERE id_foto = ?";
-    $stmt_get = $koneksi->prepare($sql_get);
-    $stmt_get->bind_param("i", $id_foto);
-    $stmt_get->execute();
-    $result_get = $stmt_get->get_result();
+    $success = false;
+    try {
+        $sql_get = "SELECT * FROM foto_fasilitas WHERE id_foto_fasilitas = ?";
+        $stmt_get = $koneksi->prepare($sql_get);
+        $stmt_get->bind_param("i", $id_foto);
+        $stmt_get->execute();
+        $result_get = $stmt_get->get_result();
 
-    if ($result_get->num_rows === 0) {
-        return false;
+        if ($result_get->num_rows === 0) {
+            return false;
+        }
+
+        $row = $result_get->fetch_assoc();
+        $old_posisi = $row['posisi'];
+        $id_fasilitas = $row['id_fasilitas'];
+        $stmt_get->close();
+
+        $sql = "UPDATE foto_fasilitas SET posisi = ? WHERE id_foto_fasilitas = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("ii", $posisi, $id_foto);
+        $stmt->execute();
+        $stmt->close();
+
+        $sql_decrease = "UPDATE foto_fasilitas SET posisi = posisi - 1 WHERE id_fasilitas = ? AND posisi > ? AND posisi <= ?";
+        $stmt_decrease = $koneksi->prepare($sql_decrease);
+        $max_posisi = max($old_posisi, $posisi);
+        $min_posisi = min($old_posisi, $posisi);
+        $stmt_decrease->bind_param("iii", $id_fasilitas, $min_posisi, $max_posisi);
+        $stmt_decrease->execute();
+        $stmt_decrease->close();
+
+        $success = true;
+    } catch (Exception $e) {
+        throw $e;
     }
 
-    $row = $result_get->fetch_assoc();
-    $current_posisi = $row['posisi'];
-    $id_fasilitas = $row['id_fasilitas'];
-    $stmt_get->close();
-
-    $sql = "UPDATE foto_fasilitas SET posisi = ? WHERE id_foto = ?";
-    $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ii", $posisi, $id_foto);
-
-    if (!$stmt->execute()) {
-        return false;
-    }
-
-    $stmt->close();
-
-    $sql_decrease = "UPDATE foto_fasilitas SET posisi = posisi - 1 WHERE id_fasilitas = ? AND posisi > ? AND posisi <= ?";
-    $stmt_decrease = $koneksi->prepare($sql_decrease);
-    $max_posisi = max($current_posisi, $posisi);
-    $min_posisi = min($current_posisi, $posisi);
-    $stmt_decrease->bind_param("iii", $id_fasilitas, $min_posisi, $max_posisi);
-    $stmt_decrease->execute();
-    $stmt_decrease->close();
-
-    return true;
+    return $success;
 }
 
 // Menghapus baris data fasilitas berdasarkan ID (DELETE)
@@ -341,7 +277,7 @@ function DeleteFasilitas($id_fasilitas)
     $sql = "DELETE FROM fasilitas WHERE id_fasilitas = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_fasilitas);
-    
+
     if (!$stmt->execute()) {
         return false;
     }
@@ -381,7 +317,7 @@ function DeleteFoto($id_foto)
     $sql = "DELETE FROM foto_fasilitas WHERE id_foto = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_foto);
-    
+
     if (!$stmt->execute()) {
         return false;
     }

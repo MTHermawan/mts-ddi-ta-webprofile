@@ -152,16 +152,16 @@ function generateDummyData(count) {
   ];
 
   const imageUrls = [
-    "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09",
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
     "https://images.unsplash.com/photo-1575361204480-aadea25e6e68",
     "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
-    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+    "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
     "https://images.unsplash.com/photo-1532094349884-543bc11b234d",
+    "https://images.unsplash.com/photo-1481627834876-b7833e8f5570",
     "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    "https://images.unsplash.com/photo-1517486808906-6ca8b3f8f3be",
-    "https://images.unsplash.com/photo-1523580494863-6f3031224c94",
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
   ];
 
   for (let i = 7; i <= count; i++) {

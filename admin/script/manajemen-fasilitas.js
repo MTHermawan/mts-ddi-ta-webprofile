@@ -8,45 +8,87 @@ let fasilitasData = [
     id_fasilitas: 1,
     nama_fasilitas: "Perpustakaan Sekolah",
     deskripsi_fasilitas: "Perpustakaan sekolah dengan koleksi lebih dari 10.000 buku dari berbagai genre dan kategori. Dilengkapi dengan ruang baca yang nyaman dan area komputer untuk penelitian.",
-    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 1,
+        id_fasilitas: 1,
+        url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   },
   {
     id_fasilitas: 2,
     nama_fasilitas: "Laboratorium Komputer",
     deskripsi_fasilitas: "Laboratorium komputer modern dengan 40 unit komputer terbaru, jaringan internet cepat, dan perangkat lunak pendidikan terkini untuk mendukung proses belajar mengajar.",
-    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 2,
+        id_fasilitas: 2,
+        url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   },
   {
     id_fasilitas: 3,
     nama_fasilitas: "Lapangan Olahraga",
     deskripsi_fasilitas: "Lapangan olahraga multifungsi dengan ukuran standar untuk sepak bola, basket, voli, dan atletik. Dilengkapi dengan tribun penonton dan pencahayaan untuk kegiatan malam.",
-    url_foto: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 3,
+        id_fasilitas: 3,
+        url_foto: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   },
   {
     id_fasilitas: 4,
     nama_fasilitas: "Laboratorium Sains",
     deskripsi_fasilitas: "Laboratorium sains lengkap untuk praktikum fisika, kimia, dan biologi. Dilengkapi dengan peralatan modern, bahan praktikum, dan sistem keamanan yang memadai.",
-    url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 4,
+        id_fasilitas: 4,
+        url_foto: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   },
   {
     id_fasilitas: 5,
     nama_fasilitas: "Aula Serbaguna",
     deskripsi_fasilitas: "Aula serbaguna dengan kapasitas 500 orang, dilengkapi sistem audio visual modern, panggung permanen, dan AC untuk berbagai acara sekolah seperti upacara, seminar, dan pertunjukan.",
-    url_foto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 5,
+        id_fasilitas: 1,
+        url_foto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   },
   {
     id_fasilitas: 6,
     nama_fasilitas: "Kantin Sekolah",
     deskripsi_fasilitas: "Kantin sekolah yang bersih dan sehat dengan berbagai pilihan makanan dan minuman. Dilengkapi dengan area makan yang nyaman dan sistem pembayaran digital.",
-    url_foto: "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    foto: [
+      {
+        id_foto_fasilitas: 1,
+        id_fasilitas: 1,
+        url_foto: "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        posisi: 1
+      }
+    ]
   }
 ];
 
 // Generate data dummy tambahan untuk demo pagination
 function generateDummyData(count) {
   const fasilitasNames = [
-    "Laboratorium Bahasa", 
-    "Studio Musik", 
+    "Laboratorium Bahasa",
+    "Studio Musik",
     "Taman Baca",
     "Kolam Renang",
     "Wall Climbing",
@@ -61,7 +103,7 @@ function generateDummyData(count) {
     "Parkir Siswa",
     "Gudang Sekolah"
   ];
-  
+
   const descriptions = [
     "Laboratorium bahasa modern untuk pembelajaran bahasa asing dengan teknologi terbaru.",
     "Studio musik dilengkapi dengan berbagai alat musik untuk mengembangkan bakat seni siswa.",
@@ -79,41 +121,43 @@ function generateDummyData(count) {
     "Area parkir luas untuk kendaraan siswa dengan sistem pengaturan yang rapi.",
     "Gudang penyimpanan untuk peralatan sekolah dan inventaris lainnya."
   ];
-  
+
   const imageUrls = [
     "https://images.unsplash.com/photo-1481627834876-b7833e8f5570",
     "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
     "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
     "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    "https://images.unsplash.com/photo-1517486808906-6ca8b3f8f3be",
     "https://images.unsplash.com/photo-1523580494863-6f3031224c94",
     "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
     "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
     "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
-    "https://images.unsplash.com/photo-1586773860418-dc22f8b874bc",
     "https://images.unsplash.com/photo-1549399542-7e3f8b79c341",
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa"
   ];
-  
+
   for (let i = 7; i <= count; i++) {
     const randomName = fasilitasNames[Math.floor(Math.random() * fasilitasNames.length)];
     const randomDesc = descriptions[Math.floor(Math.random() * descriptions.length)];
     const randomImage = imageUrls[Math.floor(Math.random() * imageUrls.length)];
-    
+
     fasilitasData.push({
       id_fasilitas: i,
       nama_fasilitas: randomName,
       deskripsi_fasilitas: randomDesc,
-      url_foto: `${randomImage}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80&v=${i}`
+      foto: [
+        {
+          id_foto_fasilitas: i,
+          id_fasilitas: 1,
+          url_foto: `${randomImage}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80&v=${i}`,
+          posisi: 1
+        }
+      ]
     });
   }
 }
-
-// Generate 30 data dummy untuk demo pagination
-generateDummyData(30);
 
 function GetFacilityById(id_fasilitas) {
   for (let i = 0; i < fasilitasData.length; i++) {
@@ -129,7 +173,7 @@ function displayFacilitiesCards(page = 1) {
   const facilitiesContainer = document.getElementById("facilitiesContainer");
   const emptyData = document.getElementById("emptyData");
   const paginationContainer = document.getElementById("paginationContainer");
-  
+
   // Jika tidak ada data
   if (fasilitasData.length === 0) {
     emptyData.style.display = "flex";
@@ -137,29 +181,32 @@ function displayFacilitiesCards(page = 1) {
     paginationContainer.style.display = "none";
     return;
   }
-  
+
   emptyData.style.display = "none";
   facilitiesContainer.style.display = "grid";
   paginationContainer.style.display = "flex";
-  
+
   // Kosongkan container
   facilitiesContainer.innerHTML = '';
-  
+
   // Hitung indeks data untuk halaman ini
   const startIndex = (page - 1) * recordsPerPage;
   const endIndex = Math.min(startIndex + recordsPerPage, fasilitasData.length);
   const pageData = fasilitasData.slice(startIndex, endIndex);
-  
+
   // Tampilkan data
   pageData.forEach((fasilitas, index) => {
     const card = document.createElement('div');
     card.className = 'facility-card';
     const globalIndex = startIndex + index;
-    
+
+    const urlFoto = fasilitas.foto.length > 0 ? fasilitas.foto[0].url_foto : "";
+
+    // TODO: Cari alternatif placeholder ketika gambar tidak ditemukan
     card.innerHTML = `
       <div class="facility-image">
-        <img src="${fasilitas.url_foto}" alt="${fasilitas.nama_fasilitas}" 
-             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
+        <img src="${urlFoto}" alt="${fasilitas.nama_fasilitas}" 
+             onerror="this.style.display='none'">
       </div>
       <div class="facility-content">
         <h3 class="facility-title">${fasilitas.nama_fasilitas}</h3>
@@ -174,13 +221,13 @@ function displayFacilitiesCards(page = 1) {
         </button>
       </div>
     `;
-    
+
     facilitiesContainer.appendChild(card);
   });
-  
+
   // Update informasi pagination
   updatePaginationInfo(page);
-  
+
   // Update tombol pagination
   updatePaginationControls(page);
 }
@@ -190,8 +237,8 @@ function updatePaginationInfo(page) {
   const startIndex = (page - 1) * recordsPerPage + 1;
   const endIndex = Math.min(page * recordsPerPage, fasilitasData.length);
   const totalData = fasilitasData.length;
-  
-  document.getElementById("paginationInfo").textContent = 
+
+  document.getElementById("paginationInfo").textContent =
     `Menampilkan ${startIndex}-${endIndex} dari ${totalData} data`;
 }
 
@@ -201,23 +248,23 @@ function updatePaginationControls(page) {
   const prevBtn = document.getElementById("prevPage");
   const nextBtn = document.getElementById("nextPage");
   const pageNumbers = document.getElementById("pageNumbers");
-  
+
   // Update tombol prev/next
   prevBtn.disabled = page === 1;
   nextBtn.disabled = page === totalPages || totalPages === 0;
-  
+
   // Update nomor halaman
   pageNumbers.innerHTML = '';
-  
+
   // Tampilkan maksimal 5 nomor halaman
   let startPage = Math.max(1, page - 2);
   let endPage = Math.min(totalPages, startPage + 4);
-  
+
   // Adjust jika kurang dari 5 halaman
   if (endPage - startPage < 4) {
     startPage = Math.max(1, endPage - 4);
   }
-  
+
   // Tombol halaman pertama
   if (startPage > 1) {
     const firstPage = document.createElement('span');
@@ -225,7 +272,7 @@ function updatePaginationControls(page) {
     firstPage.textContent = '1';
     firstPage.onclick = () => changePage(1);
     pageNumbers.appendChild(firstPage);
-    
+
     if (startPage > 2) {
       const ellipsis = document.createElement('span');
       ellipsis.className = 'page-number';
@@ -235,7 +282,7 @@ function updatePaginationControls(page) {
       pageNumbers.appendChild(ellipsis);
     }
   }
-  
+
   // Nomor halaman
   for (let i = startPage; i <= endPage; i++) {
     const pageNumber = document.createElement('span');
@@ -244,7 +291,7 @@ function updatePaginationControls(page) {
     pageNumber.onclick = () => changePage(i);
     pageNumbers.appendChild(pageNumber);
   }
-  
+
   // Tombol halaman terakhir
   if (endPage < totalPages) {
     if (endPage < totalPages - 1) {
@@ -255,7 +302,7 @@ function updatePaginationControls(page) {
       ellipsis.style.pointerEvents = 'none';
       pageNumbers.appendChild(ellipsis);
     }
-    
+
     const lastPage = document.createElement('span');
     lastPage.className = 'page-number';
     lastPage.textContent = totalPages;
@@ -290,12 +337,15 @@ function openEditPopup(id_fasilitas) {
   if (facility) {
     document.getElementById("titleInput").value = facility.nama_fasilitas;
     document.getElementById("descriptionInput").value = facility.deskripsi_fasilitas;
+    url_foto_arr = Object.values(facility.foto).map(foto => foto.url_foto);
 
     // Jika ada foto, tampilkan preview
-    if (facility.url_foto) {
-      document.getElementById("previewImage").src = facility.url_foto;
+    if (url_foto_arr.length > 0) {
+      document.getElementById("previewImage").src = url_foto_arr[0];
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+      
+      handleResumeInput(url_foto_arr);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
@@ -310,7 +360,7 @@ function openEditPopup(id_fasilitas) {
 function openDeletePopup(id_fasilitas) {
   const facility = GetFacilityById(id_fasilitas);
   if (!facility) return;
-  
+
   currentDeleteId = facility['id_fasilitas'];
 
   // Isi data yang akan dihapus
@@ -376,7 +426,8 @@ function removeImage() {
 async function submitForm() {
   const nama = document.getElementById("titleInput").value;
   const deskripsi = document.getElementById("descriptionInput").value;
-  const foto_fasilitas = document.getElementById("imageInput").files[0] ?? null;
+
+  const foto_fasilitas = document.getElementById("imageInput").files[0] ? document.getElementById("imageInput").files : null;
 
   if (!nama.trim()) {
     alert("Nama fasilitas harus diisi!");
@@ -389,7 +440,7 @@ async function submitForm() {
   }
 
   let success = false;
-  
+
   if (currentMode === "add") {
     success = await PostTambahFasilitas(nama, deskripsi, foto_fasilitas);
     alert(success ? "Data fasilitas berhasil ditambahkan" : "Data fasilitas gagal ditambahkan");
@@ -413,10 +464,10 @@ async function confirmDelete() {
       alert('Fasilitas tidak ditemukan!');
       return;
     }
-     
-    const success = await DeleteFasilitas(facility['id_fasilitas']);
+
+    const success = await PostDeleteFasilitas(facility['id_fasilitas']);
     alert(success ? `Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!` : `Data fasilitas ${facility['nama_fasilitas']} gagal dihapus!`);
-    
+
     if (success) {
       // Refresh fasilitas cards
       displayFacilitiesCards(currentPage);
@@ -437,32 +488,29 @@ function resetForm() {
 // Inisialisasi event ketika DOM siap
 document.addEventListener("DOMContentLoaded", function () {
   // Event listener untuk pagination
-  document.getElementById('prevPage').addEventListener('click', function() {
+  document.getElementById('prevPage').addEventListener('click', function () {
     if (currentPage > 1) {
       changePage(currentPage - 1);
     }
   });
-  
-  document.getElementById('nextPage').addEventListener('click', function() {
+
+  document.getElementById('nextPage').addEventListener('click', function () {
     const totalPages = Math.ceil(fasilitasData.length / recordsPerPage);
     if (currentPage < totalPages) {
       changePage(currentPage + 1);
     }
   });
-  
-  // Tampilkan fasilitas halaman pertama
-  displayFacilitiesCards(currentPage);
 
   // Event delegation untuk tombol edit dan delete di card fasilitas
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     const editBtn = e.target.closest('.action-btn.edit');
     const deleteBtn = e.target.closest('.action-btn.delete');
-    
+
     if (editBtn) {
       const id_fasilitas = parseInt(editBtn.getAttribute('data-id'));
       openEditPopup(id_fasilitas);
     }
-    
+
     if (deleteBtn) {
       const id_fasilitas = parseInt(deleteBtn.getAttribute('data-id'));
       const facility = GetFacilityById(id_fasilitas);
@@ -539,20 +587,31 @@ document.addEventListener("DOMContentLoaded", function () {
       closeDeletePopup();
     }
   });
+  
+  window.onload = () => {
+    if (typeof ReloadDataFasilitas == "function") {
+      ReloadDataFasilitas();
+    }
+    else {
+      generateDummyData(30);
+    }
+    displayFacilitiesCards(currentPage);
+  }
 });
 
+
 // Fungsi API placeholder
-async function PostTambahFasilitas(nama, deskripsi, foto_fasilitas) {
-  console.log("Menambah fasilitas:", { nama, deskripsi, foto_fasilitas });
-  return true;
-}
+// async function PostTambahFasilitas(nama, deskripsi, foto_fasilitas) {
+//   console.log("Menambah fasilitas:", { nama, deskripsi, foto_fasilitas });
+//   return true;
+// }
 
-async function PostEditFasilitas(id, nama, deskripsi, foto_fasilitas) {
-  console.log("Mengedit fasilitas:", { id, nama, deskripsi, foto_fasilitas });
-  return true;
-}
+// async function PostEditFasilitas(id, nama, deskripsi, foto_fasilitas) {
+//   console.log("Mengedit fasilitas:", { id, nama, deskripsi, foto_fasilitas });
+//   return true;
+// }
 
-async function DeleteFasilitas(id) {
-  console.log("Menghapus fasilitas dengan ID:", id);
-  return true;
-}
+// async function DeleteFasilitas(id) {
+//   console.log("Menghapus fasilitas dengan ID:", id);
+//   return true;
+// }

@@ -198,7 +198,7 @@ function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $arra
                 $file_hash_old = hash_file("sha256", $old_path);
 
                 if ($file_hash_new === $file_hash_old) {
-                    if (UpdateFotoPosition($old['id_foto_ekskul'], $posisi)) {
+                    if (UpdatePosisiFoto($old['id_foto_ekskul'], $posisi)) {
                         $used_old_ids[] = $old['id_foto_ekskul'];
                         $same_found = true;
                         break;
@@ -245,7 +245,7 @@ function UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $arra
 
 
 // Update posisi foto (untuk reorder/sorting)
-function UpdateFotoPosition($id_foto_ekskul, $posisi)
+function UpdatePosisiFoto($id_foto_ekskul, $posisi)
 {
     global $koneksi;
 

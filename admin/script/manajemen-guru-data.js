@@ -38,7 +38,6 @@ async function ReloadDataStaff(keyword = null) {
         staff['url_foto'] = (await IsUrlFound("assets/" + staff['url_foto'])) ? "../assets/" + staff['url_foto'] : "";
       }
     }
-    displayTableData();
 
     return staffData;
   } catch (error) {

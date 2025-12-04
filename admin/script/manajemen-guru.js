@@ -343,9 +343,6 @@ function generateDummyData(count) {
   }
 }
 
-// Generate 30 data dummy untuk demo pagination
-generateDummyData(30);
-
 // Fungsi untuk menampilkan data pada halaman tertentu
 function displayTableData(page = 1) {
   const tbody = document.querySelector("tbody");
@@ -532,9 +529,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Tampilkan data halaman pertama
-  displayTableData(currentPage);
-
   // Event delegation untuk tombol edit dan delete di tabel
   document
     .querySelector(".table-container")
@@ -555,6 +549,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+
+    window.onload = () => {
+      if (typeof ReloadDataStaff == "function") {
+        ReloadDataStaff();
+      }
+      else {
+        // Generate 30 data dummy untuk demo pagination
+        generateDummyData(30);
+      }
+      displayTableData(currentPage);
+    }
 });
 
 // Modifikasi fungsi submitForm untuk refresh tabel setelah CRUD
@@ -632,3 +637,4 @@ async function confirmDelete() {
     }
   }
 }
+
