@@ -7,11 +7,15 @@ if (!defined('IN_API')) {
 $current_dir = __DIR__;
 $project_root = dirname(dirname($current_dir));
 
-include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_informasi.php';
-$judul = $_GET['nama'] ?? null;
-$konten = $_GET['jabatan'] ?? null;
-$jadwal_agenda_awal = $_GET['jadwal_agenda_awal'] ?? null;
-$jadwal_agenda_akhir = $_GET['jadwal_agenda_akhir'] ?? null;
+include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_agenda.php';
+include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_admin.php';
+$judul = $_GET['judul'] ?? null;
+$deskripsi = $_GET['deskripsi'] ?? null;
+$tanggal = $_GET['tanggal'] ?? null;
+$waktu = $_GET['waktu'] ?? null;
+$lokasi = $_GET['lokasi'] ?? null;
+$nama_admin = $_GET['nama_admin'] ?? null;
+$search = $_GET['search'] ?? null;
 
-echo json_encode(GetAgenda(id: $id_agenda, judul: $judul, konten: $konten, jadwal_agenda_awal: $jadwal_agenda_awal, jadwal_agenda_akhir: $jadwal_agenda_akhir));
+echo json_encode(GetAgenda($id_agenda, $judul, $deskripsi, $tanggal, $waktu, $lokasi, $nama_admin, $search));
 ?>

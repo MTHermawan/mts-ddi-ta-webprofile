@@ -101,3 +101,81 @@ async function createImage(url) {
     const filename = new URL(response['url']).pathname.split("/").pop();
     return new File([data], filename, metadata);
 }
+
+function GetDayID(day, trim = -1) {
+    let dayStr = "";
+    switch (day) {
+        case 0:
+            dayStr = "Senin";
+            break;
+        case 1:
+            dayStr = "Selasa";
+            break;
+        case 2:
+            dayStr = "Rabu";
+            break;
+        case 3:
+            dayStr = "Kamis";
+            break;
+        case 4:
+            dayStr = "Jumat";
+            break;
+        case 5:
+            dayStr = "Sabtu";
+            break;
+        default:
+            dayStr = "Minggu";
+            break;
+    }
+    if (trim < dayStr.length) {
+        dayStr = dayStr.substring(0, trim);
+    }
+    return dayStr;
+}
+
+function GetMonthID(month, trim = -1) {
+    let monthStr = "";
+    switch (month) {
+        case 0:
+            monthStr = "Januari";
+            break;
+        case 1:
+            monthStr = "Februari";
+            break;
+        case 2:
+            monthStr = "Maret";
+            break;
+        case 3:
+            monthStr = "April";
+            break;
+        case 4:
+            monthStr = "Mei";
+            break;
+        case 5:
+            monthStr = "Juni";
+            break;
+        case 6:
+            monthStr = "Juli";
+            break;
+        case 7:
+            monthStr = "Agustus";
+            break;
+        case 8:
+            monthStr = "September";
+            break;
+        case 9:
+            monthStr = "Oktober";
+            break;
+        case 10:
+            monthStr = "November";
+            break;
+        default:
+            monthStr = "Desember";
+            break;
+    }
+    if (trim < monthStr.length) {
+        monthStr = monthStr.substring(0, trim);
+    }
+    return monthStr;
+
+}

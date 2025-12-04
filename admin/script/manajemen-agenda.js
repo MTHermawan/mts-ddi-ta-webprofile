@@ -6,7 +6,7 @@ const recordsPerPage = 15;
 let agendaData = [
   {
     id_agenda: 1,
-    judul_agenda: "Rapat Orang Tua dan Guru Semester Genap",
+    judul: "Rapat Orang Tua dan Guru Semester Genap",
     deskripsi:
       "Rapat evaluasi perkembangan siswa dan pembahasan program pembelajaran semester genap. Orang tua diharapkan hadir untuk membahas kemajuan putra-putrinya.",
     tanggal: "25 Mar 2024",
@@ -17,7 +17,7 @@ let agendaData = [
   },
   {
     id_agenda: 2,
-    judul_agenda: "Ujian Nasional Berbasis Komputer 2024",
+    judul: "Ujian Nasional Berbasis Komputer 2024",
     deskripsi:
       "Pelaksanaan Ujian Nasional untuk siswa kelas XII. Peserta diwajibkan hadir 30 menit sebelum jadwal ujian dan membawa kartu peserta serta alat tulis.",
     tanggal: "1-5 Apr 2024",
@@ -28,7 +28,7 @@ let agendaData = [
   },
   {
     id_agenda: 3,
-    judul_agenda: "Pentas Seni dan Budaya Tahun 2024",
+    judul: "Pentas Seni dan Budaya Tahun 2024",
     deskripsi:
       "Pagelaran seni dan budaya menampilkan bakat siswa dalam bidang musik, tari, teater, dan seni rupa. Terbuka untuk umum dengan tiket masuk gratis.",
     tanggal: "15 Apr 2024",
@@ -39,7 +39,7 @@ let agendaData = [
   },
   {
     id_agenda: 4,
-    judul_agenda: "Study Tour ke Yogyakarta",
+    judul: "Study Tour ke Yogyakarta",
     deskripsi:
       "Kunjungan edukatif ke berbagai situs bersejarah dan budaya di Yogyakarta. Peserta akan mengunjungi Candi Borobudur, Keraton Yogyakarta, dan Malioboro.",
     tanggal: "20-22 Apr 2024",
@@ -50,7 +50,7 @@ let agendaData = [
   },
   {
     id_agenda: 5,
-    judul_agenda: "Seminar Karir dan Persiapan Kuliah",
+    judul: "Seminar Karir dan Persiapan Kuliah",
     deskripsi:
       "Seminar untuk mempersiapkan siswa kelas XII dalam memilih jurusan kuliah dan karir masa depan. Menghadirkan pembicara dari berbagai universitas ternama.",
     tanggal: "28 Apr 2024",
@@ -61,7 +61,7 @@ let agendaData = [
   },
   {
     id_agenda: 6,
-    judul_agenda: "Class Meeting Akhir Tahun 2024",
+    judul: "Class Meeting Akhir Tahun 2024",
     deskripsi:
       "Kompetisi olahraga dan seni antar kelas sebagai penutup tahun ajaran. Berbagai lomba akan diadakan termasuk futsal, basket, pidato, dan paduan suara.",
     tanggal: "5-7 Mei 2024",
@@ -180,7 +180,7 @@ function generateDummyData(count) {
 
     agendaData.push({
       id_agenda: i,
-      judul_agenda: randomJudul,
+      judul: randomJudul,
       deskripsi: deskripsi,
       tanggal: tanggal,
       waktu: randomWaktu,
@@ -236,13 +236,13 @@ function displayAgendaCards(page = 1) {
 
     card.innerHTML = `
       <div class="agenda-image">
-        <img src="${agenda.url_foto}" alt="${agenda.judul_agenda}" 
+        <img src="${agenda.url_foto}" alt="${agenda.judul}" 
              onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
         <div class="agenda-date">${agenda.tanggal}</div>
       </div>
       <div class="agenda-content">
         <div class="agenda-information">
-          <h3 class="agenda-title">${agenda.judul_agenda}</h3>
+          <h3 class="agenda-title">${agenda.judul}</h3>
           <p class="agenda-description">${agenda.deskripsi}</p>
         </div>
         <div class="agenda-meta">
@@ -383,7 +383,7 @@ function openEditPopup(id_agenda) {
     document.getElementById("dateInput").value = agenda.tanggal;
     document.getElementById("timeInput").value = agenda.waktu;
     document.getElementById("placeInput").value = agenda.lokasi;
-    document.getElementById("titleInput").value = agenda.judul_agenda;
+    document.getElementById("titleInput").value = agenda.judul;
     document.getElementById("descriptionInput").value = agenda.deskripsi;
 
     // Jika ada foto, tampilkan preview
@@ -391,6 +391,8 @@ function openEditPopup(id_agenda) {
       document.getElementById("previewImage").src = agenda.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+
+      handleResumeInput(agenda.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
@@ -412,7 +414,7 @@ function openDeletePopup(id_agenda) {
   document.getElementById("dataDate").textContent = agenda["tanggal"];
   document.getElementById("dataPlace").textContent = agenda["lokasi"];
   document.getElementById("dataTime").textContent = agenda["waktu"];
-  document.getElementById("dataName").textContent = agenda["judul_agenda"];
+  document.getElementById("dataName").textContent = agenda["judul"];
   document.getElementById("dataDescription").textContent = agenda["deskripsi"];
 
   // Menampilkan popup delete
@@ -530,7 +532,7 @@ async function submitForm() {
 
   if (success) {
     // Refresh agenda cards
-    displayAgendaCards(currentPage);
+    // displayAgendaCards(currentPage);
     closePopup();
   }
 }
@@ -544,16 +546,16 @@ async function confirmDelete() {
       return;
     }
 
-    const success = await DeleteAgenda(agenda["id_agenda"]);
+    const success = await PostDeleteAgenda(agenda["id_agenda"]);
     alert(
       success
-        ? `Agenda "${agenda["judul_agenda"]}" berhasil dihapus!`
-        : `Agenda "${agenda["judul_agenda"]}" gagal dihapus!`
+        ? `Agenda "${agenda["judul"]}" berhasil dihapus!`
+        : `Agenda "${agenda["judul"]}" gagal dihapus!`
     );
 
     if (success) {
       // Refresh agenda cards
-      displayAgendaCards(currentPage);
+      // displayAgendaCards(currentPage);
       closeDeletePopup();
     }
   }
@@ -588,7 +590,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Tampilkan agenda halaman pertama
-  displayAgendaCards(currentPage);
+  // displayAgendaCards(currentPage);
 
   // Event delegation untuk tombol edit dan delete di card agenda
   document.addEventListener("click", function (e) {
@@ -674,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Tutup popup ketika klik di luar konten
+  // Tutup popup ketika klik di luar deskripsi
   document.getElementById("popup").addEventListener("click", function (e) {
     if (e.target === this) {
       closePopup();
@@ -688,50 +690,61 @@ document.addEventListener("DOMContentLoaded", function () {
         closeDeletePopup();
       }
     });
+    
+    window.onload = () => {
+    if (typeof ReloadDataAgenda == "function") {
+      ReloadDataAgenda();
+    }
+    else {
+      // Generate 30 data dummy untuk demo pagination
+      generateDummyData(30);
+      displayAgendaCards(currentPage);
+    }
+  }
 });
 
-// Fungsi API placeholder
-async function PostTambahAgenda(
-  judul,
-  deskripsi,
-  tanggal,
-  waktu,
-  lokasi,
-  foto_agenda
-) {
-  console.log("Menambah agenda:", {
-    judul,
-    deskripsi,
-    tanggal,
-    waktu,
-    lokasi,
-    foto_agenda,
-  });
-  return true;
-}
+// // Fungsi API placeholder
+// async function PostTambahAgenda(
+//   judul,
+//   deskripsi,
+//   tanggal,
+//   waktu,
+//   lokasi,
+//   foto_agenda
+// ) {
+//   console.log("Menambah agenda:", {
+//     judul,
+//     deskripsi,
+//     tanggal,
+//     waktu,
+//     lokasi,
+//     foto_agenda,
+//   });
+//   return true;
+// }
 
-async function PostEditAgenda(
-  id,
-  judul,
-  deskripsi,
-  tanggal,
-  waktu,
-  lokasi,
-  foto_agenda
-) {
-  console.log("Mengedit agenda:", {
-    id,
-    judul,
-    deskripsi,
-    tanggal,
-    waktu,
-    lokasi,
-    foto_agenda,
-  });
-  return true;
-}
+// async function PostEditAgenda(
+//   id,
+//   judul,
+//   deskripsi,
+//   tanggal,
+//   waktu,
+//   lokasi,
+//   foto_agenda
+// ) {
+//   console.log("Mengedit agenda:", {
+//     id,
+//     judul,
+//     deskripsi,
+//     tanggal,
+//     waktu,
+//     lokasi,
+//     foto_agenda,
+//   });
+//   return true;
+// }
 
-async function DeleteAgenda(id) {
-  console.log("Menghapus agenda dengan ID:", id);
-  return true;
-}
+// async function DeleteAgenda(id) {
+//   console.log("Menghapus agenda dengan ID:", id);
+//   return true;
+// }

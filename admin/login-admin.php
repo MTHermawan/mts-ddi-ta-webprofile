@@ -7,7 +7,7 @@ if (rand(1, 100) === 1) {
     CleanupExpiredTokens();
 }
 
-// if (isset($_SESSION['admin_email'])) {
+// if (isset($_SESSION['email'])) {
 //     header("Location: ./halaman-utama.php");
 //     exit();
 // }

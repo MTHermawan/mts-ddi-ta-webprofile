@@ -1,4 +1,4 @@
-<?php include_once "../../../data/data_informasi.php";
+<?php include_once "../../../data/data_agenda.php";
 include_once "../../includes/check-auth-func.php";
 if (!CheckAuth())
 {
@@ -8,11 +8,14 @@ if (!CheckAuth())
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $judul = htmlspecialchars($_POST['judul']);
-    $konten = htmlspecialchars($_POST['konten']);
-    $jadwal_agenda = htmlspecialchars($_POST['jadwal_agenda']);
-    $file_foto = $_FILES['foto_informasi'];
+    $deskripsi = htmlspecialchars($_POST['deskripsi']);
+    $tanggal = htmlspecialchars($_POST['tanggal']);
+    $waktu = htmlspecialchars($_POST['waktu']);
+    $lokasi = htmlspecialchars($_POST['lokasi']);
+    $file_foto = $_FILES['foto_agenda'];
+    $email = $_SESSION['email'];
 
-    InsertInformasi($judul, $konten, $file_foto, $jadwal_agenda);
+    InsertAgenda($judul, $deskripsi, $tanggal, $waktu, $lokasi, $file_foto, $email);
 }
 header('Location: ../../manajemen-agenda.php');
 

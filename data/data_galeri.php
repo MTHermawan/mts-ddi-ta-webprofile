@@ -28,7 +28,7 @@ function InsertGaleri($judul_galeri, $deskripsi_galeri, $file_foto)
 }
 
 // Mendapatkan data galeri (READ)
-function GetGaleri($id_galeri = null, $judul_galeri = null, $deskripsi_galeri = null)
+function GetGaleri($id_galeri, $judul_galeri = null, $deskripsi_galeri = null, $search = null)
 {
     global $koneksi;
     $data = [];
@@ -52,6 +52,12 @@ function GetGaleri($id_galeri = null, $judul_galeri = null, $deskripsi_galeri = 
             $conditions[] = "deskripsi_galeri LIKE ?";
             $params[] = "%$deskripsi_galeri%";
             $types .= "s";
+        }
+        if ($search !== null) {
+            $conditions[] = "(judul_galeri LIKE ? OR deskripsi_galeri LIKE ?)";
+            $params[] = "%$search%";
+            $params[] = "%$search%";
+            $types .= "ss";
         }
 
         $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
@@ -83,7 +89,7 @@ function UpdateFotoGaleri($id_galeri, $judul_galeri, $deskripsi_galeri, $file_fo
     $success = false;
     try {
         // Mengambil data lama
-        if (!($old_data = GetGaleri(id_galeri: $id_galeri)))
+        if (!($old_data = GetGaleri($id_galeri)))
             throw new Exception("Data foto galeri tidak ditemukan!");
 
         // Upload Foto

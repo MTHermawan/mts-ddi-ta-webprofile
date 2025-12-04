@@ -609,7 +609,7 @@ async function submitForm() {
   if (success) {
     // Refresh data dari server (dalam demo ini, kita refresh dari array lokal)
     // Di aplikasi nyata, Anda akan fetch data terbaru dari server
-    displayTableData(currentPage);
+    // displayTableData(currentPage);
     closePopup();
   }
 }
@@ -632,7 +632,7 @@ async function confirmDelete() {
 
     if (success) {
       // Refresh tabel
-      displayTableData(currentPage);
+      // displayTableData(currentPage);
       closeDeletePopup();
     }
   }

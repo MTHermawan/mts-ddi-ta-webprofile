@@ -4,7 +4,7 @@ include_once 'utility.php';
 // Referensi Model Informasi
 // - id_informasi int (auto increment),
 // - judul string
-// - konten string
+// - deskripsi string
 // - jadwal_agenda string
 // - tanggal_dibuat string
 // - url_foto string

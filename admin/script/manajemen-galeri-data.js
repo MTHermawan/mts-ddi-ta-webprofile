@@ -1,87 +1,19 @@
-async function ReloadDataTable() {
-  const emptyData = document.getElementById('emptyData');
-  const dataContainer = document.getElementById('galeriContainer');
-
-  if (!emptyData || !dataContainer) return;
-
-  if (galeriData.length === 0) {
-    emptyData.style.display = 'flex';
-    dataContainer.style.display = 'none';
-    return;
-  }
-
-  emptyData.style.display = 'none';
-  dataContainer.style.display = 'flex';
-
-  const processedData = await Promise.all(
-    galeriData.map(async galeri => {
-      let photoUrl = null;
-
-      if (galeri['url_foto']) {
-        const check = await IsUrlFound("assets/" + galeri['url_foto']);
-        if (check) {
-          photoUrl = galeri['url_foto'];
-        }
-      }
-
-      return { ...galeri, photoUrl };
-    })
-  );
-
-  dataContainer.innerHTML = '';
-  processedData.forEach(data => {
-    const newCard = document.createElement('div');
-    newCard.classList.add('galeri-card');
-
-    newCard.innerHTML = `
-        <div class="galeri-image">
-              ${data['photoUrl'] ? `<img src="../assets/${data['photoUrl']}" alt="${data['nama_fasilitas']}" onerror="this.style.display='none'">` : ''}
-            </div>
-            <div class="galeri-content">
-              <h3 class="galeri-title">${data['nama_fasilitas']}</h3>
-              <p class="galeri-description">
-                ${data['deskripsi_fasilitas']}
-              </p>
-            </div>
-            <div class="galeri-actions">
-              <button class="action-btn edit">
-                <i class="fas fa-edit"></i> Edit
-              </button>
-              <button class="action-btn delete">
-                <i class="fas fa-trash"></i> Hapus
-              </button>
-            </div>
-    `;
-       
-
-    const editButton = newCard.querySelector(".edit");
-    const deleteButton = newCard.querySelector(".delete");
-
-    editButton.addEventListener("click", () => {
-      openEditPopup(data.id_galeri);
-    });
-
-    deleteButton.addEventListener("click", () => {
-      openDeletePopup(data.id_galeri);
-    });
-
-    dataContainer.appendChild(newCard);
-  });
-
-  // ReloadTableEventListener();
-}
-
 async function ReloadDataGaleri(keyword = null) {
   try {
     const url = keyword
-      ? `../api/gaelri?search=${encodeURIComponent(keyword)}`
+      ? `../api/galeri?search=${encodeURIComponent(keyword)}`
       : '../api/galeri';
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Network error");
 
     galeriData = await response.json();
-    ReloadDataTable();
+    for (let galeri of galeriData) {
+      if (galeri['url_foto']) {
+        galeri['url_foto'] = (await IsUrlFound("assets/" + galeri['url_foto'])) ? "../assets/" + galeri['url_foto'] : "";
+      }
+    }
+    displayGaleriCards();
 
     return galeriData;
   } catch (error) {
@@ -158,6 +90,7 @@ function SearchGaleriEvent(delay = 0) {
     ReloadDataGaleri(keyword);
   }, delay);
 }
-searchInput.addEventListener('input', () => { SearchGaleriEvent(500); });
 
-document.addEventListener("DOMContentLoaded", ReloadDataGaleri());
+document.addEventListener("DOMContentLoaded", () => {
+  searchInput.addEventListener('input', () => { SearchGaleriEvent(500); });
+});

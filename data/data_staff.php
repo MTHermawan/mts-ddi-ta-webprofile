@@ -159,7 +159,6 @@ function DeleteStaff($id_staff)
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("i", $data['id_staff']);
         $stmt->execute();
-        echo var_dump($data);
 
         // Menghapus gambar jika record berhasil dihapus
         HapusFile($data['url_foto']);

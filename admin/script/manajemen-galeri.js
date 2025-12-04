@@ -7,7 +7,7 @@ let galeriData = [
   {
     id_galeri: 1,
     judul_galeri: "Kegiatan Belajar Mengajar di Kelas",
-    deskripsi:
+    deskripsi_galeri:
       "Momen seru siswa-siswi dalam proses pembelajaran interaktif dengan metode modern yang menyenangkan.",
     url_foto:
       "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -15,7 +15,7 @@ let galeriData = [
   {
     id_galeri: 2,
     judul_galeri: "Kegiatan Ekstrakurikuler Pramuka",
-    deskripsi:
+    deskripsi_galeri:
       "Siswa-siswi mengikuti latihan kepramukaan untuk mengembangkan karakter dan keterampilan kepemimpinan.",
     url_foto:
       "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -23,7 +23,7 @@ let galeriData = [
   {
     id_galeri: 3,
     judul_galeri: "Praktikum di Laboratorium Sains",
-    deskripsi:
+    deskripsi_galeri:
       "Siswa melakukan eksperimen sains dengan peralatan modern untuk memahami konsep ilmiah secara langsung.",
     url_foto:
       "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -31,7 +31,7 @@ let galeriData = [
   {
     id_galeri: 4,
     judul_galeri: "Kegiatan Membaca di Perpustakaan",
-    deskripsi:
+    deskripsi_galeri:
       "Siswa menikmati waktu membaca di perpustakaan sekolah yang nyaman dengan koleksi buku terlengkap.",
     url_foto:
       "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -39,7 +39,7 @@ let galeriData = [
   {
     id_galeri: 5,
     judul_galeri: "Pentas Seni dan Budaya",
-    deskripsi:
+    deskripsi_galeri:
       "Penampilan spektakuler siswa dalam pentas seni yang menampilkan bakat di bidang musik, tari, dan teater.",
     url_foto:
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -47,7 +47,7 @@ let galeriData = [
   {
     id_galeri: 6,
     judul_galeri: "Kegiatan Olahraga Sekolah",
-    deskripsi:
+    deskripsi_galeri:
       "Siswa berpartisipasi dalam berbagai kegiatan olahraga untuk menjaga kebugaran dan mengembangkan sportivitas.",
     url_foto:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -104,14 +104,11 @@ function generateDummyData(count) {
     galeriData.push({
       id_galeri: i,
       judul_galeri: randomTitle,
-      deskripsi: randomDesc,
+      deskripsi_galeri: randomDesc,
       url_foto: `${randomImage}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80&v=${i}`,
     });
   }
 }
-
-// Generate 30 data dummy untuk demo pagination
-generateDummyData(30);
 
 function GetGaleriById(id_galeri) {
   for (let i = 0; i < galeriData.length; i++) {
@@ -161,7 +158,7 @@ function displayGaleriCards(page = 1) {
       </div>
       <div class="galeri-content">
         <h3 class="galeri-title">${galeri.judul_galeri}</h3>
-        <p class="galeri-description">${galeri.deskripsi}</p>
+        <p class="galeri-description">${galeri.deskripsi_galeri}</p>
       </div>
       <div class="galeri-actions">
         <button class="action-btn edit" data-id="${galeri.id_galeri}">
@@ -288,7 +285,7 @@ function openEditPopup(id_galeri) {
   const galeri = GetGaleriById(currentEditId);
   if (galeri) {
     document.getElementById("titleInput").value = galeri.judul_galeri;
-    document.getElementById("descriptionInput").value = galeri.deskripsi;
+    document.getElementById("descriptionInput").value = galeri.deskripsi_galeri;
 
     // Jika ada foto, tampilkan preview
     if (galeri.url_foto) {
@@ -314,7 +311,7 @@ function openDeletePopup(id_galeri) {
 
   // Isi data yang akan dihapus
   document.getElementById("dataName").textContent = galeri["judul_galeri"];
-  document.getElementById("dataDescription").textContent = galeri["deskripsi"];
+  document.getElementById("dataDescription").textContent = galeri["deskripsi_galeri"];
 
   // Menampilkan popup delete
   document.getElementById("deletePopup").style.display = "flex";
@@ -410,7 +407,7 @@ async function submitForm() {
 
   if (success) {
     // Refresh galeri cards
-    displayGaleriCards(currentPage);
+    // displayGaleriCards(currentPage);
     closePopup();
   }
 }
@@ -433,7 +430,7 @@ async function confirmDelete() {
 
     if (success) {
       // Refresh galeri cards
-      displayGaleriCards(currentPage);
+      // displayGaleriCards(currentPage);
       closeDeletePopup();
     }
   }
@@ -463,9 +460,6 @@ document.addEventListener("DOMContentLoaded", function () {
       changePage(currentPage + 1);
     }
   });
-
-  // Tampilkan galeri halaman pertama
-  displayGaleriCards(currentPage);
 
   // Event delegation untuk tombol edit dan delete di card galeri
   document.addEventListener("click", function (e) {
@@ -570,26 +564,38 @@ document.addEventListener("DOMContentLoaded", function () {
         closeDeletePopup();
       }
     });
+
+    window.onload = () => {
+    if (typeof ReloadDataGaleri == "function") {
+      // Reload data jika modul database ditemukan
+      ReloadDataGaleri();
+    }
+    else {
+      // Generate 30 data dummy untuk demo pagination
+      generateDummyData(30);
+      displayFacilitiesCards(currentPage);
+    }
+  }
 });
 
-// Fungsi API placeholder (sesuaikan dengan backend Anda)
-async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
-  // Implementasi API call untuk menambah galeri
-  console.log("Menambah galeri:", { judul, deskripsi, foto_galeri });
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// // Fungsi API placeholder (sesuaikan dengan backend Anda)
+// async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
+//   // Implementasi API call untuk menambah galeri
+//   console.log("Menambah galeri:", { judul, deskripsi, foto_galeri });
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }
 
-async function PostEditGaleri(id, judul, deskripsi, foto_galeri) {
-  // Implementasi API call untuk mengedit galeri
-  console.log("Mengedit galeri:", { id, judul, deskripsi, foto_galeri });
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// async function PostEditGaleri(id, judul, deskripsi, foto_galeri) {
+//   // Implementasi API call untuk mengedit galeri
+//   console.log("Mengedit galeri:", { id, judul, deskripsi, foto_galeri });
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }
 
-async function DeleteGaleri(id) {
-  // Implementasi API call untuk menghapus galeri
-  console.log("Menghapus galeri dengan ID:", id);
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// async function DeleteGaleri(id) {
+//   // Implementasi API call untuk menghapus galeri
+//   console.log("Menghapus galeri dengan ID:", id);
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }

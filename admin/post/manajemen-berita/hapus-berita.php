@@ -1,4 +1,4 @@
-<?php include_once "../../../data/data_informasi.php";
+<?php include_once "../../../data/data_berita.php";
 include_once "../../includes/check-auth-func.php";
 if (!CheckAuth())
 {
@@ -7,9 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = htmlspecialchars($_POST['id']);
+    $id_berita = htmlspecialchars($_POST['id_berita']);
 
-    DeleteBerita($id);
+    DeleteBerita($id_berita);
 }
 header('Location: ../../manajemen-berita.php');
 

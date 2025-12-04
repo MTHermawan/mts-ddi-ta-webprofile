@@ -534,7 +534,7 @@ async function confirmDelete() {
 
     if (success) {
       // Refresh ekskul cards
-      displayEkskulCards(currentPage);
+      // displayEkskulCards(currentPage);
       closeDeletePopup();
     }
   }

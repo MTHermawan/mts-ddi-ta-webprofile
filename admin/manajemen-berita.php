@@ -287,7 +287,9 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-berita.js"></script>
+  <script src="./script/manajemen-berita-data.js"></script>
   <script src="./script/notification.js"></script>
 </body>
 

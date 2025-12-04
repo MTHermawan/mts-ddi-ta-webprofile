@@ -7,12 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $judul = htmlspecialchars($_POST['judul']);
-    $deskripsi = htmlspecialchars($_POST['deskripsi']);
-    $file_foto = $_FILES['foto_berita'];
-    $email = $_SESSION['email'];
+    $id_berita = htmlspecialchars($_POST['id_berita']);
 
-    InsertBerita($judul, $deskripsi, $file_foto, $email);
+    UpdateBeritaUtama($id_berita);
 }
 header('Location: ../../manajemen-berita.php');
 

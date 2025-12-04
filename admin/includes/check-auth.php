@@ -4,7 +4,7 @@ include_once __DIR__ . "/../../data/data_admin.php";
 include_once __DIR__ . "/path.php";
 
 // Check if logged in via session
-if (!isset($_SESSION['admin_email'])) {
+if (!isset($_SESSION['email'])) {
     if (isset($_COOKIE['admin_remember'])) {
         $admin = ValidateRememberToken($_COOKIE['admin_remember']);
         if ($admin) {

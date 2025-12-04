@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $data = ValidasiLogin($input_email, $input_password);
 
     if ($data) {
-        $_SESSION['admin_email'] = $data['email'];
+        $_SESSION['email'] = $data['email'];
 
         if ((isset($_POST['remember']) && $_POST['remember'] == 'on' ) || true) {
             $remember_token = bin2hex(string: random_bytes(32));

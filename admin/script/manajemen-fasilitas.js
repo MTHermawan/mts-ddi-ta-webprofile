@@ -471,7 +471,7 @@ async function confirmDelete() {
 
     if (success) {
       // Refresh fasilitas cards
-      displayFacilitiesCards(currentPage);
+      // displayFacilitiesCards(currentPage);
       closeDeletePopup();
     }
   }

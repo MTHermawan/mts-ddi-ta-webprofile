@@ -518,7 +518,9 @@ require_once "./includes/check-auth.php";
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-agenda.js"></script>
+  <script src="./script/manajemen-agenda-data.js"></script>
   <script src="./script/notification.js"></script>
 </body>
 

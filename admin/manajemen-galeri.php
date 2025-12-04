@@ -380,7 +380,9 @@ require_once "./includes/check-auth.php";
   </div>
 
   <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-galeri.js"></script>
+  <script src="./script/manajemen-galeri-data.js"></script>
     <script src="./script/notification.js"></script>
 </body>
 

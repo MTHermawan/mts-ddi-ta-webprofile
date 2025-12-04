@@ -7,7 +7,7 @@ include_once __DIR__ . "/path.php";
 
 function CheckAuth()
 {
-    if (isset($_SESSION['admin_email'])) {
+    if (isset($_SESSION['email'])) {
         return true;
     }
     

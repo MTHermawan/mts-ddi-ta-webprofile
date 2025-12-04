@@ -9,18 +9,18 @@ let currentDeleteId = null;
 let beritaData = [
   {
     id_berita: 1,
-    judul_berita: "Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka",
+    judul: "Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka",
     deskripsi:
       "Pendaftaran siswa baru untuk tahun ajaran 2024/2025 telah dibuka. Kuota terbatas hanya untuk 200 siswa. Segera daftarkan putra-putri Anda untuk mendapatkan pendidikan terbaik.",
     tanggal: "15 Mar 2024",
-    penulis: "Admin Sekolah",
+    nama_admin: "Admin Sekolah",
     url_foto:
       "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     pinned: true,
   },
   {
     id_berita: 2,
-    judul_berita: "Siswa SMA Kita Juara Olimpiade Sains Nasional 2024",
+    judul: "Siswa SMA Kita Juara Olimpiade Sains Nasional 2024",
     deskripsi:
       "Bangga! Tim olimpiade sains SMA Kita berhasil meraih medali emas dalam Olimpiade Sains Nasional 2024. Prestasi ini membuktikan kualitas pendidikan sains di sekolah kita.",
     tanggal: "10 Mar 2024",
@@ -31,7 +31,7 @@ let beritaData = [
   },
   {
     id_berita: 3,
-    judul_berita: "Perpustakaan Sekolah Selesai Direnovasi, Kini Lebih Nyaman",
+    judul: "Perpustakaan Sekolah Selesai Direnovasi, Kini Lebih Nyaman",
     deskripsi:
       "Setelah proses renovasi selama 2 bulan, perpustakaan sekolah kini telah dibuka kembali dengan fasilitas yang lebih lengkap dan suasana yang lebih nyaman untuk membaca.",
     tanggal: "5 Mar 2024",
@@ -42,7 +42,7 @@ let beritaData = [
   },
   {
     id_berita: 4,
-    judul_berita: "Kegiatan Bakti Sosial Siswa di Panti Asuhan Kasih Bunda",
+    judul: "Kegiatan Bakti Sosial Siswa di Panti Asuhan Kasih Bunda",
     deskripsi:
       "Siswa-siswi SMA Kita mengadakan kegiatan bakti sosial di Panti Asuhan Kasih Bunda. Kegiatan ini bertujuan untuk menumbuhkan rasa empati dan kepedulian sosial.",
     tanggal: "28 Feb 2024",
@@ -53,7 +53,7 @@ let beritaData = [
   },
   {
     id_berita: 5,
-    judul_berita: "Workshop Teknologi: Mempersiapkan Siswa untuk Era Digital",
+    judul: "Workshop Teknologi: Mempersiapkan Siswa untuk Era Digital",
     deskripsi:
       "Sekolah mengadakan workshop teknologi selama 3 hari untuk mempersiapkan siswa menghadapi tantangan era digital. Workshop mencakup pemrograman, desain grafis, dan digital marketing.",
     tanggal: "22 Feb 2024",
@@ -64,7 +64,7 @@ let beritaData = [
   },
   {
     id_berita: 6,
-    judul_berita: "Tim Futsal SMA Kita Juara Turnamen Antar Sekolah Se-Kota",
+    judul: "Tim Futsal SMA Kita Juara Turnamen Antar Sekolah Se-Kota",
     deskripsi:
       "Tim futsal SMA Kita berhasil menjadi juara dalam turnamen futsal antar sekolah se-kota. Kemenangan ini diraih setelah pertandingan final yang sangat menegangkan.",
     tanggal: "18 Feb 2024",
@@ -162,10 +162,10 @@ function generateDummyData(count) {
 
     beritaData.push({
       id_berita: i,
-      judul_berita: randomJudul,
+      judul: randomJudul,
       deskripsi: deskripsi,
       tanggal: tanggal,
-      penulis: randomPenulis,
+      nama_admin: randomPenulis,
       url_foto: `${randomImage}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80&v=${i}`,
       pinned: false,
     });
@@ -173,7 +173,7 @@ function generateDummyData(count) {
 }
 
 // Generate 30 data dummy
-generateDummyData(30);
+// generateDummyData(30);
 
 // Fungsi untuk mendapatkan berita berdasarkan ID
 function GetBeritaById(id_berita) {
@@ -181,21 +181,19 @@ function GetBeritaById(id_berita) {
 }
 
 // Fungsi untuk mengatur berita utama (pinned)
-function setPinnedBerita(id_berita) {
+async function setPinnedBerita(id_berita) {
   // Reset semua berita menjadi tidak pinned
-  beritaData.forEach((berita) => {
-    berita.pinned = false;
-  });
-
-  // Set berita yang dipilih sebagai pinned
+  // beritaData.forEach((berita) => {
+  //   berita.pinned = false;
+  // });
   const berita = GetBeritaById(id_berita);
   if (berita) {
-    berita.pinned = true;
-    showNotification(`"${berita.judul_berita}" telah dijadikan berita utama!`);
+    success = await PostBeritaUtama(berita.id_berita);
+    showNotification(`"${berita.judul}" telah dijadikan berita utama!`);
 
     // Refresh tampilan
-    displayBeritaCards(currentPage);
-    updatePinnedSelect();
+    // displayBeritaCards(currentPage);
+    // updatePinnedSelect();
   }
 }
 
@@ -217,11 +215,11 @@ function updatePinnedSelect() {
     if (!a.pinned && b.pinned) return 1;
     return 0;
   });
-
+  
   sortedBerita.forEach((berita) => {
     const option = document.createElement("option");
     option.value = berita.id_berita;
-    option.textContent = berita.judul_berita;
+    option.textContent = berita.judul;
     if (berita.pinned) {
       option.textContent += " ★ (Berita Utama)";
       option.selected = true;
@@ -244,7 +242,7 @@ function setPinnedFromSelect() {
   if (
     berita &&
     confirm(
-      `Apakah Anda yakin ingin menjadikan "${berita.judul_berita}" sebagai berita utama?`
+      `Apakah Anda yakin ingin menjadikan "${berita.judul}" sebagai berita utama?`
     )
   ) {
     setPinnedBerita(id_berita);
@@ -298,29 +296,27 @@ function displayBeritaCards(page = 1) {
 
     card.innerHTML = `
           <div class="berita-image">
-            <img src="${berita.url_foto}" alt="${berita.judul_berita}" 
+            <img src="${berita.url_foto}" alt="${berita.judul}" 
                  onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
             <div class="berita-date">${berita.tanggal}</div>
-            ${
-              berita.pinned
-                ? '<div class="pinned-badge"><i class="fas fa-thumbtack"></i> Berita Utama</div>'
-                : ""
-            }
+            ${berita.pinned
+        ? '<div class="pinned-badge"><i class="fas fa-thumbtack"></i> Berita Utama</div>'
+        : ""
+      }
           </div>
           <div class="berita-content">
-            <h3 class="berita-title">${berita.judul_berita}</h3>
+            <h3 class="berita-title">${berita.judul}</h3>
             <p class="berita-description">${berita.deskripsi}</p>
             <div class="berita-meta">
               <div class="berita-author">
                 <i class="fas fa-user"></i>
-                <span>${berita.penulis}</span>
+                <span>${berita.nama_admin}</span>
               </div>
               <div class="berita-pinned-status">
-                ${
-                  berita.pinned
-                    ? '<span class="pinned-status active"><i class="fas fa-star"></i> Berita Utama</span>'
-                    : '<span class="pinned-status"><i class="far fa-star"></i> Biasa</span>'
-                }
+                ${berita.pinned
+        ? '<span class="pinned-status active"><i class="fas fa-star"></i> Berita Utama</span>'
+        : '<span class="pinned-status"><i class="far fa-star"></i> Biasa</span>'
+      }
               </div>
             </div>
           </div>
@@ -328,9 +324,8 @@ function displayBeritaCards(page = 1) {
             <button class="action-btn edit" data-id="${berita.id_berita}">
               <i class="fas fa-edit"></i> Edit
             </button>
-            <button class="action-btn delete" data-id="${berita.id_berita}" ${
-      berita.pinned ? "disabled" : ""
-    }>
+            <button class="action-btn delete" data-id="${berita.id_berita}" ${berita.pinned ? "disabled" : ""
+      }>
               <i class="fas fa-trash"></i> Hapus
             </button>
           </div>
@@ -451,9 +446,9 @@ function openEditPopup(id_berita) {
   // Isi form dengan data berita yang akan diedit
   const berita = GetBeritaById(currentEditId);
   if (berita) {
-    document.getElementById("titleInput").value = berita.judul_berita;
+    document.getElementById("titleInput").value = berita.judul;
     document.getElementById("dateInput").value = berita.tanggal;
-    document.getElementById("creatorInput").value = berita.penulis;
+    document.getElementById("creatorInput").value = berita.nama_admin;
     document.getElementById("descriptionInput").value = berita.deskripsi;
 
     // Jika ada foto, tampilkan preview
@@ -461,6 +456,8 @@ function openEditPopup(id_berita) {
       document.getElementById("previewImage").src = berita.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+
+      handleResumeInput(berita.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
@@ -479,9 +476,9 @@ function openDeletePopup(id_berita) {
   currentDeleteId = berita["id_berita"];
 
   // Isi data yang akan dihapus
-  document.getElementById("dataName").textContent = berita["judul_berita"];
+  document.getElementById("dataName").textContent = berita["judul"];
   document.getElementById("dataDate").textContent = berita["tanggal"];
-  document.getElementById("dataCreator").textContent = berita["penulis"];
+  document.getElementById("dataCreator").textContent = berita["nama_admin"];
   document.getElementById("dataDescription").textContent = berita["deskripsi"];
 
   // Menampilkan popup delete
@@ -555,37 +552,38 @@ async function submitForm() {
     return;
   }
 
-  if (!tanggal.trim()) {
-    showNotification("Tanggal berita harus diisi!", "Peringatan", "warning");
-    return;
-  }
+  // if (!tanggal.trim()) {
+  //   showNotification("Tanggal berita harus diisi!", "Peringatan", "warning");
+  //   return;
+  // }
 
-  if (!penulis.trim()) {
-    showNotification("Penulis berita harus diisi!", "Peringatan", "warning");
-    return;
-  }
+  // if (!penulis.trim()) {
+  //   showNotification("Penulis berita harus diisi!", "Peringatan", "warning");
+  //   return;
+  // }
 
   let success = false;
 
   if (currentMode === "add") {
     // Untuk tambah berita baru
-    const newId =
-      beritaData.length > 0
-        ? Math.max(...beritaData.map((b) => b.id_berita)) + 1
-        : 1;
-    const newBerita = {
-      id_berita: newId,
-      judul_berita: judul,
-      deskripsi: deskripsi,
-      tanggal: tanggal,
-      penulis: penulis,
-      url_foto: foto_berita
-        ? URL.createObjectURL(foto_berita)
-        : "https://via.placeholder.com/300x200?text=Tanpa+Gambar",
-      pinned: false, // Selalu false untuk berita baru
-    };
+    // const newId =
+    //   beritaData.length > 0
+    //     ? Math.max(...beritaData.map((b) => b.id_berita)) + 1
+    //     : 1;
+    // const newBerita = {
+    //   id_berita: newId,
+    //   judul_berita: judul,
+    //   deskripsi: deskripsi,
+    //   tanggal: tanggal,
+    //   penulis: penulis,
+    //   url_foto: foto_berita
+    //     ? URL.createObjectURL(foto_berita)
+    //     : "https://via.placeholder.com/300x200?text=Tanpa+Gambar",
+    //   pinned: false, // Selalu false untuk berita baru
+    // };
+    // beritaData.push(newBerita);
 
-    beritaData.push(newBerita);
+    PostTambahBerita(judul, deskripsi, foto_berita);
     success = true;
 
     showNotification(`Berita "${judul}" berhasil ditambahkan!`);
@@ -593,14 +591,7 @@ async function submitForm() {
     // Untuk edit berita
     const berita = GetBeritaById(currentEditId);
     if (berita) {
-      berita.judul_berita = judul;
-      berita.deskripsi = deskripsi;
-      berita.tanggal = tanggal;
-      berita.penulis = penulis;
-
-      if (foto_berita) {
-        berita.url_foto = URL.createObjectURL(foto_berita);
-      }
+      PostEditBerita(berita.id_berita, judul, deskripsi, foto_berita);
 
       success = true;
       showNotification(`Berita "${judul}" berhasil diperbarui!`);
@@ -609,8 +600,8 @@ async function submitForm() {
 
   if (success) {
     // Refresh berita cards
-    displayBeritaCards(currentPage);
-    updatePinnedSelect();
+    // displayBeritaCards(currentPage);
+    // updatePinnedSelect();
     closePopup();
   }
 }
@@ -636,16 +627,15 @@ async function confirmDelete() {
     }
 
     // Hapus berita dari array
-    const index = beritaData.findIndex((b) => b.id_berita === currentDeleteId);
-    if (index !== -1) {
-      beritaData.splice(index, 1);
-      showNotification(`Berita "${berita.judul_berita}" berhasil dihapus!`);
+    const success = await PostDeleteBerita(berita["id_berita"]);
+    success
+      ? showNotification(`Berita "${berita.judul}" berhasil dihapus!`)
+      : showNotification(`Berita "${berita.judul}" gagal dihapus!`);
 
-      // Refresh berita cards
-      displayBeritaCards(currentPage);
-      updatePinnedSelect();
-      closeDeletePopup();
-    }
+    // Refresh berita cards
+    // displayBeritaCards(currentPage);
+    // updatePinnedSelect();
+    closeDeletePopup();
   }
 }
 
@@ -730,8 +720,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Tampilkan berita halaman pertama
-  displayBeritaCards(currentPage);
-  updatePinnedSelect();
+  // displayBeritaCards(currentPage);
+  // updatePinnedSelect();
 
   // Event delegation untuk tombol edit dan delete di card berita
   document.addEventListener("click", function (e) {
@@ -840,49 +830,60 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  window.onload = () => {
+    if (typeof ReloadDataBerita == "function") {
+      ReloadDataBerita();
+    }
+    else {
+      // Generate 30 data dummy untuk demo pagination
+      generateDummyData(30);
+      displayBeritaCards(currentPage);
+    }
+  }
 });
 
-async function PostTambahBerita(
-  judul,
-  deskripsi,
-  tanggal,
-  penulis,
-  foto_berita
-) {
-  console.log("Menambah berita:", {
-    judul,
-    deskripsi,
-    tanggal,
-    penulis,
-    foto_berita,
-  });
-  // Di sini Anda akan melakukan fetch ke API backend
-  // Contoh: return fetch('/api/berita', { method: 'POST', body: ... })
-  return true;
-}
+// async function PostTambahBerita(
+//   judul,
+//   deskripsi,
+//   tanggal,
+//   penulis,
+//   foto_berita
+// ) {
+//   console.log("Menambah berita:", {
+//     judul,
+//     deskripsi,
+//     tanggal,
+//     penulis,
+//     foto_berita,
+//   });
+//   // Di sini Anda akan melakukan fetch ke API backend
+//   // Contoh: return fetch('/api/berita', { method: 'POST', body: ... })
+//   return true;
+// }
 
-async function PostEditBerita(
-  id,
-  judul,
-  deskripsi,
-  tanggal,
-  penulis,
-  foto_berita
-) {
-  console.log("Mengedit berita:", {
-    id,
-    judul,
-    deskripsi,
-    tanggal,
-    penulis,
-    foto_berita,
-  });
-  // Di sini Anda akan melakukan fetch ke API backend
-  return true;
-}
+// async function PostEditBerita(
+//   id,
+//   judul,
+//   deskripsi,
+//   tanggal,
+//   penulis,
+//   foto_berita
+// ) {
+//   console.log("Mengedit berita:", {
+//     id,
+//     judul,
+//     deskripsi,
+//     tanggal,
+//     penulis,
+//     foto_berita,
+//   });
+//   // Di sini Anda akan melakukan fetch ke API backend
+//   return true;
+// }
 
-async function DeleteBerita(id) {
-  console.log("Menghapus berita dengan ID:", id);
-  // Di sini Anda akan melakukan fetch ke API backend
-  return true;
-}
+// async function DeleteBerita(id) {
+//   console.log("Menghapus berita dengan ID:", id);
+//   // Di sini Anda akan melakukan fetch ke API backend
+//   return true;
+// }

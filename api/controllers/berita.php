@@ -7,9 +7,12 @@ if (!defined('IN_API')) {
 $current_dir = __DIR__;
 $project_root = dirname(dirname($current_dir));
 
-include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_informasi.php';
-$judul = $_GET['nama'] ?? null;
-$konten = $_GET['jabatan'] ?? null;
+include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_berita.php';
+include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_admin.php';
+$judul = $_GET['judul'] ?? null;
+$deskripsi = $_GET['deskripsi'] ?? null;
+$nama_admin = $_GET['nama_admin'] ?? null;
+$search = $_GET['search'] ?? null;
 
-echo json_encode(GetBerita(id: $id_berita, judul: $judul, konten: $konten));
+echo json_encode(GetBerita($id_berita, $judul, $deskripsi, $nama_admin, $search));
 ?>
