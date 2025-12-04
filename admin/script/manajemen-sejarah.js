@@ -129,7 +129,8 @@ function closeDeletePopup() {
 
 // Fungsi untuk submit form
 async function submitForm() {
-  const tahun = document.getElementById("titleInput").value;
+  const judul = document.getElementById("titleInput").value;
+  const tahun = document.getElementById("yearInput").value;
   const deskripsi = document.getElementById("descriptionInput").value;
 
   if (!tahun.trim()) {
@@ -143,13 +144,13 @@ async function submitForm() {
   }
 
   if (currentMode === "add") {
-    if (await PostTambahSejarah(tahun, deskripsi)) {
+    if (await PostTambahSejarah(judul, tahun, deskripsi)) {
       alert("Sejarah berhasil ditambahkan!");
     } else {
       alert("Sejarah gagal ditambahkan!");
     }
   } else {
-    if (await PostEditSejarah(currentEditId, tahun, deskripsi)) {
+    if (await PostEditSejarah(currentEditId, judul, tahun, deskripsi)) {
       alert(`Sejarah tahun ${tahun} berhasil diperbarui!`);
     } else {
       alert("Sejarah gagal diperbarui!");
@@ -168,7 +169,7 @@ async function confirmDelete() {
       return;
     }
      
-    if (await DeleteSejarah(sejarah['id_sejarah'])) {
+    if (await PostDeleteSejarah(sejarah['id_sejarah'])) {
       alert(`Sejarah tahun ${sejarah['tahun_sejarah']} berhasil dihapus!`);
     } else {
       alert(`Sejarah tahun ${sejarah['tahun_sejarah']} gagal dihapus!`);
@@ -222,26 +223,27 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  
 });
 
-// Fungsi API placeholder (sesuaikan dengan backend Anda)
-async function PostTambahSejarah(tahun, deskripsi) {
-  // Implementasi API call untuk menambah sejarah
-  console.log("Menambah sejarah:", { tahun, deskripsi });
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// // Fungsi API placeholder (sesuaikan dengan backend Anda)
+// async function PostTambahSejarah(tahun, deskripsi) {
+//   // Implementasi API call untuk menambah sejarah
+//   console.log("Menambah sejarah:", { tahun, deskripsi });
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }
 
-async function PostEditSejarah(id, tahun, deskripsi) {
-  // Implementasi API call untuk mengedit sejarah
-  console.log("Mengedit sejarah:", { id, tahun, deskripsi });
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// async function PostEditSejarah(id, tahun, deskripsi) {
+//   // Implementasi API call untuk mengedit sejarah
+//   console.log("Mengedit sejarah:", { id, tahun, deskripsi });
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }
 
-async function DeleteSejarah(id) {
-  // Implementasi API call untuk menghapus sejarah
-  console.log("Menghapus sejarah dengan ID:", id);
-  // Return true jika berhasil, false jika gagal
-  return true;
-}
+// async function DeleteSejarah(id) {
+//   // Implementasi API call untuk menghapus sejarah
+//   console.log("Menghapus sejarah dengan ID:", id);
+//   // Return true jika berhasil, false jika gagal
+//   return true;
+// }

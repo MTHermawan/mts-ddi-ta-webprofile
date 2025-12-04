@@ -110,6 +110,7 @@ CREATE TABLE agenda (
 CREATE TABLE sejarah (
     id_sejarah INT auto_increment PRIMARY KEY,
     judul_sejarah VARCHAR(50) NOT NULL,
+    tahun_sejarah VARCHAR(50) NOT NULL,
     deskripsi_sejarah VARCHAR(500) NOT NULL,
     tanggal_dibuat DATETIME DEFAULT (CURRENT_TIMESTAMP())
 );
@@ -157,4 +158,10 @@ INSERT INTO agenda (id_informasi, tanggal_agenda, waktu_agenda, lokasi_agenda) V
 (1, '01 Jun 26', '12-11-01', 'Aula Serbaguna');
 
 INSERT INTO berita (id_informasi, pinned) VALUES (2, 1);
+
+INSERT INTO sejarah (judul_sejarah, tahun_sejarah, deskripsi_sejarah) VALUES
+('Berdirinya MTs DDI Tani Aman', '1984', 'Madrasah Tsanawiyah Darud Da’wah Wal Irsyad (MTs DDI) Tani Aman Samarinda resmi berdiri di bawah naungan Yayasan DDI Tani Aman. Pada awal berdiri, madrasah ini dipimpin oleh Bapak H. Jamaluddin, A.Md. sebagai kepala madrasah, dengan jumlah siswa sekitar 21 siswa.'),
+('Regenerasi Kepemimpinan', '2013', 'Setelah 29 tahun memimpin, Bapak H. Jamaluddin menyerahkan tongkat estafet kepemimpinan kepada Bapak H. Suwardi, A.Md. Di bawah kepemimpinannya, madrasah terus berkembang hingga tahun 2019.'),
+('Akreditasi "A" Nasional', '2021', 'MTs DDI Tani Aman meraih akreditasi "A" dari Badan Akreditasi Nasional (BAN-SM) dengan SK Nomor: 999/BAN-SM/SK/2021. Saat ini dipimpin oleh Ibu ST. Fatimah Amin, S.Pd., dengan total 23 tenaga pendidik dan kependidikan.'),
+('Prestasi & Pertumbuhan', '2024/2025', 'Madrasah kini memiliki 236 siswa aktif dan telah meluluskan lebih dari 3.000 alumni. Pada tahun ajaran ini, angkatan ke-39 lulus dengan 100% kelulusan. Fasilitas fisik, prestasi akademik-nonakademik, dan jaringan alumni terus berkembang pesat.')
 
