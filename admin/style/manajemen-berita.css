@@ -333,6 +333,7 @@
 }
 
 .berita-description {
+  min-height: 92px;
   margin: 0;
   font-size: 14px;
   color: rgb(102, 112, 133);

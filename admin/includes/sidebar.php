@@ -29,12 +29,6 @@
           </a>
         </li> -->
         <li>
-            <a href="<?php echo ADMIN_PATH; ?>halaman-utama.php" class="menu-item <?php if (CURRENT_PAGE == "halaman-utama.php") echo "active"; ?>">
-                <i class="fa-solid fa-house"></i>
-                <span class="menu-text">Halaman Utama</span>
-            </a>
-        </li>
-        <li>
             <a href="<?php echo ADMIN_PATH; ?>manajemen-visi-misi.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-visi-misi.php") echo "active"; ?>">
                 <i class="fa-regular fa-address-card"></i>
                 <span class="menu-text">Visi Misi</span>
@@ -86,6 +80,12 @@
             <a href="<?php echo ADMIN_PATH; ?>manajemen-galeri.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-galeri.php") echo "active"; ?>">
                 <i class="fa-solid fa-image"></i>
                 <span class="menu-text">Galeri</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo ADMIN_PATH; ?>pengaturan.php" class="menu-item <?php if (CURRENT_PAGE == "pengaturan.php") echo "active"; ?>">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-text">Pengaturan</span>
             </a>
         </li>
 
