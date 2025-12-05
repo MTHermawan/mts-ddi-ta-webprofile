@@ -234,12 +234,12 @@ function displayAgendaCards(page = 1) {
     card.className = "agenda-card";
     const globalIndex = startIndex + index;
 
-    imageText = wrapText(agenda.judul);
+    placeHolderUrl = imagePlaceholderUrl(agenda.judul);
 
     card.innerHTML = `
       <div class="agenda-image">
         <img src="${agenda.url_foto}" alt="${agenda.judul}" 
-             onerror="this.onerror=null; this.src='https://placehold.co/800?text=${imageText}&font=roboto'">
+             onerror="this.onerror=null; this.src='${placeHolderUrl}'">
         <div class="agenda-date">${agenda.tanggal}</div>
       </div>
       <div class="agenda-content">

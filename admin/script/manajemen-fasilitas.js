@@ -202,12 +202,12 @@ function displayFacilitiesCards(page = 1) {
 
     const urlFoto = fasilitas.foto.length > 0 ? fasilitas.foto[0].url_foto : "";
 
-    imageText = wrapText(fasilitas.nama_fasilitas);
+    placeHolderUrl = imagePlaceholderUrl(fasilitas.nama_fasilitas);
 
     card.innerHTML = `
       <div class="facility-image">
         <img src="${urlFoto}" alt="${fasilitas.nama_fasilitas}" 
-             onerror="src=''; this.src='https://placehold.co/800?text=${imageText}&font=roboto';">
+             onerror="src=''; this.src='${placeHolderUrl}';">
       </div>
       <div class="facility-content">
         <h3 class="facility-title">${fasilitas.nama_fasilitas}</h3>

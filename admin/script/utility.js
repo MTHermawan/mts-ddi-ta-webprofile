@@ -195,3 +195,9 @@ function wrapText(text, maxLength = 25) {
 
     return result + line.trim();
 }
+
+function imagePlaceholderUrl(text)
+{
+    wrappedText = wrapText(text);
+    return `https://placehold.co/800?text=${wrappedText}&font=roboto`;
+}
