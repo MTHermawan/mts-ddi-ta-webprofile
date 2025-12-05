@@ -1,45 +1,64 @@
-<?php require_once __DIR__."/path.php"; ?>
+<?php require_once __DIR__ . "/path.php"; ?>
 
-<footer id="footer">
+<footer class="footer">
     <div class="footer-container">
-        <div class="footer-about">
-            <h1>MTS DDI TANI AMAN</h1>
-            <p>MTS DDI Tani Aman: Menjadi sekolah unggulan yang membentuk generasi Qur’ani, cerdas, dan berakhlak mulia
-            </p>
+        <!-- Brand Sekolah -->
+        <div class="footer-brand-full">
+            <div class="brand-left">
+                <img src="<?php echo ASSET_PATH; ?>logo-sekolah.png" alt="Logo Sekolah" />
+            </div>
 
-            <ul>
-                <li><img src="<?php echo ASSET_PATH; ?>icon-alamat.png" alt="Alamat">Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota Samarinda, Kalimantan Timur 75251</li>
-                <li><img src="<?php echo ASSET_PATH; ?>icon-email.png" alt="Email">www@</li>
-                <li><img src="<?php echo ASSET_PATH; ?>icon-telepon.png" alt="Telepon">0</li>
-            </ul>
+            <div class="brand-right">
+                <h2 class="footer-title">MTS DDI Tani Aman</h2>
+                <p class="footer-desc">
+                    Di bawah naungan
+                    <strong><a href="https://kemenag.go.id/">Kementerian Agama Republik Indonesia</a></strong>, membina
+                    generasi berakhlak mulia, cerdas, dan berwawasan
+                    Islami.
+                </p>
+
+                <!-- <div class="footer-kemenag">
+                    <img src="assets/kemenag.png" alt="Logo Kemenag">
+                    <span>Terwujudnya masyarakat yang cerdas dan maslahat menuju Indonesia Emas 2045</span>
+                </div> -->
+
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="footer-menu">
+
+        <!-- Menu -->
+        <div class="footer-column">
             <h3>Menu</h3>
             <ul>
-                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Profil</a></li>
                 <li><a href="#">Galeri</a></li>
-                <li><a href="#">Informasi</a></li>
+                <li><a href="#">Berita</a></li>
                 <li><a href="#">Kontak</a></li>
             </ul>
         </div>
-        <div class="footer-follow">
-            <h3>Temukan Kami</h3>
-            <ul>
-                <li><a href="#">Youtube</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
+
+        <!-- Kontak -->
+        <div class="footer-column">
+            <h3>Kontak</h3>
+            <p>
+                <i class="fa-solid fa-location-dot info-foot"></i> Jl. Soekarno
+                Hatta, Tani Aman, Kec. Loa Janan Ilir
+            </p>
+            <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
+            <p>
+                <i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com
+            </p>
         </div>
     </div>
+
+    <div class="footer-ornament"></div>
+
     <div class="footer-bottom">
-        <ul>
-            <li><a href="#">a</a></li>
-            <li><a href="#">b</a></li>
-            <li><a href="#">c</a></li>
-            <li><a href="#">d</a></li>
-            <li><a href="#">e</a></li>
-        </ul>
-        <p>P</p>
+        <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
     </div>
 </footer>

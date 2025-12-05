@@ -456,7 +456,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
+    showWarning("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
   }
 }
 
@@ -477,27 +477,27 @@ async function submitForm() {
   const foto_agenda = document.getElementById("imageInput").files[0] ?? null;
 
   if (!judul.trim()) {
-    alert("Judul agenda harus diisi!");
+    showWarning("Judul agenda harus diisi!");
     return;
   }
 
   if (!deskripsi.trim()) {
-    alert("Deskripsi agenda harus diisi!");
+    showWarning("Deskripsi agenda harus diisi!");
     return;
   }
 
   if (!tanggal.trim()) {
-    alert("Tanggal agenda harus diisi!");
+    showWarning("Tanggal agenda harus diisi!");
     return;
   }
 
   if (!waktu.trim()) {
-    alert("Waktu agenda harus diisi!");
+    showWarning("Waktu agenda harus diisi!");
     return;
   }
 
   if (!lokasi.trim()) {
-    alert("Lokasi agenda harus diisi!");
+    showWarning("Lokasi agenda harus diisi!");
     return;
   }
 
@@ -512,9 +512,7 @@ async function submitForm() {
       lokasi,
       foto_agenda
     );
-    alert(
-      success ? "Agenda berhasil ditambahkan!" : "Agenda gagal ditambahkan!"
-    );
+    success ? showSuccess("Agenda berhasil ditambahkan!") : showError("Agenda gagal ditambahkan!");
   } else {
     success = await PostEditAgenda(
       currentEditId,
@@ -525,11 +523,7 @@ async function submitForm() {
       lokasi,
       foto_agenda
     );
-    alert(
-      success
-        ? `Agenda "${judul}" berhasil diperbarui!`
-        : "Agenda gagal diperbarui!"
-    );
+    success ? showSuccess(`Agenda "${judul}" berhasil diperbarui!`) : showError("Agenda gagal diperbarui!");
   }
 
   if (success) {
@@ -544,16 +538,12 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const agenda = GetAgendaById(currentDeleteId);
     if (!agenda) {
-      alert("Agenda tidak ditemukan!");
+      showWarning("Agenda tidak ditemukan!");
       return;
     }
 
     const success = await PostDeleteAgenda(agenda["id_agenda"]);
-    alert(
-      success
-        ? `Agenda "${agenda["judul"]}" berhasil dihapus!`
-        : `Agenda "${agenda["judul"]}" gagal dihapus!`
-    );
+    success ? showSuccess(`Agenda "${agenda["judul"]}" berhasil dihapus!`) : showError(`Agenda "${agenda["judul"]}" gagal dihapus!`);
 
     if (success) {
       // Refresh agenda cards

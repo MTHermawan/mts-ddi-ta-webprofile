@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($data) {
         $_SESSION['email'] = $data['email'];
+        $_SESSION['login_success_message'] = "Login berhasil!";
 
         if ((isset($_POST['remember']) && $_POST['remember'] == 'on' ) || true) {
             $remember_token = bin2hex(string: random_bytes(32));
@@ -74,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             );
         }
 
-        $redirect_url = "../../halaman-utama.php";
+        $redirect_url = "../../pengaturan.php";
         if (isset($_SESSION['redirect_after_login'])) {
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
             $host = $_SERVER['HTTP_HOST'];

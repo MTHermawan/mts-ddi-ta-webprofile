@@ -8,7 +8,7 @@ if (rand(1, 100) === 1) {
 }
 
 // if (isset($_SESSION['email'])) {
-//     header("Location: ./halaman-utama.php");
+//     header("Location: ./pengaturan.php");
 //     exit();
 // }
 
@@ -16,7 +16,7 @@ if (rand(1, 100) === 1) {
 //     $admin = ValidateRememberToken($_COOKIE['admin_remember']);
 //     if ($admin) {
 //         $_SESSION['email'] = $admin['email'];
-//         header("Location: ./halaman-utama.php");
+//         header("Location: ./pengaturan.php");
 //         exit();
 //     }
 // }

@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateSejarah($id_sejarah, $judul_sejarah, $tahun_sejarah, $deskripsi);
 }
-// header('Location: ../../manajemen-sejarah.php');
+header('Location: ../../manajemen-sejarah.php');
 
 ?>

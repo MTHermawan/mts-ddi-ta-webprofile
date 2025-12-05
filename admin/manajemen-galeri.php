@@ -45,7 +45,7 @@ require_once "./includes/check-auth.php";
 
         <div class="button-container">
           <button class="export button">
-            <i class="fa-solid fa-file-export"></i> Export CSV
+            <i class="fa-solid fa-file-export"></i> Ekspor CSV
           </button>
           <button
             class="add button"
@@ -369,7 +369,7 @@ require_once "./includes/check-auth.php";
 
   </div>
   <!-- Notifikasi Popup Global -->
-  <div id="global-notification" class="notification-popup">
+  <!-- <div id="global-notification" class="notification-popup">
     <div class="notification-icon">
       <i class="fa-solid fa-check-circle"></i>
     </div>
@@ -377,7 +377,7 @@ require_once "./includes/check-auth.php";
       <div class="notification-title">Berhasil!</div>
       <div class="notification-message">Pesan notifikasi</div>
     </div>
-  </div>
+  </div> -->
 
   <script src="./script/dashboard-admin.js"></script>
   <script src="./script/utility.js"></script>

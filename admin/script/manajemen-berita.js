@@ -189,7 +189,7 @@ async function setPinnedBerita(id_berita) {
   const berita = GetBeritaById(id_berita);
   if (berita) {
     success = await PostBeritaUtama(berita.id_berita);
-    showNotification(`"${berita.judul}" telah dijadikan berita utama!`);
+    success ? showSuccess(`"${berita.judul}" telah dijadikan berita utama!`) : showError(`"Gagal memperbarui berita utama!`);
 
     // Refresh tampilan
     // displayBeritaCards(currentPage);
@@ -232,7 +232,7 @@ function updatePinnedSelect() {
 function setPinnedFromSelect() {
   const select = document.getElementById("pinnedBeritaSelect");
   if (!select || !select.value) {
-    showNotification("Pilih berita terlebih dahulu!", "Peringatan", "warning");
+    showWarning("Pilih berita terlebih dahulu!");
     return;
   }
 
@@ -433,6 +433,8 @@ function changePage(page) {
 function openPopup(mode = "Tambah Berita") {
   currentMode = "add";
   document.getElementById("popupTitle").textContent = mode;
+  document.getElementById("dateInput").value = berita.tanggal;
+  document.getElementById("creatorInput").value = berita.nama_admin;
 
   resetForm();
   document.getElementById("popup").style.display = "flex";
@@ -520,11 +522,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    showNotification(
-      "Harap pilih file gambar yang valid (PNG, JPG, JPEG)",
-      "Error",
-      "error"
-    );
+    showError("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
   }
 }
 
@@ -545,12 +543,12 @@ async function submitForm() {
 
   // Validasi
   if (!judul.trim()) {
-    showNotification("Judul berita harus diisi!", "Peringatan", "warning");
+    showWarning("Judul berita harus diisi!");
     return;
   }
 
   if (!deskripsi.trim()) {
-    showNotification("Deskripsi berita harus diisi!", "Peringatan", "warning");
+    showWarning("Deskripsi berita harus diisi!");
     return;
   }
 
@@ -585,18 +583,14 @@ async function submitForm() {
     // };
     // beritaData.push(newBerita);
 
-    PostTambahBerita(judul, deskripsi, foto_berita);
-    success = true;
-
-    showNotification(`Berita "${judul}" berhasil ditambahkan!`);
+    success = await PostTambahBerita(judul, deskripsi, foto_berita);
+    success ? showSuccess(`Berita "${judul}" berhasil ditambahkan!`) : showError(`Berita gagal ditambahkan!`);
   } else {
     // Untuk edit berita
     const berita = GetBeritaById(currentEditId);
     if (berita) {
-      PostEditBerita(berita.id_berita, judul, deskripsi, foto_berita);
-
-      success = true;
-      showNotification(`Berita "${judul}" berhasil diperbarui!`);
+      success = await PostEditBerita(berita.id_berita, judul, deskripsi, foto_berita);
+      success ? showSuccess(`Berita "${judul}" berhasil diperbarui!`) : showWarning(`Berita "${judul}" gagal diperbarui!`);
     }
   }
 
@@ -613,17 +607,13 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const berita = GetBeritaById(currentDeleteId);
     if (!berita) {
-      showNotification("Berita tidak ditemukan!", "Error", "error");
+      showWarning("Berita tidak ditemukan!");
       return;
     }
 
     // Cek apakah berita yang akan dihapus adalah pinned
     if (berita.pinned) {
-      showNotification(
-        "Tidak dapat menghapus berita utama! Silakan ubah status berita utama terlebih dahulu.",
-        "Peringatan",
-        "warning"
-      );
+      showWarning("Tidak dapat menghapus berita utama! Silakan ubah status berita utama terlebih dahulu.");
       closeDeletePopup();
       return;
     }
@@ -631,8 +621,8 @@ async function confirmDelete() {
     // Hapus berita dari array
     const success = await PostDeleteBerita(berita["id_berita"]);
     success
-      ? showNotification(`Berita "${berita.judul}" berhasil dihapus!`)
-      : showNotification(`Berita "${berita.judul}" gagal dihapus!`);
+      ? showSuccess(`Berita "${berita.judul}" berhasil dihapus!`)
+      : showError(`Berita "${berita.judul}" gagal dihapus!`);
 
     // Refresh berita cards
     // displayBeritaCards(currentPage);
@@ -650,52 +640,6 @@ function resetForm() {
   removeImage();
   currentMode = "add";
   currentEditId = null;
-}
-
-// Fungsi untuk menampilkan notifikasi dengan tipe
-function showNotification(message, title = "Berhasil!", type = "success") {
-  const notification = document.getElementById("global-notification");
-  if (!notification) {
-    console.log("Notification element not found");
-    return;
-  }
-
-  const notificationTitle = notification.querySelector(".notification-title");
-  const notificationMessage = notification.querySelector(
-    ".notification-message"
-  );
-  const successIcon = notification.querySelector(".notification-icon.success");
-  const errorIcon = notification.querySelector(".notification-icon.error");
-  const warningIcon = notification.querySelector(".notification-icon.warning");
-
-  if (notificationTitle && notificationMessage) {
-    notificationTitle.textContent = title;
-    notificationMessage.textContent = message;
-
-    // Set tipe notifikasi
-    notification.className = "notification-popup show " + type;
-
-    // Tampilkan icon sesuai tipe
-    if (successIcon)
-      successIcon.style.display = type === "success" ? "block" : "none";
-    if (errorIcon)
-      errorIcon.style.display = type === "error" ? "block" : "none";
-    if (warningIcon)
-      warningIcon.style.display = type === "warning" ? "block" : "none";
-
-    // Sembunyikan notifikasi setelah 3 detik
-    setTimeout(() => {
-      hideNotification();
-    }, 3000);
-  }
-}
-
-// Fungsi untuk menyembunyikan notifikasi
-function hideNotification() {
-  const notification = document.getElementById("global-notification");
-  if (notification) {
-    notification.classList.remove("show");
-  }
 }
 
 // Inisialisasi event ketika DOM siap

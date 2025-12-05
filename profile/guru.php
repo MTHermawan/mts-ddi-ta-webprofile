@@ -1,3 +1,8 @@
+<?php session_start();
+include_once "../data/koneksi.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,54 +17,11 @@
     <link rel="stylesheet" href="../style/guru.css" />
     <link rel="stylesheet" href="../style/header.css" />
     <link rel="stylesheet" href="../style/dropdown.css" />
-    <link
-      rel="icon"
-      href="../assets/logo-sekolah.png"
-      type="image/png/jpeg/jpg"
-    />
+    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-brand">
-          <div class="brand-logo">
-            <img src="../assets/logo-sekolah.png" alt="logo" />
-          </div>
-          <div class="brand-info">
-            <h1>Mts Ddi Tani Aman</h1>
-            <p>Madrasah berkarakter & unggul</p>
-          </div>
-        </div>
-
-        <div class="nav-menu">
-          <a href="#" class="active">Home</a>
-
-          <!-- Dropdown untuk Profil -->
-          <div class="dropdown">
-            <a href="#about" class="dropdown-toggle">
-              Profil <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-menu">
-              <a href="../profile/sejarah.html">Sejarah</a>
-              <a href="../profile/struktur-organisasi.html">Struktur Organisasi</a>
-              <a href="../profile/guru.html">Guru</a>
-              <a href="../profile/fasilitas.html">Fasilitas Sekolah</a>
-              <a href="../profile/ekskul.html">Ekstrakurikuler Sekolah</a>
-            </div>
-          </div>
-
-          <a href="../index.html #event">Agenda</a>
-          <a href="../index.html #news">Berita</a>
-          <a href="../index.html #gallery">Galeri</a>
-          <a href="../index.html #contact">Kontak</a>
-        </div>
-
-        <div class="hamburger" id="hamburger">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
-    </header>
-
+    <!-- HEADER -->
+    <?php include "../includes/header.php" ?>
 
     <section id="hero">
       <img
@@ -242,72 +204,9 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Brand Sekolah -->
-        <div class="footer-brand-full">
-          <div class="brand-left">
-            <img src="../assets/logo-sekolah.png" alt="Logo Sekolah" />
-          </div>
-
-          <div class="brand-right">
-            <h2 class="footer-title">MTS DDI Tani Aman</h2>
-            <p class="footer-desc">
-              Di bawah naungan
-              <strong
-                ><a href="https://kemenag.go.id/"
-                  >Kementerian Agama Republik Indonesia</a
-                ></strong
-              >, membina generasi berakhlak mulia, cerdas, dan berwawasan
-              Islami.
-            </p>
-
-            <!-- <div class="footer-kemenag">
-                    <img src="assets/kemenag.png" alt="Logo Kemenag">
-                    <span>Terwujudnya masyarakat yang cerdas dan maslahat menuju Indonesia Emas 2045</span>
-                </div> -->
-
-            <div class="footer-social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Menu -->
-        <div class="footer-column">
-          <h3>Menu</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profil</a></li>
-            <li><a href="#">Galeri</a></li>
-            <li><a href="#">Berita</a></li>
-            <li><a href="#">Kontak</a></li>
-          </ul>
-        </div>
-
-        <!-- Kontak -->
-        <div class="footer-column">
-          <h3>Kontak</h3>
-          <p>
-            <i class="fa-solid fa-location-dot info-foot"></i> Jl. Soekarno
-            Hatta, Tani Aman, Kec. Loa Janan Ilir
-          </p>
-          <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
-          <p>
-            <i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-ornament"></div>
-
-      <div class="footer-bottom">
-        <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
-      </div>
-    </footer>
-      <script src="../script/fade-in.js"></script>
+    <?php include_once "../includes/footer.php" ?>
+    
+    <script src="../script/fade-in.js"></script>
     <script src="script/nav-active.js"></script>
     <script src="../script/dropdown.js"></script>
     <script src="../script/hamburger-mennu.js"></script>

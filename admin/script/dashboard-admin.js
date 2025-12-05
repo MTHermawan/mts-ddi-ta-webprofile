@@ -69,6 +69,13 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Please select a valid image file (PNG, JPG, JPEG)");
+    if (typeof showWarning == 'function')
+    {
+      showWarning("Please select a valid image file (PNG, JPG, JPEG)");
+    }
+    else
+    {
+      alert("Please select a valid image file (PNG, JPG, JPEG)");
+    }
   }
 }

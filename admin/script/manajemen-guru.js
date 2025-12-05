@@ -86,7 +86,7 @@ function openEditPopup(id_staff) {
     // Jika ada foto, tampilkan preview
     if (staff.url_foto) {
       document.getElementById("previewImage").src = staff.url_foto;
-      document.getElementById("imagePlaceholder").style.display = "none";
+      document.getElementById("imagePlaceholder").style.display = "`no`ne";
       document.getElementById("imagePreview").style.display = "flex";
 
       handleResumeInput('imageInput', staff.url_foto);
@@ -99,7 +99,7 @@ function openEditPopup(id_staff) {
   document.getElementById("popup").style.display = "flex";
 }
 
-// Fungsi buka popup konfirmasi delete
+// Fungsi buka popup konfirmasi delete```
 function openDeletePopup(id_staff) {
   const staff = GetStaffById(id_staff);
   currentDeleteId = staff["id_staff"];
@@ -156,7 +156,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
+    showNotification("Harap pilih file gambar yang valid (PNG, JPG, JPEG)", "warning");
   }
 }
 
@@ -571,12 +571,11 @@ async function submitForm() {
   const foto_staff = document.getElementById("imageInput").files[0] ?? null;
 
   if (!nama.trim()) {
-    alert("Nama harus diisi!");
+    showWarning(`Nama harus diisi!`);
     return;
   }
-
+  
   let success = false;
-
   if (currentMode === "add") {
     success = await PostTambahStaff(
       nama,
@@ -585,11 +584,8 @@ async function submitForm() {
       pendidikan,
       foto_staff
     );
-    alert(
-      success
-        ? "Data staff berhasil ditambahkan"
-        : "Data staff gagal ditambahkan"
-    );
+      
+    success ? showSuccess("Data staff berhasil ditambahkan!") : showError("Data staff gagal ditambahkan!");
   } else {
     success = await PostEditStaff(
       currentEditId,
@@ -599,11 +595,7 @@ async function submitForm() {
       pendidikan,
       foto_staff
     );
-    alert(
-      success
-        ? `Data guru ${nama} berhasil diperbarui!`
-        : "Data staff gagal diperbarui"
-    );
+    success ? showSuccess(`Data staff "${nama}" berhasil diperbarui!`) : showError(`Data staff "${nama}" gagal diperbarui!`);
   }
 
   if (success) {
@@ -619,16 +611,13 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const staff = GetStaffById(currentDeleteId);
     if (!staff) {
-      alert("Staff tidak ditemukan!");
+      showWarning("Staff tidak ditemukan!");
       return;
     }
 
     const success = await PostDeleteStaff(staff["id_staff"]);
-    alert(
-      success
-        ? `Data guru ${staff["nama_staff"]} berhasil dihapus!`
-        : `Data guru ${staff["nama_staff"]} gagal dihapus!`
-    );
+    console.log(success);
+    success ? showSuccess(`Data staff "${staff["nama_staff"]}" berhasil dihapus!`) : showError(`Data guru "${staff["nama_staff"]}" gagal dihapus!`);
 
     if (success) {
       // Refresh tabel

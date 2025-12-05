@@ -454,7 +454,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
+    showWarning("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
   }
 }
 
@@ -473,17 +473,17 @@ async function submitForm() {
   const foto_ekskul = document.getElementById("imageInput").files[0] ? document.getElementById("imageInput").files : null;
 
   if (!nama.trim()) {
-    alert("Nama ekstrakurikuler harus diisi!");
+    showWarning("Nama ekstrakurikuler harus diisi!");
     return;
   }
 
   if (!pembimbing.trim()) {
-    alert("Nama pembimbing harus diisi!");
+    showWarning("Nama pembimbing harus diisi!");
     return;
   }
 
   if (!jadwal.trim()) {
-    alert("Jadwal harus diisi!");
+    showWarning("Jadwal harus diisi!");
     return;
   }
 
@@ -491,11 +491,7 @@ async function submitForm() {
 
   if (currentMode === "add") {
     success = await PostTambahEkskul(nama, pembimbing, jadwal, foto_ekskul);
-    alert(
-      success
-        ? "Data ekstrakurikuler berhasil ditambahkan"
-        : "Data ekstrakurikuler gagal ditambahkan"
-    );
+    success ? showSuccess("Data ekstrakurikuler berhasil ditambahkan") : showError("Data ekstrakurikuler gagal ditambahkan");
   } else {
     success = await PostEditEkskul(
       currentEditId,
@@ -504,11 +500,7 @@ async function submitForm() {
       jadwal,
       foto_ekskul
     );
-    alert(
-      success
-        ? `Data ekstrakurikuler ${nama} berhasil diperbarui!`
-        : "Data ekstrakurikuler gagal diperbarui"
-    );
+    success ? showSuccess(`Data ekstrakurikuler "${nama}" berhasil diperbarui!`) : showError("Data ekstrakurikuler gagal diperbarui")
   }
 
   if (success) {
@@ -523,16 +515,12 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const ekskul = GetEkskulById(currentDeleteId);
     if (!ekskul) {
-      alert("Ekstrakurikuler tidak ditemukan!");
+      showWarning("Ekstrakurikuler tidak ditemukan!");
       return;
     }
 
     const success = await PostDeleteEkskul(ekskul["id_ekskul"]);
-    alert(
-      success
-        ? `Data ekstrakurikuler ${ekskul["nama_ekskul"]} berhasil dihapus!`
-        : `Data ekstrakurikuler ${ekskul["nama_ekskul"]} gagal dihapus!`
-    );
+    success ? showSuccess(`Data ekstrakurikuler "${ekskul["nama_ekskul"]}" berhasil dihapus!`) : showError(`Data ekstrakurikuler "${ekskul["nama_ekskul"]}" gagal dihapus!`)
 
     if (success) {
       // Refresh ekskul cards

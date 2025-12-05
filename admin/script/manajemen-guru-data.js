@@ -61,7 +61,6 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
 
     const process = await MakeXMLRequest(method, url, formData)
     SearchStaffEvent();
-
     return process;
   } catch (error) {
     console.error("Could not fetch XML with XHR:", error);

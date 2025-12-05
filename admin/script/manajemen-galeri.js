@@ -361,7 +361,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
+    showWarning("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
   }
 }
 
@@ -379,12 +379,12 @@ async function submitForm() {
   const foto_galeri = document.getElementById("imageInput").files[0] ?? null;
 
   if (!judul.trim()) {
-    alert("Judul galeri harus diisi!");
+    showWarning("Judul galeri harus diisi!");
     return;
   }
 
   if (!deskripsi.trim()) {
-    alert("Deskripsi galeri harus diisi!");
+    showWarning("Deskripsi galeri harus diisi!");
     return;
   }
 
@@ -392,9 +392,7 @@ async function submitForm() {
 
   if (currentMode === "add") {
     success = await PostTambahGaleri(judul, deskripsi, foto_galeri);
-    alert(
-      success ? "Galeri berhasil ditambahkan!" : "Galeri gagal ditambahkan!"
-    );
+    success ? showSuccess("Galeri berhasil ditambahkan!") : showError("Galeri gagal ditambahkan!");
   } else {
     success = await PostEditGaleri(
       currentEditId,
@@ -402,11 +400,7 @@ async function submitForm() {
       deskripsi,
       foto_galeri
     );
-    alert(
-      success
-        ? `Galeri "${judul}" berhasil diperbarui!`
-        : "Galeri gagal diperbarui!"
-    );
+    success ? showSuccess(`Galeri "${judul}" berhasil diperbarui!`) : showError(`Galeri "${judul}" gagal diperbarui!`);
   }
 
   if (success) {
@@ -421,16 +415,12 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const galeri = GetGaleriById(currentDeleteId);
     if (!galeri) {
-      alert("Foto galeri tidak ditemukan!");
+      showWarning("Foto galeri tidak ditemukan!");
       return;
     }
 
     const success = await PostDeleteGaleri(galeri["id_galeri"]);
-    alert(
-      success
-        ? `Galeri "${galeri["judul_galeri"]}" berhasil dihapus!`
-        : `Galeri "${galeri["judul_galeri"]}" gagal dihapus!`
-    );
+    success ? showSuccess(`Galeri "${galeri["judul_galeri"]}" berhasil dihapus!`) : showError(`Galeri "${galeri["judul_galeri"]}" gagal dihapus!`);
 
     if (success) {
       // Refresh galeri cards

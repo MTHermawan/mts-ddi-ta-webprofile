@@ -36,7 +36,7 @@ async function MakeXMLRequest(method, url, formData = null) {
         xhr.open(method, url);
         xhr.addEventListener('load', () => {
             if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.responseText);
+                resolve(method != 'POST' ? xhr.responseText : true);
             } else {
                 reject({
                     status: xhr.status,
@@ -50,7 +50,7 @@ async function MakeXMLRequest(method, url, formData = null) {
             reject({
                 status: xhr.status,
                 statusText: xhr.statusText,
-                responseText: JSON.parse(xhr.responseText)
+                // responseText: JSON.parse(xhr.responseText)
             });
         };
         if (formData) {
@@ -195,8 +195,7 @@ function wrapText(text, maxLength = 25) {
     return result + line.trim();
 }
 
-function imagePlaceholderUrl(text)
-{
+function imagePlaceholderUrl(text) {
     wrappedText = wrapText(text);
     return `https://placehold.co/800?text=${wrappedText}&font=roboto`;
 }

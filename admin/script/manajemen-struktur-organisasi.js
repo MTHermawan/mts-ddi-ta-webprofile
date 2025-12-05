@@ -3,6 +3,7 @@ fileInput.type = "file";
 fileInput.accept = "image/*";
 fileInput.style.display = "none";
 fileInput.id = "imageInput";
+fileInput.multiple = true;
 
 strukturOrganisasiData = [];
 
@@ -82,7 +83,7 @@ async function submitForm() {
   const foto_struktur = fileInput.files[0] ? fileInput.files : null;
 
   const success = await PostSimpanStrukturOrganisasi(foto_struktur);
-  alert(success ? "Data fasilitas berhasil ditambahkan" : "Data fasilitas gagal ditambahkan");
+  success ? showSuccess( "Struktur organisasi berhasil ditambahkan") : showError("Struktur organisasi gagal ditambahkan");
 
   if (success) {
     // Refresh fasilitas cards

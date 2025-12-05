@@ -1,94 +1,52 @@
 /**
- * Menampilkan notifikasi popup
- * @param {string} message - Pesan yang akan ditampilkan
- * @param {number} duration - Durasi tampil dalam milidetik (default: 2000)
- * @param {string} type - Tipe notifikasi: 'success', 'error', 'warning', 'info' (default: 'success')
+ * Membuat notifikasi baru yang otomatis hilang dan dihapus dari DOM
+ * @param {string} message - Pesan notifikasi
+ * @param {number} duration - Durasi tampil (ms)
+ * @param {string} type - success | error | warning | info
  */
 function showNotification(message, duration = 2000, type = "success") {
-  // Cari atau buat elemen notifikasi
-  let notification = document.getElementById("global-notification");
-
-  // Jika belum ada, buat elemen baru
-  if (!notification) {
-    notification = document.createElement("div");
-    notification.id = "global-notification";
-    notification.className = "notification-popup";
-    notification.innerHTML = `
-            <div class="notification-icon">
-                <i class="fa-solid fa-check-circle"></i>
-            </div>
-            <div class="notification-content">
-                <div class="notification-title"></div>
-                <div class="notification-message"></div>
-            </div>
-        `;
-    document.body.appendChild(notification);
-  }
-
-  // Set tipe notifikasi
   const types = {
-    success: {
-      class: "success",
-      icon: "fa-check-circle",
-      title: "Berhasil!",
-    },
-    error: {
-      class: "error",
-      icon: "fa-exclamation-circle",
-      title: "Gagal!",
-    },
-    warning: {
-      class: "warning",
-      icon: "fa-triangle-exclamation",
-      title: "Peringatan!",
-    },
-    info: {
-      class: "info",
-      icon: "fa-info-circle",
-      title: "Informasi",
-    },
+    success: { class: "success", icon: "fa-check-circle", title: "Berhasil!" },
+    error: { class: "error", icon: "fa-exclamation-circle", title: "Gagal!" },
+    warning: { class: "warning", icon: "fa-triangle-exclamation", title: "Peringatan!" },
+    info: { class: "info", icon: "fa-info-circle", title: "Informasi" },
   };
 
-  const typeConfig = types[type] || types.success;
+  const cfg = types[type] || types.success;
 
-  // Update class
-  notification.className = "notification-popup";
-  notification.classList.add(typeConfig.class);
+  // Buat elemen baru (selalu baru)
+  const el = document.createElement("div");
+  el.className = `notification-popup ${cfg.class}`;
+  el.innerHTML = `
+      <div class="notification-icon">
+          <i class="fa-solid ${cfg.icon}"></i>
+      </div>
+      <div class="notification-content">
+          <div class="notification-title">${cfg.title}</div>
+          <div class="notification-message">${message}</div>
+      </div>
+  `;
 
-  // Update konten
-  notification.querySelector(".notification-icon i").className =
-    "fa-solid " + typeConfig.icon;
-  notification.querySelector(".notification-title").textContent =
-    typeConfig.title;
-  notification.querySelector(".notification-message").textContent = message;
+  // Tambahkan ke body
+  document.body.appendChild(el);
 
-  // Tampilkan notifikasi
-  notification.classList.add("show");
+  // Trigger animasi tampil
+  setTimeout(() => el.classList.add("show"), 10);
 
-  // Sembunyikan setelah durasi
+  // Timer untuk menghilangkan
   setTimeout(() => {
-    notification.classList.remove("show");
+    el.classList.remove("show");
+    setTimeout(() => el.remove(), 300); // beri waktu animasi hide
   }, duration);
 }
 
-// Fungsi pendek untuk tipe tertentu
-function showSuccess(message, duration = 2000) {
-  showNotification(message, duration, "success");
-}
+// Fungsi ringkas
+function showSuccess(msg, dur = 2000) { showNotification(msg, dur, "success"); }
+function showError(msg, dur = 3000) { showNotification(msg, dur, "error"); }
+function showWarning(msg, dur = 2500) { showNotification(msg, dur, "warning"); }
+function showInfo(msg, dur = 2000) { showNotification(msg, dur, "info"); }
 
-function showError(message, duration = 3000) {
-  showNotification(message, duration, "error");
-}
-
-function showWarning(message, duration = 2500) {
-  showNotification(message, duration, "warning");
-}
-
-function showInfo(message, duration = 2000) {
-  showNotification(message, duration, "info");
-}
-
-// Export fungsi ke window object agar bisa dipanggil dari mana saja
+// Export ke window
 window.showNotification = showNotification;
 window.showSuccess = showSuccess;
 window.showError = showError;

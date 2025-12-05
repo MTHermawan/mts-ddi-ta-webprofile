@@ -321,27 +321,23 @@ async function submitForm() {
 
   // Validasi
   if (!judul) {
-    showNotification("Peringatan", "Judul sejarah harus diisi!", "warning");
+    showWarning("Judul sejarah harus diisi!");
     return;
   }
 
   if (!tahun) {
-    showNotification("Peringatan", "Tahun sejarah harus diisi!", "warning");
+    showWarning("Tahun sejarah harus diisi!");
     return;
   }
 
   if (!deskripsi) {
-    showNotification("Peringatan", "Deskripsi sejarah harus diisi!", "warning");
+    showWarning("Deskripsi sejarah harus diisi!");
     return;
   }
 
   // Validasi tahun (harus angka 4 digit)
   if (!/^\d{4}$/.test(tahun)) {
-    showNotification(
-      "Peringatan",
-      "Tahun harus berupa 4 digit angka (contoh: 2023)",
-      "warning"
-    );
+    showWarning("Tahun harus berupa 4 digit angka (contoh: 2023)");
     return;
   }
 
@@ -369,14 +365,14 @@ async function submitForm() {
     }
 
     if (success) {
-      showNotification("Berhasil", "Sejarah berhasil ditambahkan!", "success");
+      showSuccess("Sejarah berhasil ditambahkan!");
 
       // Refresh data jika menggunakan API
       if (typeof ReloadDataSejarah === "function") {
         await ReloadDataSejarah();
       }
     } else {
-      showNotification("Gagal", "Sejarah gagal ditambahkan!", "error");
+      showError("Sejarah gagal ditambahkan!");
     }
   } else {
     // Edit data
@@ -400,18 +396,14 @@ async function submitForm() {
     }
 
     if (success) {
-      showNotification(
-        "Berhasil",
-        `Sejarah tahun ${tahun} berhasil diperbarui!`,
-        "success"
-      );
+      showSuccess(`Sejarah tahun "${tahun}" berhasil diperbarui!`);
 
       // Refresh data jika menggunakan API
       if (typeof ReloadDataSejarah === "function") {
         await ReloadDataSejarah();
       }
     } else {
-      showNotification("Gagal", "Sejarah gagal diperbarui!", "error");
+      showError(`Sejarah tahun "${tahun}" gagal diperbarui!`);
     }
   }
 
@@ -428,7 +420,7 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const sejarah = GetSejarahById(currentDeleteId);
     if (!sejarah) {
-      showNotification("Error", "Sejarah tidak ditemukan!", "error");
+      showError("Sejarah tidak ditemukan!");
       return;
     }
 
@@ -448,11 +440,7 @@ async function confirmDelete() {
     }
 
     if (success) {
-      showNotification(
-        "Berhasil",
-        `Sejarah tahun ${sejarah["tahun_sejarah"]} berhasil dihapus!`,
-        "success"
-      );
+      showSuccess(`Sejarah tahun "${sejarah["tahun_sejarah"]}" berhasil dihapus!`);
 
       // Refresh data jika menggunakan API
       if (typeof ReloadDataSejarah === "function") {
@@ -464,11 +452,7 @@ async function confirmDelete() {
       // Refresh tampilan
       displaySejarahCards(currentPage);
     } else {
-      showNotification(
-        "Gagal",
-        `Sejarah tahun ${sejarah["tahun_sejarah"]} gagal dihapus!`,
-        "error"
-      );
+      showError(`Sejarah tahun "${sejarah["tahun_sejarah"]}" gagal dihapus!`);
     }
   }
 }
@@ -625,50 +609,10 @@ function initializeSejarahView() {
   }
 }
 
-// Fungsi untuk menampilkan notifikasi
-function showNotification(title, message, type = "success") {
-  const notification = document.getElementById("global-notification");
-  const notificationTitle = notification.querySelector(".notification-title");
-  const notificationMessage = notification.querySelector(
-    ".notification-message"
-  );
-  const notificationIcon = notification.querySelector(".notification-icon i");
-
-  // Set warna berdasarkan type
-  let color = "#048600"; // success (default)
-  let icon = "fa-check-circle";
-
-  if (type === "warning") {
-    color = "#f59e0b";
-    icon = "fa-exclamation-triangle";
-  } else if (type === "error") {
-    color = "#dc2626";
-    icon = "fa-times-circle";
-  } else if (type === "info") {
-    color = "#3b82f6";
-    icon = "fa-info-circle";
-  }
-
-  // Set konten
-  notificationTitle.textContent = title;
-  notificationMessage.textContent = message;
-  notificationIcon.className = `fa-solid ${icon}`;
-  notification.style.borderLeftColor = color;
-  notificationIcon.style.color = color;
-
-  // Tampilkan notifikasi
-  notification.style.display = "flex";
-
-  // Auto hide setelah 5 detik
-  setTimeout(() => {
-    notification.style.display = "none";
-  }, 5000);
-}
-
 // Fungsi untuk export data (jika diperlukan)
 function exportToCSV() {
   if (sejarahData.length === 0) {
-    showNotification("Info", "Tidak ada data untuk diexport", "info");
+    showWarning('Tidak ada untuk diekspor');
     return;
   }
 
@@ -697,7 +641,7 @@ function exportToCSV() {
   link.click();
   document.body.removeChild(link);
 
-  showNotification("Berhasil", "Data berhasil diexport ke CSV", "success");
+  showSuccess("Data berhasil diexport ke CSV");
 }
 
 // Jika ada tombol export, tambahkan event listener

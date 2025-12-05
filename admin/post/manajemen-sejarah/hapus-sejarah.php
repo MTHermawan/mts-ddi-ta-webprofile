@@ -11,6 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteSejarah($id_sejarah);
 }
-// header('Location: ../../manajemen-sejarah.php');
+header('Location: ../../manajemen-sejarah.php');
 
 ?>

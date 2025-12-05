@@ -11,5 +11,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     DeleteStaff($id_staff);
 }
-
+header('Location: ../../manajemen-guru.php');
 ?>

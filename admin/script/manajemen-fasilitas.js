@@ -413,7 +413,7 @@ function handleImageSelection(file) {
 
     reader.readAsDataURL(file);
   } else {
-    alert("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
+    showWarning("Harap pilih file gambar yang valid (PNG, JPG, JPEG)");
   }
 }
 
@@ -432,12 +432,12 @@ async function submitForm() {
   const foto_fasilitas = document.getElementById("imageInput").files[0] ? document.getElementById("imageInput").files : null;
 
   if (!nama.trim()) {
-    alert("Nama fasilitas harus diisi!");
+    showWarning("Nama fasilitas harus diisi!");
     return;
   }
 
   if (!deskripsi.trim()) {
-    alert("Deskripsi fasilitas harus diisi!");
+    showWarning("Deskripsi fasilitas harus diisi!");
     return;
   }
 
@@ -445,10 +445,10 @@ async function submitForm() {
 
   if (currentMode === "add") {
     success = await PostTambahFasilitas(nama, deskripsi, foto_fasilitas);
-    alert(success ? "Data fasilitas berhasil ditambahkan" : "Data fasilitas gagal ditambahkan");
+    success ? showSuccess( "Data fasilitas berhasil ditambahkan") : showError("Data fasilitas gagal ditambahkan");
   } else {
     success = await PostEditFasilitas(currentEditId, nama, deskripsi, foto_fasilitas);
-    alert(success ? `Data fasilitas ${nama} berhasil diperbarui!` : "Data fasilitas gagal diperbarui");
+    success ? showSuccess(`Data fasilitas "${nama}" berhasil diperbarui!`) : showError(`Data fasilitas "${nama}" gagal diperbarui`);
   }
 
   if (success) {
@@ -463,12 +463,12 @@ async function confirmDelete() {
   if (currentDeleteId) {
     const facility = GetFacilityById(currentDeleteId);
     if (!facility) {
-      alert('Fasilitas tidak ditemukan!');
+      showWarning('Fasilitas tidak ditemukan!');
       return;
     }
 
     const success = await PostDeleteFasilitas(facility['id_fasilitas']);
-    alert(success ? `Data fasilitas ${facility['nama_fasilitas']} berhasil dihapus!` : `Data fasilitas ${facility['nama_fasilitas']} gagal dihapus!`);
+    success ? showSuccess(`Data fasilitas "${facility['nama_fasilitas']}" berhasil dihapus!`) : showError(`Data fasilitas "${facility['nama_fasilitas']}" gagal dihapus!`);
 
     if (success) {
       // Refresh fasilitas cards
