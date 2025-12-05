@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/hero-sect.css" />
     <link rel="stylesheet" href="../style/berita.css" />
     <link rel="stylesheet" href="../style/header.css" />
+    <link rel="stylesheet" href="../style/dropdown.css" />
     <link
       rel="icon"
       href="../assets/logo-sekolah.png"
@@ -32,8 +33,22 @@
         </div>
 
         <div class="nav-menu">
-          <a href="../index.html#home">Home</a>
-          <a href="" class="active">Profil</a>
+          <a href="../index.html#home" class="">Home</a>
+
+          <!-- Dropdown untuk Profil -->
+          <div class="dropdown">
+            <a href="#about" class="dropdown-toggle">
+              Profil <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="../profile/sejarah.html">Sejarah</a>
+              <a href="../profile/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="../profile/guru.html">Guru</a>
+              <a href="../profile/fasilitas.html">Fasilitas Sekolah</a>
+              <a href="../profile/ekskul.html">Ekstrakurikuler Sekolah</a>
+            </div>
+          </div>
+
           <a href="../index.html#event">Agenda</a>
           <a href="../index.html#news">Berita</a>
           <a href="../index.html#gallery">Galeri</a>
@@ -230,5 +245,6 @@
     </footer>
 
     <script src="../script/fade-in.js"></script>
+    <script src="../script/dropdown.js"></script>
   </body>
 </html>

@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../style/hero-sect.css">
     <link rel="stylesheet" href="../style/struktur-organisasi.css">
     <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/dropdown.css" />
     <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
       <nav class="navbar">
         <div class="nav-brand">
@@ -26,8 +26,22 @@
         </div>
 
         <div class="nav-menu">
-          <a href="../index.html#home">Home</a>
-          <a href="" class="active">Profil</a>
+          <a href="../index.html#home" class="">Home</a>
+
+          <!-- Dropdown untuk Profil -->
+          <div class="dropdown">
+            <a href="#about" class="dropdown-toggle active">
+              Profil <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="sejarah.html">Sejarah</a>
+              <a href="struktur-organisasi.html" class="active">Struktur Organisasi</a>
+              <a href="guru.html">Guru</a>
+              <a href="fasilitas.html">Fasilitas Sekolah</a>
+              <a href="ekskul.html">Ekstrakurikuler Sekolah</a>
+            </div>
+          </div>
+
           <a href="../index.html#event">Agenda</a>
           <a href="../index.html#news">Berita</a>
           <a href="../index.html#gallery">Galeri</a>
@@ -49,11 +63,11 @@
           Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
           Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
         </p>
-        <a href="../index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
+        <button class="btn-primary">Hubungi Kami</button>
       </div>
     </section>
 
-    <!-- SECTION SEJARAH -->
+    <!-- SECTION Struktur -->
     <section class="sejarah-section">
         <h1 class="judul-utama">Struktur Organisasi Sekolah</h1>
         <p class="sub-judul-struktur">
@@ -125,6 +139,6 @@
         <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
     </div>
 </footer>
-
+<script src="../script/dropdown.js"></script>
 </body>
 </html>

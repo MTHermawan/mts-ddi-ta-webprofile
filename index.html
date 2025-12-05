@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/dropdown.css" />
     <link rel="icon" href="assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
     <title>Mts Ddi Tani Aman</title>
   </head>
@@ -27,7 +28,21 @@
 
         <div class="nav-menu">
           <a href="#" class="active">Home</a>
-          <a href="#about">Profil</a>
+
+          <!-- Dropdown untuk Profil -->
+          <div class="dropdown">
+            <a href="#about" class="dropdown-toggle">
+              Profil <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="./profile/sejarah.html">Sejarah</a>
+              <a href="./profile/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="./profile/guru.html">Guru</a>
+              <a href="./profile/fasilitas.html">Fasilitas Sekolah</a>
+              <a href="./profile/ekskul.html">Ekstrakurikuler Sekolah</a>
+            </div>
+          </div>
+
           <a href="#event">Agenda</a>
           <a href="#news">Berita</a>
           <a href="#gallery">Galeri</a>
@@ -643,5 +658,6 @@
     <script src="script/navbar.js"></script>
     <script src="script/nav-active.js"></script>
     <script src="script/script.js"></script>
+    <script src="script/dropdown.js"></script>
   </body>
 </html>

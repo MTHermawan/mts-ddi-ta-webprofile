@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/hero-sect.css" />
     <link rel="stylesheet" href="../style/sejarahh.css" />
     <link rel="stylesheet" href="../style/header.css" />
+    <link rel="stylesheet" href="../style/dropdown.css" />
     <link
       rel="icon"
       href="../assets/logo-sekolah.png"
@@ -18,7 +19,6 @@
     />
   </head>
   <body>
-    <!-- HEADER -->
     <header>
       <nav class="navbar">
         <div class="nav-brand">
@@ -32,8 +32,22 @@
         </div>
 
         <div class="nav-menu">
-          <a href="../index.html#home">Home</a>
-          <a href="" class="active">Profil</a>
+          <a href="../index.html#home" class="">Home</a>
+
+          <!-- Dropdown untuk Profil -->
+          <div class="dropdown">
+            <a href="#about" class="dropdown-toggle active">
+              Profil <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="sejarah.html" class="active">Sejarah</a>
+              <a href="struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="guru.html">Guru</a>
+              <a href="fasilitas.html">Fasilitas Sekolah</a>
+              <a href="ekskul.html">Ekstrakurikuler Sekolah</a>
+            </div>
+          </div>
+
           <a href="../index.html#event">Agenda</a>
           <a href="../index.html#news">Berita</a>
           <a href="../index.html#gallery">Galeri</a>
@@ -55,7 +69,9 @@
           Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
           Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
         </p>
-        <a href="../index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
+        <a href="../index.html#contact"
+          ><button class="btn-primary">Hubungi Kami</button></a
+        >
       </div>
     </section>
 
@@ -104,26 +120,23 @@
             <div class="timeline-content">
               <h3>Akreditasi "A" Nasional</h3>
               <p>
-                MTs DDI Tani Aman meraih akreditasi "A" dari
-                Badan Akreditasi Nasional (BAN-SM) dengan SK Nomor:
-                999/BAN-SM/SK/2021. Saat ini dipimpin oleh Ibu ST. Fatimah Amin,
-                S.Pd., dengan total 23 tenaga pendidik dan kependidikan.
+                MTs DDI Tani Aman meraih akreditasi "A" dari Badan Akreditasi
+                Nasional (BAN-SM) dengan SK Nomor: 999/BAN-SM/SK/2021. Saat ini
+                dipimpin oleh Ibu ST. Fatimah Amin, S.Pd., dengan total 23
+                tenaga pendidik dan kependidikan.
               </p>
             </div>
           </div>
 
           <!-- 2024/2025 - Kanan -->
           <div class="timeline-item right fade-in">
-            <div class="timeline-year">
-              2024
-            </div>
+            <div class="timeline-year">2024</div>
             <div class="timeline-content">
               <h3>Prestasi & Pertumbuhan</h3>
               <p>
-                Madrasah kini memiliki 236 siswa aktif dan
-                telah meluluskan lebih dari 3.000 alumni. Pada
-                tahun ajaran ini, angkatan ke-39 lulus dengan
-                100% kelulusan. Fasilitas fisik, prestasi
+                Madrasah kini memiliki 236 siswa aktif dan telah meluluskan
+                lebih dari 3.000 alumni. Pada tahun ajaran ini, angkatan ke-39
+                lulus dengan 100% kelulusan. Fasilitas fisik, prestasi
                 akademik-nonakademik, dan jaringan alumni terus berkembang
                 pesat.
               </p>
@@ -202,5 +215,6 @@
 
     <script src="../script/fade-in.js"></script>
     <script src="script/nav-active.js"></script>
+    <script src="../script/dropdown.js"></script>
   </body>
 </html>
