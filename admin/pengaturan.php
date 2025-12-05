@@ -27,91 +27,368 @@ require_once "./includes/check-auth.php";
     <?php include "./includes/header.php" ?>
 
     <!-- Title Menu -->
-    <h1 class="menu-title">Halaman Utama</h1>
+    <h1 class="menu-title">Pengaturan</h1>
 
     <!-- Main Content -->
     <div class="main-content">
 
-      <!-- main content stats -->
-      <div class="stats-container">
-        <div class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <img src="../assets/icon-students.svg" alt="Student Icon" />
-            </div>
-            <div class="stat-info">
-              <div class="divider-vertical"></div>
-              <div class="stat-details">
-                <h2 class="stat-title">Siswa</h2>
-                <p class="stat-value">220</p>
-              </div>
-            </div>
-            <div class="stat-actions">
-              <div></div>
-              <button class="btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
-            </div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <img src="../assets/icon-teachers.svg" alt="teacher Icon" />
-            </div>
-            <div class="stat-info">
-              <div class="divider-vertical"></div>
-              <div class="stat-details">
-                <h2 class="stat-title">Guru</h2>
-                <p class="stat-value">20</p>
-              </div>
-            </div>
-            <div class="stat-actions">
-              <div></div>
-              <button class="btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
-            </div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <img src="../assets/icon-graduates.svg" alt="graduate Icon" />
-            </div>
-            <div class="stat-info">
-              <div class="divider-vertical"></div>
-              <div class="stat-details">
-                <h2 class="stat-title">Lulusan</h2>
-                <p class="stat-value">1,110</p>
-              </div>
-            </div>
-            <div class="stat-actions">
-              <div></div>
-              <button class="btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
-            </div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <img
-                src="../assets/icon-extracurricular.svg"
-                alt="Extracurricular Icon" />
-            </div>
-            <div class="stat-info">
-              <div class="divider-vertical"></div>
-              <div class="stat-details">
-                <h2 class="stat-title">Ekstrakurikuler</h2>
-                <p class="stat-value">8</p>
-              </div>
-            </div>
-            <div class="stat-actions">
-              <div></div>
-              <button class="btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- main content media social -->
-      <form action="" class="social-container">
+      <form action="" class="form-container">
+        <div class="upload-container">
+          <div class="upload-card card-left">
+            <h2 class="change-password-title">Logo Sekolah</h2>
+            <div id="imagePreview">
+              <div class="placeholder-content" id="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
+                </svg>
+                <span>Preview akan muncul di sini</span>
+              </div>
+              <img src="" alt="Preview Gambar" id="previewImg">
+            </div>
+
+            <input type="file" id="fileInput" accept="image/*">
+
+            <label for="fileInput" class="custom-file-upload">
+              Upload Gambar
+            </label>
+          </div>
+
+          <div class="upload-card card-right">
+            <h2 class="change-password-title">Logo Sekolah</h2>
+            <div id="imagePreview">
+              <div class="placeholder-content" id="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
+                </svg>
+                <span>Preview akan muncul di sini</span>
+              </div>
+              <img src="" alt="Preview Gambar" id="previewImg">
+            </div>
+
+            <input type="file" id="fileInput" accept="image/*">
+
+            <label for="fileInput" class="custom-file-upload">
+              Upload Gambar
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="name">Nama Sekolah</label>
+                  <input
+                    class="input-text"
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Masukkan Nama Sekolah" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="motto">Motto Sekolah</label>
+                  <input
+                    class="input-text"
+                    id="motto"
+                    name="motto"
+                    type="text"
+                    placeholder="Berkarkter & Unggul" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="hero-section">Judul Visual Utama</label>
+                  <input
+                    class="input-text"
+                    id="hero-section"
+                    name="hero-section"
+                    type="text"
+                    placeholder="Pendidikan Berkarakter" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="sub-hero-section">Deskripsi Visual Utama</label>
+                  <input
+                    class="input-text"
+                    id="sub-hero-section"
+                    name="sub-hero-section"
+                    type="text"
+                    placeholder="Mengedepankan Nilai-Nilai Cerdas Beretika" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="sub-title-about">Sub Judul Tentang</label>
+                  <input
+                    class="input-text"
+                    id="sub-title-about"
+                    name="sub-title-about"
+                    type="text"
+                    placeholder="Masukkan Nama Sekolah" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-about">Deskripsi Tentang</label>
+                  <input
+                    class="input-text"
+                    id="description-about"
+                    name="description-about"
+                    type="text"
+                    placeholder="Menjadi lembaga pendidikan Islam..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-agenda">Deskripsi Agenda</label>
+                  <input
+                    class="input-text"
+                    id="description-agenda"
+                    name="description-agenda"
+                    type="text"
+                    placeholder="Ikuti berbagai kegiatan seru..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-berita">Deskripsi Berita</label>
+                  <input
+                    class="input-text"
+                    id="description-berita"
+                    name="description-berita"
+                    type="text"
+                    placeholder="Simak update terkini dari Madrasah..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-galeri">Deskripsi Galeri</label>
+                  <input
+                    class="input-text"
+                    id="description-galeri"
+                    name="description-galeri"
+                    type="text"
+                    placeholder="Simak momen-momen..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-tentang-kami">Deskripsi Tentang Kami</label>
+                  <input
+                    class="input-text"
+                    id="description-tentang-kami"
+                    name="description-tentang-kami"
+                    type="text"
+                    placeholder="Kami selalu terbuka untuk berdiskusi..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="meta-row">
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="jumlah-staff">Jumlah Staff</label>
+                  <input
+                    class="input-text"
+                    id="jumlah-staff"
+                    name="jumlah-staff"
+                    type="text"
+                    placeholder="60+" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="jumlah-murid">Jumlah Murid</label>
+                  <input
+                    class="input-text"
+                    id="jumlah-murid"
+                    name="jumlah-murid"
+                    type="text"
+                    placeholder="220+" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="description-staff">Deskripsi Staff</label>
+                  <input
+                    class="input-text"
+                    id="description-staff"
+                    name="description-staff"
+                    type="text"
+                    placeholder="Beragam latar belakang ilmu..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="description-staff">Deskripsi Murid</label>
+                  <input
+                    class="input-text"
+                    id="description-staff"
+                    name="description-staff"
+                    type="text"
+                    placeholder="Komunitas pelajar yang beragam..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="core-value-1">Nilai Dasar 1</label>
+                  <input
+                    class="input-text"
+                    id="core-value-1"
+                    name="core-value-1"
+                    type="text"
+                    placeholder="Nilai Dasar 1..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="core-value-2">Nilai Dasar 2</label>
+                  <input
+                    class="input-text"
+                    id="core-value-2"
+                    name="core-value-2"
+                    type="text"
+                    placeholder="Nilai Dasar 2..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="core-value-3">Nilai Dasar 3</label>
+                  <input
+                    class="input-text"
+                    id="core-value-3"
+                    name="core-value-3"
+                    type="text"
+                    placeholder="Nilai Dasar 3..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="core-value-4">Nilai Dasar 4</label>
+                  <input
+                    class="input-text"
+                    id="core-value-4"
+                    name="core-value-4"
+                    type="text"
+                    placeholder="Nilai Dasar 4..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <div class="social-row">
           <div class="social-card">
             <div class="social-form social-form-left">
@@ -195,7 +472,28 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-        <div class="social-row social-row-full">
+        <div class="social-row">
+          <div class="social-card">
+            <div class="social-form social-form-left">
+              <div class="social-icon">
+                <img
+                  src="../assets/icon-phone.svg"
+                  alt="instagram Icon" />
+              </div>
+              <div class="social-info">
+                <div class="social-details">
+                  <label class="social-label" for="phone">Telepon</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    required
+                    placeholder="08123456789" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="social-card social-card-full">
             <div class="social-form">
               <div class="social-icon">
@@ -249,8 +547,49 @@ require_once "./includes/check-auth.php";
         </div>
       </form>
 
-      <!-- main content location -->
-      <form action="" class="location-container"></form>
+      <form action="" class="form-container">
+        <h1 class="change-password-title">Ubah Kata Sandi</h1>
+        <div class="settings-row">
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="new-password">Kata Sandi Baru</label>
+                  <input
+                    class="input-text"
+                    id="new-password"
+                    name="new-password"
+                    type="password"
+                    placeholder="Masukkan Password Baru" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="retype-new-password">Konfirmasi Kata Sandi Baru</label>
+                  <input
+                    class="input-text"
+                    id="retype-new-password"
+                    name="retype-new-password"
+                    type="password"
+                    placeholder="Masukkan Password Baru" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <div></div>
+          <button class="btn-save">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+      </form>
+
     </div>
   </div>
 
@@ -264,7 +603,7 @@ require_once "./includes/check-auth.php";
       <div class="notification-message">Pesan notifikasi</div>
     </div>
   </div>
-  <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/pengaturan.js"></script>
   <script src="./script/notification.js"></script>
 </body>
 
