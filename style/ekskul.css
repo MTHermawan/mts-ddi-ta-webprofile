@@ -66,6 +66,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -152,95 +153,71 @@ body {
 }
 
 /* RESPONSIVE TAMBAHAN UNTUK MOBILE & TABLET */
+/* ============================
+   RESPONSIVE TABLET (≤ 992px)
+============================ */
 @media (max-width: 992px) {
+
   .ekstrakurikuler-section {
     padding: 40px 40px;
   }
 
   .ekstrakurikuler-wrapp {
-    justify-content: center;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* PENTING */
+    gap: 25px;
   }
 
   .ekstrakurikuler-card {
-    width: 280px;
-    min-height: 340px;
-  }
-
-  .ekstrakurikuler-gambar img {
-    width: 100%;
-    height: 200px;
+    flex: 1 1 45%;
+    max-width: 380px;
+    min-width: 300px;
   }
 }
 
+/* ============================
+   RESPONSIVE MOBILE (≤ 768px)
+============================ */
 @media (max-width: 768px) {
-  .ekstrakurikuler-section {
-    padding: 40px 25px;
-    margin: 40px auto;
-  }
 
-  .judul-utama {
-    font-size: 2rem;
+  .ekstrakurikuler-section {
+    padding: 30px 20px;
   }
 
   .ekstrakurikuler-wrapp {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* gap: 22px; */
   }
 
   .ekstrakurikuler-card {
+    flex: 1 1 100%;
+    max-width: 380px;
     width: 100%;
-    max-width: 350px;
-    padding: 20px;
-    min-height: 400px;
-  }
-
-  .ekstrakurikuler-gambar img {
-    width: 100%;
-    height: 210px;
-    border-radius: 15px;
-  }
-
-  .ekstrakurikuler-judul a {
-    font-size: 20px;
+    min-width: 280px;
+    margin: 0 auto; /* PENTING agar center */
   }
 }
 
+/* ============================
+   HP KECIL (≤ 480px)
+============================ */
 @media (max-width: 480px) {
+
   .ekstrakurikuler-section {
-    padding: 30px 15px;
+    padding: 25px 15px;
   }
 
-  .judul-utama {
-    font-size: 1.75rem;
+  .ekstrakurikuler-wrapp {
+    justify-content: center;
   }
 
   .ekstrakurikuler-card {
-    padding: 18px;
-  }
-
-  .ekstrakurikuler-gambar img {
-    height: 190px;
-  }
-
-  .ekstrakurikuler-deskripsi {
-    font-size: 11.5px;
-    line-height: 1.4rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .ekstrakurikuler-card {
-    flex-direction: column;
-  }
-
-  .ekstrakurikuler-gambar img {
     width: 100%;
-    height: 220px;
-  }
-
-  .ekstrakurikuler-judul a {
-    font-size: 22px;
+    min-width: 260px;
+    padding: 18px;
+    margin: 0 auto; /* Center */
   }
 }

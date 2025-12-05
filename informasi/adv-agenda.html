@@ -20,7 +20,8 @@
   </head>
   <body>
     <!-- HEADER -->
-    <nav class="navbar">
+    <header>
+      <nav class="navbar">
         <div class="nav-brand">
           <div class="brand-logo">
             <img src="../assets/logo-sekolah.png" alt="logo" />
@@ -32,7 +33,7 @@
         </div>
 
         <div class="nav-menu">
-          <a href="../index.html#home" class="">Home</a>
+          <a href="#" class="active">Home</a>
 
           <!-- Dropdown untuk Profil -->
           <div class="dropdown">
@@ -48,13 +49,18 @@
             </div>
           </div>
 
-          <a href="../index.html#event">Agenda</a>
-          <a href="../index.html#news">Berita</a>
-          <a href="../index.html#gallery">Galeri</a>
-          <a href="../index.html#contact">Kontak</a>
+          <a href="../index.html #event">Agenda</a>
+          <a href="../index.html #news">Berita</a>
+          <a href="../index.html #gallery">Galeri</a>
+          <a href="../index.html #contact">Kontak</a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
         </div>
       </nav>
     </header>
+
 
     <section id="hero">
       <img
@@ -185,6 +191,8 @@
     </footer>
 
     <script src="../script/fade-in.js"></script>
+    <script src="script/nav-active.js"></script>
     <script src="../script/dropdown.js"></script>
+    <script src="../script/hamburger-mennu.js"></script>
   </body>
 </html>
