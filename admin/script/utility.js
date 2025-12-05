@@ -62,9 +62,8 @@ async function MakeXMLRequest(method, url, formData = null) {
     });
 }
 
-async function handleResumeInput(remoteResumeURL) {
-
-    const input = document.getElementById('imageInput');
+async function handleResumeInput(id, remoteResumeURL) {
+    const input = document.getElementById(id);
     const dt = new DataTransfer();
 
     if (!input) {

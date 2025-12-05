@@ -44,5 +44,10 @@ else if ($segments[0] === "sejarah") {
     require "./controllers/sejarah.php";
     exit;
 }
+else if ($segments[0] === "struktur_organisasi") {
+    $id_sejarah = $segments[1] ?? null;
+    require "./controllers/struktur_organisasi.php";
+    exit;
+}
 
 echo json_encode(["error" => "Endpoint not found"]);

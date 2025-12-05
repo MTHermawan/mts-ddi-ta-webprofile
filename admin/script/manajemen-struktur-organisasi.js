@@ -1,3 +1,11 @@
+const fileInput = document.createElement("input");
+fileInput.type = "file";
+fileInput.accept = "image/*";
+fileInput.style.display = "none";
+fileInput.id = "imageInput";
+
+strukturOrganisasiData = [];
+
 // JavaScript untuk menangani upload gambar
 document.addEventListener("DOMContentLoaded", function () {
   const uploadButton = document.getElementById("uploadButton");
@@ -12,10 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Membuat input file tersembunyi
-  const fileInput = document.createElement("input");
-  fileInput.type = "file";
-  fileInput.accept = "image/*";
-  fileInput.style.display = "none";
   document.body.appendChild(fileInput);
 
   // Event listener untuk tombol upload
@@ -51,4 +55,38 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset input file
     fileInput.value = "";
   });
+
+  simpanButton.addEventListener('click', () => {
+    submitForm();
+  });
+
+  window.onload = () => {
+    ReloadStrukturOrgnanisasiView();
+  }
 });
+
+async function ReloadStrukturOrgnanisasiView() {
+  if (typeof ReloadDataStrukturOrganisasi == 'function') {
+    await ReloadDataStrukturOrganisasi();
+  }
+
+  if (strukturOrganisasiData) {
+    if (typeof handleResumeInput == 'function') {
+      url_foto_arr = Object.values(strukturOrganisasiData).map(foto => foto.url_foto).filter(url => url);
+      handleResumeInput('imageInput', url_foto_arr);
+    }
+  }
+}
+
+async function submitForm() {
+  const foto_struktur = fileInput.files[0] ? fileInput.files : null;
+
+  const success = await PostSimpanStrukturOrganisasi(foto_struktur);
+  alert(success ? "Data fasilitas berhasil ditambahkan" : "Data fasilitas gagal ditambahkan");
+
+  if (success) {
+    // Refresh fasilitas cards
+    ReloadStrukturOrgnanisasiView();
+  }
+}
+

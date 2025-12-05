@@ -393,7 +393,7 @@ function openEditPopup(id_ekskul) {
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
       
-      handleResumeInput(url_foto_arr);
+      handleResumeInput('imageInput', url_foto_arr);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
