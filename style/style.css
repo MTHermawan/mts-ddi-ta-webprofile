@@ -508,6 +508,10 @@ section.show {
   color: rgb(4, 134, 0);
 }
 
+.event-content a {
+  text-decoration: none;
+}
+
 .btn-event {
   background-color: transparent;
   width: fit-content;
@@ -524,17 +528,18 @@ section.show {
 
 .btn-event:hover {
   color: rgb(4, 134, 0);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-.section-actions {
+.btn-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
 }
 
 .btn-secondary {
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -548,12 +553,18 @@ section.show {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .btn-secondary:hover {
   background-color: rgb(4, 134, 0);
   color: white;
+  text-decoration: none;
 }
+
+.btn-secondary:active, .btn-secondary:visited {
+  text-decoration: none;
+} 
 /* event section stop */
 
 /* news section start */
@@ -899,7 +910,7 @@ section.show {
 .event-card:hover,
 .news-item:hover,
 .featured-content:hover,
-.contact-item:hover, 
+.contact-item:hover,
 .card:hover {
   animation: move 2s ease-in-out infinite;
 }
