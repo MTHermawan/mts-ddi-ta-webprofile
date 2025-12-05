@@ -294,6 +294,8 @@ function openEditPopup(id_galeri) {
       document.getElementById("previewImage").src = galeri.url_foto;
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
+
+      handleResumeInput(galeri.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
@@ -423,7 +425,7 @@ async function confirmDelete() {
       return;
     }
 
-    const success = await DeleteGaleri(galeri["id_galeri"]);
+    const success = await PostDeleteGaleri(galeri["id_galeri"]);
     alert(
       success
         ? `Galeri "${galeri["judul_galeri"]}" berhasil dihapus!`

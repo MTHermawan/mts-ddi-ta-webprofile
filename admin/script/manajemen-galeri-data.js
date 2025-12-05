@@ -46,7 +46,7 @@ async function PostTambahGaleri(judul, deskripsi, foto_galeri) {
 async function PostEditGaleri(id_galeri, judul, deskripsi, foto_galeri) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-galeri/update-gakeri.php';
+    const url = './post/manajemen-galeri/update-galeri.php';
 
     const formData = new FormData();
     formData.append('id_galeri', id_galeri);
@@ -65,7 +65,7 @@ async function PostEditGaleri(id_galeri, judul, deskripsi, foto_galeri) {
   return false;
 }
 
-async function PostDeleteFasilitas(id_galeri) {
+async function PostDeleteGaleri(id_galeri) {
   try {
     const method = 'POST';
     const url = './post/manajemen-galeri/hapus-galeri.php';
