@@ -164,6 +164,10 @@
 
 /* ==== RESPONSIVE TABLET ==== */
 @media (max-width: 1024px) {
+.container {
+    padding: 0px 60px 50px;
+  }
+
   .judul-utama {
     font-size: 2.2rem;
   }
@@ -180,6 +184,11 @@
 
 /* ==== RESPONSIVE MOBILE ==== */
 @media (max-width: 768px) {
+
+    .container {
+    padding: 0px 25px 40px;
+  }
+
   .judul-utama {
     font-size: 2rem;
   }
@@ -230,6 +239,11 @@
 
 /* ==== VERY SMALL DEVICES (HP kecil) ==== */
 @media (max-width: 480px) {
+
+    .container {
+    padding: 0px 18px 35px;
+  }
+
   .judul-utama {
     font-size: 1.8rem;
   }

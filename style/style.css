@@ -1089,3 +1089,223 @@ section.show {
     justify-content: center;
   }
 }
+
+/* ============================================================
+   RESPONSIVE DESIGN  
+   ============================================================ */
+
+/* ----------  Laptop Medium (max-width: 1200px) ---------- */
+@media (max-width: 1200px) {
+  #hero {
+    padding: 80px 60px;
+  }
+
+  #about,
+  #event,
+  #news {
+    padding: 70px 60px;
+  }
+
+  .about-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .feature-card-large {
+    width: 100%;
+  }
+
+  .stats-grid {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .stat-card {
+    flex: 1;
+  }
+
+  .featured-content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 320px;
+  }
+}
+
+/* ----------  Tablet (max-width: 992px) ---------- */
+@media (max-width: 992px) {
+  #hero {
+    padding: 60px 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .stats-grid {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .highlight-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlight-card {
+    width: 90%;
+  }
+
+  .events-grid,
+  .news-grid {
+    justify-content: center;
+  }
+}
+
+/* ----------  Tablet Small & HP Horizontal (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+  #hero {
+    padding: 40px 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  #about,
+  #event,
+  #news {
+    padding: 60px 24px;
+  }
+
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .feature-card-large {
+    flex-direction: column;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: 250px;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .events-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .news-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-card,
+  .news-item {
+    width: 100%;
+  }
+
+  .featured-content {
+    flex-direction: column;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+/* ----------  Smartphone (max-width: 576px) ---------- */
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    padding: 10px 22px;
+  }
+
+  .section-title,
+  .about-title,
+  .event-title {
+    font-size: 28px;
+  }
+
+  .about-intro,
+  .event-intro {
+    font-size: 15px;
+  }
+
+  .feature-card-large {
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-size: 26px;
+  }
+
+  .highlight-card {
+    width: 100%;
+  }
+
+  .featured-title {
+    font-size: 22px;
+  }
+
+  .featured-desc {
+    font-size: 15px;
+  }
+}
+
+/* ----------  Smartphone Kecil (max-width: 420px) ---------- */
+@media (max-width: 420px) {
+  #hero {
+    padding: 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .feature-content h2 {
+    font-size: 22px;
+  }
+
+  .event-name,
+  .news-name {
+    font-size: 18px;
+  }
+
+  .stat-title {
+    font-size: 18px;
+  }
+
+  .highlight-card {
+    padding: 18px;
+  }
+}
