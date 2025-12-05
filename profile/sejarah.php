@@ -1,6 +1,8 @@
 <?php session_start();
 include_once "../data/koneksi.php";
+include_once "../data/data_sejarah.php";
 
+$dataSejarah = GetSejarah();
 ?>
 
 <!DOCTYPE html>
@@ -44,15 +46,25 @@ include_once "../data/koneksi.php";
     </section>
 
     <!-- SECTION SEJARAH -->
-
     <section class="sejarah-section">
       <div class="container">
         <h1 class="judul-utama">Sejarah Singkat</h1>
         <p class="sub-judul-sejarah">
           Dari Mimpi Kecil Menuju Generasi Qur’ani
         </p>
-
+        
         <div class="timeline-alternate">
+          <?php for ($i=0; $i < count($dataSejarah); $i++) { ?>
+            <div class="timeline-item <?php echo ($i % 2 == 0) ? "left" : "right"; ?> fade-in">
+            <div class="timeline-year"><?php echo $dataSejarah[$i]['tahun_sejarah']; ?></div>
+            <div class="timeline-content">
+              <h3><?php echo $dataSejarah[$i]['judul_sejarah']; ?></h3>
+              <p>
+                <?php echo $dataSejarah[$i]['deskripsi']; ?>.
+              </p>
+            </div>
+          </div>
+          <?php } ?>
           <!-- 1984 - Kiri -->
           <div class="timeline-item left fade-in">
             <div class="timeline-year">1984</div>

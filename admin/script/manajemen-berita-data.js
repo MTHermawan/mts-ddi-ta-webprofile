@@ -57,7 +57,7 @@ async function PostEditBerita(id_berita, judul, deskripsi, foto_berita) {
     const formData = new FormData();
     formData.append('id_berita', id_berita);
     formData.append('judul', judul);
-    formData.append('deskripsi', konten);
+    formData.append('deskripsi', deskripsi);
 
     if (foto_berita) formData.append('foto_berita', foto_berita);
 

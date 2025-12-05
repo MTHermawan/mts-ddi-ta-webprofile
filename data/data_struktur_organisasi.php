@@ -68,7 +68,7 @@ function GetStrukturOrganisasi($id = null)
         }
 
         $where_clause = !empty($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";
-        $sql = "SELECT * FROM struktur_organisasi $where_clause ORDER BY tanggal_dibuat DESC";
+        $sql = "SELECT * FROM struktur_organisasi $where_clause ORDER BY posisi DESC";
         $stmt = $koneksi->prepare($sql);
 
         if (!empty($params)) {

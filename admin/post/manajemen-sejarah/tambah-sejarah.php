@@ -7,9 +7,9 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $judul_sejarah = htmlspecialchars($_POST['judul_sejarah']);
-    $tahun_sejarah = htmlspecialchars($_POST['tahun_sejarah']);
-    $deskripsi = htmlspecialchars($_POST['deskripsi']);
+    $judul_sejarah = $_POST['judul_sejarah'];
+    $tahun_sejarah = $_POST['tahun_sejarah'];
+    $deskripsi = $_POST['deskripsi'];
 
     InsertSejarah($judul_sejarah, $tahun_sejarah, $deskripsi);
 }

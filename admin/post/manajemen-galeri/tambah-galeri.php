@@ -7,8 +7,8 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $judul_galeri = htmlspecialchars($_POST['judul_galeri']);
-    $deskripsi_galeri = htmlspecialchars($_POST['deskripsi_galeri'] ?? "");
+    $judul_galeri = $_POST['judul_galeri'];
+    $deskripsi_galeri = $_POST['deskripsi_galeri'] ?? "";
     $file_foto = $_FILES['foto_galeri'];
 
     InsertGaleri($judul_galeri, $deskripsi_galeri, $file_foto);

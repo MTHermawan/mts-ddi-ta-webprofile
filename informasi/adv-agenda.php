@@ -46,7 +46,7 @@ include_once "../data/koneksi.php";
 
     <section class="breadcrumb fade-in">
       <a href="../index.html">Home</a> ›
-      <a href="../informasi/agenda.html">Agenda</a> ›
+      <a href="../informasi/agenda.php">Agenda</a> ›
       <span>Detail Agenda</span>
     </section>
 

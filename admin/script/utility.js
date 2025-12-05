@@ -178,7 +178,7 @@ function GetMonthID(month, trim = -1) {
     return monthStr;
 }
 
-function wrapText(text, maxLength = 25) {
+function wrapText(text, maxLength = 25, isUrl = false) {
     let result = "";
     let line = "";
 
@@ -186,7 +186,7 @@ function wrapText(text, maxLength = 25) {
 
     for (let w of words) {
         if ((line + w).length > maxLength) {
-            result += line.trim() + "%0A";
+            result += line.trim() + "\n";
             line = "";
         }
         line += w + " ";
@@ -196,6 +196,6 @@ function wrapText(text, maxLength = 25) {
 }
 
 function imagePlaceholderUrl(text) {
-    wrappedText = wrapText(text);
+    wrappedText = encodeURIComponent(wrapText(text));
     return `https://placehold.co/800?text=${wrappedText}&font=roboto`;
 }

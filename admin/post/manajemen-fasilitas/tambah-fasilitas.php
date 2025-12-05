@@ -7,8 +7,8 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama_fasilitas = htmlspecialchars($_POST['nama_fasilitas'] ?? "");
-    $deskripsi_fasilitas = htmlspecialchars($_POST['deskripsi_fasilitas'] ?? "");
+    $nama_fasilitas = $_POST['nama_fasilitas'] ?? "";
+    $deskripsi_fasilitas = $_POST['deskripsi_fasilitas'] ?? "";
     $file_foto = [];
     
     if (isset($_FILES['foto_fasilitas']))

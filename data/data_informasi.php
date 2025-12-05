@@ -148,7 +148,6 @@ function UpdateBerita($id, $judul, $konten, $file_foto)
         HapusFile($asset_subdir . $file_foto['name']);
         return false;
     }
-    
 
     // Menghapus foto lama
     HapusFile($old_data['url_foto']);

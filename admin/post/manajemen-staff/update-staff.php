@@ -7,11 +7,11 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_staff = htmlspecialchars($_POST['id_staff']);
-    $nama_staff = htmlspecialchars($_POST['nama_staff']);
-    $jabatan = htmlspecialchars($_POST['jabatan']);
-    $mapel = htmlspecialchars($_POST['mapel']);
-    $pendidikan = htmlspecialchars($_POST['pendidikan']);
+    $id_staff = $_POST['id_staff'];
+    $nama_staff = $_POST['nama_staff'];
+    $jabatan = $_POST['jabatan'];
+    $mapel = $_POST['mapel'];
+    $pendidikan = $_POST['pendidikan'];
     $file_foto = null;
     
     if (isset($_FILES['foto_staff']))

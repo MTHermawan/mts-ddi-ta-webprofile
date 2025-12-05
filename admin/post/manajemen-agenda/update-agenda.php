@@ -7,15 +7,15 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = htmlspecialchars($_POST['id_agenda']);
-    $judul = htmlspecialchars($_POST['judul']);
-    $deskripsi = htmlspecialchars($_POST['deskripsi']);
-    $tanggal = htmlspecialchars($_POST['tanggal']);
-    $waktu = htmlspecialchars($_POST['waktu']);
-    $lokasi = htmlspecialchars($_POST['lokasi']);
+    $id_agenda = htmlspecialchars($_POST['id_agenda']);
+    $judul = $_POST['judul'];
+    $deskripsi = $_POST['deskripsi'];
+    $tanggal = $_POST['tanggal'];
+    $waktu = $_POST['waktu'];
+    $lokasi = $_POST['lokasi'];
     $file_foto = $_FILES['foto_agenda'];
 
-    UpdateAgenda($id, $judul, $deskripsi, $tanggal, $waktu, $lokasi, $file_foto);
+    UpdateAgenda($id_agenda, $judul, $deskripsi, $tanggal, $waktu, $lokasi, $file_foto);
 }
 header('Location: ../../manajemen-agenda.php');
 

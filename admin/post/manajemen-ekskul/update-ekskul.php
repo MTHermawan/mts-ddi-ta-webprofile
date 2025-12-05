@@ -8,9 +8,9 @@ if (!CheckAuth())
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_ekskul = htmlspecialchars($_POST['id_ekskul'] ?? -1);
-    $nama_ekskul = htmlspecialchars($_POST['nama_ekskul'] ?? "");
-    $nama_pembimbing = htmlspecialchars($_POST['nama_pembimbing'] ?? "");
-    $jadwal = htmlspecialchars($_POST['jadwal'] ?? "");
+    $nama_ekskul = $_POST['nama_ekskul'] ?? "";
+    $nama_pembimbing = $_POST['nama_pembimbing'] ?? "";
+    $jadwal = $_POST['jadwal'] ?? "";
     $file_foto = $_FILES['foto_ekskul'] ?? [];
 
     UpdateEkskul($id_ekskul, $nama_ekskul, $nama_pembimbing, $jadwal, $file_foto);

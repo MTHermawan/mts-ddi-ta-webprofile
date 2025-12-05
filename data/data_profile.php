@@ -64,7 +64,7 @@ function SetValue($key, $value)
     global $koneksi;
     
     try {
-        $sql = "SELECT COUNT(*)  FROM profile_settings WHERE settings_key = ?";
+        $sql = "SELECT COUNT(*) FROM profile_settings WHERE settings_key = ?";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param('s', $key);
         $stmt->execute();

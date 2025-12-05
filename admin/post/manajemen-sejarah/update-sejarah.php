@@ -8,9 +8,9 @@ if (!CheckAuth())
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_sejarah = htmlspecialchars($_POST['id_sejarah']);
-    $judul_sejarah = htmlspecialchars($_POST['judul_sejarah'] ?? "");
-    $tahun_sejarah = htmlspecialchars($_POST['tahun_sejarah'] ?? "");
-    $deskripsi = htmlspecialchars($_POST['deskripsi'] ?? "");
+    $judul_sejarah = $_POST['judul_sejarah'] ?? "";
+    $tahun_sejarah = $_POST['tahun_sejarah'] ?? "";
+    $deskripsi = $_POST['deskripsi'] ?? "";
 
     UpdateSejarah($id_sejarah, $judul_sejarah, $tahun_sejarah, $deskripsi);
 }

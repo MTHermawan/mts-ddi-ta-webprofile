@@ -1,6 +1,9 @@
 <?php session_start();
 include_once "../data/koneksi.php";
+include_once "../data/data_struktur_organisasi.php";
 
+// Data berbentuk
+$dataStrukturOrganisasi = GetStrukturOrganisasi();
 ?>
 
 <!DOCTYPE html>
@@ -45,21 +48,14 @@ include_once "../data/koneksi.php";
         </p>
         <div class="struktur-list">
             <div class="struktur-card">
-            <img src="../assets/data-profile/struktur-organisasi.jpg" alt="struktur-organisasi" class="img-organisasi">
+            <img src="../assets/<?php echo $dataStrukturOrganisasi[0]['url_foto']; ?>" alt="struktur-organisasi" class="img-organisasi">
             </div>
-
         </div>
     </section>
 
     <!-- FOOTER -->
     <?php include_once "../includes/footer.php" ?>
-
-    <div class="footer-ornament"></div>
-
-    <div class="footer-bottom">
-        <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
-    </div>
-</footer>
+    
     <script src="../script/fade-in.js"></script>
     <script src="script/nav-active.js"></script>
     <script src="../script/dropdown.js"></script>

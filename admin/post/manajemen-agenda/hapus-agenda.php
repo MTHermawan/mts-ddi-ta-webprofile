@@ -7,7 +7,7 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_agenda = htmlspecialchars($_POST['id_agenda']);
+    $id_agenda = ($_POST['id_agenda']);
 
     DeleteAgenda($id_agenda);
 }

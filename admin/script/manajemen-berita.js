@@ -433,9 +433,6 @@ function changePage(page) {
 function openPopup(mode = "Tambah Berita") {
   currentMode = "add";
   document.getElementById("popupTitle").textContent = mode;
-  document.getElementById("dateInput").value = berita.tanggal;
-  document.getElementById("creatorInput").value = berita.nama_admin;
-
   resetForm();
   document.getElementById("popup").style.display = "flex";
   document.body.style.overflow = "hidden";

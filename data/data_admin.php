@@ -164,4 +164,25 @@ function LogoutAdmin()
     session_destroy();
     setcookie('admin_remember', '', time() - 3600, '/');
 }
+
+function UpdatePassword($password_baru, $password_konfirmasi, $email)
+{
+    global $koneksi;
+    $success = false;
+    try {
+        if (!strcmp($password_baru, $password_konfirmasi))
+            throw new Exception("Konfirmasi password gagal!");
+
+        $sql = "UPDATE admin SET password = ? WHERE email = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param("s", $password_baru, $email);
+        $stmt->execute();
+        $stmt->close();
+
+        $success = true;
+    } catch (Exception $e) {
+        SendServerError($e);
+    }
+    return $success;
+}
 ?>

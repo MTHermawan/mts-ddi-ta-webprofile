@@ -7,8 +7,8 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $judul = htmlspecialchars($_POST['judul']);
-    $deskripsi = htmlspecialchars($_POST['deskripsi']);
+    $judul = $_POST['judul'];
+    $deskripsi = $_POST['deskripsi'];
     $file_foto = $_FILES['foto_berita'];
     $email = $_SESSION['email'];
 
