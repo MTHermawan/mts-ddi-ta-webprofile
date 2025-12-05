@@ -506,6 +506,7 @@ section.show {
   width: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 28px;
@@ -861,34 +862,36 @@ section.show {
   background: linear-gradient(135deg, #f8f9f5 0%, #edf3e9 100%);
 }
 
-/* MASONRY */
+/* GRID BLOK-BLOK */
 .gallery-grid {
-  column-count: 3;
-  column-gap: 18px;
-  width: 100%;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
+/* KOTAK GALERI */
 .gallery-item {
-  break-inside: avoid;
-  margin-bottom: 18px;
-  border-radius: 12px;
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s ease;
+  background: #ddd;
 }
 
 .gallery-item img {
   width: 100%;
-  display: block;
-  border-radius: 12px;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .gallery-item:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
+
 
 /* Variasi tinggi seperti contoh website */
 .gallery-item-tall img {
@@ -979,6 +982,76 @@ section.show {
   margin-top: 20px;
   border-radius: 20px;
   border: none;
+}#contact {
+  padding: 80px 124px;
+  background: linear-gradient(135deg, #f9f8f6 0%, #f1eee8 100%);
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* CARD */
+.contact-card {
+  background: rgb(4, 134, 0);
+  border-radius: 20px;
+  padding: 28px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: auto;
+  box-shadow: 0 8px 18px rgba(4, 134, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(4, 134, 0, 0.32);
+}
+
+/* ICON */
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  background: white;
+  color: rgb(4, 134, 0);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-icon i {
+  font-size: 26px;
+}
+
+/* TITLE & TEXT */
+.contact-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.contact-detail {
+  font-size: 1rem;
+  line-height: 1.55;
+  opacity: 0.95;
+  margin-bottom: 4px;
+}
+
+/* MAP */
+.map-container iframe {
+  width: 100%;
+  height: 420px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 40px;
 }
 
 @keyframes move {
@@ -1229,15 +1302,61 @@ section.show {
   gap: 24px;
 }
   .highlight-grid {
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom rata */
+    gap: 20px; /* hanya jarak vertikal & antar card */
+    width: 100%;
+  }
 
-.highlight-card {
-  width: 90%; /* Lebar lebih besar mengikuti container */
-  max-width: 600px; /* Agar tetap rapi */
-}
+  .highlight-card {
+    width: 100%;          /* Full isi kolom */
+    max-width: 100%;      /* Tidak mengecil */
+    justify-self: stretch; /* Biar kolom penuh */
+  }
+    #event {
+    padding: 60px 40px;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .event-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .event-image-container {
+    height: 220px;
+  }
+
+  .event-name {
+    font-size: 18px;
+  }
+    #contact {
+    padding: 60px 40px;
+  }
+
+ .contact-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sama rata */
+    gap: 28px;
+  }
+
+  .contact-card {
+    width: 100%; 
+    max-width: none;  /* hilangkan batas 360px */
+    padding: 30px;
+  }
+
+  /* Untuk jumlah ganjil (misal 3), tidak perlu lagi dibikin center */
+  .contact-card:last-child {
+    grid-column: auto; 
+    justify-self: auto;
+  }
+
 }
 
 /* 992px — Tablet landscape */
@@ -1331,9 +1450,62 @@ section.show {
   }
 
   .highlight-grid {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
     gap: 20px;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .highlight-card {
+    width: 100%;
+    max-width: 350px; /* Ukuran card diperkecil agar muat 2 */
+  }
+  
+  .gallery-section {
+    padding: 60px 40px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    height: 220px;
+  }
+  #contact {
+    padding: 60px 40px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 28px;
+  }
+
+  /* 🔥 Jika card jumlahnya ganjil (contoh: 3), card terakhir otomatis center */
+  .contact-card:last-child {
+    grid-column: 1 / -1;      /* Ambil satu baris penuh */
+    justify-self: center;     /* Center secara horizontal */
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-detail {
+    font-size: 0.95rem;
+  }
+
+  .map-container iframe {
+    height: 400px;
   }
 }
 
@@ -1427,16 +1599,229 @@ section.show {
   }
 
   .highlight-grid {
+    display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 16px;
   }
 
   .highlight-card {
     width: 100%;
     max-width: 100%;
-    padding: 22px 18px;
+  }
+   #event {
+    padding: 60px 40px;
+  }
+
+  /* Gunakan grid supaya ukurannya stabil */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-content: center;
+  }
+
+  /* Card dibuat lebih lebar agar tidak terlihat gepeng */
+  .event-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Tinggi gambar dikurangi sedikit biar proporsional */
+  .event-image-container {
+    height: 220px;
+  }
+
+  /* Judul event sedikit diperkecil */
+  .event-name {
+    font-size: 18px;
+  }
+
+  .event-content {
+    padding: 18px;
+  }
+  #news {
+    padding: 60px 40px;
+  }
+
+  .featured-content {
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 320px;
+    flex: unset;
+  }
+
+  .featured-image img {
+    height: 320px;
+  }
+
+  .featured-title {
+    font-size: 26px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 24px;
+  }
+
+  .news-item {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .news-image-container {
+    height: 220px;
+  }  
+  #contact {
+    padding: 60px 40px;
+  }
+
+  #contact {
+    padding: 60px 40px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 28px;
+  }
+
+  /* 🔥 Jika card jumlahnya ganjil (contoh: 3), card terakhir otomatis center */
+  .contact-card:last-child {
+    grid-column: 1 / -1;      /* Ambil satu baris penuh */
+    justify-self: center;     /* Center secara horizontal */
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-detail {
+    font-size: 0.95rem;
+  }
+
+  .map-container iframe {
+    height: 400px;
+  }
+
+
+}
+
+/* MOBILE — 1 KARTU PER BARIS */
+@media (max-width: 767px) {
+  #event {
+    padding: 40px 20px;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .event-card {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .event-image-container {
+    height: 200px;
+  }
+
+    #news {
+    padding: 40px 20px;
+  }
+
+  .featured-content {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .featured-image {
+    flex: unset;
+    width: 100%;
+    height: 250px;
+  }
+
+  .featured-image img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .featured-title {
+    font-size: 22px;
+  }
+
+  /* .featured-desc {
+    -webkit-line-clamp: 3;
+  } */
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr !important; /* 1 kolom */
+    gap: 20px;
+  }
+
+  .news-item {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+
+  .news-image-container {
+    height: 200px;
+  }
+  .gallery-section {
+    padding: 40px 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .gallery-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  #contact {
+    padding: 40px 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center; /* CENTER GRID ITEMS */
+  }
+
+  .contact-card {
+    padding: 20px;
+    width: 100%;
+    max-width: 360px;   /* 🔥 BATAS LEBAR CARD */
+  }
+
+  .map-container iframe {
+    height: 300px;
   }
 }
+
 
 /* 480px — HP kecil */
 @media (max-width: 480px) {
@@ -1506,6 +1891,21 @@ section.show {
 
   .highlight-desc {
     font-size: 14px;
+  }
+    #event {
+    padding: 32px 16px;
+  }
+
+  .event-image-container {
+    height: 180px;
+  }
+
+  .event-content {
+    gap: 10px;
+  }
+
+  .event-name {
+    font-size: 17px;
   }
 }
 
