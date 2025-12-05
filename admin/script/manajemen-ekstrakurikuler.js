@@ -236,10 +236,12 @@ function displayEkskulCards(page = 1) {
         ? ekskul.foto[0].url_foto
         : "https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia";
 
+    imageText = wrapText(ekskul.nama_ekskul);
+
     card.innerHTML = `
       <div class="ekskul-image">
         <img src="${fotoUrl}" alt="${ekskul.nama_ekskul}" 
-             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
+             onerror="this.onerror=null; this.src='https://placehold.co/800?text=${imageText}&font=roboto'">
       </div>
       <div class="ekskul-content">
         <h3 class="ekskul-title">${ekskul.nama_ekskul}</h3>

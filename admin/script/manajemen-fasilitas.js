@@ -202,11 +202,12 @@ function displayFacilitiesCards(page = 1) {
 
     const urlFoto = fasilitas.foto.length > 0 ? fasilitas.foto[0].url_foto : "";
 
-    // TODO: Cari alternatif placeholder ketika gambar tidak ditemukan
+    imageText = wrapText(fasilitas.nama_fasilitas);
+
     card.innerHTML = `
       <div class="facility-image">
         <img src="${urlFoto}" alt="${fasilitas.nama_fasilitas}" 
-             onerror="src=''; this.style.display='none';">
+             onerror="src=''; this.src='https://placehold.co/800?text=${imageText}&font=roboto';">
       </div>
       <div class="facility-content">
         <h3 class="facility-title">${fasilitas.nama_fasilitas}</h3>

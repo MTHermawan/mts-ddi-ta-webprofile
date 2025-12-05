@@ -234,10 +234,12 @@ function displayAgendaCards(page = 1) {
     card.className = "agenda-card";
     const globalIndex = startIndex + index;
 
+    imageText = wrapText(agenda.judul);
+
     card.innerHTML = `
       <div class="agenda-image">
         <img src="${agenda.url_foto}" alt="${agenda.judul}" 
-             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
+             onerror="this.onerror=null; this.src='https://placehold.co/800?text=${imageText}&font=roboto'">
         <div class="agenda-date">${agenda.tanggal}</div>
       </div>
       <div class="agenda-content">

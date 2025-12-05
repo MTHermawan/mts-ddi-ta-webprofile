@@ -178,3 +178,20 @@ function GetMonthID(month, trim = -1) {
     }
     return monthStr;
 }
+
+function wrapText(text, maxLength = 25) {
+    let result = "";
+    let line = "";
+
+    const words = text.split(" ");
+
+    for (let w of words) {
+        if ((line + w).length > maxLength) {
+            result += line.trim() + "%0A";
+            line = "";
+        }
+        line += w + " ";
+    }
+
+    return result + line.trim();
+}

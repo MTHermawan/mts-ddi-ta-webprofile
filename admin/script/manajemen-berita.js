@@ -294,10 +294,12 @@ function displayBeritaCards(page = 1) {
       card.classList.add("pinned");
     }
 
+    imageText = wrapText(berita.judul);
+
     card.innerHTML = `
           <div class="berita-image">
             <img src="${berita.url_foto}" alt="${berita.judul}" 
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
+                 onerror="this.onerror=null; this.src='https://placehold.co/800?text=${imageText}&font=roboto'">
             <div class="berita-date">${berita.tanggal}</div>
             ${berita.pinned
         ? '<div class="pinned-badge"><i class="fas fa-thumbtack"></i> Berita Utama</div>'

@@ -151,10 +151,12 @@ function displayGaleriCards(page = 1) {
     card.className = "galeri-card";
     const globalIndex = startIndex + index;
 
+    imageText = wrapText(galeri.judul_galeri);
+
     card.innerHTML = `
       <div class="galeri-image">
         <img src="${galeri.url_foto}" alt="${galeri.judul_galeri}" 
-             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Tersedia'">
+             onerror="this.onerror=null; this.src='https://placehold.co/800?text=${galeri.judul_galeri}&font=roboto'">
       </div>
       <div class="galeri-content">
         <h3 class="galeri-title">${galeri.judul_galeri}</h3>
