@@ -13,7 +13,7 @@ function InsertGaleri($judul_galeri, $deskripsi_galeri, $file_foto)
         // Upload File
         $url_foto = TambahFile($file_foto, $asset_subdir);
 
-        $sql = "INSERT INTO galeri (judul_galeri, deskripsi_galeri, url_foto, email, tanggal_posting) VALUES (?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO galeri (judul_galeri, deskripsi_galeri, url_foto, email_admin, tanggal_posting) VALUES (?, ?, ?, ?, NOW())";
         $stmt = $koneksi->prepare($sql);
         $stmt->bind_param("ssss", $judul_galeri, $deskripsi_galeri, $url_foto, $_SESSION['email']);
         $stmt->execute();
