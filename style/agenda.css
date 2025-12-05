@@ -1,225 +1,236 @@
 body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
-
-
 .agenda-section {
-    padding: 50px 100px;
-    width: 90%;
-    /* max-width: 1100px; */
-    margin: 50px auto;
+  padding: 50px 124px;
+  width: 100%;
+  /* max-width: 1100px; */
+  margin: 50px auto;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 2.6rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #0b5e00;
-    font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b5e00;
 }
 
 .judul-utama::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #0b5e00, #18a300);
-    margin: 12px auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
 .sub-judul-agenda {
-    text-align: center;
-    color: #555;
-    margin: 0 auto 50px;
-    font-size: 1.15rem;
-    /* max-width: 650px; */
+  text-align: center;
+  color: #555;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  /* max-width: 650px; */
 }
 
 .filter-agenda {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
 .filter-btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: none;
-    background: #d9d9d9;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .filter-btn:hover {
-    background: #cfcfcf;
-    transform: translateY(-3px);
+  background: #cfcfcf;
+  transform: translateY(-3px);
 }
 
 .filter-btn.aktif {
-    background: #0d7a00;
-    color: #fff;
+  background: #0d7a00;
+  color: #fff;
 }
-
 
 .agenda-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-
 .agenda-card {
-    background: #ffffff;
-    display: flex;
-    gap: 25px;
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-    transition: 0.25s ease;
+  background: #ffffff;
+  display: flex;
+  gap: 25px;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
 }
 
 .agenda-card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-8px);
   box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
-  border-color: rgba(13, 122, 0, 0.15);;
+  border-color: rgba(13, 122, 0, 0.15);
 }
-
 
 .agenda-gambar img {
-    width: 240px;
-    height: 160px;
-    border-radius: 18px;
-    object-fit: cover;
+  width: 240px;
+  height: 192px;
+  border-radius: 18px;
+  object-fit: cover;
 }
-
 
 .agenda-teks {
-    flex: 1;
+  flex: 1;
 }
 
-.agenda-judul a {
-    font-size: 24px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #0d7a00;
+.agenda-judul {
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0d7a00;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-clamp: 1;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
-.agenda-judul a:hover {
-    text-decoration: underline;
+.agenda-judul:hover {
+  text-decoration: underline;
 }
 
 .agenda-deskripsi {
-    margin-top: 8px;
-    font-size: 15px;
-    line-height: 1.5rem;
-    color: #444;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5rem;
+  color: rgb(29, 41, 57);
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-clamp: 2;
+  box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.agenda-tanggal {
-    margin-top: 10px;
-    color: #777;
-    font-size: 14px;
+.agenda-date,
+.agenda-time,
+.agenda-location {
+  color: rgb(29, 41, 57);
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
+.agenda-icon {
+  color: rgb(4, 134, 0);
+  margin-right: 8px;
+}
 
 .btn-baca {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: #0d7a00;
-    color: white;
-    border-radius: 12px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.2s ease;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #0d7a00;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
 }
 
 .btn-baca:hover {
-    transform: translateX(6px);
-    background: #095900;
+  transform: translateX(6px);
+  background: #095900;
 }
 
 /* ==== ANIMASI FADE IN ==== */
 .fade-in {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
-
 
 /* ==== RESPONSIF TAMBAHAN UNTUK MOBILE ==== */
 @media (max-width: 600px) {
+  .agenda-section {
+    padding: 30px 20px;
+    width: 100%;
+  }
 
-    .agenda-section {
-        padding: 30px 20px;
-        width: 100%;
-    }
+  .judul-utama {
+    font-size: 2rem;
+  }
 
-    .judul-utama {
-        font-size: 2rem;
-    }
+  .sub-judul-agenda {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
 
-    .sub-judul-agenda {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-    }
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
 
-    .filter-btn {
-        padding: 8px 18px;
-        font-size: 14px;
-    }
+  .agenda-card {
+    padding: 15px;
+    gap: 15px;
+  }
 
-    .agenda-card {
-        padding: 15px;
-        gap: 15px;
-    }
+  .agenda-gambar img {
+    height: 180px;
+    border-radius: 14px;
+  }
 
-    .agenda-gambar img {
-        height: 180px;
-        border-radius: 14px;
-    }
+  .agenda-judul a {
+    font-size: 20px;
+  }
 
-    .agenda-judul a {
-        font-size: 20px;
-    }
+  .agenda-deskripsi {
+    font-size: 14px;
+  }
 
-    .agenda-deskripsi {
-        font-size: 14px;
-    }
-
-    .btn-baca {
-        padding: 8px 14px;
-        font-size: 14px;
-        border-radius: 10px;
-    }
+  .btn-baca {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
 }
 
-
-
 @media (max-width: 768px) {
+  .agenda-card {
+    flex-direction: column;
+  }
 
-    .agenda-card {
-        flex-direction: column;
-    }
+  .agenda-gambar img {
+    width: 100%;
+    height: 220px;
+  }
 
-    .agenda-gambar img {
-        width: 100%;
-        height: 220px;
-    }
-
-    .agenda-judul a {
-        font-size: 22px;
-    }
+  .agenda-judul a {
+    font-size: 22px;
+  }
 }

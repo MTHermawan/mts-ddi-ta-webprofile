@@ -1,259 +1,246 @@
 body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
-
-
 .ekstrakurikuler-section {
-    padding: 50px 100px;
-    width: 100%;
-    /* max-width: 1100px; */
-    margin: 50px auto;
+  padding: 50px 124px;
+  width: 100%;
+  /* max-width: 1100px; */
+  margin: 50px auto;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 2.6rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #0b5e00;
-    font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b5e00;
 }
 
 .judul-utama::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #0b5e00, #18a300);
-    margin: 12px auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
 .sub-judul-ekstrakurikuler {
-    text-align: center;
-    color: #555;
-    margin: 0 auto 50px;
-    font-size: 1.15rem;
-    /* max-width: 650px; */
+  text-align: center;
+  color: #555;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  /* max-width: 650px; */
 }
 
 .filter-ekstrakurikuler {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
 .filter-btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: none;
-    background: #d9d9d9;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .filter-btn:hover {
-    background: #cfcfcf;
-    transform: translateY(-3px);
+  background: #cfcfcf;
+  transform: translateY(-3px);
 }
 
 .filter-btn.aktif {
-    background: #0d7a00;
-    color: #fff;
+  background: #0d7a00;
+  color: #fff;
 }
 
-
 .ekstrakurikuler-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .ekstrakurikuler-wrapp {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-
 .ekstrakurikuler-card {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-    height: 350px;
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-    transition: 0.25s ease;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
 }
 
 .ekstrakurikuler-card:hover {
-      transform: translateY(-8px);
+  transform: translateY(-8px);
   box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
   border-color: rgba(13, 122, 0, 0.15);
 }
 
-
 .ekstrakurikuler-gambar img {
-    width: 240px;
-    height: 160px;
-    border-radius: 18px;
-    object-fit: cover;
-    display: flex;
-    margin: auto;
+  width: 100%;
+  height: 160px;
+  border-radius: 18px;
+  object-fit: cover;
+  display: flex;
 }
 
-
 .ekstrakurikuler-teks {
-    flex: 1;
+  flex: 1;
 }
 
 .ekstrakurikuler-judul a {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #0d7a00;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0d7a00;
 }
 
 .ekstrakurikuler-judul a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .ekstrakurikuler-deskripsi {
-    display: flex;
-    text-align: start;
-    margin-top: 20px;
-    font-size: 12px;
-    line-height: 1.5rem;
-    color: #444;
+  display: flex;
+  text-align: start;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5rem;
+  color: rgb(29, 41, 57);
 }
 
-.ekstrakurikuler-deskripsi i{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #444;
-    margin-right: 8px;
-
+.ekstrakurikuler-deskripsi i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(4, 134, 0);
+  margin-right: 8px;
 }
 
 /* Fade-in Animation */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* RESPONSIVE TAMBAHAN UNTUK MOBILE & TABLET */
 @media (max-width: 992px) {
-    .ekstrakurikuler-section {
-        padding: 40px 40px;
-    }
+  .ekstrakurikuler-section {
+    padding: 40px 40px;
+  }
 
-    .ekstrakurikuler-wrapp {
-        justify-content: center;
-        gap: 20px;
-    }
+  .ekstrakurikuler-wrapp {
+    justify-content: center;
+    gap: 20px;
+  }
 
-    .ekstrakurikuler-card {
-        width: 280px;
-        min-height: 340px;
-    }
+  .ekstrakurikuler-card {
+    width: 280px;
+    min-height: 340px;
+  }
 
-    .ekstrakurikuler-gambar img {
-        width: 100%;
-        height: 200px;
-    }
+  .ekstrakurikuler-gambar img {
+    width: 100%;
+    height: 200px;
+  }
 }
 
 @media (max-width: 768px) {
-    .ekstrakurikuler-section {
-        padding: 40px 25px;
-        margin: 40px auto;
-    }
+  .ekstrakurikuler-section {
+    padding: 40px 25px;
+    margin: 40px auto;
+  }
 
-    .judul-utama {
-        font-size: 2rem;
-    }
+  .judul-utama {
+    font-size: 2rem;
+  }
 
-    .ekstrakurikuler-wrapp {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .ekstrakurikuler-wrapp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .ekstrakurikuler-card {
-        width: 100%;
-        max-width: 350px;
-        padding: 20px;
-        min-height: 400px;
-    }
+  .ekstrakurikuler-card {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    min-height: 400px;
+  }
 
-    .ekstrakurikuler-gambar img {
-        width: 100%;
-        height: 210px;
-        border-radius: 15px;
-    }
+  .ekstrakurikuler-gambar img {
+    width: 100%;
+    height: 210px;
+    border-radius: 15px;
+  }
 
-    .ekstrakurikuler-judul a {
-        font-size: 20px;
-    }
+  .ekstrakurikuler-judul a {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    .ekstrakurikuler-section {
-        padding: 30px 15px;
-    }
+  .ekstrakurikuler-section {
+    padding: 30px 15px;
+  }
 
-    .judul-utama {
-        font-size: 1.75rem;
-    }
+  .judul-utama {
+    font-size: 1.75rem;
+  }
 
-    .ekstrakurikuler-card {
-        padding: 18px;
-    }
+  .ekstrakurikuler-card {
+    padding: 18px;
+  }
 
-    .ekstrakurikuler-gambar img {
-        height: 190px;
-    }
+  .ekstrakurikuler-gambar img {
+    height: 190px;
+  }
 
-    .ekstrakurikuler-deskripsi {
-        font-size: 11.5px;
-        line-height: 1.4rem;
-    }
+  .ekstrakurikuler-deskripsi {
+    font-size: 11.5px;
+    line-height: 1.4rem;
+  }
 }
 
-
 @media (max-width: 768px) {
+  .ekstrakurikuler-card {
+    flex-direction: column;
+  }
 
-    .ekstrakurikuler-card {
-        flex-direction: column;
-    }
+  .ekstrakurikuler-gambar img {
+    width: 100%;
+    height: 220px;
+  }
 
-    .ekstrakurikuler-gambar img {
-        width: 100%;
-        height: 220px;
-    }
-
-    .ekstrakurikuler-judul a {
-        font-size: 22px;
-    }
+  .ekstrakurikuler-judul a {
+    font-size: 22px;
+  }
 }

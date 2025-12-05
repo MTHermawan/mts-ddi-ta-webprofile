@@ -1,139 +1,131 @@
 body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
-
-
 .fasilitas-section {
-    padding: 50px 100px;
-    width: 100%;
-    /* max-width: 1100px; */
-    margin: 50px auto;
+  padding: 50px 100px;
+  width: 100%;
+  /* max-width: 1100px; */
+  margin: 50px auto;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 2.6rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #0b5e00;
-    font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b5e00;
 }
 .judul-utama::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #0b5e00, #18a300);
-    margin: 12px auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 .sub-judul-fasilitas {
-    text-align: center;
-    color: #555;
-    margin: 0 auto 50px;
-    font-size: 1.15rem;
-    /* max-width: 650px; */
+  text-align: center;
+  color: #555;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  /* max-width: 650px; */
 }
 
 .filter-fasilitas {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
 .filter-btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: none;
-    background: #d9d9d9;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .filter-btn:hover {
-    background: #cfcfcf;
-    transform: translateY(-3px);
+  background: #cfcfcf;
+  transform: translateY(-3px);
 }
 
 .filter-btn.aktif {
-    background: #0d7a00;
-    color: #fff;
+  background: #0d7a00;
+  color: #fff;
 }
 
-
 .fasilitas-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .fasilitas-wrapp {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
 }
 
-
 .fasilitas-card {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-    height: 320px;
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-    transition: 0.25s ease;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  height: 320px;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
 }
 
 .fasilitas-card:hover {
-      transform: translateY(-8px);
+  transform: translateY(-8px);
   box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
   border-color: rgba(13, 122, 0, 0.15);
 }
 
-
 .fasilitas-gambar img {
-    width: 240px;
-    height: 160px;
-    border-radius: 18px;
-    object-fit: cover;
-    display: flex;
-    margin: auto;
+  width: 240px;
+  height: 160px;
+  border-radius: 18px;
+  object-fit: cover;
+  display: flex;
+  margin: auto;
 }
 
-
 .fasilitas-teks {
-    flex: 1;
+  flex: 1;
 }
 
 .fasilitas-judul a {
-    display: flex;
-    text-align: start;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #0d7a00;
+  display: flex;
+  text-align: start;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0d7a00;
 }
 
 .fasilitas-judul a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .fasilitas-deskripsi {
-    display: flex;
-    text-align: start;
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 1.5rem;
-    color: #444;
+  display: flex;
+  text-align: start;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5rem;
+  color: #444;
 }
 
 /* ===================== */
@@ -142,106 +134,104 @@ body {
 
 /* HP (≤480px) */
 @media (max-width: 480px) {
+  .fasilitas-section {
+    padding: 24px 16px;
+    margin: 20px auto 30px;
+  }
 
-    .fasilitas-section {
-        padding: 24px 16px;
-        margin: 20px auto 30px;
-    }
+  .judul-utama {
+    font-size: 1.8rem;
+  }
 
-    .judul-utama {
-        font-size: 1.8rem;
-    }
+  .sub-judul-fasilitas {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
 
-    .sub-judul-fasilitas {
-        font-size: 1rem;
-        margin-bottom: 30px;
-        padding: 0 10px;
-        line-height: 1.5;
-    }
+  /* Filter jadi kecil dan rapi */
+  .filter-fasilitas {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-    /* Filter jadi kecil dan rapi */
-    .filter-fasilitas {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
 
-    .filter-btn {
-        padding: 8px 18px;
-        font-size: 0.85rem;
-    }
+  /* CARD */
+  .fasilitas-list {
+    display: block;
+  }
 
-    /* CARD */
-    .fasilitas-list {
-        display: block;
-    }
+  .fasilitas-wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
 
-    .fasilitas-wrapp {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        align-items: center;
-    }
+  .fasilitas-card {
+    width: 92%;
+    max-width: 350px;
+    height: auto;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
 
-    .fasilitas-card {
-        width: 92%;
-        max-width: 350px;
-        height: auto;
-        padding: 16px;
-        border-radius: 16px;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
+  /* Gambar responsif */
+  .fasilitas-gambar img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
+  }
 
-    /* Gambar responsif */
-    .fasilitas-gambar img {
-        width: 100%;
-        max-width: none;
-        height: auto;
-        border-radius: 14px;
-        object-fit: cover;
-    }
+  .fasilitas-judul a {
+    font-size: 18px;
+  }
 
-    .fasilitas-judul a {
-        font-size: 18px;
-    }
-
-    .fasilitas-deskripsi {
-        font-size: 13px;
-        line-height: 1.5;
-    }
+  .fasilitas-deskripsi {
+    font-size: 13px;
+    line-height: 1.5;
+  }
 }
 
 /* TABLET (481px – 992px) */
 @media (min-width: 481px) and (max-width: 992px) {
+  .fasilitas-section {
+    padding: 40px;
+  }
 
-    .fasilitas-section {
-        padding: 40px;
-    }
+  /* Grid 2 kolom */
+  .fasilitas-wrapp {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    justify-items: center;
+  }
 
-    /* Grid 2 kolom */
-    .fasilitas-wrapp {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
-        justify-items: center;
-    }
+  .fasilitas-card {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    padding: 18px;
+  }
 
-    .fasilitas-card {
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-        padding: 18px;
-    }
+  .fasilitas-gambar img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
 
-    .fasilitas-gambar img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 14px;
-    }
-
-    .fasilitas-judul a {
-        font-size: 20px;
-    }
+  .fasilitas-judul a {
+    font-size: 20px;
+  }
 }
 
 /* ===================== */
@@ -249,28 +239,26 @@ body {
 /* ===================== */
 
 .fade-in {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-
 @media (max-width: 768px) {
+  .fasilitas-card {
+    flex-direction: column;
+  }
 
-    .fasilitas-card {
-        flex-direction: column;
-    }
+  .fasilitas-gambar img {
+    width: 100%;
+    height: 220px;
+  }
 
-    .fasilitas-gambar img {
-        width: 100%;
-        height: 220px;
-    }
-
-    .fasilitas-judul a {
-        font-size: 22px;
-    }
+  .fasilitas-judul a {
+    font-size: 22px;
+  }
 }

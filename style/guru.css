@@ -1,167 +1,266 @@
 body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
-
-
-
 .staf-section {
-    padding: 50px 100px;
-    width: 100%;
-    /* max-width: 1100px; */
-    margin: 50px auto;
+  padding: 50px 100px;
+  width: 100%;
+  /* max-width: 1100px; */
+  margin: 50px auto;
 }
 
 .judul-utama {
-    text-align: center;
-    font-size: 2.6rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #0b5e00;
-    font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b5e00;
 }
 
 .judul-utama::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #0b5e00, #18a300);
-    margin: 12px auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
 .sub-judul-staf {
-    text-align: center;
-    color: #555;
-    margin: 0 auto 50px;
-    font-size: 1.15rem;
-    /* max-width: 650px; */
+  text-align: center;
+  color: #555;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  /* max-width: 650px; */
 }
 
 .filter-staf {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
 .filter-btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: none;
-    background: #d9d9d9;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .filter-btn:hover {
-    background: #cfcfcf;
-    transform: translateY(-3px);
+  background: #cfcfcf;
+  transform: translateY(-3px);
 }
 
 .filter-btn.aktif {
-    background: #0d7a00;
-    color: #fff;
+  background: #0d7a00;
+  color: #fff;
 }
-
-
-.staf-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.staf-wrapp {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-}
-
 
 .staf-card {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 300px;
-    height: 380px;
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-    transition: 0.25s ease;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  height: 380px;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
 }
 
 .staf-card:hover {
-      transform: translateY(-8px);
+  transform: translateY(-8px);
   box-shadow: 0 14px 36px rgba(4, 134, 0, 0.12);
   border-color: rgba(13, 122, 0, 0.15);
 }
 
-
 .staf-gambar img {
-    width: 240px;
-    height: 160px;
-    border-radius: 18px;
-    object-fit: cover;
-    display: flex;
-    margin: auto;
+  width: 240px;
+  height: 160px;
+  border-radius: 18px;
+  object-fit: cover;
+  display: flex;
+  margin: auto;
 }
 
-
 .staf-teks {
-    flex: 1;
+  flex: 1;
 }
 
 .staf-judul a {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #0d7a00;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0d7a00;
 }
 
 .staf-judul a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .staf-deskripsi {
-    display: flex;
-    text-align: start;
-    margin-top: 20px;
-    font-size: 12px;
-    line-height: 1.5rem;
-    color: #444;
+  display: flex;
+  text-align: start;
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.5rem;
+  color: #444;
 }
 
-.staf-deskripsi i{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #444;
-    margin-right: 8px;
-
+.staf-deskripsi i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  margin-right: 8px;
 }
 
+/* STYLE KHUSUS UNTUK CARD GURU */
+.staf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.staf-card {
+  padding: 0;
+  height: 100%;
+}
+
+.staf-teks {
+  padding: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.staf-judul {
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.staf-judul::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: rgb(4, 134, 0);
+  border-radius: 2px;
+}
+
+.staf-judul a {
+  text-decoration: none;
+  color: rgb(4, 134, 0);
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.staf-judul a:hover {
+  color: rgb(4, 134, 0);
+}
+
+.staf-gambar {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 0 0 4px rgb(4, 134, 0), 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.staf-wrapp:hover .staf-gambar {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgb(4, 134, 0), 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.staf-gambar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.staf-wrapp:hover .staf-gambar img {
+  transform: scale(1.1);
+}
+
+.staf-deskripsi {
+  margin: 15px 0;
+  padding: 12px 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-align: left;
+  border-left: 4px solid rgb(4, 134, 0);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.staf-deskripsi:hover {
+  background: #edf2f7;
+  border-left-color: rgb(4, 134, 0);
+  transform: translateX(5px);
+}
+
+.staf-deskripsi i {
+  color: rgb(4, 134, 0);
+  width: 20px;
+  margin-right: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Warna khusus untuk setiap ikon */
+.staf-deskripsi:nth-child(3) i {
+  /* Jabatan */
+  color: rgb(4, 134, 0);
+}
+
+.staf-deskripsi:nth-child(4) i {
+  /* Mapel */
+  color: rgb(4, 134, 0);
+}
+
+.staf-deskripsi:nth-child(5) i {
+  /* Pendidikan */
+  color: rgb(4, 134, 0);
+}
 
 /* --- RESPONSIVE LAYOUT --- */
 
 /* ===== Perbaikan mobile (paste di akhir guru.css) ===== */
 
 /* pastikan box-sizing agar padding tidak nambah lebar */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Container staf lebih ramping di mobile */
 @media (max-width: 480px) {
   .staf-section {
-    padding: 30px 16px;     /* kurangi padding */
+    padding: 30px 16px; /* kurangi padding */
     margin: 20px auto;
   }
 
@@ -198,7 +297,7 @@ body {
   /* Card: kontrol lebar maksimum supaya tidak melebar */
   .staf-card {
     width: 92%;
-    max-width: 360px;   /* batasi maksimal, agar masih bagus di hp besar */
+    max-width: 360px; /* batasi maksimal, agar masih bagus di hp besar */
     padding: 18px;
     border-radius: 16px;
   }
@@ -238,7 +337,7 @@ body {
 
   /* kurangi bayangan sedikit supaya lebih tipis di layar kecil */
   .staf-card {
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   }
 
   /* spacing bawah halaman lebih kecil */
@@ -292,20 +391,17 @@ body {
   transform: translateY(0);
 }
 
-
-
 @media (max-width: 768px) {
+  .staf-card {
+    flex-direction: column;
+  }
 
-    .staf-card {
-        flex-direction: column;
-    }
+  .staf-gambar img {
+    width: 100%;
+    height: 220px;
+  }
 
-    .staf-gambar img {
-        width: 100%;
-        height: 220px;
-    }
-
-    .staf-judul a {
-        font-size: 22px;
-    }
+  .staf-judul a {
+    font-size: 22px;
+  }
 }

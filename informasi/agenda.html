@@ -1,191 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agenda Sekolah</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../style/hero-sect.css">
-    <link rel="stylesheet" href="../style/agenda.css">
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/hero-sect.css" />
+    <link rel="stylesheet" href="../style/agenda.css" />
+    <link rel="stylesheet" href="../style/header.css" />
+    <link
+      rel="icon"
+      href="../assets/logo-sekolah.png"
+      type="image/png/jpeg/jpg"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-            <div class="logo"><img src="../assets/logo-sekolah.png" alt="logo"></div> 
-            <!-- ganti aja logonya nanti -->
-            <div class="logo-text">
-                <h1>Mts Ddi Tani Aman</h1>
-                <p>Madrasah berkarakter & unggul</p>
-            </div>
-            </div>
+      <nav class="navbar">
+        <div class="nav-brand">
+          <div class="brand-logo">
+            <img src="../assets/logo-sekolah.png" alt="logo" />
+          </div>
+          <div class="brand-info">
+            <h1>Mts Ddi Tani Aman</h1>
+            <p>Madrasah berkarakter & unggul</p>
+          </div>
+        </div>
 
-            <div class="nav-menu">
-            <a href="../index.html" >Home</a>
-            <a href="../index.html #about" >Profil</a>
-            <a href="../informasi/agenda.html"  class="active">Agenda</a>
-            <a href="../informasi/berita.html">Berita</a>
-            <a href="../informasi/galeri.php">Galeri</a>
-            <a href="../index.html #contact">Kontak</a>
-            </div>
-        </nav>
+        <div class="nav-menu">
+          <a href="../index.html#home">Home</a>
+          <a href="" class="active">Profil</a>
+          <a href="../index.html#event">Agenda</a>
+          <a href="../index.html#news">Berita</a>
+          <a href="../index.html#gallery">Galeri</a>
+          <a href="../index.html#contact">Kontak</a>
+        </div>
+      </nav>
     </header>
 
-
     <section id="hero">
-        <!-- Gambar sebagai background -->
-        <img src="../assets/contoh1.jpg" alt="Latar belakang pendidikan berkarakter" class="hero-bg-img">
-
-        <!-- Overlay gelap untuk kontras teks -->
-        <div class="hero-overlay"></div>
-
-        <!-- Konten utama -->
-        <div class="hero-content">
-            <h1>Agenda</h1>
-        </div>
+      <img
+        src="../assets/school.jpg"
+        alt="Latar belakang pendidikan berkarakter"
+        class="hero-bg"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
+        <p class="hero-subtitle">
+          Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
+          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
+        </p>
+        <a href="../index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
+      </div>
     </section>
-
-    
 
     <!-- CONTENT agenda -->
     <section class="agenda-section fade-in">
-        <h1 class="judul-utama">Agenda MTs DDI Tani Aman</h1>
-        <p class="sub-judul-agenda">
-            Kumpulan informasi dan agenda terbaru seputar kegiatan sekolah.
-        </p>
+      <h1 class="judul-utama">Agenda MTs DDI Tani Aman</h1>
+      <p class="sub-judul-agenda">
+        Kumpulan informasi dan agenda terbaru seputar kegiatan sekolah.
+      </p>
 
-        <!-- Filter -->
-        <div class="filter-agenda">
-            <button class="filter-btn aktif">Semua Agenda</button>
-            <button class="filter-btn">Terbaru</button>
+      <!-- Filter -->
+      <div class="filter-agenda">
+        <button class="filter-btn aktif">Semua Agenda</button>
+      </div>
+
+      <!-- List agenda -->
+      <div class="agenda-list fade-in">
+        <!-- CARD 1 -->
+        <div class="agenda-card fade-in">
+          <div class="agenda-gambar">
+            <img src="../assets/contoh3.jpg" alt="gambar" />
+          </div>
+
+          <div class="agenda-teks">
+            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
+
+            <p class="agenda-deskripsi">
+              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
+              penuh khidmat dan antusiasme para siswa...
+            </p>
+
+            <p class="agenda-date">
+              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
+            </p>
+            <p class="agenda-time">
+              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
+            </p>
+            <p class="agenda-location">
+              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
+            </p>
+
+            <a class="btn-baca" href="#">Selengkapnya →</a>
+          </div>
         </div>
 
-        <!-- List agenda -->
-        <div class="agenda-list fade-in">
+        <!-- CARD 2 -->
+        <div class="agenda-card fade-in">
+          <div class="agenda-gambar">
+            <img src="../assets/contoh3.jpg" alt="gambar" />
+          </div>
 
-            <!-- CARD 1 -->
-            <div class="agenda-card fade-in">
-                <div class="agenda-gambar">
-                    <img src="../assets/contoh3.jpg" alt="gambar">
-                </div>
+          <div class="agenda-teks">
+            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
 
-                <div class="agenda-teks">
-                    <h2 class="agenda-judul"><a href="#">Upacara Hari Guru Nasional 2025</a></h2>
+            <p class="agenda-deskripsi">
+              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
+              penuh khidmat dan antusiasme para siswa...
+            </p>
 
-                    <p class="agenda-deskripsi">
-                        MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan penuh 
-                        khidmat dan antusiasme para siswa...
-                    </p>
+            <p class="agenda-date">
+              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
+            </p>
+            <p class="agenda-time">
+              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
+            </p>
+            <p class="agenda-location">
+              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
+            </p>
 
-                    <p class="agenda-tanggal"><i class="fa-solid fa-calendar"></i> 25 November 2025</p>
-
-                    <a class="btn-baca" href="#">Selengkapnya →</a>
-                </div>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="agenda-card fade-in">
-                <div class="agenda-gambar">
-                    <img src="../assets/contoh4.jpg" alt="gambar">
-                </div>
-
-                <div class="agenda-teks">
-                    <h2 class="agenda-judul"><a href="#">Siswa MTs DDI Juara Lomba MTQ</a></h2>
-
-                    <p class="agenda-deskripsi">
-                        Salah satu siswa terbaik berhasil menjuarai lomba MTQ tingkat kecamatan dan membawa nama baik sekolah...
-                    </p>
-
-                    <p class="agenda-tanggal"><i class="fa-solid fa-calendar"></i> 20 November 2025</p>
-
-                    <a class="btn-baca" href="#">Selengkapnya →</a>
-                </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="agenda-card fade-in">
-                <div class="agenda-gambar">
-                    <img src="../assets/contoh1.jpg" alt="gambar">
-                </div>
-
-                <div class="agenda-teks">
-                    <h2 class="agenda-judul"><a href="#">Pembangunan Ruang Kelas Baru</a></h2>
-
-                    <p class="agenda-deskripsi">
-                        Pembangunan fasilitas baru berupa ruang kelas telah mencapai 80% dan diperkirakan selesai sebelum semester baru...
-                    </p>
-
-                    <p class="agenda-tanggal"><i class="fa-solid fa-calendar"></i> 15 Oktober 2025</p>
-
-                    <a class="btn-baca" href="#">Selengkapnya →</a>
-                </div>
-            </div>
-
+            <a class="btn-baca" href="#">Selengkapnya →</a>
+          </div>
         </div>
+
+        <!-- CARD 3 -->
+        <div class="agenda-card fade-in">
+          <div class="agenda-gambar">
+            <img src="../assets/contoh3.jpg" alt="gambar" />
+          </div>
+
+          <div class="agenda-teks">
+            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
+
+            <p class="agenda-deskripsi">
+              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
+              penuh khidmat dan antusiasme para siswa...
+            </p>
+
+            <p class="agenda-date">
+              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
+            </p>
+            <p class="agenda-time">
+              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
+            </p>
+            <p class="agenda-location">
+              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
+            </p>
+
+            <a class="btn-baca" href="#">Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-    <div class="footer-container">
-
+      <div class="footer-container">
         <!-- Brand Sekolah -->
         <div class="footer-brand-full">
-            <div class="brand-left">
-                <img src="../assets/logo-sekolah.png" alt="Logo Sekolah">
-            </div>
+          <div class="brand-left">
+            <img src="../assets/logo-sekolah.png" alt="Logo Sekolah" />
+          </div>
 
-            <div class="brand-right">
-                <h2 class="footer-title">MTS DDI Tani Aman</h2>
-                <p class="footer-desc">
-                    Di bawah naungan <strong><a href="https://kemenag.go.id/">Kementerian Agama Republik Indonesia</a></strong>,  
-                    membina generasi berakhlak mulia, cerdas, dan berwawasan Islami.
-                </p>
+          <div class="brand-right">
+            <h2 class="footer-title">MTS DDI Tani Aman</h2>
+            <p class="footer-desc">
+              Di bawah naungan
+              <strong
+                ><a href="https://kemenag.go.id/"
+                  >Kementerian Agama Republik Indonesia</a
+                ></strong
+              >, membina generasi berakhlak mulia, cerdas, dan berwawasan
+              Islami.
+            </p>
 
-                <!-- <div class="footer-kemenag">
+            <!-- <div class="footer-kemenag">
                     <img src="assets/kemenag.png" alt="Logo Kemenag">
                     <span>Terwujudnya masyarakat yang cerdas dan maslahat menuju Indonesia Emas 2045</span>
                 </div> -->
 
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
+          </div>
         </div>
 
         <!-- Menu -->
         <div class="footer-column">
-            <h3>Menu</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Berita</a></li>
-                <li><a href="#">Kontak</a></li>
-            </ul>
+          <h3>Menu</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Galeri</a></li>
+            <li><a href="#">Berita</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
         </div>
 
         <!-- Kontak -->
         <div class="footer-column">
-            <h3>Kontak</h3>
-            <p><i class="fa-solid fa-location-dot info-foot"></i> Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir</p>
-            <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
-            <p><i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com</p>
+          <h3>Kontak</h3>
+          <p>
+            <i class="fa-solid fa-location-dot info-foot"></i> Jl. Soekarno
+            Hatta, Tani Aman, Kec. Loa Janan Ilir
+          </p>
+          <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
+          <p>
+            <i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com
+          </p>
         </div>
+      </div>
 
-    </div>
+      <div class="footer-ornament"></div>
 
-    <div class="footer-ornament"></div>
-
-    <div class="footer-bottom">
+      <div class="footer-bottom">
         <p>© 2025 MTS DDI Tani Aman • All Rights Reserved</p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="../script/fade-in.js"></script>
-</body>
+    <script src="../script/fade-in.js"></script>
+  </body>
 </html>
