@@ -36,7 +36,7 @@ require_once "./includes/check-auth.php";
     <div class="main-content">
 
       <div class="container">
-        <form action="" class="form">
+        <div action="" class="form">
           <div class="container-card">
             <div class="card-detail">
               <div class="card-header">
@@ -72,12 +72,12 @@ require_once "./includes/check-auth.php";
               <button type="button" class="button-upload" id="uploadButton">
                 <i class="fa-solid fa-upload"></i> Upload Gambar
               </button>
-              <button type="submit" class="button-simpan">
+              <button class="button-simpan" id="simpanButton">
                 <i class="fa-regular fa-floppy-disk"></i> Simpan
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
 
     </div>
@@ -95,9 +95,10 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
 
-  <script src="./script/dashboard-admin.js"></script>
+  <script src="./script/utility.js"></script>
   <script src="./script/manajemen-struktur-organisasi.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/manajemen-struktur-organisasi-data.js"></script>
+  <script src="./script/notification.js"></script>
 </body>
 
 </html>

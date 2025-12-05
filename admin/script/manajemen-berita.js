@@ -459,7 +459,7 @@ function openEditPopup(id_berita) {
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
 
-      handleResumeInput(berita.url_foto);
+      handleResumeInput('imageInput', berita.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";

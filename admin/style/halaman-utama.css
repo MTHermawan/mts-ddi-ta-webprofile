@@ -1,101 +1,96 @@
 /*              MAIN CONTENT                */
 
-/*             MAIN CONTENT ROW 1            */
-.stats-container {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-}
+/*                FILE INPUT                   */
 
-.stat-card {
-  flex: 0.25;
-  min-height: 100px;
+/*                MAIN CONTENT ROW            */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   background-color: white;
   box-shadow: 0 0 0 0.9px #dde1e5;
   border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 20px 20px 0px 20px;
+  box-sizing: border-box;
 }
-
-.stat-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
+.upload-container {
   width: 100%;
-  gap: 4px;
+  display: flex;
+  gap: 20px;
 }
 
-.stat-icon {
-  background-color: #f1f3f6;
+/* --- Container Utama --- */
+.upload-card {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.card-left {
+  flex: 0.3;
+}
+
+.card-right {
+  flex: 0.7;
+}
+
+/* --- Area Preview --- */
+#imagePreview {
+  width: 100%;
+  height: 160px; /* Sedikit lebih tinggi */
+  border: 3px dashed #ced4da; /* Garis putus-putus lebih tebal */
+  border-radius: 10px;
+  margin-bottom: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.stat-icon img {
-  width: 32px;
-}
-
-.stat-info {
-  flex: 0.6;
-  /* background-color: aqua; */
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  gap: 4px;
+  background-color: #f8f9fa;
+  overflow: hidden;
   position: relative;
-  height: 100%;
+  transition: all 0.3s ease;
 }
 
-.divider-vertical {
-  height: 90%;
-  width: 1px;
-  background-color: rgb(29, 41, 57);
-  margin: 0 8px;
+/* Efek saat ada file di-drag di atasnya (opsional untuk pengembangan lanjut) */
+#imagePreview.dragover {
+  border-color: #4a90e2;
+  background-color: #e9f2ff;
 }
 
-.stat-details {
-  height: 100%;
+#imagePreview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Agar gambar tidak gepeng */
+  display: none;
+  border-radius: 8px;
+}
+
+/* Ikon dan teks placeholder */
+.placeholder-content {
+  color: #adb5bd;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
 }
 
-.stat-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: rgb(102, 112, 133);
+.placeholder-content svg {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  fill: #ced4da;
 }
 
-.stat-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: rgb(29, 41, 57);
+/* --- BAGIAN PENTING: Tombol Upload Kustom --- */
+
+/* 1. Sembunyikan input file asli */
+input[type="file"]#fileInput {
+  display: none;
 }
 
-.stat-actions {
-  flex: 0.4;
-  /* background-color: yellow; */
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  align-items: flex-end;
-}
-
-/* CSS */
-.btn-edit {
-  margin-top: -1px;
-  width: 80px;
-  height: 30px;
+/* 2. Style Label agar terlihat seperti tombol menarik */
+.custom-file-upload {
+  width: 150px;
   appearance: none;
   background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -106,8 +101,9 @@
   color: rgb(29, 41, 57);
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 20px;
   list-style: none;
   padding: 6px 16px;
   position: relative;
@@ -120,48 +116,144 @@
   word-wrap: break-word;
 }
 
-.btn-edit:hover {
+/* Efek hover saat mouse di atas tombol */
+.custom-file-upload:hover {
   background-color: #f2f4f7;
   color: rgb(29, 41, 57);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.btn-edit:disabled {
-  background-color: #fafbfc;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959da5;
-  cursor: default;
+/* Efek saat tombol ditekan */
+.custom-file-upload:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
 }
 
-.btn-edit:active {
-  background-color: #edeff2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
+/*           meta ROW         */
+.meta-row {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  gap: 20px;
+  /* box-shadow: 0 0 0 0.9px #dde1e5; */
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
-.btn-edit:focus {
-  outline: 1px transparent;
+.meta-card {
+  flex: 0.25;
+  min-height: 80px;
+  background-color: white;
+  border-radius: 16px;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-.btn-edit:before {
-  display: none;
+.meta-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 4px;
 }
 
-.btn-edit:-webkit-details-marker {
-  display: none;
+.meta-form-right {
+  padding-right: 20px;
 }
 
-/*                MAIN CONTENT ROW 2           */
-.social-container {
+.meta-info {
+  flex: 1;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  height: 100%;
+}
+
+.meta-details {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 0 0 0.9px #dde1e5;
-  border-radius: 16px;
-  padding: 0px 20px;
+  justify-content: center;
+  gap: 4px;
   box-sizing: border-box;
+}
+
+.meta-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(29, 41, 57);
+}
+
+/*           SETTING ROW         */
+.settings-row {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  /* gap: 28px; */
+  /* box-shadow: 0 0 0 0.9px #dde1e5; */
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.settings-card {
+  flex: 0.5;
+  min-height: 80px;
+  background-color: white;
+  border-radius: 16px;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 4px;
+}
+
+.settings-form-left {
+  padding-right: 20px;
+}
+
+.settings-info {
+  flex: 1;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  height: 100%;
+}
+
+.settings-details {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.settings-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(29, 41, 57);
 }
 
 .social-row {
@@ -250,12 +342,37 @@
   color: rgb(29, 41, 57);
 }
 
+.change-password-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-text {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  min-height: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  transition: all 0.2s ease;
+  color: rgb(29, 41, 57);
+}
+
+.input-text:focus {
+  border: 1px solid rgba(4, 134, 0, 1);
+  box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
+  outline: none;
+}
+
 #instagram,
 #facebook,
 #youtube,
 #email,
 #maps,
-#location {
+#location,
+#phone {
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -272,7 +389,8 @@ input#facebook:focus,
 input#youtube:focus,
 input#email:focus,
 textarea#maps:focus,
-input#location:focus {
+input#location:focus,
+#phone:focus {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
   outline: none;

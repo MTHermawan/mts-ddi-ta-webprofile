@@ -295,7 +295,7 @@ function openEditPopup(id_galeri) {
       document.getElementById("imagePlaceholder").style.display = "none";
       document.getElementById("imagePreview").style.display = "flex";
 
-      handleResumeInput(galeri.url_foto);
+      handleResumeInput('imageInput', galeri.url_foto);
     } else {
       document.getElementById("imagePlaceholder").style.display = "flex";
       document.getElementById("imagePreview").style.display = "none";
