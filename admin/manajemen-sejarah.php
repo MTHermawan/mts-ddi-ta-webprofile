@@ -328,6 +328,7 @@ include_once "../data/utility.php";
 
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-sejarah.js"></script>
+  <script src="./script/manajemen-sejarah-data.js"></script>
   <script src="./script/notification.js"></script>
 </body>
 

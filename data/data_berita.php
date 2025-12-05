@@ -174,26 +174,14 @@ function UpdateBeritaUtama($id_berita)
 
     $success = false;
     try {
-        $koneksi->begin_transaction();
-        if (!($newBeritaUtama = GetBerita($id_berita)[0]))
-            throw new Exception("Data berita tidak ditemukan!");
-
-        $sql = "UPDATE berita SET pinned = 0 WHERE NOT id_berita = ?";
+        $sql = "UPDATE berita SET pinned = (id_berita = ?)";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $newBeritaUtama['id_berita']);
+        $stmt->bind_param("i", $id_berita);
         $stmt->execute();
 
-        $sql = "UPDATE berita SET pinned = 1 WHERE id_berita = ?";
-        $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("i", $newBeritaUtama['id_berita']);
-        $stmt->execute();
-
-        $koneksi->commit();
         $success = true;
     } catch (Exception $e) {
-        $koneksi->rollback();
         SendServerError($e);
-
     }
     return $success;
 }

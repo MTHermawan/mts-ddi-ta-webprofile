@@ -7,13 +7,13 @@ if (!CheckAuth())
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_sejarah = htmlspecialchars($_POST['id_staff']);
-    $judul = htmlspecialchars($_POST['judul']);
-    $tahun = htmlspecialchars($_POST['jabatan']);
-    $deskripsi = htmlspecialchars($_POST['mapel']);
+    $id_sejarah = htmlspecialchars($_POST['id_sejarah']);
+    $judul_sejarah = htmlspecialchars($_POST['judul_sejarah'] ?? "");
+    $tahun_sejarah = htmlspecialchars($_POST['tahun_sejarah'] ?? "");
+    $deskripsi = htmlspecialchars($_POST['deskripsi'] ?? "");
 
-    UpdateSejarah($id_staff, $nama, $tahun, $deskripsi);
+    UpdateSejarah($id_sejarah, $judul_sejarah, $tahun_sejarah, $deskripsi);
 }
-header('Location: ../../manajemen-guru.php');
+// header('Location: ../../manajemen-sejarah.php');
 
 ?>

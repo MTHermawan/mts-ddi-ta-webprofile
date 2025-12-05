@@ -177,5 +177,4 @@ function GetMonthID(month, trim = -1) {
         monthStr = monthStr.substring(0, trim);
     }
     return monthStr;
-
 }

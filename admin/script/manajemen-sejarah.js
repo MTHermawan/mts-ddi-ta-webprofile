@@ -606,7 +606,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Inisialisasi tampilan
-  initializeSejarahView();
+  window.onload = () => {
+    initializeSejarahView();
+  }
 });
 
 // Fungsi untuk inisialisasi tampilan

@@ -4,15 +4,15 @@ include_once 'utility.php';
 // $asset_subdir = "sejarah/";
 
 // Menambahkan baris data sejarah baru (CREATE)
-function InsertSejarah($judul, $tahun, $deskripsi)
+function InsertSejarah($judul_sejarah, $tahun_sejarah, $deskripsi)
 {
     global $koneksi;
 
     $success = false;
     try {
-        $sql = "INSERT INTO sejarah (judul, tahun, deskripsi) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO sejarah (judul_sejarah, tahun_sejarah, deskripsi) VALUES (?, ?, ?)";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("sss", $judul, $tahun, $deskripsi);
+        $stmt->bind_param("sss", $judul_sejarah, $tahun_sejarah, $deskripsi);
         $stmt->execute();
 
         $success = true;
@@ -22,7 +22,7 @@ function InsertSejarah($judul, $tahun, $deskripsi)
     return $success;
 }
 
-function GetSejarah($id = null, $judul = null, $tahun = null, $deskripsi = null, $search = null)
+function GetSejarah($id_sejarah = null, $judul_sejarah = null, $tahun_sejarah = null, $deskripsi = null, $search = null)
 {
     global $koneksi;
     $data = [];
@@ -32,19 +32,19 @@ function GetSejarah($id = null, $judul = null, $tahun = null, $deskripsi = null,
         $params = [];
         $types = "";
 
-        if ($id !== null) {
+        if ($id_sejarah !== null) {
             $conditions[] = "id_sejarah = ?";
-            $params[] = $id;
+            $params[] = $id_sejarah;
             $types .= "i";
         }
-        if ($judul !== null) {
-            $conditions[] = "judul LIKE ?";
-            $params[] = "%$judul%";
+        if ($judul_sejarah !== null) {
+            $conditions[] = "judul_sejarah LIKE ?";
+            $params[] = "%$judul_sejarah%";
             $types .= "s";
         }
-        if ($tahun !== null) {
-            $conditions[] = "tahun LIKE ?";
-            $params[] = "%$tahun%";
+        if ($tahun_sejarah !== null) {
+            $conditions[] = "tahun_sejarah LIKE ?";
+            $params[] = "%$tahun_sejarah%";
             $types .= "s";
         }
         if ($deskripsi !== null) {
@@ -54,7 +54,7 @@ function GetSejarah($id = null, $judul = null, $tahun = null, $deskripsi = null,
         }
 
         if ($search !== null) {
-            $conditions[] = "(judul LIKE ? OR tahun LIKE ? OR deskripsi LIKE ?)";
+            $conditions[] = "(judul_sejarah LIKE ? OR tahun_sejarah LIKE ? OR deskripsi_sejarah LIKE ?)";
             $params[] = "%$search%";
             $params[] = "%$search%";
             $params[] = "%$search%";
@@ -88,15 +88,15 @@ function GetSejarah($id = null, $judul = null, $tahun = null, $deskripsi = null,
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateSejarah($id_sejarah, $judul, $tahun, $deskripsi)
+function UpdateSejarah($id_sejarah, $judul_sejarah, $tahun_sejarah, $deskripsi)
 {
     global $koneksi;
 
     $success = false;
     try {
-        $sql = "UPDATE sejarah SET judul = ?, tahun = ?, deskripsi = ? WHERE id_sejarah = ?";
+        $sql = "UPDATE sejarah SET judul_sejarah = ?, tahun_sejarah = ?, deskripsi = ? WHERE id_sejarah = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("sssi", $judul, $tahun, $deskripsi, $id_sejarah);
+        $stmt->bind_param("sssi", $judul_sejarah, $tahun_sejarah, $deskripsi, $id_sejarah);
         $stmt->execute();
 
         $success = true;
@@ -114,7 +114,7 @@ function DeleteSejarah($id_sejarah)
 
     $success = false;
     try {
-        if (!($data = GetSejarah(id: $id_sejarah)[0]))
+        if (!($data = GetSejarah(id_sejarah: $id_sejarah)[0]))
             throw new Exception("Data sejarah tidak ditemukan!");
 
         $sql = "DELETE FROM sejarah WHERE id_sejarah = ?";

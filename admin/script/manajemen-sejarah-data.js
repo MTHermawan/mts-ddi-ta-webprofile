@@ -8,7 +8,7 @@ async function ReloadDataSejarah(keyword = null) {
     if (!response.ok) throw new Error("Network error");
 
     sejarahData = await response.json();
-    displayTableData();
+    refreshSejarahDisplay();
 
     return sejarahData;
   } catch (error) {
@@ -17,18 +17,18 @@ async function ReloadDataSejarah(keyword = null) {
   return false;
 }
 
-async function PostTambahSejarah(judul, tahun, deskripsi) {
+async function PostTambahSejarah(judul_sejarah, tahun_sejarah, deskripsi) {
   try {
     const method = 'POST';
-    const url = './post/manajemen-sdejarah/tambah-sejarah.php';
+    const url = './post/manajemen-sejarah/tambah-sejarah.php';
 
     const formData = new FormData();
-    formData.append('judul', judul);
-    formData.append('tahun', tahun);
+    formData.append('judul_sejarah', judul_sejarah);
+    formData.append('tahun_sejarah', tahun_sejarah);
     formData.append('deskripsi', deskripsi);
 
     let process = await MakeXMLRequest(method, url, formData);
-    SearchSejarahEvent();
+    ReloadDataSejarah();
 
     return process;
   } catch (error) {
@@ -37,19 +37,19 @@ async function PostTambahSejarah(judul, tahun, deskripsi) {
   return false;
 }
 
-async function PostEditSejarah(id_sejarah, judul, tahun, deskripsi) {
+async function PostEditSejarah(id_sejarah, judul_sejarah, tahun_sejarah, deskripsi) {
   try {
     const method = 'POST';
     const url = './post/manajemen-sejarah/update-sejarah.php';
 
     const formData = new FormData();
     formData.append('id_sejarah', id_sejarah);
-    formData.append('judul', judul);
-    formData.append('tahun', tahun);
+    formData.append('judul_sejarah', judul_sejarah);
+    formData.append('tahun_sejarah', tahun_sejarah);
     formData.append('deskripsi', deskripsi);
 
     const process = await MakeXMLRequest(method, url, formData)
-    SearchSejarahEvent();
+    ReloadDataSejarah();
 
     return process;
   } catch (error) {
@@ -66,7 +66,7 @@ async function PostDeleteSejarah(id_sejarah) {
     formData.append('id_sejarah', id_sejarah);
 
     const process = await MakeXMLRequest(method, url, formData);
-    SearchSejarahEvent();
+    ReloadDataSejarah();
 
     return process;
   } catch (error) {
@@ -74,19 +74,3 @@ async function PostDeleteSejarah(id_sejarah) {
   }
   return false;
 }
-
-const searchInput = document.querySelector('.search-input');
-function SearchSejarahEvent(delay = 0) {
-  const keyword = searchInput.value.trim();
-  if (searchInput.searchTimeout) {
-    clearTimeout(searchInput.searchTimeout);
-  }
-
-  searchInput.searchTimeout = setTimeout(() => {
-    ReloadDataSejarah(keyword);
-  }, delay);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  searchInput.addEventListener('input', () => { SearchSejarahEvent(500); });
-});

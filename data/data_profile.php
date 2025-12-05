@@ -59,4 +59,35 @@ function GetProfile()
     return $data;
 }
 
+function SetValue($key, $value)
+{
+    global $koneksi;
+    
+    try {
+        $sql = "SELECT COUNT(*)  FROM profile_settings WHERE settings_key = ?";
+        $stmt = $koneksi->prepare($sql);
+        $stmt->bind_param('s', $key);
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+    } catch (Exception $e) {
+        SendServerError($e);
+        
+    }
+}
+
+function UpdateVisiMisi($visi, $misi, $tujuan)
+{
+    global $koneksi;
+    
+    try {
+        $sql = "INSERT ";
+    } catch (Exception $e) {
+        SendServerError($e);
+        
+    }
+}
+
 ?>
