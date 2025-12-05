@@ -32,7 +32,7 @@ body {
 .sub-judul-staf {
   text-align: center;
   font-size: 1.15rem;
-  color: #555;
+  color: rgb(29, 41, 57);
   margin-bottom: 40px;
 }
 
@@ -70,9 +70,10 @@ body {
    GRID CARD
 =================================================================== */
 .staf-list {
+  width: 100%;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   padding: 20px;
 }
 
@@ -84,10 +85,11 @@ body {
 .staf-card {
   width: 100%;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
   transition: 0.3s ease;
+  height: 408px;
 }
 
 .staf-card:hover {
@@ -99,9 +101,9 @@ body {
    FOTO PROFIL
 =================================================================== */
 .staf-gambar {
-  width: 140px;
-  height: 140px;
-  margin: 25px auto 10px;
+  width: 160px;
+  height: 160px;
+  margin: 16px auto 20px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #fff;
@@ -154,21 +156,27 @@ body {
 =================================================================== */
 .staf-deskripsi {
   background: #f8fafc;
+  margin-bottom: 12px;
   padding: 10px 13px;
-  border-radius: 10px;
-  margin: 12px 0;
   border-left: 4px solid rgb(4, 134, 0);
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.95rem;
+  font-size: 16px;
+  border-radius: 16px;
+  font-weight: 550;
   text-align: left;
+  color: rgb(29, 41, 57);
 }
 
 .staf-deskripsi i {
   color: rgb(4, 134, 0);
   width: 20px;
   text-align: center;
+}
+
+.staf-deskripsi.staf-name {
+  height: 60px;
 }
 
 /* ===================================================================
