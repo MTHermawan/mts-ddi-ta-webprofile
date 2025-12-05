@@ -53,7 +53,7 @@ include_once "../data/utility.php";
 
         <!-- Data Sejarah -->
         <div class="sejarah-container" id="sejarahContainer">
-          
+
           <!-- Card 1: Pendirian Sekolah -->
           <div class="sejarah-card">
             <div class="sejarah-year">1985</div>
@@ -189,6 +189,24 @@ include_once "../data/utility.php";
           </div>
         </div>
 
+        <!-- Pagination -->
+        <div class="pagination-container" id="paginationContainer">
+          <div class="pagination-info" id="paginationInfo">
+            Menampilkan 0-0 dari 0 data
+          </div>
+          <div class="pagination-controls">
+            <button class="pagination-btn prev" id="prevPage" disabled>
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="page-numbers" id="pageNumbers">
+              <span class="page-number active">1</span>
+            </div>
+            <button class="pagination-btn next" id="nextPage" disabled>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -297,7 +315,7 @@ include_once "../data/utility.php";
 
   </div>
 
-      <!-- Notifikasi Popup Global -->
+  <!-- Notifikasi Popup Global -->
   <div id="global-notification" class="notification-popup">
     <div class="notification-icon">
       <i class="fa-solid fa-check-circle"></i>
@@ -310,7 +328,7 @@ include_once "../data/utility.php";
 
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-sejarah.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,103 @@
+/* navbar start */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 124px;
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.brand-info h1 {
+  color: rgb(29, 41, 57);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.brand-info p {
+  font-size: 14px;
+  color: rgb(102, 112, 133);
+  font-weight: 500;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 8px 0px;
+}
+
+.nav-menu a {
+  color: rgb(29, 41, 57);
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(4, 134, 0);
+  border-radius: 50px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease, transform 0.4s ease-in-out;
+}
+
+.nav-menu a:hover {
+  color: white;
+  box-shadow: 0 4px 6px rgb(4, 134, 0);
+}
+
+.nav-menu a:hover::before {
+  opacity: 1;
+  background: rgb(4, 134, 0);
+}
+
+.nav-menu a.active {
+  color: white;
+  background-color: rgb(4, 134, 0);
+  font-weight: bold;
+  border-bottom: 2px solid rgb(4, 134, 0);
+}
+/* navbar stop */

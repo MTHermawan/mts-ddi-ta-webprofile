@@ -1,138 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Signika+Negative:wght@300..700&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Google Sans Code", monospace;
-    
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: rgb(242, 242, 242);
+  background-color: rgb(242, 242, 242);
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 125px;
-    background: rgba(237, 237, 237, 0.7);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.logo img{
-    width: 100%;
-    height: 100%;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-.logo-text h1 {
-    color: rgb(0, 0, 0);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.logo-text p {
-    font-size: 0.75rem;
-    color: #000000;
-    font-weight: 400;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 1.5rem;
-    background: rgba(35, 37, 36, 0.5);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-}
-
-.nav-menu a {
-    color: #ddd;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-weight: 500;
-    position: relative;
-  z-index: 1;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.nav-menu a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgb(4, 134, 0);
-    border-radius: 50px;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.2s ease, transform 0.4s ease-in-out;
-}
-
-.nav-menu a:hover {
-    color: white;
-    box-shadow: 0 4px 12px rgb(4, 134, 0);
-}
-
-.nav-menu a:hover::before {
-    opacity: 1;
-    background: rgb(4, 134, 0);
-}
-
-
+/* hero section start */
 #hero {
   position: relative;
-  height: 400px;
-  padding: 80px 50px;
+  height: 100vh;
+  padding: 80px 124px;
   color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
-  /* min-height: 80vh; */
   overflow: hidden;
 }
 
-.hero-bg-img {
+.hero-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -141,7 +34,6 @@ body {
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  /* filter: blur(2px); */
 }
 
 .hero-overlay {
@@ -151,67 +43,82 @@ body {
   right: 0;
   height: 60%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .hero-content {
   max-width: 700px;
-  /* text-align: center; */
   z-index: 2;
-  padding: 20px;
 }
 
 .hero-content h1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: calc(1.575rem + 3vw);
+  text-align: left;
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 20px;
-  font-family: "Signika Negative", sans-serif;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-    display: flex;
-    text-align: left;
+  display: flex;
+  text-align: left;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 32px;
-  color: #e0e0e0;
+  color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+.btn-primary {
+  background-color: rgb(4, 134, 0);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25% 10%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-family: "Signika Negative", sans-serif;
+  box-shadow: 0 4px 10px rgba(4, 134, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #036800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(4, 134, 0, 0.4);
+}
+/* hero section stop */
+
 /* footer */
 .footer {
-    padding: 80px 125px 40px 125px;
-    background: #064d1a;
-    color: #e6ffe6;
-    margin-top: 0;
+  padding: 80px 125px 40px 125px;
+  background: #064d1a;
+  color: #e6ffe6;
+  margin-top: 0;
 }
 
 .footer-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px; /* seragam */
-    color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px; /* seragam */
+  color: white;
 }
 
 /*BRAND: LOGO KIRI, TEKS KANAN*/
 .footer-brand-full {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px; 
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
 }
 
 .brand-left img {
-    width: 85px;
-    height: 85px;
-    object-fit: cover;
-    border-radius: 16px;
-    
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 /*TEKS BRAND*/
@@ -219,150 +126,154 @@ body {
 .brand-right p,
 .footer-kemenag,
 .footer-social {
-    margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
 .footer-title {
-    font-size: 1.5rem;
-    margin: 0;
-    color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  color: white;
 }
 
 .footer-desc {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    max-width: 380px;
-    margin: 0;
-    color: white;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 0;
+  color: white;
 }
 
-.footer-desc a{
-    color: #ffffff;
-    /* text-decoration: none; */
+.footer-desc a {
+  color: #ffffff;
+  /* text-decoration: none; */
 }
 
 /* ==========================
    BADGE KEMENAG
 ========================== */
 .footer-kemenag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.07);
-    padding: 10px 14px;
-    border-radius: 12px;
-    border-left: 4px solid #1fae51;
-    margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-left: 4px solid #1fae51;
+  margin: 0;
 }
 
 .footer-kemenag img {
-    width: 45px;
+  width: 45px;
 }
 
 /*SOSIAL MEDIA*/
 .footer-social a {
-    display: inline-flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    margin-top: 10px;
-    background: rgba(255, 255, 255, 0.08);
-    justify-content: center;
-    align-items: center;
-    color: white;
-    transition: 0.3s;
-    text-decoration: none;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s;
+  text-decoration: none;
 }
 
 .footer-social a:hover {
-    background: #18a300;
-    transform: translateY(-4px);
+  background: #18a300;
+  transform: translateY(-4px);
 }
 
 /* kontak */
 
 .footer-column h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: white;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: white;
 }
 
 .footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-column ul li {
-    margin: 8px 0;
+  margin: 8px 0;
 }
 
 .footer-column ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    transition: 0.3s;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.3s;
 }
 
 .footer-column ul li a:hover {
-    color: #18a300;
-    padding-left: 5px;
+  color: #18a300;
+  padding-left: 5px;
 }
 
 /* Kontak */
 .footer-column p {
-    margin: 23px 0;
+  margin: 23px 0;
 }
 
 .footer-column p i {
-    color: #ddd;
-    margin-right: 8px;
+  color: #ddd;
+  margin-right: 8px;
 }
 
 .footer-ornament {
-    width: 100%;
-    height: 2px;
-    background-image: linear-gradient(to right, transparent, #1fae51, #ffffff, #1fae51, transparent);
-    margin: 40px 0;
-    opacity: 0.5;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #1fae51,
+    #ffffff,
+    #1fae51,
+    transparent
+  );
+  margin: 40px 0;
+  opacity: 0.5;
 }
 
 /* ==========================
    FOOTER BOTTOM
 ========================== */
 .footer-bottom {
-    color: white;
-    text-align: center;
-    padding-top: 10px;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
 }
 
 /* ==========================
    RESPONSIVE
 ========================== */
 @media (max-width: 900px) {
-    .footer {
-        padding: 50px 30px;
-    }
+  .footer {
+    padding: 50px 30px;
+  }
 
-    .footer-container {
-        grid-template-columns: 1fr ;
-        gap: 35px;
-        text-align: center;
-    }
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
 
-    .footer-brand-full {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
+  .footer-brand-full {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 
-    .brand-right {
-        text-align: center;
-    }
+  .brand-right {
+    text-align: center;
+  }
 
-    .footer-social {
-        justify-content: center;
-    }
+  .footer-social {
+    justify-content: center;
+  }
 }
-
-
-
