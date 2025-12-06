@@ -272,6 +272,11 @@ section.show {
   justify-content: center;
 }
 
+.card-icon img{
+  width: 32px;
+  height: 32px;
+}
+
 .card h3 {
   margin-bottom: 12px;
   color: rgb(29, 41, 57);
@@ -324,6 +329,11 @@ section.show {
   align-items: center;
   justify-content: center;
   font-size: 28px;
+}
+
+.feature-icon img {
+  width: 36px;
+  height: 36px;
 }
 
 .feature-content h2 {
@@ -399,6 +409,11 @@ section.show {
   color: white;
 }
 
+.stat-icon img{
+  width: 32px;
+  height: 32px;
+}
+
 .stat-number {
   color: rgb(29, 41, 57);
   font-size: 32px;
@@ -461,8 +476,9 @@ section.show {
   color: rgb(4, 134, 0);
 }
 
-.highlight-icon i {
-  font-size: 20px;
+.highlight-icon img {
+  width: 28px;
+  height: 28px;
 }
 
 .highlight-title {
