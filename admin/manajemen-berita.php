@@ -190,7 +190,7 @@ require_once "./includes/check-auth.php";
               type="text"
               class="text-input"
               id="creatorInput"
-              placeholder="Masukkan judul berita" />
+              placeholder="Masukkan pembuat berita" />
           </div>
 
         </div>

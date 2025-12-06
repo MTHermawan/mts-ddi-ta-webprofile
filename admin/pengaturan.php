@@ -10,7 +10,8 @@ require_once "./includes/check-auth.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Halaman Utama</title>
   <link rel="stylesheet" href="./style/dashboard.css" />
-  <link rel="stylesheet" href="./style/halaman-utama.css" />
+  <link rel="stylesheet" href="./style/pengaturan.css" />
+  <link rel="stylesheet" href="./style/upload-image.css" />
   <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
   <link
     rel="stylesheet"
@@ -34,44 +35,61 @@ require_once "./includes/check-auth.php";
 
       <!-- main content media social -->
       <form action="" class="form-container">
+        <h1 class="change-password-title">Umum</h1>
         <div class="upload-container">
+
           <div class="upload-card card-left">
-            <h2 class="change-password-title">Logo Sekolah</h2>
-            <div id="imagePreviewLogo" class="image-preview-container" class="file-input">
+            <label class="file-label" for="fileInputLogo">Logo Sekolah</label>
+
+            <div id="imagePreviewLogo" class="image-preview-container">
               <div class="placeholder-content" id="placeholderLogo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
                 </svg>
-                <span>Preview akan muncul di sini</span>
+                <span>Preview Logo</span>
               </div>
               <img src="" alt="Preview Gambar" id="previewImgLogo">
             </div>
 
             <input type="file" id="fileInputLogo" class="file-input" accept="image/*">
 
-            <label for="fileInputLogo" class="custom-file-upload">
-              Upload Gambar
-            </label>
+            <div class="button-group">
+              <label for="fileInputLogo" class="custom-file-upload">
+                <i class="fa-solid fa-upload"></i> Upload
+              </label>
+
+              <button type="button" id="removeBtnLogo" class="remove-file-btn" style="display: none;">
+                <i class="fa-solid fa-trash"></i> Hapus
+              </button>
+            </div>
           </div>
 
           <div class="upload-card card-right">
-            <h2 class="change-password-title">Gambar Visual Utama</h2>
+            <label class="file-label" for="fileInputHero">Gambar Visual Utama</label>
+
             <div id="imagePreviewHero" class="image-preview-container">
               <div class="placeholder-content" id="placeholderHero">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
                 </svg>
-                <span>Preview akan muncul di sini</span>
+                <span>Preview Visual Utama</span>
               </div>
               <img src="" alt="Preview Gambar" id="previewImgHero">
             </div>
 
             <input type="file" id="fileInputHero" class="file-input" accept="image/*">
 
-            <label for="fileInputHero" class="custom-file-upload">
-              Upload Gambar
-            </label>
+            <div class="button-group">
+              <label for="fileInputHero" class="custom-file-upload">
+                <i class="fa-solid fa-upload"></i> Upload
+              </label>
+
+              <button type="button" id="removeBtnHero" class="remove-file-btn" style="display: none;">
+                <i class="fa-solid fa-trash"></i> Hapus
+              </button>
+            </div>
           </div>
+
         </div>
 
         <div class="settings-row">
@@ -179,7 +197,6 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="settings-row">
-
           <div class="settings-card">
             <div class="settings-form settings-form-left">
               <div class="settings-info">
@@ -250,6 +267,15 @@ require_once "./includes/check-auth.php";
 
         </div>
 
+        <div class="form-actions">
+          <div></div>
+          <button class="btn-save">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+      </form>
+
+      <form action="" class="form-container">
+        <h1 class="change-password-title">Staff dan Murid</h1>
         <div class="meta-row">
           <div class="meta-card">
             <div class="meta-form">
@@ -287,11 +313,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="description-staff">Deskripsi Staff</label>
+                  <label class="meta-label" for="judul-staff">Judul Staff</label>
                   <input
                     class="input-text"
-                    id="description-staff"
-                    name="description-staff"
+                    id="judul-staff"
+                    name="judul-staff"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -303,11 +329,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="description-staff">Deskripsi Murid</label>
+                  <label class="meta-label" for="judul-murid">Judul Murid</label>
                   <input
                     class="input-text"
-                    id="description-staff"
-                    name="description-staff"
+                    id="judul-murid"
+                    name="judul-murid"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -318,18 +344,17 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="settings-row">
-
           <div class="settings-card">
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="core-value-1">Nilai Dasar 1</label>
+                  <label class="settings-label" for="description-staff">Deskripsi Staff</label>
                   <input
                     class="input-text"
-                    id="core-value-1"
-                    name="core-value-1"
+                    id="description-staff"
+                    name="description-staff"
                     type="text"
-                    placeholder="Nilai Dasar 1..." />
+                    placeholder="Beragam latar belakang ilmu..." />
                 </div>
               </div>
             </div>
@@ -339,13 +364,13 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="core-value-2">Nilai Dasar 2</label>
+                  <label class="settings-label" for="description-murid">Deskripsi Murid</label>
                   <input
                     class="input-text"
-                    id="core-value-2"
-                    name="core-value-2"
+                    id="description-murid"
+                    name="description-murid"
                     type="text"
-                    placeholder="Nilai Dasar 2..." />
+                    placeholder="Komunitas pelajar yang beragam..." />
                 </div>
               </div>
             </div>
@@ -354,18 +379,144 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="settings-row">
-
-          <div class="settings-card">
+          <div class="settings-card input-icon-card">
             <div class="settings-form settings-form-left">
-              <div class="settings-info">
-                <div class="settings-details">
-                  <label class="settings-label" for="core-value-3">Nilai Dasar 3</label>
+              <div class="card">
+                <div id="previewContainerStaff" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewStaff" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Staff</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnStaff"> Choose File </span>
+
+                  <span class="file-name-display" id="fileNameTextStaff">
+                    No file chosen
+                  </span>
+                </div>
+
+                <input type="file" id="realFileInputStaff" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-right">
+              <div class="card">
+                <div id="previewContainerMurid" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewMurid" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Murid</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnMurid"> Choose File </span>
+
+                  <span class="file-name-display" id="fileNameTextMurid">
+                    No file chosen
+                  </span>
+                </div>
+
+                <input type="file" id="realFileInputMurid" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="form-actions">
+          <div></div>
+          <button class="btn-save">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+
+      </form>
+
+      <form action="" class="form-container">
+        <h1 class="change-password-title">Nilai Dasar</h1>
+        <div class="meta-row">
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="core-value-1">Judul Nilai Dasar 1</label>
+                  <input
+                    class="input-text"
+                    id="core-value-1"
+                    name="core-value-1"
+                    type="text"
+                    placeholder="60+" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="core-value-2">Judul Nilai Dasar 2</label>
+                  <input
+                    class="input-text"
+                    id="core-value-2"
+                    name="core-value-2"
+                    type="text"
+                    placeholder="220+" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="core-value-3">Judul Nilai Dasar 3</label>
                   <input
                     class="input-text"
                     id="core-value-3"
                     name="core-value-3"
                     type="text"
-                    placeholder="Nilai Dasar 3..." />
+                    placeholder="Beragam latar belakang ilmu..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <div class="meta-form">
+              <div class="meta-info">
+                <div class="meta-details">
+                  <label class="meta-label" for="core-value-4">Judul Nilai Dasar 4</label>
+                  <input
+                    class="input-text"
+                    id="core-value-4"
+                    name="core-value-4"
+                    type="text"
+                    placeholder="Komunitas pelajar yang beragam..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-core-value-1">Deskripsi Nilai Dasar 1</label>
+                  <input
+                    class="input-text"
+                    id="description-core-value-1"
+                    name="description-core-value-1"
+                    type="text"
+                    placeholder="Beragam latar belakang ilmu..." />
                 </div>
               </div>
             </div>
@@ -375,13 +526,13 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="core-value-4">Nilai Dasar 4</label>
+                  <label class="settings-label" for="description-core-value-2">Deskripsi Nilai Dasar 2</label>
                   <input
                     class="input-text"
-                    id="core-value-4"
-                    name="core-value-4"
+                    id="description-core-value-2"
+                    name="description-core-value-2"
                     type="text"
-                    placeholder="Nilai Dasar 4..." />
+                    placeholder="Komunitas pelajar yang beragam..." />
                 </div>
               </div>
             </div>
@@ -389,6 +540,136 @@ require_once "./includes/check-auth.php";
 
         </div>
 
+        <div class="settings-row">
+          <div class="settings-card">
+            <div class="settings-form settings-form-left">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-core-value-3">Deskripsi Nilai Dasar 3</label>
+                  <input
+                    class="input-text"
+                    id="description-core-value-3"
+                    name="description-core-value-3"
+                    type="text"
+                    placeholder="Beragam latar belakang ilmu..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-form settings-form-right">
+              <div class="settings-info">
+                <div class="settings-details">
+                  <label class="settings-label" for="description-core-value-4">Deskripsi Nilai Dasar 4</label>
+                  <input
+                    class="input-text"
+                    id="description-core-value-4"
+                    name="description-core-value-4"
+                    type="text"
+                    placeholder="Komunitas pelajar yang beragam..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-left">
+              <div class="card">
+                <div id="previewContainerND1" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND1" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Nilai Dasar-1</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND1"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND1">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND1" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-right">
+              <div class="card">
+                <div id="previewContainerND2" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND2" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Nilai Dasar-2</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND2"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND2">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND2" accept="image/*" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-left">
+              <div class="card">
+                <div id="previewContainerND3" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND3" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Nilai Dasar-3</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND3"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND3">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND3" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-right">
+              <div class="card">
+                <div id="previewContainerND4" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND4" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Nilai Dasar-4</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND4"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND4">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND4" accept="image/*" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-actions">
+          <div></div>
+          <button class="btn-save">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+
+      </form>
+
+      <form action="" class="form-container">
+        <h1 class="change-password-title">Social Media</h1>
         <div class="social-row">
           <div class="social-card">
             <div class="social-form social-form-left">
@@ -540,7 +821,7 @@ require_once "./includes/check-auth.php";
           </div>
         </div>
 
-        <div class="form-actions">
+        <div class="form-actions social-media-actions">
           <div></div>
           <button class="btn-save">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
@@ -604,6 +885,7 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
   <script src="./script/pengaturan.js"></script>
+  <script src="./script/input-icon.js"></script>
   <script src="./script/notification.js"></script>
 </body>
 
