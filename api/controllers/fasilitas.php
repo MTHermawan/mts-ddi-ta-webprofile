@@ -1,7 +1,7 @@
 <?php
 if (!defined('IN_API')) {
     http_response_code(403);
-    exit("Forbidden");
+    exit;
 }
 
 $current_dir = __DIR__;

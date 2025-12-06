@@ -1,7 +1,8 @@
-<?php include_once "../data/koneksi.php";
-include_once "../data/data_galeri.php";
-
-$data_galeri = GetGaleri();
+<?php
+if (!defined('IN_INDEX')) {
+    http_response_code(403);
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +12,9 @@ $data_galeri = GetGaleri();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/galeri.css">
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/galeri.css">
+    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 
 <body>

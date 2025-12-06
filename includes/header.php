@@ -21,11 +21,11 @@
                     Profil <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/sejarah.php">Sejarah</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/struktur-organisasi.php">Struktur Organisasi</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/guru.php">Guru</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/fasilitas.php">Fasilitas Sekolah</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/ekskul.php">Ekstrakurikuler Sekolah</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/sejarah">Sejarah</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/struktur-organisasi">Struktur Organisasi</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/guru">Guru</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/fasilitas">Fasilitas Sekolah</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/ekskul">Ekstrakurikuler Sekolah</a>
                 </div>
             </div>
 
@@ -35,10 +35,10 @@
                 <a href="#gallery">Galeri</a>
                 <a href="#contact">Kontak</a>
             <?php } else { ?>
-                <a href="<?php echo DOCUMENT_ROOT; ?>index.html#event">Agenda</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>index.html#news">Berita</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>index.html#gallery">Galeri</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>index.html#contact">Kontak</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>#event">Agenda</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>#news">Berita</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>#gallery">Galeri</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>#contact">Kontak</a>
             <?php } ?>
         </div>
 

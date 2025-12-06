@@ -1,7 +1,7 @@
 <?php include_once __DIR__ . DIRECTORY_SEPARATOR . "api_utility.php";
 if (!defined('IN_API')) {
     http_response_code(403);
-    exit("Forbidden");
+    exit;
 }
 
 $current_dir = __DIR__;

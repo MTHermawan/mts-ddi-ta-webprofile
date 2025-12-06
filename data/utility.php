@@ -121,6 +121,23 @@ function GetAssetPath($url_asset)
     return $asset_dir ."/". $url_asset;
 }
 
+function FormatDateID($datetime)
+{
+    $dateTime = new DateTime($datetime);
+    $bulanId = [
+        1 => "Januari", "Februari", "Maret", "April",
+        "Mei", "Juni", "Juli", "Agustus",
+        "September", "Oktober", "November", "Desember"
+    ];
+    
+    $hari = $dateTime->format('j');        // 1–31
+    $bulan = $bulanId[(int)$dateTime->format('n')];  // bulan Indonesia
+    $tahun = $dateTime->format('Y');
+    
+    $dateString = "$hari $bulan $tahun";
+    return $dateString;
+}
+
 // class ServerException extends Exception {
 //   public function ErrorMessage() {
 //     header("Content-type: application/json");

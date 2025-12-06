@@ -1,5 +1,20 @@
-<?php session_start();
-include_once "../data/koneksi.php";
+<?php
+if (!defined('IN_INDEX')) {
+    http_response_code(403);
+    exit;
+}
+
+$data_berita_tunggal = [];
+if (!filter_var($id_berita, FILTER_VALIDATE_INT)) {
+  header('Location: ../');
+}
+
+$data_berita_tunggal = GetBerita($id_berita);
+if (!$data_berita_tunggal) {
+  header('Location: ./');
+}
+
+$dateString = FormatDateID($data_berita_tunggal[0]['tanggal_dibuat']);
 
 ?>
 
@@ -13,23 +28,23 @@ include_once "../data/koneksi.php";
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="../style/hero-sect.css" />
-    <link rel="stylesheet" href="../style/adv.info.css" />
-    <link rel="stylesheet" href="../style/header.css" />
-    <link rel="stylesheet" href="../style/dropdown.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/adv.info.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
     <link
       rel="icon"
-      href="../assets/logo-sekolah.png"
+      href="<?= BASE_URL ?>/assets/logo-sekolah.png"
       type="image/png/jpeg/jpg"
     />
   </head>
   <body>
     <!-- HEADER -->
-    <?php include "../includes/header.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
     <section id="hero">
       <img
-        src="../assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/school.jpg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -40,13 +55,13 @@ include_once "../data/koneksi.php";
           Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
           Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
         </p>
-        <a href="../index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
+        <a href="<?= BASE_URL ?>/index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
       </div>
     </section>
 
     <section class="breadcrumb fade-in">
-      <a href="../index.html">Home</a> ›
-      <a href="../informasi/berita.html">Berita</a> ›
+      <a href="<?= BASE_URL ?>/index.html">Home</a> ›
+      <a href="<?= BASE_URL ?>/informasi/berita.html">Berita</a> ›
       <span>Detail Berita</span>
     </section>
 
@@ -54,16 +69,16 @@ include_once "../data/koneksi.php";
       <!-- Sidebar -->
       <aside class="news-sidebar">
         <h3 class="new-title">
-          Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat Kabupaten
+          <?= $data_berita_tunggal[0]['judul'] ?>
         </h3>
         <div class="featured-meta">
           <div class="featured-meta-date">
             <i class="fa-solid fa-calendar news-icon"></i>
-            <span>20 November 2025</span>
+            <span><?= $dateString ?></span>
           </div>
           <div class="featured-meta-publisher">
             <i class="fas fa-user"></i>
-            <span>Admin Sekolah</span>
+            <span><?= $data_berita_tunggal[0]['nama_admin'] ?></span>
           </div>
         </div>
       </aside>
@@ -71,17 +86,21 @@ include_once "../data/koneksi.php";
       <!-- Konten Utama -->
       <article class="news-detail">
         <img
-          src="../assets/contoh3.jpg"
+          src="<?= BASE_URL ?>/assets/<?= $data_berita_tunggal[0]['url_foto'] ?>"
           class="news-detail-img"
           alt="Gambar Berita"
+          onerror="this.onerror = null; this.style.display = 'none';"
         />
+        <!-- <img src="../assets/contoh3.jpg" class="news-detail-img" alt="Gambar  Berita" /> -->
 
         <h1 class="news-detail-title">
-          Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat Kabupaten
+          <?= $data_berita_tunggal[0]['judul'] ?>
+          <!-- Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat Kabupaten  -->
         </h1>
 
         <p class="news-description">
-          Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda Rizky Fauzan, berhasil meraih juara pertama dalam lomba tilawah Al-Qur’an tingkat kabupaten... Kegiatan lomba berlangsung di kantor Kemenag pada hari Selasa, dengan peserta dari berbagai sekolah dan madrasah...
+          <?= $data_berita_tunggal[0]['deskripsi'] ?>
+          <!-- Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda Rizky Fauzan, berhasil meraih juara pertama dalam lomba tilawah Al-Qur’an tingkat kabupaten... Kegiatan lomba berlangsung di kantor Kemenag pada hari Selasa, dengan peserta dari berbagai sekolah dan madrasah... -->
         </p>
 
         <p></p>
@@ -89,11 +108,11 @@ include_once "../data/koneksi.php";
     </section>
 
     <!-- FOOTER -->
-    <?php include_once "../includes/footer.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
-    <script src="../script/fade-in.js"></script>
-    <script src="script/nav-active.js"></script>
-    <script src="../script/dropdown.js"></script>
-    <script src="../script/hamburger-mennu.js"></script>
+    <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
+    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
   </body>
 </html>
