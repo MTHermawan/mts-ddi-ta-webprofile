@@ -138,8 +138,16 @@ input[type="file"] {
 }
 
 /* Update selector agar mencakup ID baru (ND1 s.d ND4) */
-#imgPreviewStaff, #imgPreviewMurid, 
-#imgPreviewND1, #imgPreviewND2, #imgPreviewND3, #imgPreviewND4 {
+/* Update selector untuk mencakup SEMUA Nilai Dasar (ND1 - ND8) */
+#imgPreviewStaff,
+#imgPreviewMurid,
+#imgPreviewND1,
+#imgPreviewND2,
+#imgPreviewND3,
+#imgPreviewND4,
+#imgPreviewND5,
+#imgPreviewND6,
+#imgPreviewND7 {
   max-width: 100px;
   max-height: 100px;
   width: auto;

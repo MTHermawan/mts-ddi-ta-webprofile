@@ -131,3 +131,32 @@ setupCustomFileInput({
   imgId: "imgPreviewND4",
   containerId: "previewContainerND4",
 });
+
+// 5. Setup Nilai Dasar 5 (ND5)
+setupCustomFileInput({
+  inputId: "realFileInputND5",
+  btnId: "actionBtnND5",
+  textId: "fileNameTextND5",
+  imgId: "imgPreviewND5",
+  containerId: "previewContainerND5",
+});
+
+// 6. Setup Nilai Dasar 6 (ND6)
+setupCustomFileInput({
+  inputId: "realFileInputND6",
+  btnId: "actionBtnND6",
+  textId: "fileNameTextND6",
+  imgId: "imgPreviewND6",
+  containerId: "previewContainerND6",
+});
+
+// 7. Setup Nilai Dasar 7 (ND7)
+setupCustomFileInput({
+  inputId: "realFileInputND7",
+  btnId: "actionBtnND7",
+  textId: "fileNameTextND7",
+  imgId: "imgPreviewND7",
+  containerId: "previewContainerND7",
+});
+
+

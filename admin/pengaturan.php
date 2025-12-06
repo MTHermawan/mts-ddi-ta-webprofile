@@ -669,6 +669,84 @@ require_once "./includes/check-auth.php";
       </form>
 
       <form action="" class="form-container">
+        <h1 class="change-password-title">Icon Visi-Misi</h1>
+
+        <div class="settings-row">
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-left">
+              <div class="card">
+                <div id="previewContainerND5" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND5" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Visi</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND5"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND5">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND5" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-right">
+              <div class="card">
+                <div id="previewContainerND6" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND6" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Misi</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND6"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND6">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND6" accept="image/*" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-row">
+
+          <div class="settings-card input-icon-card">
+            <div class="settings-form settings-form-left">
+              <div class="card">
+                <div id="previewContainerND7" style="display: none;">
+                  <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
+                  <img src="" id="imgPreviewND7" alt="Preview" />
+                </div>
+
+                <label class="form-label">Upload Icon Nilai Tujuan</label>
+
+                <div class="custom-file-control">
+                  <span class="action-btn" id="actionBtnND7"> Choose File </span>
+                  <span class="file-name-display" id="fileNameTextND7">No file chosen</span>
+                </div>
+
+                <input type="file" id="realFileInputND7" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <div></div>
+          <button class="btn-save">
+            <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
+        </div>
+
+      </form>
+
+      <form action="" class="form-container">
         <h1 class="change-password-title">Social Media</h1>
         <div class="social-row">
           <div class="social-card">
