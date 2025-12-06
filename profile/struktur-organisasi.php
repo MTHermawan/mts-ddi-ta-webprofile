@@ -1,8 +1,10 @@
-<?php session_start();
-include_once "../data/koneksi.php";
-include_once "../data/data_struktur_organisasi.php";
+<?php
+if (!defined('IN_INDEX')) {
+    http_response_code(403);
+    exit;
+}
 
-// Data berbentuk
+// Data berbentuk array
 $dataStrukturOrganisasi = GetStrukturOrganisasi();
 ?>
 
@@ -13,19 +15,19 @@ $dataStrukturOrganisasi = GetStrukturOrganisasi();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struktur Organisasi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../style/hero-sect.css">
-    <link rel="stylesheet" href="../style/struktur-organisasi.css">
-    <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="../style/dropdown.css" />
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/struktur-organisasi.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg">
 </head>
 <body>
     <!-- HEADER -->
-    <?php include "../includes/header.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
     <section id="hero">
       <img
-        src="../assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/school.jpg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -48,18 +50,18 @@ $dataStrukturOrganisasi = GetStrukturOrganisasi();
         </p>
         <div class="struktur-list">
             <div class="struktur-card">
-            <img src="../assets/<?php echo $dataStrukturOrganisasi[0]['url_foto']; ?>" alt="struktur-organisasi" class="img-organisasi">
+            <img src="<?= BASE_URL ?>/assets/<?= $dataStrukturOrganisasi[0]['url_foto'] ?>" alt="struktur-organisasi" class="img-organisasi">
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <?php include_once "../includes/footer.php" ?>
-    
-    <script src="../script/fade-in.js"></script>
-    <script src="script/nav-active.js"></script>
-    <script src="../script/dropdown.js"></script>
-    <script src="../script/hamburger-mennu.js"></script>
+    <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
+
+    <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
+    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
 
 </body>
 </html>

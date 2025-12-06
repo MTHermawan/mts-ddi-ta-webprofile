@@ -1,6 +1,8 @@
-<?php session_start();
-include_once "../data/koneksi.php";
-
+<?php
+if (!defined('IN_INDEX')) {
+    http_response_code(403);
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,19 +15,19 @@ include_once "../data/koneksi.php";
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="../style/hero-sect.css" />
-    <link rel="stylesheet" href="../style/fasilitas.css" />
-    <link rel="stylesheet" href="../style/header.css" />
-    <link rel="stylesheet" href="../style/dropdown.css" />
-    <link rel="icon" href="../assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/fasilitas.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
   </head>
   <body>
     <!-- HEADER -->
-    <?php include "../includes/header.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
     <section id="hero">
       <img
-        src="../assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/school.jpg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -36,7 +38,7 @@ include_once "../data/koneksi.php";
           Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
           Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
         </p>
-        <a href="../index.html#contact"
+        <a href="<?= BASE_URL ?>/index.html#contact"
           ><button class="btn-primary">Hubungi Kami</button></a
         >
       </div>
@@ -66,7 +68,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
 
@@ -78,7 +80,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
 
@@ -90,7 +92,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
 
@@ -102,7 +104,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
 
@@ -114,7 +116,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
 
@@ -125,7 +127,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
           <div class="fasilitas-card fade-in">
@@ -135,7 +137,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
           <div class="fasilitas-card fade-in">
@@ -145,7 +147,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
           <div class="fasilitas-card fade-in">
@@ -155,7 +157,7 @@ include_once "../data/koneksi.php";
               <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
             </div>
             <div class="fasilitas-gambar">
-              <img src="../assets/contoh3.jpg" alt="gambar" />
+              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
             </div>
           </div>
         </div>
@@ -163,11 +165,11 @@ include_once "../data/koneksi.php";
     </section>
 
     <!-- FOOTER -->
-    <?php include_once "../includes/footer.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
-    <script src="../script/fade-in.js"></script>
-    <script src="script/nav-active.js"></script>
-    <script src="../script/dropdown.js"></script>
-    <script src="../script/hamburger-mennu.js"></script>
+    <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
+    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
   </body>
 </html>

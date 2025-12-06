@@ -1,6 +1,10 @@
-<?php session_start();
-include_once "../data/koneksi.php";
+<?php
+if (!defined('IN_INDEX')) {
+    http_response_code(403);
+    exit;
+}
 
+$dataBerita = GetBerita();
 ?>
 
 <!DOCTYPE html>
@@ -13,23 +17,23 @@ include_once "../data/koneksi.php";
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="../style/hero-sect.css" />
-    <link rel="stylesheet" href="../style/berita.css" />
-    <link rel="stylesheet" href="../style/header.css" />
-    <link rel="stylesheet" href="../style/dropdown.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/berita.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
     <link
       rel="icon"
-      href="../assets/logo-sekolah.png"
+      href="<?= BASE_URL ?>/assets/logo-sekolah.png"
       type="image/png/jpeg/jpg"
     />
   </head>
   <body>
     <!-- HEADER -->
-    <?php include "../includes/header.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
     <section id="hero">
       <img
-        src="../assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/school.jpg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -40,7 +44,7 @@ include_once "../data/koneksi.php";
           Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
           Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
         </p>
-        <a href="../index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
+        <a href="<?= BASE_URL ?>/index.html#contact"><button class="btn-primary">Hubungi Kami</button></a>
       </div>
     </section>
 
@@ -61,36 +65,38 @@ include_once "../data/koneksi.php";
         <!-- CARD 1 -->
         <div class="berita-card fade-in">
           <div class="berita-gambar">
-            <img src="../assets/contoh3.jpg" alt="gambar" />
+            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
           </div>
 
           <div class="berita-teks">
-            <h2 class="berita-judul">Upacara Hari Guru Nasional 2025</h2>
+            <?php foreach ($dataBerita as $berita): ?>
+            <h2 class="berita-judul"><?= $berita['judul'] ?></h2>
+            <!-- <h2 class="berita-judul">Upacara Hari Guru Nasional 2025</h2> -->
 
             <p class="berita-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
+              <?= $berita['deskripsi'] ?>
             </p>
 
             <div class="news-meta">
               <div class="news-meta-date">
                 <i class="fa-solid fa-calendar news-icon"></i>
-                <span>20 November 2025</span>
+                <span><?= FormatDateID($berita['tanggal_dibuat']) ?></span>
               </div>
               <div class="news-meta-publisher">
                 <i class="fas fa-user"></i>
-                <span>Admin Sekolah</span>
+                <span><?= $berita['nama_admin'] ?></span>
               </div>
             </div>
 
-            <a class="btn-baca" href="#">Selengkapnya →</a>
+            <a class="btn-baca" href="<?= BASE_URL ?>/informasi/berita/<?= $berita['id_berita'] ?>">Selengkapnya →</a>
           </div>
+          <?php endforeach; ?>
         </div>
 
         <!-- CARD 2 -->
         <div class="berita-card fade-in">
           <div class="berita-gambar">
-            <img src="../assets/contoh3.jpg" alt="gambar" />
+            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
           </div>
 
           <div class="berita-teks">
@@ -119,7 +125,7 @@ include_once "../data/koneksi.php";
         <!-- CARD 3 -->
         <div class="berita-card fade-in">
           <div class="berita-gambar">
-            <img src="../assets/contoh3.jpg" alt="gambar" />
+            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
           </div>
 
           <div class="berita-teks">
@@ -148,11 +154,11 @@ include_once "../data/koneksi.php";
     </section>
 
     <!-- FOOTER -->
-    <?php include_once "../includes/footer.php" ?>
+    <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
-    <script src="../script/fade-in.js"></script>
+    <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
     <script src="script/nav-active.js"></script>
-    <script src="../script/dropdown.js"></script>
-    <script src="../script/hamburger-mennu.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
   </body>
 </html>
