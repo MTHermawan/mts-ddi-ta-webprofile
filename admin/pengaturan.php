@@ -37,38 +37,38 @@ require_once "./includes/check-auth.php";
         <div class="upload-container">
           <div class="upload-card card-left">
             <h2 class="change-password-title">Logo Sekolah</h2>
-            <div id="imagePreview">
-              <div class="placeholder-content" id="placeholder">
+            <div id="imagePreviewLogo" class="image-preview-container" class="file-input">
+              <div class="placeholder-content" id="placeholderLogo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
                 </svg>
                 <span>Preview akan muncul di sini</span>
               </div>
-              <img src="" alt="Preview Gambar" id="previewImg">
+              <img src="" alt="Preview Gambar" id="previewImgLogo">
             </div>
 
-            <input type="file" id="fileInput" accept="image/*">
+            <input type="file" id="fileInputLogo" class="file-input" accept="image/*">
 
-            <label for="fileInput" class="custom-file-upload">
+            <label for="fileInputLogo" class="custom-file-upload">
               Upload Gambar
             </label>
           </div>
 
           <div class="upload-card card-right">
-            <h2 class="change-password-title">Logo Sekolah</h2>
-            <div id="imagePreview">
-              <div class="placeholder-content" id="placeholder">
+            <h2 class="change-password-title">Gambar Visual Utama</h2>
+            <div id="imagePreviewHero" class="image-preview-container">
+              <div class="placeholder-content" id="placeholderHero">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M16 16h-3v5h-2v-5h-3l4-4 4 4zm3.479-5.908c-.212-3.951-3.473-7.092-7.479-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408z" />
                 </svg>
                 <span>Preview akan muncul di sini</span>
               </div>
-              <img src="" alt="Preview Gambar" id="previewImg">
+              <img src="" alt="Preview Gambar" id="previewImgHero">
             </div>
 
-            <input type="file" id="fileInput" accept="image/*">
+            <input type="file" id="fileInputHero" class="file-input" accept="image/*">
 
-            <label for="fileInput" class="custom-file-upload">
+            <label for="fileInputHero" class="custom-file-upload">
               Upload Gambar
             </label>
           </div>

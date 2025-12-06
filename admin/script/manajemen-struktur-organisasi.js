@@ -1,9 +1,9 @@
-const fileInput = document.createElement("input");
-fileInput.type = "file";
-fileInput.accept = "image/*";
-fileInput.style.display = "none";
-fileInput.id = "imageInput";
-fileInput.multiple = true;
+const fileInputLogo = document.createElement("input");
+fileInputLogo.type = "file";
+fileInputLogo.accept = "image/*";
+fileInputLogo.style.display = "none";
+fileInputLogo.id = "imageInput";
+fileInputLogo.multiple = true;
 
 strukturOrganisasiData = [];
 
@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Membuat input file tersembunyi
-  document.body.appendChild(fileInput);
+  document.body.appendChild(fileInputLogo);
 
   // Event listener untuk tombol upload
   uploadButton.addEventListener("click", function () {
-    fileInput.click();
+    fileInputLogo.click();
   });
 
   // Event listener untuk input file
-  fileInput.addEventListener("change", function (event) {
+  fileInputLogo.addEventListener("change", function (event) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     hapusButton.style.display = "none"; // Sembunyikan tombol hapus
 
     // Reset input file
-    fileInput.value = "";
+    fileInputLogo.value = "";
   });
 
   simpanButton.addEventListener('click', () => {
@@ -80,7 +80,7 @@ async function ReloadStrukturOrgnanisasiView() {
 }
 
 async function submitForm() {
-  const foto_struktur = fileInput.files[0] ? fileInput.files : null;
+  const foto_struktur = fileInputLogo.files[0] ? fileInputLogo.files : null;
 
   const success = await PostSimpanStrukturOrganisasi(foto_struktur);
   success ? showSuccess( "Struktur organisasi berhasil ditambahkan") : showError("Struktur organisasi gagal ditambahkan");

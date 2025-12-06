@@ -116,7 +116,7 @@ CREATE TABLE sejarah (
 );
 
 -- Table Settingan Profile
-CREATE TABLE profile_settings (
+CREATE TABLE pengaturan (
     id_setting INT AUTO_INCREMENT PRIMARY KEY,
     setting_key VARCHAR(100) NOT NULL UNIQUE,
     setting_value TEXT,

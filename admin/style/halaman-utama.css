@@ -36,7 +36,7 @@
 }
 
 /* --- Area Preview --- */
-#imagePreview {
+.image-preview-container {
   width: 100%;
   height: 160px; /* Sedikit lebih tinggi */
   border: 3px dashed #ced4da; /* Garis putus-putus lebih tebal */
@@ -53,12 +53,12 @@
 }
 
 /* Efek saat ada file di-drag di atasnya (opsional untuk pengembangan lanjut) */
-#imagePreview.dragover {
+.image-preview-container.dragover {
   border-color: #4a90e2;
   background-color: #e9f2ff;
 }
 
-#imagePreview img {
+.image-preview-container img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain; /* Agar gambar tidak gepeng */
@@ -84,7 +84,7 @@
 /* --- BAGIAN PENTING: Tombol Upload Kustom --- */
 
 /* 1. Sembunyikan input file asli */
-input[type="file"]#fileInput {
+input[type="file"].file-input {
   display: none;
 }
 
