@@ -872,43 +872,38 @@ section.show {
 /* news section stop */
 
 /* section galeri */
-.gallery-section {
-  width: 100%;
-  padding: 80px 124px;
+.gallery-section { 
+  width: 100%; 
+  padding: 80px 124px; 
   background: linear-gradient(135deg, #f8f9f5 0%, #edf3e9 100%);
-}
-
-/* GRID BLOK-BLOK */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* KOTAK GALERI */
-.gallery-item {
-  width: 100%;
-  height: 260px;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.3s ease;
-  background: #ddd;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-
+ } 
+  /* MASONRY */ 
+  .gallery-grid { 
+    column-count: 3; 
+    column-gap: 18px; 
+    width: 100%; 
+    margin: auto; 
+  } 
+  
+  .gallery-item { 
+    break-inside: avoid; 
+    margin-bottom: 18px; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: 0.3s ease; 
+  } 
+  
+  .gallery-item img { 
+    width: 100%; 
+    display: block; 
+    border-radius: 12px; 
+    object-fit: cover; 
+  } 
+  .gallery-item:hover { 
+    transform: scale(1.03); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  }
 /* Variasi tinggi seperti contoh website */
 .gallery-item-tall img {
   height: 420px;
@@ -1006,6 +1001,7 @@ section.show {
 /* GRID */
 .contact-grid {
   display: grid;
+  justify-items:center ;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   width: 100%;
@@ -1283,7 +1279,9 @@ section.show {
    RESPONSIVE HERO SECTION
    ========================================= */
 
-/* 1200px — Laptop kecil */
+/* ================================
+   RESPONSIVE: 1200px — Laptop Kecil
+================================ */
 @media (max-width: 1200px) {
   .navbar {
     padding: 20px 60px;
@@ -1298,6 +1296,7 @@ section.show {
   .hero-subtitle {
     font-size: 17px;
   }
+
   #about {
     padding: 60px 80px;
   }
@@ -1314,22 +1313,24 @@ section.show {
     width: 330px;
   }
 
-.mission-vision-grid {
-  gap: 24px;
-}
+  .mission-vision-grid {
+    gap: 24px;
+  }
+
   .highlight-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom rata */
-    gap: 20px; /* hanya jarak vertikal & antar card */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     width: 100%;
   }
 
   .highlight-card {
-    width: 100%;          /* Full isi kolom */
-    max-width: 100%;      /* Tidak mengecil */
-    justify-self: stretch; /* Biar kolom penuh */
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
   }
-    #event {
+
+  #event {
     padding: 60px 40px;
   }
 
@@ -1352,36 +1353,36 @@ section.show {
   .event-name {
     font-size: 18px;
   }
-    #contact {
+
+  #contact {
     padding: 60px 40px;
   }
 
- .contact-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom sama rata */
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
   }
 
   .contact-card {
-    width: 100%; 
-    max-width: none;  /* hilangkan batas 360px */
+    width: 100%;
+    max-width: none;
     padding: 30px;
   }
 
-  /* Untuk jumlah ganjil (misal 3), tidak perlu lagi dibikin center */
   .contact-card:last-child {
-    grid-column: auto; 
+    grid-column: auto;
     justify-self: auto;
   }
-
 }
 
-/* 992px — Tablet landscape */
-@media (max-width: 992px) {
-    .navbar {
+/* ================================
+   RESPONSIVE: 992px — Tablet Landscape
+================================ */
+/* @media (max-width: 992px) {
+  .navbar {
     padding: 18px 50px;
   }
 
-  /* Munculkan hamburger */
   .hamburger {
     display: flex;
   }
@@ -1389,9 +1390,7 @@ section.show {
   .dropdown:hover .dropdown-menu {
     display: flex;
   }
-  
 
-  /* Sembunyikan menu default */
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -1402,16 +1401,13 @@ section.show {
     padding: 18px 0;
     gap: 18px;
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-
-    /* hidden default */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-15px);
     transition: 0.3s ease;
   }
 
-  /* Saat active */
   .nav-menu.active {
     opacity: 1;
     visibility: visible;
@@ -1437,16 +1433,15 @@ section.show {
     padding: 10px 24px;
     font-size: 15px;
   }
-    #about {
+
+  #about {
     padding: 50px 60px;
   }
 
-  /* Mission–Vision jadi 1 kolom */
   .mission-vision-grid {
     grid-template-columns: 1fr;
   }
 
-  /* 3 card di bawah berubah jadi kolom */
   .about-grid {
     flex-direction: column;
   }
@@ -1467,7 +1462,7 @@ section.show {
 
   .highlight-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     width: 100%;
     justify-items: center;
@@ -1475,9 +1470,9 @@ section.show {
 
   .highlight-card {
     width: 100%;
-    max-width: 350px; /* Ukuran card diperkecil agar muat 2 */
+    max-width: 350px;
   }
-  
+
   .gallery-section {
     padding: 60px 40px;
   }
@@ -1489,6 +1484,7 @@ section.show {
   .gallery-item {
     height: 220px;
   }
+
   #contact {
     padding: 60px 40px;
   }
@@ -1506,10 +1502,9 @@ section.show {
     padding: 28px;
   }
 
-  /* 🔥 Jika card jumlahnya ganjil (contoh: 3), card terakhir otomatis center */
   .contact-card:last-child {
-    grid-column: 1 / -1;      /* Ambil satu baris penuh */
-    justify-self: center;     /* Center secara horizontal */
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
   .contact-title {
@@ -1523,9 +1518,239 @@ section.show {
   .map-container iframe {
     height: 400px;
   }
+} */
+
+@media (min-width: 1600px) {
+  .navbar {
+    padding: 20px 124px; /* sesuaikan dengan padding desktop asli Anda */
+  }
+
+  #hero,
+  #about,
+  #event,
+  #news,
+  .gallery-section,
+  #contact {
+    padding-left: 124px;
+    padding-right: 124px;
+  }
+
+  /* Jika ada kontainer khusus (opsional tapi disarankan) */
+  .container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-/* 768px — Tablet portrait / HP besar */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 18px 50px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 260px;
+    background: white;
+    flex-direction: column;
+    padding: 18px 0;
+    gap: 18px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-menu a {
+    padding: 10px 24px;
+    display: block;
+  }
+
+  #hero {
+    padding: 50px 40px; /* ← Dikurangi padding samping */
+  }
+  .hero-content h1 {
+    font-size: 36px; /* ← sedikit lebih kecil agar tidak memenuhi */
+    line-height: 1.3;
+  }
+  .hero-subtitle {
+    font-size: 15px;
+  }
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  #about {
+    padding: 50px 40px; /* ← padding samping dikurangi */
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 20px; /* ← jarak lebih nyaman */
+  }
+
+  .about-grid {
+    flex-direction: column;
+    gap: 24px; /* ← tambahkan gap agar tidak menempel */
+  }
+
+  .feature-card-large {
+    width: 100%;
+    padding: 24px; /* ← tambahkan padding dalam */
+  }
+
+  .stats-grid {
+    width: 100%;
+    flex-direction: column; /* ← ubah ke kolom di tablet! */
+    gap: 16px;
+  }
+
+  .stat-card {
+    width: 100%; /* ← full width, lebih mudah dibaca */
+    flex: none;
+    padding: 20px; /* ← tambahkan padding */
+  }
+
+  .highlight-grid {
+    display: flex;
+    flex-direction: column; /* ← ubah ke 1 kolom di tablet */
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .highlight-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px; /* ← tambahkan ruang dalam */
+  }
+
+  .gallery-section {
+    padding: 50px 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr; /* ← 1 kolom di tablet */
+    gap: 16px;
+  }
+
+  .gallery-item {
+    height: 200px;
+    border-radius: 12px;
+  }
+
+  #event {
+    padding: 50px 30px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr; /* ← 1 kolom di tablet */
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .event-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .event-image-container {
+    height: 200px; /* ← sedikit lebih kecil */
+  }
+
+  .event-name {
+    font-size: 17px;
+  }
+
+  #news {
+    padding: 50px 30px;
+  }
+
+  .featured-content {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .featured-image {
+    height: 280px;
+  }
+
+  .featured-title {
+    font-size: 24px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr; /* ← 1 kolom di tablet */
+    gap: 20px;
+  }
+
+  .news-item {
+    width: 100%;
+  }
+
+  .news-image-container {
+    height: 200px;
+  }
+
+  #contact {
+    padding: 50px 30px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr; /* ← 1 kolom di tablet */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .contact-card:last-child {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .contact-title {
+    font-size: 1.4rem;
+  }
+
+  .contact-detail {
+    font-size: 0.9rem;
+  }
+
+  .map-container iframe {
+    height: 350px;
+  }
+}
+
+
+/* ================================
+   RESPONSIVE: 768px — Tablet Portrait / HP Besar
+================================ */
 @media (max-width: 768px) {
   .navbar {
     padding: 18px 40px;
@@ -1541,9 +1766,10 @@ section.show {
     font-size: 16px;
     padding: 12px 28px;
   }
+
   #hero {
     height: auto;
-    padding: 100px 40px 80px 40px;
+    padding: 100px 40px 80px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -1556,7 +1782,6 @@ section.show {
 
   .hero-content h1 {
     font-size: 32px;
-    justify-content: center;
     text-align: center;
   }
 
@@ -1575,6 +1800,7 @@ section.show {
   .hero-overlay {
     height: 70%;
   }
+
   #about {
     padding: 40px 30px;
   }
@@ -1587,7 +1813,6 @@ section.show {
     font-size: 16px;
   }
 
-  /* Kotak besar berubah ke vertikal */
   .feature-card-large {
     flex-direction: column;
     text-align: center;
@@ -1605,7 +1830,6 @@ section.show {
     flex: unset;
   }
 
-  /* Kotak kecil tetap rapi */
   .stats-grid {
     flex-direction: column;
   }
@@ -1625,11 +1849,11 @@ section.show {
     width: 100%;
     max-width: 100%;
   }
-   #event {
+
+  #event {
     padding: 60px 40px;
   }
 
-  /* Gunakan grid supaya ukurannya stabil */
   .events-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1637,18 +1861,15 @@ section.show {
     justify-content: center;
   }
 
-  /* Card dibuat lebih lebar agar tidak terlihat gepeng */
   .event-card {
     width: 100%;
     max-width: 100%;
   }
 
-  /* Tinggi gambar dikurangi sedikit biar proporsional */
   .event-image-container {
     height: 220px;
   }
 
-  /* Judul event sedikit diperkecil */
   .event-name {
     font-size: 18px;
   }
@@ -1656,6 +1877,7 @@ section.show {
   .event-content {
     padding: 18px;
   }
+
   #news {
     padding: 60px 40px;
   }
@@ -1674,6 +1896,7 @@ section.show {
 
   .featured-image img {
     height: 320px;
+    object-fit: cover;
   }
 
   .featured-title {
@@ -1682,7 +1905,7 @@ section.show {
 
   .news-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
@@ -1693,9 +1916,6 @@ section.show {
 
   .news-image-container {
     height: 220px;
-  }  
-  #contact {
-    padding: 60px 40px;
   }
 
   #contact {
@@ -1715,10 +1935,9 @@ section.show {
     padding: 28px;
   }
 
-  /* 🔥 Jika card jumlahnya ganjil (contoh: 3), card terakhir otomatis center */
   .contact-card:last-child {
-    grid-column: 1 / -1;      /* Ambil satu baris penuh */
-    justify-self: center;     /* Center secara horizontal */
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
   .contact-title {
@@ -1732,24 +1951,23 @@ section.show {
   .map-container iframe {
     height: 400px;
   }
-
-
 }
 
-/* MOBILE — 1 KARTU PER BARIS */
+/* ================================
+   RESPONSIVE: <768px — Mobile (1 Kolom Penuh)
+================================ */
 @media (max-width: 767px) {
   #event {
     padding: 40px 20px;
   }
 
   .events-grid {
-    display: grid;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .event-card {
-    width: 100% !important;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -1757,7 +1975,7 @@ section.show {
     height: 200px;
   }
 
-    #news {
+  #news {
     padding: 40px 20px;
   }
 
@@ -1783,30 +2001,26 @@ section.show {
     font-size: 22px;
   }
 
-  /* .featured-desc {
-    -webkit-line-clamp: 3;
-  } */
-
   .news-grid {
-    display: grid;
-    grid-template-columns: 1fr !important; /* 1 kolom */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .news-item {
-    width: 100% !important;
+    width: 100%;
     margin-top: 20px;
   }
 
   .news-image-container {
     height: 200px;
   }
+
   .gallery-section {
     padding: 40px 20px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .gallery-item {
@@ -1817,6 +2031,7 @@ section.show {
     transform: none;
     box-shadow: none;
   }
+
   #contact {
     padding: 40px 20px;
   }
@@ -1824,13 +2039,13 @@ section.show {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-    justify-items: center; /* CENTER GRID ITEMS */
+    justify-items: center;
   }
 
   .contact-card {
     padding: 20px;
     width: 100%;
-    max-width: 360px;   /* 🔥 BATAS LEBAR CARD */
+    max-width: 360px;
   }
 
   .map-container iframe {
@@ -1838,8 +2053,9 @@ section.show {
   }
 }
 
-
-/* 480px — HP kecil */
+/* ================================
+   RESPONSIVE: 480px — HP Kecil
+================================ */
 @media (max-width: 480px) {
   .navbar {
     padding: 16px 24px;
@@ -1858,16 +2074,20 @@ section.show {
     width: 26px;
     height: 20px;
   }
+
   #hero {
-    padding: 100px 24px 70px 24px;
+    padding: 100px 24px 70px;
   }
+
   .hero-content h1 {
     font-size: 28px;
     line-height: 1.3;
   }
+
   .hero-subtitle {
     font-size: 14px;
   }
+
   .btn-primary {
     padding: 9px 20px;
     font-size: 14px;
@@ -1908,7 +2128,8 @@ section.show {
   .highlight-desc {
     font-size: 14px;
   }
-    #event {
+
+  #event {
     padding: 32px 16px;
   }
 
@@ -1924,5 +2145,3 @@ section.show {
     font-size: 17px;
   }
 }
-
-
