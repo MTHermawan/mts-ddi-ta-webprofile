@@ -22,20 +22,7 @@ require_once "./includes/check-auth.php";
   <!-- Main -->
   <div class="main">
     <!-- Header Navbar -->
-    <header>
-      <nav>
-        <div class="profile-admin">
-          <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
-          <div class="profile-info">
-            <div class="profile-name">Admin Dashboard</div>
-            <div class="profile-role">Administrator</div>
-          </div>
-        </div>
-        <div class="exit-logo">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </div>
-      </nav>
-    </header>
+    <?php include "./includes/header.php" ?>
 
     <!-- Title Menu -->
     <h1 class="menu-title">Ekstrakurikuler</h1>
@@ -449,7 +436,8 @@ require_once "./includes/check-auth.php";
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-ekstrakurikuler.js"></script>
   <script src="./script/manajemen-ekstrakurikuler-data.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
+  <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

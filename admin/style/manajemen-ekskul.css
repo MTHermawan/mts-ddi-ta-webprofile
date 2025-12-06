@@ -355,17 +355,14 @@
     width: 100%;
     justify-content: center;
   }
-}
 
-@media (max-width: 480px) {
-  .page-number {
-    min-width: 32px;
-    height: 32px;
-    font-size: 13px;
+  .main-content-header {
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .pagination-btn {
-    width: 32px;
-    height: 32px;
+  .button-container {
+    justify-content: space-between;
+    width: 100%;
   }
 }

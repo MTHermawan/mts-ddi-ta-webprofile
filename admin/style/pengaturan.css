@@ -489,3 +489,47 @@ input#location:focus,
   padding: 0px 20px;
   box-sizing: border-box;
 } */
+
+@media (max-width: 768px) {
+  .settings-row {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .meta-row {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .social-row {
+    flex-direction: column;
+  }
+
+  .upload-container {
+    flex-direction: column;
+  }
+
+  .settings-card {
+    width: 100%;
+  }
+
+  .settings-form-left {
+    padding-right: 0px;
+  }
+
+  .meta-card {
+    width: 100%;
+  }
+
+  .meta-form-left {
+    padding-right: 0px;
+  }
+
+  .social-card {
+    width: 100%;
+  }
+
+  .social-form-left {
+    padding-right: 0px;
+  }
+}

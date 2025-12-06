@@ -400,6 +400,7 @@ include_once "../data/utility.php";
   <script src="./script/manajemen-guru.js"></script>
   <script src="./script/manajemen-guru-data.js"></script>
   <script src="./script/notification.js"></script>
+    <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

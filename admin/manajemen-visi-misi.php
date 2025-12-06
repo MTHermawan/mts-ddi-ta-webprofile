@@ -129,7 +129,8 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
   <script src="./script/dashboard-admin.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
+  <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

@@ -99,6 +99,7 @@ require_once "./includes/check-auth.php";
   <script src="./script/manajemen-struktur-organisasi.js"></script>
   <script src="./script/manajemen-struktur-organisasi-data.js"></script>
   <script src="./script/notification.js"></script>
+  <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

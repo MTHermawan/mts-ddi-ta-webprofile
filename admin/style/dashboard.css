@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
-/*           CSS RESET          */
+/* =========================================
+   1. CSS RESET & GLOBAL
+========================================= */
 html,
 body,
 div,
@@ -104,9 +106,17 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
+  background-color: #f8fafc;
+  height: auto;
+  display: flex;
+  font-family: "Outfit", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden; /* Mencegah scroll horizontal saat sidebar hidden */
 }
+
 ol,
 ul {
   list-style: none;
@@ -131,26 +141,16 @@ input,
 button {
   font-family: "Outfit", sans-serif;
 }
-
-/*           END CSS RESET          */
-
-body {
-  background-color: #f8fafc;
-  height: auto;
-  display: flex;
-  font-family: "Outfit", sans-serif;
-  min-height: 100vh;
-}
-
 button:hover {
   cursor: pointer;
 }
-
 a {
   text-decoration: none;
 }
 
-/*                  SIDE BAR                     */
+/* =========================================
+   2. SIDEBAR STYLES
+========================================= */
 .sidebar {
   width: 300px;
   background-color: white;
@@ -161,9 +161,13 @@ a {
   height: 100vh;
   position: sticky;
   top: 0;
-  overflow-y: hidden;
+  overflow-y: hidden; /* Bisa diganti auto jika menu panjang */
   flex-shrink: 0;
-  z-index: 10;
+  z-index: 100; /* Z-index tinggi agar di atas elemen lain */
+
+  /* PENTING: Pastikan di Desktop tidak ada transform */
+  transform: none !important;
+  transition: transform 0.3s ease-in-out;
 }
 
 .sidebar-logo {
@@ -185,7 +189,7 @@ a {
   color: rgb(52, 64, 84);
 }
 
-/*                   SIDE BAR MENU                    */
+/* SIDE BAR MENU */
 .menu {
   list-style: none;
   display: flex;
@@ -240,14 +244,16 @@ a {
   margin: 1rem 0;
 }
 
-/*            Main Content Area                */
+/* =========================================
+   3. MAIN CONTENT & HEADER
+========================================= */
 .main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%; /* Pastikan lebar penuh */
 }
 
-/*              HEADER & NAVBAR                */
 header {
   width: 100%;
   height: 70px;
@@ -255,7 +261,7 @@ header {
   box-shadow: 0 0 0 0.9px #dde1e5;
   position: sticky;
   top: 0;
-  z-index: 9;
+  z-index: 90;
   box-sizing: border-box;
 }
 
@@ -271,7 +277,22 @@ nav {
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px; /* Jarak antara hamburger dan profile */
+}
+
+/* TOMBOL HAMBURGER (DEFAULT HIDDEN DI DESKTOP) */
+.hamburger-btn {
+  display: none !important; /* Wajib hidden di desktop */
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(52, 64, 84);
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.hamburger-btn:hover {
+  background-color: #f1f3f6;
 }
 
 .profile-admin {
@@ -309,7 +330,6 @@ nav {
   color: rgb(102, 112, 133);
 }
 
-/*                  EXIT LOGO                     */
 .exit-logo {
   display: flex;
   align-items: center;
@@ -328,7 +348,19 @@ nav {
   color: #dc2626;
 }
 
-/*                  HEADING MENU                   */
+/* OVERLAY (Background Gelap saat Menu Mobile Buka) */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 95;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
 .menu-title {
   margin-left: 20px;
@@ -346,7 +378,9 @@ nav {
   gap: 20px;
 }
 
-/*              POPUP TAMBAH / EDIT STYLES                */
+/* =========================================
+   4. POPUP & FORM STYLES
+========================================= */
 .popup-overlay-form {
   position: fixed;
   top: 0;
@@ -403,8 +437,8 @@ nav {
   background-color: #fecaca;
   color: #dc2626;
 }
-/* INPUT GAMBAR */
 
+/* INPUT GAMBAR */
 .image-input-label {
   display: block;
   font-size: 14px;
@@ -497,32 +531,21 @@ nav {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  list-style: none;
   padding: 6px 16px;
-  position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
 }
 
 .preview-action-btn.change {
   background-color: #dbeafe;
   color: #1d4ed8;
 }
-
 .preview-action-btn.remove {
   background-color: #fee2e2;
   color: #dc2626;
 }
-
 .preview-action-btn.change:hover {
   background-color: #bfdbfe;
 }
-
 .preview-action-btn.remove:hover {
   background-color: #fecaca;
 }
@@ -571,7 +594,6 @@ textarea.text-input {
 }
 
 /* BUTTON DI POPUP */
-
 .popup-actions-form {
   display: flex;
   gap: 12px;
@@ -592,23 +614,14 @@ textarea.text-input {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  list-style: none;
   padding: 6px 16px;
-  position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
 }
 
 .popup-btn-form.submit {
   background-color: white;
   color: rgb(29, 41, 57);
   text-decoration: none;
-  transition-duration: 0.1s;
 }
 
 .popup-btn-form.cancel {
@@ -619,12 +632,11 @@ textarea.text-input {
 .popup-btn-form.submit:hover {
   background-color: #f1f3f6;
 }
-
 .popup-btn-form.cancel:hover {
   background-color: #fecaca;
 }
 
-/*                POP UP DELETE STYLES                   */
+/* POP UP DELETE STYLES */
 .popup-overlay-delete {
   position: fixed;
   top: 0;
@@ -661,13 +673,6 @@ textarea.text-input {
   font-size: 24px;
 }
 
-.popup-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: rgb(29, 41, 57);
-  margin-bottom: 8px;
-}
-
 .popup-message {
   font-size: 14px;
   color: rgb(102, 112, 133);
@@ -694,18 +699,15 @@ textarea.text-input {
 .data-item:last-child {
   margin-bottom: 0;
 }
-
 .data-label {
   color: rgb(102, 112, 133);
   font-weight: 500;
 }
-
 .data-value {
   color: rgb(29, 41, 57);
   font-weight: 600;
 }
 
-/* Tombol Aksi */
 .popup-actions-delete {
   display: flex;
   gap: 12px;
@@ -726,37 +728,26 @@ textarea.text-input {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  list-style: none;
   padding: 6px 16px;
-  position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
 }
 
 .popup-btn-delete.cancel {
   background-color: white;
   color: rgb(29, 41, 57);
 }
-
 .popup-btn-delete.cancel:hover {
   background-color: #f8fafc;
 }
-
 .popup-btn-delete.delete {
   background-color: #fee2e2;
   color: #dc2626;
 }
-
 .popup-btn-delete.delete:hover {
   background-color: #fecaca;
 }
 
-/*             NOTIFIKASI POP UP             */
+/* NOTIFIKASI POP UP */
 .notification-popup {
   position: fixed;
   top: 100px;
@@ -779,43 +770,113 @@ textarea.text-input {
 .notification-popup.show {
   transform: translateX(0);
 }
-
 .notification-popup.success {
   background-color: rgba(4, 134, 0, 1);
   color: white;
 }
-
 .notification-popup.error {
   background-color: #fee2e2;
   color: #dc2626;
 }
-
 .notification-popup.warning {
   background-color: #fef3c7;
   color: #d97706;
 }
-
 .notification-popup.info {
   background-color: #dbeafe;
   color: #1d4ed8;
 }
-
 .notification-icon {
   font-size: 20px;
   flex-shrink: 0;
 }
-
 .notification-content {
   flex: 1;
 }
-
 .notification-title {
   font-weight: 600;
   margin-bottom: 4px;
   font-size: 16px;
 }
-
 .notification-message {
   font-size: 14px;
   opacity: 0.9;
+}
+
+/* Styling Tombol Close */
+.sidebar-close {
+  display: none; /* Desktop: Sembunyi */
+  cursor: pointer;
+  font-size: 24px;
+  color: rgb(102, 112, 133);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.sidebar-close:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   5. MEDIA QUERY (KHUSUS MOBILE - Max Width 768px)
+========================================= */
+/* --- COPY & REPLACE BAGIAN MEDIA QUERY MOBILE ANDA DENGAN INI --- */
+
+@media screen and (max-width: 768px) {
+  /* 1. Paksa Tombol Hamburger Muncul */
+  .hamburger-btn {
+    display: block !important;
+  }
+
+  /* 2. Sembunyikan Detail Profil */
+  .profile-info {
+    display: block;
+  }
+
+  /* 3. LOGIKA SIDEBAR (YANG DIPERBAIKI) */
+  /* Kita gunakan #sidebar (ID) agar lebih kuat daripada style desktop */
+
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 100;
+
+    /* Default: Tersembunyi ke kiri */
+    transform: translateX(-100%) !important;
+
+    /* Animasi halus saat keluar/masuk */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Saat tombol hamburger diklik, JS menambahkan class .active */
+  #sidebar.active {
+    /* Munculkan ke layar */
+    transform: translateX(0) !important;
+  }
+
+  /* 4. OVERLAY */
+  .overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* 5. Tampilkan Tombol Close (X) */
+  .sidebar-header {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .sidebar-close {
+    display: block !important; /* Paksa muncul */
+  }
+
+  .sidebar-close:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
 }

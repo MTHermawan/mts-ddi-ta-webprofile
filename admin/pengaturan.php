@@ -965,6 +965,7 @@ require_once "./includes/check-auth.php";
   <script src="./script/pengaturan.js"></script>
   <script src="./script/input-icon.js"></script>
   <script src="./script/notification.js"></script>
+  <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

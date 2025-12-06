@@ -383,7 +383,8 @@ require_once "./includes/check-auth.php";
   <script src="./script/utility.js"></script>
   <script src="./script/manajemen-galeri.js"></script>
   <script src="./script/manajemen-galeri-data.js"></script>
-    <script src="./script/notification.js"></script>
+  <script src="./script/notification.js"></script>
+  <script src="./script/hamburger-menu.js"></script>
 </body>
 
 </html>

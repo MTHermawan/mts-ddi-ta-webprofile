@@ -97,7 +97,7 @@
 /* Quick Pinned Selector */
 .quick-pinned-selector {
   display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .quick-pinned-selector label {
@@ -585,4 +585,70 @@
   background-color: #f5f5f5;
   transform: none;
   box-shadow: none;
+}
+
+/* Responsif pagination */
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .pagination-controls {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .main-content-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button-container {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .quick-pinned-selector {
+    flex-direction: column;
+    /* width: 100%; */
+    text-align: left;
+    gap: 8px;
+  }
+
+  .quick-pinned-selector .button {
+    margin-left: 0px;
+  }
+
+  .quick-pinned-selector .button {
+    font-size: 12px;
+    width: 160px;
+    text-align: center;
+  }
+
+    /*               OVERRIDE POP UP TAMBAH/EDIT                     */
+  .input-container {
+    flex-direction: column;
+  }
+
+  .image-upload-area {
+    /* width: 360px; */
+    min-height: 93%;
+    max-height: 93%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-input-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+  }
+
+  .image-input-container {
+  width: 100%;
+}
 }

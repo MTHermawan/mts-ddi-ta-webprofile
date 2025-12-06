@@ -183,3 +183,9 @@ textarea.form-textarea:focus {
 .btn-save:-webkit-details-marker {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .vision-mision-container {
+    flex-direction: column;
+  }
+}

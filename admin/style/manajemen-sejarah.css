@@ -351,7 +351,6 @@
 /* Responsif */
 @media (max-width: 768px) {
   .sejarah-container {
-    padding: 16px;
     gap: 16px;
   }
 

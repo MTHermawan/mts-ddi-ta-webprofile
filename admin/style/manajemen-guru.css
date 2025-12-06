@@ -208,7 +208,7 @@ td {
   padding: 12px 20px;
   border-bottom: 1px solid #f1f5f9;
   color: rgb(102, 112, 133);
-  vertical-align: middle;  
+  vertical-align: middle;
 }
 
 tr:last-child td {
@@ -259,7 +259,8 @@ tr:last-child td {
   margin: 0;
 }
 
-.subject, .position {
+.subject,
+.position {
   font-size: 14px;
   color: rgb(102, 112, 133);
   font-weight: 500;
@@ -380,5 +381,38 @@ tr:last-child td {
 .page-number.active {
   background-color: rgba(4, 134, 0, 1);
   color: white;
-  border-color: rgb(102, 112, 133);;
+  border-color: rgb(102, 112, 133);
+}
+
+@media screen and (max-width: 768px) {
+  .main-content-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button-container {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /*               OVERRIDE POP UP TAMBAH/EDIT                     */
+  .input-container {
+    flex-direction: column;
+  }
+
+  .image-upload-area {
+    /* width: 360px; */
+    min-height: 93%;
+    max-height: 93%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-input-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+  }
 }

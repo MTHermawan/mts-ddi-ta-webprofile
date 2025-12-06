@@ -345,4 +345,14 @@
     width: 100%;
     justify-content: center;
   }
+  
+  .main-content-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button-container {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
