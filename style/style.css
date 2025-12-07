@@ -309,11 +309,12 @@ section.show {
   /* box-shadow: 0 8px 24px rgba(4, 134, 0, 0.3); */
   flex: 1;
   min-width: 0;
+  justify-content: space-between;
 }
 
 .feature-content {
   flex: 1;
-  max-width: 500px;
+  /* max-width: 500px; */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1744,7 +1745,7 @@ section.show {
 
   .feature-image {
     width: 100%;
-    max-width: 300px;
+    /* max-width: 300px; */
     flex: unset;
   }
 
@@ -1946,7 +1947,7 @@ section.show {
 
   .feature-card-large {
     width: 100%;
-    max-width: 380px;
+    /* max-width: 380px; */
     margin: 0 auto;
     padding: 20px 18px;
     border-width: 2px; /* biar tetap terlihat rapi */
