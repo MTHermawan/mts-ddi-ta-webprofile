@@ -695,7 +695,7 @@ section.show {
 }
 
 .featured-image {
-  flex: 0 0 480px;
+  flex: 0 0 50%;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1287,10 +1287,7 @@ section.show {
   .navbar {
     padding: 20px 60px;
   }
-
-  #hero {
-    padding: 60px 80px;
-  }
+  
   .hero-content h1 {
     font-size: 42px;
   }
@@ -1298,8 +1295,8 @@ section.show {
     font-size: 17px;
   }
 
-  #about {
-    padding: 60px 80px;
+  #about, #news {
+    padding: 60px 60px;
   }
 
   .feature-card-large {
@@ -1644,6 +1641,10 @@ section.show {
   .map-container iframe {
     height: 350px;
   }
+
+  .featured-image {
+    flex: 0 0 40%;
+  }
 }
 
 
@@ -1833,13 +1834,13 @@ section.show {
 /* Atur teks */
 .featured-title {
     font-size: 22px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .featured-desc {
     font-size: 15px;
     line-height: 1.6;
-    text-align: center;
+    /* text-align: center; */
     opacity: 0.95;
 }
 
