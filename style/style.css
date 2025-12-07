@@ -1674,6 +1674,52 @@ section.show {
   }
 }
 
+/* ========================================================= */
+/*  RESPONSIVE UNTUK 600px – 920px  */
+/* ========================================================= */
+@media (min-width: 600px) and (max-width: 920px) {
+
+  #contact {
+    padding: 50px 40px;
+  }
+
+  /* Grid menjadi 2 kolom hanya untuk card pertama & kedua */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-items: center;
+  }
+
+  /* Telepon & Email — dua kolom */
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 26px;
+  }
+
+  /* Alamat — dibuat 100% 1 baris */
+  .contact-card:nth-child(3) {
+    grid-column: 1 / -1;  /* ambil full row */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Sesuaikan ukuran teks */
+  .contact-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-detail {
+    font-size: 1rem;
+  }
+
+  .map-container iframe {
+    height: 380px;
+  }
+}
+
+
 
 /* ================================
    RESPONSIVE: 768px — Tablet Portrait / HP Besar
@@ -1886,40 +1932,6 @@ section.show {
   .news-image-container {
     height: 220px;
   }
-
-  #contact {
-    padding: 60px 40px;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    justify-items: center;
-  }
-
-  .contact-card {
-    width: 100%;
-    max-width: 360px;
-    padding: 28px;
-  }
-
-  .contact-card:last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-  }
-
-  .contact-title {
-    font-size: 1.6rem;
-  }
-
-  .contact-detail {
-    font-size: 0.95rem;
-  }
-
-  .map-container iframe {
-    height: 400px;
-  }
 }
 
 /* ================================
@@ -2054,7 +2066,7 @@ section.show {
     box-shadow: none;
   }
 
-  #contact {
+  /* #contact {
     padding: 40px 20px;
   }
 
@@ -2072,7 +2084,7 @@ section.show {
 
   .map-container iframe {
     height: 300px;
-  }
+  } */
 }
 
 /* ================================
