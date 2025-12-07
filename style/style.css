@@ -96,7 +96,7 @@ section.show {
   flex-direction: column;
   padding: 10px 0;
   border-radius: 8px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
@@ -109,7 +109,6 @@ section.show {
 .dropdown-menu a:hover {
   background: #f1f1f1;
 }
-
 
 /* hero section start */
 #hero {
@@ -272,7 +271,7 @@ section.show {
   justify-content: center;
 }
 
-.card-icon img{
+.card-icon img {
   width: 32px;
   height: 32px;
 }
@@ -410,7 +409,7 @@ section.show {
   color: white;
 }
 
-.stat-icon img{
+.stat-icon img {
   width: 32px;
   height: 32px;
 }
@@ -629,7 +628,8 @@ section.show {
   text-decoration: none;
 }
 
-.btn-event:visited, .btn-event:active {
+.btn-event:visited,
+.btn-event:active {
   text-decoration: none;
 }
 
@@ -670,9 +670,10 @@ section.show {
   text-decoration: none;
 }
 
-.btn-secondary:active, .btn-secondary:visited {
+.btn-secondary:active,
+.btn-secondary:visited {
   text-decoration: none;
-} 
+}
 /* event section stop */
 
 /* news section start */
@@ -765,7 +766,7 @@ section.show {
   margin-left: 8px;
 }
 
-.featured-btn{
+.featured-btn {
   flex-grow: 1;
   align-content: flex-end;
   margin: 20px 0px 0px 0px;
@@ -784,7 +785,8 @@ section.show {
   font-size: 16px;
 }
 
-.news-grid, .events-grid {
+.news-grid,
+.events-grid {
   margin: 50px auto;
   display: flex;
   flex-direction: row;
@@ -793,7 +795,8 @@ section.show {
   justify-content: center;
 }
 
-.news-item, .event-card {
+.news-item,
+.event-card {
   /* margin-top: 50px; */
   background: white;
   border-radius: 24px;
@@ -804,12 +807,13 @@ section.show {
   flex-basis: 32%;
 }
 
-.news-item:nth-child(2n+1), .event-card:nth-child(2n+1) {
+.news-item:nth-child(2n + 1),
+.event-card:nth-child(2n + 1) {
   max-width: 50%;
 }
 
-
-.news-item:hover, .event-card:hover {
+.news-item:hover,
+.event-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -891,38 +895,38 @@ section.show {
 /* news section stop */
 
 /* section galeri */
-.gallery-section { 
-  width: 100%; 
-  padding: 80px 124px; 
+.gallery-section {
+  width: 100%;
+  padding: 80px 124px;
   background: linear-gradient(135deg, #f8f9f5 0%, #edf3e9 100%);
- } 
-  /* MASONRY */ 
-  .gallery-grid { 
-    column-count: 3; 
-    column-gap: 18px; 
-    width: 100%; 
-    margin: auto; 
-  } 
-  
-  .gallery-item { 
-    break-inside: avoid; 
-    margin-bottom: 18px; 
-    border-radius: 12px; 
-    overflow: hidden; 
-    cursor: pointer; 
-    transition: 0.3s ease; 
-  } 
-  
-  .gallery-item img { 
-    width: 100%; 
-    display: block; 
-    border-radius: 12px; 
-    object-fit: cover; 
-  } 
-  .gallery-item:hover { 
-    transform: scale(1.03); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
-  }
+}
+/* MASONRY */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 18px;
+  width: 100%;
+  margin: auto;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 /* Variasi tinggi seperti contoh website */
 .gallery-item-tall img {
   height: 420px;
@@ -946,12 +950,14 @@ section.show {
     column-count: 1;
   }
 
-  .news-item, .event-card {
+  .news-item,
+  .event-card {
     flex-basis: 100%;
     max-width: none;
   }
 
-  .news-item:nth-child(2n+1), .event-card:nth-child(2n+1) {
+  .news-item:nth-child(2n + 1),
+  .event-card:nth-child(2n + 1) {
     max-width: none;
   }
 }
@@ -1021,7 +1027,8 @@ section.show {
   margin-top: 20px;
   border-radius: 20px;
   border: none;
-}#contact {
+}
+#contact {
   padding: 80px 124px;
   background: linear-gradient(135deg, #f9f8f6 0%, #f1eee8 100%);
 }
@@ -1029,7 +1036,7 @@ section.show {
 /* GRID */
 .contact-grid {
   display: grid;
-  justify-items:center ;
+  justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   width: 100%;
@@ -1314,7 +1321,7 @@ section.show {
   .navbar {
     padding: 20px 60px;
   }
-  
+
   .hero-content h1 {
     font-size: 42px;
   }
@@ -1322,7 +1329,8 @@ section.show {
     font-size: 17px;
   }
 
-  #about, #news {
+  #about,
+  #news {
     padding: 60px 60px;
   }
 
@@ -1332,10 +1340,6 @@ section.show {
 
   .feature-image {
     flex: 0 0 240px;
-  }
-
-  .stats-grid {
-    width: 330px;
   }
 
   .mission-vision-grid {
@@ -1379,7 +1383,7 @@ section.show {
     font-size: 18px;
   }
 
-    .feature-card-large {
+  .feature-card-large {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -1394,7 +1398,7 @@ section.show {
     flex: 1;
     min-width: 0;
   }
-  .featured-content{
+  .featured-content {
     display: flex;
     width: 100%;
     max-height: 600px;
@@ -1435,7 +1439,6 @@ section.show {
     justify-self: auto;
   }
 }
-
 
 @media (min-width: 1600px) {
   .navbar {
@@ -1523,8 +1526,22 @@ section.show {
   }
 
   .mission-vision-grid {
-    grid-template-columns: 1fr;
-    gap: 20px; /* ← jarak lebih nyaman */
+    margin-bottom: 24px;
+  }
+
+  .mission-vision-grid,
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .mission-vision-grid .card,
+  .stat-card {
+    flex-grow: 1;
+    flex-basis: 40%;
   }
 
   .about-grid {
@@ -1535,35 +1552,25 @@ section.show {
   .feature-card-large {
     width: 100%;
     padding: 24px; /* ← tambahkan padding dalam */
-        display: flex;
+    display: flex;
     flex-direction: row;
     /* text-align: start; */
     align-items: stretch;
     padding: 24px;
   }
 
-  .stats-grid {
-    width: 100%;
-    flex-direction: column; /* ← ubah ke kolom di tablet! */
-    gap: 16px;
-  }
-
-  .stat-card {
-    width: 100%; /* ← full width, lebih mudah dibaca */
-    flex: none;
-    padding: 20px; /* ← tambahkan padding */
-  }
-
   .highlight-grid {
     display: flex;
-    flex-direction: column; /* ← ubah ke 1 kolom di tablet */
-    gap: 16px;
+    flex-wrap: wrap;
+    flex-direction: row; /* ← ubah ke 1 kolom di tablet */
+    gap: 20px;
     width: 100%;
     align-items: center;
   }
 
   .highlight-card {
-    width: 100%;
+    flex-grow: 1;
+    flex-basis: 40%;
     max-width: 100%;
     padding: 20px; /* ← tambahkan ruang dalam */
   }
@@ -1614,8 +1621,7 @@ section.show {
     gap: 20px;
   }
 
-
-  .featured-image img{
+  .featured-image img {
     height: 580px;
   }
 
@@ -1646,17 +1652,6 @@ section.show {
     justify-items: center;
   }
 
-  .contact-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 24px;
-  }
-
-  .contact-card:last-child {
-    grid-column: auto;
-    justify-self: center;
-  }
-
   .contact-title {
     font-size: 1.4rem;
   }
@@ -1677,32 +1672,29 @@ section.show {
 /* ========================================================= */
 /*  RESPONSIVE UNTUK 600px – 920px  */
 /* ========================================================= */
-@media (min-width: 600px) and (max-width: 920px) {
-
+@media (min-width: 600px) and (max-width: 992px) {
   #contact {
     padding: 50px 40px;
   }
 
   /* Grid menjadi 2 kolom hanya untuk card pertama & kedua */
   .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 24px;
     justify-items: center;
   }
 
   /* Telepon & Email — dua kolom */
   .contact-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 26px;
+    flex-grow: 1;
+    flex-basis: 40%;
   }
 
-  /* Alamat — dibuat 100% 1 baris */
-  .contact-card:nth-child(3) {
-    grid-column: 1 / -1;  /* ambil full row */
-    width: 100%;
-    max-width: 100%;
+  .contact-card:nth-child(1) {
+    flex-grow: 1;
+    flex-basis: 30%;
   }
 
   /* Sesuaikan ukuran teks */
@@ -1718,8 +1710,6 @@ section.show {
     height: 380px;
   }
 }
-
-
 
 /* ================================
    RESPONSIVE: 768px — Tablet Portrait / HP Besar
@@ -1786,13 +1776,17 @@ section.show {
     font-size: 16px;
   }
 
+  .mission-vision-grid .card {
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
+
   .feature-card-large {
     display: flex;
     flex-direction: row;
     /* text-align: start; */
     align-items: center;
     padding: 24px;
-
   }
 
   .feature-card-large p {
@@ -1800,8 +1794,7 @@ section.show {
     text-align: left;
   }
 
-
-  .feature-image img{
+  .feature-image img {
     width: 100%;
     height: 500px;
     border-radius: 12px;
@@ -1875,9 +1868,9 @@ section.show {
     padding: 60px 40px;
   }
 
-.featured-content {
+  .featured-content {
     display: flex;
-    flex-direction: column;      /* susun vertikal */
+    flex-direction: column; /* susun vertikal */
     width: 100%;
     gap: 20px;
     padding: 24px;
@@ -1886,37 +1879,35 @@ section.show {
     color: white;
     box-shadow: 0 8px 24px rgba(4, 134, 0, 0.25);
     max-height: none;
-    height: auto;                /* jangan paksa tinggi */
-}
+    height: auto; /* jangan paksa tinggi */
+  }
 
-/* Gambar tidak boleh tinggi paksa */
-.featured-image {
+  /* Gambar tidak boleh tinggi paksa */
+  .featured-image {
     flex: 0 0 280px;
     border-radius: 16px;
     overflow: hidden;
-}
+  }
 
-.featured-image img {
+  .featured-image img {
     width: 100%;
-    height: 260px;               /* ukuran tablet */
+    height: 260px; /* ukuran tablet */
     border-radius: 14px;
     object-fit: cover;
+  }
 
-;
-}
-
-/* Atur teks */
-.featured-title {
+  /* Atur teks */
+  .featured-title {
     font-size: 22px;
     /* text-align: center; */
-}
+  }
 
-.featured-desc {
+  .featured-desc {
     font-size: 15px;
     line-height: 1.6;
     /* text-align: center; */
     opacity: 0.95;
-}
+  }
 
   /* .news-grid {
     display: grid;
@@ -1992,30 +1983,29 @@ section.show {
     margin: 0 auto;
     padding: 20px 18px;
     border-width: 2px; /* biar tetap terlihat rapi */
-}
+  }
 
-.feature-content {
+  .feature-content {
     gap: 14px; /* kurangi jarak */
-}
+  }
 
-.feature-content h2 {
+  .feature-content h2 {
     font-size: 22px;
     text-align: center;
-}
+  }
 
-.feature-content p {
+  .feature-content p {
     font-size: 15px;
     line-height: 1.6;
-}
+  }
 
-/* gambar di dalam card */
+  /* gambar di dalam card */
   .feature-card-large {
     display: flex;
     flex-direction: column;
     /* text-align: start; */
     align-items: center;
     padding: 24px;
-
   }
 
   .feature-card-large p {
@@ -2023,8 +2013,7 @@ section.show {
     text-align: left;
   }
 
-
-  .feature-image img{
+  .feature-image img {
     width: 100%;
     height: 200px;
     border-radius: 12px;
@@ -2179,4 +2168,3 @@ section.show {
     font-size: 17px;
   }
 }
-
