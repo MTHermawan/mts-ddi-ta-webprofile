@@ -41,9 +41,9 @@
   color: rgb(29, 41, 57);
 }
 
-.featured-meta i{
-  color: rgb(4, 134, 0);
-  margin-right: 8px;
+.featured-btn {
+  flex-grow: 1;
+  align-content: flex-end;
 }
 
 /*KONTEN UTAMA*/
