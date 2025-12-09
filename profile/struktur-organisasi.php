@@ -33,13 +33,7 @@ $dataStrukturOrganisasi = GetStrukturOrganisasi();
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
-        <p class="hero-subtitle">
-          Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
-          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
-        </p>
-        <button class="btn-primary">Hubungi Kami</button>
-      </div>
+        <h1>Struktur Organisasi</h1>
     </section>
 
     <!-- SECTION Struktur -->

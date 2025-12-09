@@ -17,8 +17,8 @@ body {
 /* hero section start */
 #hero {
   position: relative;
-  height: 100vh;
-  padding: 80px 124px;
+  height: 60vh;
+  padding: 80px 124px 0 124px;
   color: white;
   display: flex;
   align-items: center;
@@ -47,49 +47,25 @@ body {
 }
 
 .hero-content {
-  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   z-index: 2;
 }
 
 .hero-content h1 {
   display: flex;
-  text-align: left;
-  font-size: 48px;
-  font-weight: 700;
+  justify-content: center;
+  text-align: center;
+  font-size: 52px;
+  font-weight: 800;
   line-height: 1.3;
   margin-bottom: 20px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-.hero-subtitle {
-  display: flex;
-  text-align: left;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.btn-primary {
-  background-color: rgb(4, 134, 0);
-  color: white;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 25% 10%;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  font-family: "Signika Negative", sans-serif;
-  box-shadow: 0 4px 10px rgba(4, 134, 0, 0.3);
-}
-
-.btn-primary:hover {
-  background-color: #036800;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(4, 134, 0, 0.4);
-}
 /* hero section stop */
 
 /* footer */

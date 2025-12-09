@@ -1,88 +1,65 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
-
-
-body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background-color: rgba(234, 234, 234, 1);
+.galeri-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
 }
 
-header {
-  background-image: url("assets/gambar-sekolah1.png");
-  background-size: 1440px 897px;
-  background-position: center;
-  color: white;
-  position: relative;
-  min-height: 400px;
+.judul-utama {
+  font-family: "Signika Negative", sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-h5{
-    width: 1100px;
+.sub-judul-galeri {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 40px;
 }
 
-.judul-hero{
-    width: 900px;
+/* LIST GALERI */
+.galeri-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
-.head{
-    text-align: center;
-    font-family: "Signika Negative", sans-serif;
-    font-size: 36px;
-    font-weight: 600;
-    margin: 100px;
-    color: #1a1a1a;
+/* CARD */
+.galeri-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.data-galeri-con {
-    display: flex;
-    justify-content: space-between;
-    /* height: 200vh; */
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
+.galeri-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
-.card{
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 30px 50px;
-    text-align: center;
+/* GAMBAR DALAM CARD */
+.galeri-gambar img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
 }
 
-.img-galeri{
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-    object-fit: cover;
-    margin-bottom: 20px;
+/* TABLET */
+@media (max-width: 900px) {
+  .galeri-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.empty-img-galeri{
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    background-color: rgb(222, 222, 222);
+/* MOBILE */
+@media (max-width: 600px) {
+  .galeri-list {
+    grid-template-columns: 1fr;
+  }
 
+  .galeri-gambar img {
+    height: 220px;
+  }
 }
-
-.judul{
-    display: flex;
-    text-align: left;
-    font-family: "Signika Negative", sans-serif;
-    font-size: 18px;
-}
-
-.desk{
-    display: flex;
-    text-align: left;
-    font-family: "Signika Negative", sans-serif;
-    font-size: 16px;
-}
-

@@ -35,11 +35,11 @@
                 <a href="#gallery">Galeri</a>
                 <a href="#contact">Kontak</a>
             <?php } else { ?>
-                <a href="<?php echo DOCUMENT_ROOT; ?>#event">Agenda</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>#news">Berita</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>#gallery">Galeri</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/agenda">Agenda</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/berita">Berita</a>
+                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/galeri">Galeri</a>
                 <a href="<?php echo DOCUMENT_ROOT; ?>#contact">Kontak</a>
-            <?php } ?>
+            <?php } ?> 
         </div>
 
         <div class="hamburger" id="hamburger">

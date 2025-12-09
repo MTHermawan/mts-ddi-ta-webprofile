@@ -33,14 +33,7 @@ if (!defined('IN_INDEX')) {
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
-        <p class="hero-subtitle">
-          Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
-          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
-        </p>
-        <a href="<?= BASE_URL ?>/index.html#contact"
-          ><button class="btn-primary">Hubungi Kami</button></a
-        >
+        <h1>Fasilitas</h1>
       </div>
     </section>
 

@@ -7,59 +7,74 @@ if (!defined('IN_INDEX')) {
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Sekolah</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/galeri.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/style/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/style/galeri.css">
-    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg">
-</head>
-
-<body>
-    <?php include "../includes/site-header.php"; ?>
-
-    <header>
-        <?php include "../includes/navbar.php"; ?>
-
-        <section id="hero">
-            <div class="hero-content">
-                <h1 class="judul-hero">Galeri Kegiatan MTs DDI Tani Aman</h1>
-                <h5>Lihat momen-momen berkesan dari kegiatan belajar mengajar, acara sekolah, ekstrakurikuler, dan
-                    prestasi siswa di MTs DDI Tani Aman. Galeri ini menampilkan aktivitas nyata yang terjadi setiap hari
-                    di lingkungan sekolah kami.</h5>
-            </div>
-        </section>
-    </header>
-
-    <section class="data-galeri">
-        <h1 class="head">Galeri</h1>
-        <div class="data-galeri-con">
-            <?php foreach ($data_galeri as $galeri) { ?>
-                <div class="card">
-                    <!-- FOTO -->
-                    <?php if (file_exists("../assets/" . $galeri["url_foto"])) { ?>
-                        <img src="<?php echo "../assets/" . $galeri["url_foto"]; ?>" alt="" class="img-galeri">
-                    <?php } else { ?>
-                        <div class="empty-img-galeri"></div>
-                    <?php } ?>
-                    
-                    <h1 class="judul"><?php echo $galeri["judul_galeri"]; ?></h1>
-                    <h3 class="desk"><?php echo $galeri["deskripsi_galeri"]; ?></h3>
-                </div>
-            <?php } ?>
-            <div class="card">
-                <img src="" alt="" class="img-galeri">
-                <h1 class="judul">Judul: </h1>
-                <h3 class="desk">Deskripsi: </h3>
-            </div>
-        </div>
+    <section id="hero">
+      <img
+        src="<?= BASE_URL ?>/assets/school.jpg"
+        alt="Latar belakang pendidikan berkarakter"
+        class="hero-bg"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Galeri</h1>
+      </div>
     </section>
 
-    <?php include "../includes/footer.php"; ?>
+<section class="galeri-section fade-in">
+  <h1 class="judul-utama">Galeri MTs DDI Tani Aman</h1>
+  <p class="sub-judul-galeri">Kumpulan foto kegiatan MTs DDI Tani Aman.</p>
 
-    <script src="../script/script.js"></script>
-</body>
+  <div class="galeri-list fade-in">
 
+    <!-- CARD 1 -->
+    <div class="galeri-card">
+      <div class="galeri-gambar">
+        <img src="<?= BASE_URL ?>/assets/contoh1.jpg" alt="gambar">
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="galeri-card">
+      <div class="galeri-gambar">
+        <img src="<?= BASE_URL ?>/assets/contoh2.jpg" alt="gambar">
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="galeri-card">
+      <div class="galeri-gambar">
+        <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <!-- FOOTER -->
+    <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
+
+    <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
+    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
+  </body>
 </html>

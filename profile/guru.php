@@ -10,15 +10,15 @@ if (!defined('IN_INDEX')) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Staff Sekolah</title>
+    <title>Guru dan Staff Sekolah</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="<?= BASE_URL ?> /style/hero-sect.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?> /style/guru.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?> /style/header.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?> /style/dropdown.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/guru.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
     <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
   </head>
   <body>
@@ -33,14 +33,7 @@ if (!defined('IN_INDEX')) {
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
-        <p class="hero-subtitle">
-          Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
-          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
-        </p>
-        <a href="<?= BASE_URL ?>/index.html#contact"
-          ><button class="btn-primary">Hubungi Kami</button></a
-        >
+        <h1>Guru dan Staff</h1>
       </div>
     </section>
 

@@ -87,6 +87,9 @@ switch ($segments[0]) {
             require "./informasi/agenda.php";
             exit;
           }
+        case 'galeri':
+          include_once "./data/data_galeri.php";
+            require "./informasi/galeri.php";
       }
     }
     break;
