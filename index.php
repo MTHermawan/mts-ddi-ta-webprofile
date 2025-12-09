@@ -59,6 +59,10 @@ switch ($segments[0]) {
           include_once "./data/data_struktur_organisasi.php";
           require "./profile/struktur-organisasi.php";
           exit;
+        case 'visi-misi':
+          // include_once "./data/data_settings.php";
+          require "./profile/visi-misi.php";
+          exit;
       }
     }
     break;
@@ -89,7 +93,7 @@ switch ($segments[0]) {
           }
         case 'galeri':
           include_once "./data/data_galeri.php";
-            require "./informasi/galeri.php";
+          require "./informasi/galeri.php";
       }
     }
     break;

@@ -18,6 +18,7 @@ require_once "./includes/check-auth.php";
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="./script/notification.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@ require_once "./includes/check-auth.php";
       <!-- main content row 21-->
       <div class="container">
         <!-- main content row 24 -->
-        <form action="" class="vision-form">
+        <div action="" class="vision-form">
 
           <div class="vision-mision-container">
             <div class="form-card">
@@ -56,7 +57,7 @@ require_once "./includes/check-auth.php";
                       class="form-textarea"
                       name="visi"
                       id="visi"
-                      placeholder="Visi MTs DDI Tani Aman"></textarea>
+                      placeholder="Visi MTs DDI Tani Aman">Kami hadir untuk menumbuhkan generasi yang dekat dengan Al-Qur'an: memahaminya, menghafalnya, mengamalkannya, dan menjadikannya pedoman dalam setiap langkah kehidupan.</textarea>
                   </div>
                 </div>
               </div>
@@ -78,7 +79,7 @@ require_once "./includes/check-auth.php";
                       class="form-textarea"
                       name="misi"
                       id="misi"
-                      placeholder="Misi MTs DDI Tani Aman"></textarea>
+                      placeholder="Misi MTs DDI Tani Aman">Kami hadir untuk menumbuhkan generasi yang dekat dengan Al-Qur'an: memahaminya, menghafalnya, mengamalkannya, dan menjadikannya pedoman dalam setiap langkah kehidupan.</textarea>
                   </div>
                 </div>
               </div>
@@ -101,7 +102,14 @@ require_once "./includes/check-auth.php";
                     class="form-textarea"
                     name="tujuan"
                     id="tujuan"
-                    placeholder="Tujuan MTs DDI Tani Aman"></textarea>
+                    placeholder="Tujuan MTs DDI Tani Aman">Kami hadir untuk menumbuhkan generasi yang dekat dengan Al-Qur'an: memahaminya, menghafalnya, mengamalkannya, dan menjadikannya pedoman dalam setiap langkah kehidupan.
+
+- Menyelenggarakan proses pembelajaran yang berkualitas.
+- Membentuk karakter siswa yang berakhlakul karimah.
+- Mengembangkan potensi akademik, seni, olahraga, dan keterampilan digital siswa secara seimbang.
+- Menjalin kerja sama yang harmonis dengan orang tua, masyarakat, dan stakeholders pendidikan.
+
+</textarea>
                 </div>
               </div>
             </div>
@@ -109,11 +117,11 @@ require_once "./includes/check-auth.php";
 
           <div class="form-actions">
             <div></div>
-            <button class="btn-save">
+            <button class="btn-save" onclick="showSuccess('Berhasil memperbarui visi-msii!)'">
               <i class="fa-regular fa-floppy-disk"></i> Simpan
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
@@ -129,7 +137,6 @@ require_once "./includes/check-auth.php";
     </div>
   </div>
   <script src="./script/dashboard-admin.js"></script>
-  <script src="./script/notification.js"></script>
   <script src="./script/hamburger-menu.js"></script>
 </body>
 

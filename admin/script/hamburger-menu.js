@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // DEBUGGING: Cek apakah elemen terbaca
   if (!closeBtn) {
-    console.error(
-      "❌ ERROR: Elemen dengan id='sidebarCloseBtn' TIDAK DITEMUKAN di HTML. Cek file sidebar Anda."
-    );
+    // console.error(
+    //   "❌ ERROR: Elemen dengan id='sidebarCloseBtn' TIDAK DITEMUKAN di HTML. Cek file sidebar Anda."
+    // );
   } else {
-    console.log("✅ SUKSES: Tombol Close ditemukan.");
+    // console.log("✅ SUKSES: Tombol Close ditemukan.");
   }
 
   function toggleSidebar() {

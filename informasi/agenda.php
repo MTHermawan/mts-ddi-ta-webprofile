@@ -176,6 +176,6 @@ $dataAgenda = GetAgenda();
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
     <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
-    <script src="<?= BASE_URL ?>/script/hamburger-mennu.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>
 </html>
