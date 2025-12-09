@@ -26,13 +26,13 @@ if (!defined('IN_INDEX')) {
     <!-- HERO -->
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Sejarah</h1>
+        <h1>Visi Misi</h1>
       </div>
     </section>
 

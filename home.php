@@ -27,7 +27,7 @@ if (!defined('IN_INDEX')) {
 
     <section id="hero">
       <img
-        src="assets/school.jpg"
+        src="assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -110,7 +110,7 @@ if (!defined('IN_INDEX')) {
             </div>
             <div class="feature-image">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Ilustrasi sekolah modern"
               />
             </div>
@@ -235,7 +235,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -267,7 +267,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -296,7 +296,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -325,7 +325,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -354,7 +354,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -383,7 +383,7 @@ if (!defined('IN_INDEX')) {
           <div class="event-card">
             <div class="event-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="event-img"
               />
@@ -431,7 +431,7 @@ if (!defined('IN_INDEX')) {
             <div class="featured-content">
               <div class="featured-image">
                 <img
-                  src="assets/school.jpg"
+                  src="assets/gambarabout.jpeg"
                   alt="Ilustrasi sekolah modern"
                 />
               </div>
@@ -471,7 +471,7 @@ if (!defined('IN_INDEX')) {
           <div class="news-item">
             <div class="news-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="news-img"
               />
@@ -498,7 +498,7 @@ if (!defined('IN_INDEX')) {
           <div class="news-item">
             <div class="news-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="news-img"
               />
@@ -525,7 +525,7 @@ if (!defined('IN_INDEX')) {
           <div class="news-item">
             <div class="news-image-container">
               <img
-                src="assets/school.jpg"
+                src="assets/gambarabout.jpeg"
                 alt="Event 1"
                 class="news-img"
               />

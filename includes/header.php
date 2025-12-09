@@ -22,6 +22,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a href="<?php echo DOCUMENT_ROOT; ?>profile/sejarah">Sejarah</a>
+                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/visi-misi">Visi Misi</a>
                     <a href="<?php echo DOCUMENT_ROOT; ?>profile/struktur-organisasi">Struktur Organisasi</a>
                     <a href="<?php echo DOCUMENT_ROOT; ?>profile/guru">Guru</a>
                     <a href="<?php echo DOCUMENT_ROOT; ?>profile/fasilitas">Fasilitas Sekolah</a>

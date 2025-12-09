@@ -27,7 +27,7 @@ if (!defined('IN_INDEX')) {
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -37,35 +37,71 @@ if (!defined('IN_INDEX')) {
       </div>
     </section>
 
-<section class="galeri-section fade-in">
-  <h1 class="judul-utama">Galeri MTs DDI Tani Aman</h1>
-  <p class="sub-judul-galeri">Kumpulan foto kegiatan MTs DDI Tani Aman.</p>
+<!-- GALERI SECTION -->
+<section class="galeri-section">
+          <h1 class="judul-utama">Galeri MTs DDI Tani Aman</h1>
+      <p class="sub-judul-agenda">
+        Kumpulan foto-foto terbaru seputar kegiatan sekolah.
+      </p>
 
-  <div class="galeri-list fade-in">
-
-    <!-- CARD 1 -->
-    <div class="galeri-card">
-      <div class="galeri-gambar">
-        <img src="<?= BASE_URL ?>/assets/contoh1.jpg" alt="gambar">
+      <!-- Filter -->
+      <div class="filter-agenda">
+        <button class="filter-btn aktif">Semua Foto</button>
       </div>
-    </div>
 
-    <!-- CARD 2 -->
-    <div class="galeri-card">
-      <div class="galeri-gambar">
-        <img src="<?= BASE_URL ?>/assets/contoh2.jpg" alt="gambar">
-      </div>
-    </div>
 
-    <!-- CARD 3 -->
-    <div class="galeri-card">
-      <div class="galeri-gambar">
-        <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar">
-      </div>
-    </div>
+    <div class="gallery-grid">
 
-  </div>
+        <div class="gallery-card" 
+            data-title="Upacara Bendera"
+            data-desc="Kegiatan rutin setiap hari Senin.">
+            <img src="../assets/gambarabout.jpeg" alt="Upacara">
+        </div>
+
+        <div class="gallery-card" 
+            data-title="Lomba Sains"
+            data-desc="Peserta mengikuti lomba tingkat Kabupaten.">
+            <img src="../assets/gambarabout.jpeg" alt="Lomba">
+        </div>
+
+        <div class="gallery-card" 
+            data-title="Ekstrakurikuler Pramuka"
+            data-desc="Kegiatan latihan pramuka mingguan.">
+            <img src="../assets/gambarabout.jpeg" alt="Pramuka">
+        </div>
+
+        <div class="gallery-card" 
+            data-title="Belajar di Kelas"
+            data-desc="Pembelajaran aktif dan interaktif.">
+            <img src="../assets/gambarabout.jpeg" alt="Kelas">
+        </div>
+
+    </div>
 </section>
+
+<!-- POPUP SLIDER GALLERY -->
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <!-- Tombol Close -->
+        <span class="popup-close" id="closeBtn">&times;</span>
+
+        <!-- Tombol Kiri -->
+        <span class="popup-arrow inside left" id="prevBtn">&#10094;</span>
+
+        <!-- Gambar -->
+        <img id="popupImg" src="" alt="Gambar">
+
+        <!-- Tombol Kanan -->
+        <span class="popup-arrow inside right" id="nextBtn">&#10095;</span>
+
+        <h2 class="popup-title" id="popupTitle"></h2>
+        <p class="popup-desc" id="popupDesc"></p>
+    </div>
+
+</div>
+
 
 
 
@@ -76,5 +112,6 @@ if (!defined('IN_INDEX')) {
     <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
+    <script src="<?= BASE_URL ?>/script/galeri.js"></script>
   </body>
 </html>

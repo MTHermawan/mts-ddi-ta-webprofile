@@ -44,7 +44,7 @@ $dateString = FormatDateID($data_berita_tunggal[0]['tanggal_dibuat']);
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />

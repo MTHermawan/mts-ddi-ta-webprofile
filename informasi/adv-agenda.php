@@ -42,7 +42,7 @@ if (!$data_agenda_tunggal) {
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />

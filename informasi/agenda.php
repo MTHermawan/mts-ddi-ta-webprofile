@@ -33,7 +33,7 @@ $dataAgenda = GetAgenda();
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/school.jpg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -85,88 +85,6 @@ $dataAgenda = GetAgenda();
           </div>
         </div>
         <?php endforeach; ?>
-        <div class="agenda-card fade-in">
-          <div class="agenda-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-          </div>
-
-          <div class="agenda-teks">
-            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
-
-            <p class="agenda-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
-            </p>
-
-            <p class="agenda-date">
-              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
-            </p>
-            <p class="agenda-time">
-              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
-            </p>
-            <p class="agenda-location">
-              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
-            </p>
-
-            <a class="btn-baca" href="#">Selengkapnya →</a>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="agenda-card fade-in">
-          <div class="agenda-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-          </div>
-
-          <div class="agenda-teks">
-            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
-
-            <p class="agenda-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
-            </p>
-
-            <p class="agenda-date">
-              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
-            </p>
-            <p class="agenda-time">
-              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
-            </p>
-            <p class="agenda-location">
-              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
-            </p>
-
-            <a class="btn-baca" href="#">Selengkapnya →</a>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="agenda-card fade-in">
-          <div class="agenda-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-          </div>
-
-          <div class="agenda-teks">
-            <h2 class="agenda-judul">Upacara Hari Guru Nasional 2025</h2>
-
-            <p class="agenda-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
-            </p>
-
-            <p class="agenda-date">
-              <i class="fa-solid fa-calendar agenda-icon"></i>20 November 2025
-            </p>
-            <p class="agenda-time">
-              <i class="fa-solid fa-clock agenda-icon"></i>10:00 - 12:00
-            </p>
-            <p class="agenda-location">
-              <i class="fa-solid fa-location-dot agenda-icon"></i>Auditorium
-            </p>
-
-            <a class="btn-baca" href="#">Selengkapnya →</a>
-          </div>
-        </div>
       </div>
     </section>
 

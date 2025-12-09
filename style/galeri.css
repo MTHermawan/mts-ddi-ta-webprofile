@@ -1,65 +1,195 @@
+.judul-utama {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b5e00;
+}
+
+.judul-utama::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e00, #18a300);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.sub-judul-agenda {
+  text-align: center;
+  color: #555;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  /* max-width: 650px; */
+}
+
+.filter-agenda {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #d9d9d9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #cfcfcf;
+  transform: translateY(-3px);
+}
+
+.filter-btn.aktif {
+  background: #0d7a00;
+  color: #fff;
+}
+
+
+/* =========================
+   GALERI GRID
+========================= */
 .galeri-section {
-  padding: 60px 20px;
+  padding: 60px 40px;
   max-width: 1200px;
   margin: auto;
+}
+
+.gallery-title {
   text-align: center;
-}
-
-.judul-utama {
-  font-family: "Signika Negative", sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.sub-judul-galeri {
-  font-size: 16px;
-  color: #444;
+  font-size: 32px;
   margin-bottom: 40px;
+  font-weight: 600;
+  color: #1a1a1a;
 }
 
-/* LIST GALERI */
-.galeri-list {
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
-/* CARD */
-.galeri-card {
-  background: #fff;
-  border-radius: 18px;
+.gallery-card {
+  background: white;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.galeri-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+.gallery-card:hover {
+  transform: scale(1.05);
 }
 
-/* GAMBAR DALAM CARD */
-.galeri-gambar img {
+.gallery-card img {
   width: 100%;
-  height: 250px;
+  height: 160px;
   object-fit: cover;
   display: block;
 }
 
-/* TABLET */
-@media (max-width: 900px) {
-  .galeri-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* BACKDROP */
+/* BACKDROP */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .galeri-list {
-    grid-template-columns: 1fr;
-  }
-
-  .galeri-gambar img {
-    height: 220px;
-  }
+.popup.active {
+    display: flex;
 }
+
+/* CARD POPUP */
+.popup-content {
+    background: white;
+    padding: 25px 25px 35px;
+    border-radius: 22px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.25s ease;
+}
+
+/* GAMBAR (rounded) */
+.popup-content img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 16px;   /* Rounded lebih smooth */
+}
+
+/* TOMBOL CLOSE (TANPA BG, TANPA BORDER) */
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 26px;
+    color: #333;           /* Warna icon */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none !important; 
+    border: none !important; 
+    box-shadow: none !important;
+    z-index: 10;
+}
+
+/* TOMBOL SLIDE (TRANSPARAN, TANPA BG) */
+.popup-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 38px;
+    cursor: pointer;
+    background: none !important;
+    border: none !important;
+    color: #333;        /* Warna panah */
+    box-shadow: none !important;
+    z-index: 10;
+    padding: 0;
+}
+
+/* Posisi panah */
+.popup-arrow.left {
+    left: 15px;
+}
+
+.popup-arrow.right {
+    right: 15px;
+}
+
+/* JUDUL & DESKRIPSI */
+.popup-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.popup-desc {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
