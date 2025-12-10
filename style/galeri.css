@@ -193,3 +193,184 @@
     to { opacity: 1; transform: scale(1); }
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* --- Tablet (max 992px) --- */
+@media (max-width: 992px) {
+
+    .judul-utama {
+        font-size: 2.2rem;
+    }
+
+    .sub-judul-agenda {
+        font-size: 1.05rem;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-width: 700px;
+        padding: 20px 20px 30px;
+    }
+
+    .popup-close {
+        font-size: 24px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .popup-arrow {
+        font-size: 34px;
+    }
+
+    .popup-title {
+        font-size: 20px;
+    }
+
+    .popup-desc {
+        font-size: 15px;
+    }
+}
+
+/* --- HP Landscape / Small Tablet (max 768px) --- */
+@media (max-width: 768px) {
+
+    .galeri-section {
+        padding: 40px 20px;
+    }
+
+    .gallery-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-card img {
+        height: 130px;
+    }
+
+    .popup-content {
+        width: 92%;
+        padding: 18px 18px 28px;
+    }
+
+    .popup-content img {
+        max-height: 55vh;
+    }
+
+    .popup-arrow {
+        font-size: 30px;
+    }
+
+    .popup-arrow.left {
+        left: 10px;
+    }
+
+    .popup-arrow.right {
+        right: 10px;
+    }
+
+    .popup-title {
+        font-size: 18px;
+    }
+}
+
+/* --- HP portrait (max 576px) --- */
+@media (max-width: 576px) {
+
+    .judul-utama {
+        font-size: 1.9rem;
+    }
+
+    .sub-judul-agenda {
+        font-size: 0.95rem;
+        margin-bottom: 35px;
+    }
+
+    .filter-agenda {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-card img {
+        height: 110px;
+    }
+
+    .popup-content {
+        width: 95%;
+        padding: 15px 15px 25px;
+        border-radius: 18px;
+    }
+
+    .popup-content img {
+        border-radius: 14px;
+        max-height: 48vh;
+    }
+
+    /* Close & arrows lebih kecil */
+    .popup-close {
+        font-size: 22px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .popup-arrow {
+        font-size: 28px;
+    }
+
+    .popup-arrow.left {
+        left: 8px;
+    }
+
+    .popup-arrow.right {
+        right: 8px;
+    }
+
+    .popup-title {
+        font-size: 17px;
+    }
+
+    .popup-desc {
+        font-size: 14px;
+    }
+}
+
+/* --- HP kecil (max 400px) --- */
+@media (max-width: 400px) {
+
+    .gallery-title {
+        font-size: 22px;
+    }
+
+    .gallery-card img {
+        height: 100px;
+    }
+
+    .popup-content {
+        padding: 12px;
+    }
+
+    .popup-close {
+        font-size: 20px;
+    }
+
+    .popup-arrow {
+        font-size: 24px;
+    }
+}
+
