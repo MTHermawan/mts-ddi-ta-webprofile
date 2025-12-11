@@ -4,7 +4,7 @@
     <nav class="navbar">
         <div class="nav-brand">
             <div class="brand-logo">
-                <img src="<?php echo ASSET_PATH; ?>/logo-sekolah.png" alt="logo" />
+                <img src="<?php echo BASE_URL; ?>/assets/logo-sekolah.png" alt="logo" />
             </div>
             <div class="brand-info">
                 <h1>Mts Ddi Tani Aman</h1>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="nav-menu">
-            <a href="<?php echo DOCUMENT_ROOT; ?>" class="active">Home</a>
+            <a href="<?php echo BASE_URL; ?>/" class="active">Home</a>
 
             <!-- Dropdown untuk Profil -->
             <div class="dropdown">
@@ -21,12 +21,12 @@
                     Profil <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/sejarah">Sejarah</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/visi-misi">Visi Misi</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/struktur-organisasi">Struktur Organisasi</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/guru">Guru</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/fasilitas">Fasilitas Sekolah</a>
-                    <a href="<?php echo DOCUMENT_ROOT; ?>profile/ekskul">Ekstrakurikuler Sekolah</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/sejarah">Sejarah</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/visi-misi">Visi Misi</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/struktur-organisasi">Struktur Organisasi</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/guru">Guru</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/fasilitas">Fasilitas Sekolah</a>
+                    <a href="<?php echo BASE_URL; ?>/profile/ekskul">Ekstrakurikuler Sekolah</a>
                 </div>
             </div>
 
@@ -36,10 +36,10 @@
                 <a href="#gallery">Galeri</a>
                 <a href="#contact">Kontak</a>
             <?php } else { ?>
-                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/agenda">Agenda</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/berita">Berita</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>informasi/galeri">Galeri</a>
-                <a href="<?php echo DOCUMENT_ROOT; ?>#contact">Kontak</a>
+                <a href="<?php echo BASE_URL; ?>/informasi/agenda">Agenda</a>
+                <a href="<?php echo BASE_URL; ?>/informasi/berita">Berita</a>
+                <a href="<?php echo BASE_URL; ?>/informasi/galeri">Galeri</a>
+                <a href="<?php echo BASE_URL; ?>/#contact">Kontak</a>
             <?php } ?> 
         </div>
 
@@ -49,4 +49,4 @@
     </nav>
 </header>
 
-<script src="<?php echo DOCUMENT_ROOT; ?>script/navbar.js"></script>
+<script src="<?php echo BASE_URL; ?>/script/navbar.js"></script>

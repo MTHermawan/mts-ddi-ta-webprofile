@@ -5,7 +5,7 @@
         <!-- Brand Sekolah -->
         <div class="footer-brand-full">
             <div class="brand-left">
-                <img src="<?php echo ASSET_PATH; ?>logo-sekolah.png" alt="Logo Sekolah" />
+                <img src="<?php echo BASE_URL; ?>/assets/logo-sekolah.png" alt="Logo Sekolah" />
             </div>
 
             <div class="brand-right">

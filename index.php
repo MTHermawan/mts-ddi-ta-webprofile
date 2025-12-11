@@ -4,9 +4,6 @@ require_once "./data/utility.php";
 
 define('IN_INDEX', true);
 
-$base = "/" . basename(__DIR__);
-define("BASE_URL", $base);
-
 $dir_name = basename(__DIR__);
 $raw_path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $raw_path = preg_replace('#/+#', '/', $raw_path);
@@ -18,7 +15,11 @@ $path = rtrim($path, "/");
 
 $segments = $path ? explode("/", $path) : [];
 
-
+if (strpos($raw_path, "/" . $dir_name) === 0) {
+    define("BASE_URL", "/" . $dir_name);
+} else {
+    define("BASE_URL", "");
+}
 
 $idx = array_search($dir_name, $segments);
 

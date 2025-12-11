@@ -68,7 +68,7 @@ if (isset($_SESSION['last_email_input'])) {
           </p>
           <form action="./post/login-admin/validasi-login.php" method="POST" class="login-form">
             <div class="email">  
-              <label class="email-label" for="email">Email -> Note: <font color="red">admin@mtsddi.sch.id</font></label>
+              <label class="email-label" for="email">Email</label>
               <input
                 id="email"
                 name="email"
@@ -79,7 +79,7 @@ if (isset($_SESSION['last_email_input'])) {
               />
             </div>
             <div class="password">
-              <label class="password-label" for="password">Kata Sandi -> Note: <font color="red">admin123</font></label>
+              <label class="password-label" for="password">Kata Sandi</label>
               <input
                 id="password"
                 name="password"
