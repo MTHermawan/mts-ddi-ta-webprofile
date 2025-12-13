@@ -4,50 +4,76 @@ include_once 'utility.php';
 $asset_subdir = "pengaturan/";
 
 // Menambahkan baris data fasilitas baru (CREATE)
-function SetSetting($key, $value)
-{
-    global $koneksi;
+function SetSetting($key, $value) {
+  global $koneksi, $asset_subdir;
 
-    $success = false;
-    try {
-        $sql_check = "SELECT setting_value FROM pengaturan WHERE setting_key = ?";
-        $stmt_check = $koneksi->prepare($sql_check);
-        $stmt_check->bind_param("s", $key);
-        $stmt_check->execute();
-        $result = $stmt_check->get_result();
+  $foto_baru = "";
+  
+  try {
+      $old_value = GetSetting($key);
+      
+      if (is_array($value) && isset($value['tmp_name'])) {
+        $value = TambahFile($value, $asset_subdir);
+        $foto_baru = $value;
+      }
+    
+      $stmt = $koneksi->prepare("
+        INSERT INTO pengaturan (setting_key, setting_value)
+        VALUES (?, ?)
+        ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)
+      ");
+      $stmt->bind_param("ss", $key, $value);
+      $stmt->execute();
 
+      if ($foto_baru && $old_value)
+      {
+        HapusFile($old_value);
+      }
+  } catch (Exception $e) {
+      HapusFile($foto_baru);
+      SendServerError($e);
+  }
 
-        $stmt_check->close();
-
-        $success = true;
-    } catch (Exception $e) {
-        SendServerError($e);
-    }
-
-    return $success;
 }
+
+
 
 // Menambahkan baris data fasilitas baru (CREATE)
 function GetSetting($key)
 {
     global $koneksi;
 
-    $value = null;
-    try {
-        $sql_check = "SELECT setting_value FROM pengaturan WHERE setting_key = ?";
-        $stmt_check = $koneksi->prepare($sql_check);
-        $stmt_check->bind_param("s", $key);
-        $stmt_check->execute();
-        $result = $stmt_check->get_result();
+    $sql = "SELECT setting_value FROM pengaturan WHERE setting_key = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("s", $key);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if ($row = $result->fetch_assoc()) {
-            $value = $row['setting_value'];
-        }
-        $stmt_check->close();
-    } catch (Exception $e) {
-        SendServerError($e);
+    $value = null;
+    if ($row = $result->fetch_assoc()) {
+        $value = $row['setting_value'];
     }
 
+    $stmt->close();
+    return $value;
+}
+
+// Menambahkan baris data fasilitas baru (CREATE)
+function GetAllSettings()
+{
+    global $koneksi;
+
+    $sql = "SELECT setting_key, setting_value FROM pengaturan";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $value = null;
+    while ($row = $result->fetch_assoc()) {
+        $value[$row['setting_key']] = $row['setting_value'];
+    }
+
+    $stmt->close();
     return $value;
 }
 

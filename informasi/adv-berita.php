@@ -31,12 +31,10 @@ $dateString = FormatDateID($data_berita_tunggal[0]['tanggal_dibuat']);
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/adv.info.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link
-      rel="icon"
-      href="<?= BASE_URL ?>/assets/logo-sekolah.png"
-      type="image/png/jpeg/jpg"
-    />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -106,7 +104,6 @@ $dateString = FormatDateID($data_berita_tunggal[0]['tanggal_dibuat']);
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>

@@ -63,3 +63,94 @@ removeBtnHero.addEventListener("click", function () {
   imagePreviewBoxHero.style.borderStyle = "dashed";
   imagePreviewBoxHero.style.borderColor = "#ced4da";
 });
+
+async function ReloadFormData() {
+  const res = await fetch("./get/pengaturan/getPengaturan.php", {
+    method: "GET"
+  });
+  result = await res.json();
+  console.log(result);
+
+  const forms = document.getElementsByTagName("form");
+  let formInputs = [];
+
+  for (let form of forms) {
+    formInputs = [...formInputs, ...form.getElementsByTagName("input")];
+  }
+
+  for (let input of formInputs) {
+    if (!result[input.name]) {
+      continue;
+    }
+
+    let value = result[input.name];
+
+    if (input.type != "file") {
+      // Reload teks
+      input.value = value;
+    }
+    else if (await IsUrlFound("assets/" + value)) {
+      // Reload gambar
+      value = "../assets/" + value;
+      handleResumeInput(input.id, value);
+    }
+  }
+}
+
+async function SubmitPengaturan(formId) {
+  const form = document.getElementById(formId);
+  const formData = new FormData();
+
+  for (const el of form.elements) {
+    console.log(el);
+    if (!el.name) continue;
+
+    if (el.type === "file") {
+      if (el.files.length > 0) {
+        formData.append(el.name, el.files[0]);
+      }
+      else {
+        formData.append(el.name, "");
+      }
+    }
+    else {
+      formData.append(el.name, el.value);
+    }
+  }
+
+  const res = await fetch("./post/pengaturan/update-pengaturan.php", {
+    method: "POST",
+    body: formData
+  });
+
+  const result = await res.json();
+  showNotification(message = result.message, 3000, result.status);
+}
+
+async function SubmitChangePassword() {
+  const input_password_baru = document.getElementById("input_password_baru");
+  const input_konfirmasi_password = document.getElementById("input_konfirmasi_password");
+  const password_baru = input_password_baru.value;
+  const konfirmasi_password = input_konfirmasi_password.value;
+  const formData = new FormData();
+
+  formData.append('password_baru', password_baru);
+  formData.append('konfirmasi_password', konfirmasi_password);
+
+  const res = await fetch("./post/pengaturan/update-password.php", {
+    method: "POST",
+    body: formData
+  });
+
+  const result = await res.json();
+  showNotification(message = result.message, 3000, result.status);
+
+  if (result.status == 'success') {
+    input_password_baru.value = '';
+    input_konfirmasi_password.value = '';
+  }
+}
+
+window.onload = () => {
+  ReloadFormData();
+}

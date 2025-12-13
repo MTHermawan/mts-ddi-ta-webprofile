@@ -21,11 +21,9 @@ $dataBerita = GetBerita();
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/berita.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link
-      rel="icon"
-      href="<?= BASE_URL ?>/assets/logo-sekolah.png"
-      type="image/png/jpeg/jpg"
-    />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -57,14 +55,16 @@ $dataBerita = GetBerita();
 
       <!-- List berita -->
       <div class="berita-list fade-in">
-        <!-- CARD 1 -->
+        <?php foreach ($dataBerita as $berita): ?>
         <div class="berita-card fade-in">
           <div class="berita-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
+            <img
+            src="<?= BASE_URL ?>/assets/<?= $berita['url_foto'] ?>"
+            alt=<?= $berita['judul'] ?>
+            onerror="this.src=imagePlaceholderUrl('<?= $berita['judul'] ?>')" />
           </div>
 
           <div class="berita-teks">
-            <?php foreach ($dataBerita as $berita): ?>
             <h2 class="berita-judul"><?= $berita['judul'] ?></h2>
             <!-- <h2 class="berita-judul">Upacara Hari Guru Nasional 2025</h2> -->
 
@@ -85,74 +85,14 @@ $dataBerita = GetBerita();
 
             <a class="btn-baca" href="<?= BASE_URL ?>/informasi/berita/<?= $berita['id_berita'] ?>">Selengkapnya →</a>
           </div>
-          <?php endforeach; ?>
         </div>
-
-        <!-- CARD 2 -->
-        <div class="berita-card fade-in">
-          <div class="berita-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-          </div>
-
-          <div class="berita-teks">
-            <h2 class="berita-judul">Upacara Hari Guru Nasional 2025</h2>
-
-            <p class="berita-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
-            </p>
-
-            <div class="news-meta">
-              <div class="news-meta-date">
-                <i class="fa-solid fa-calendar news-icon"></i>
-                <span>20 November 2025</span>
-              </div>
-              <div class="news-meta-publisher">
-                <i class="fas fa-user"></i>
-                <span>Admin Sekolah</span>
-              </div>
-            </div>
-
-            <a class="btn-baca" href="#">Selengkapnya →</a>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="berita-card fade-in">
-          <div class="berita-gambar">
-            <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-          </div>
-
-          <div class="berita-teks">
-            <h2 class="berita-judul">Upacara Hari Guru Nasional 2025</h2>
-
-            <p class="berita-deskripsi">
-              MTs DDI Tani Aman melaksanakan upacara Hari Guru Nasional dengan
-              penuh khidmat dan antusiasme para siswa...
-            </p>
-
-            <div class="news-meta">
-              <div class="news-meta-date">
-                <i class="fa-solid fa-calendar news-icon"></i>
-                <span>20 November 2025</span>
-              </div>
-              <div class="news-meta-publisher">
-                <i class="fas fa-user"></i>
-                <span>Admin Sekolah</span>
-              </div>
-            </div>
-
-            <a class="btn-baca" href="#">Selengkapnya →</a>
-          </div>
-        </div>
-      </div>
+        <?php endforeach; ?>
     </section>
 
     <!-- FOOTER -->
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>

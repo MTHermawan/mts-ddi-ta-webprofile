@@ -372,13 +372,7 @@
   outline: none;
 }
 
-#instagram,
-#facebook,
-#youtube,
-#email,
-#maps,
-#location,
-#phone {
+.social-input {
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -390,13 +384,7 @@
   color: rgb(29, 41, 57);
 }
 
-input#instagram:focus,
-input#facebook:focus,
-input#youtube:focus,
-input#email:focus,
-textarea#maps:focus,
-input#location:focus,
-#phone:focus {
+.social-input:focus {
   border: 1px solid rgba(4, 134, 0, 1);
   box-shadow: 0 0 0 1px rgba(4, 134, 0, 1);
   outline: none;

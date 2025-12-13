@@ -1,17 +1,25 @@
 <?php include_once "../../../data/data_pengaturan.php";
 include_once "../../includes/check-auth-func.php";
-if (!CheckAuth())
-{
-    http_response_code(403);
-    exit();
+
+if (!CheckAuth()) {
+  http_response_code(403);
+  exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key']) && isset($_POST['value'])) {
-    $key = $_POST['key'];
-    $value = $_POST['value'];
+$response = [];
 
-    SetValue($key, $value);
+/* TEXT */
+foreach ($_POST as $key => $value) {
+  SetSetting($key, $value);
 }
-header('Location: ../../pengaturan.php');
 
-?>
+foreach ($_FILES as $key => $file) {
+  if ($file['error'] === UPLOAD_ERR_OK) {
+    SetSetting($key, $file);
+  }
+}
+
+echo json_encode([
+  'status' => 'success',
+  'message' => 'Pengaturan berhasil disimpan'
+]);

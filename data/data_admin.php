@@ -170,12 +170,12 @@ function UpdatePassword($password_baru, $password_konfirmasi, $email)
     global $koneksi;
     $success = false;
     try {
-        if (!strcmp($password_baru, $password_konfirmasi))
+        if (strcmp($password_baru, $password_konfirmasi) != 0)
             throw new Exception("Konfirmasi password gagal!");
 
         $sql = "UPDATE admin SET password = ? WHERE email = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("s", $password_baru, $email);
+        $stmt->bind_param("ss", $password_baru, $email);
         $stmt->execute();
         $stmt->close();
 

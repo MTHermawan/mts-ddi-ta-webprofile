@@ -3,6 +3,8 @@ if (!defined('IN_INDEX')) {
     http_response_code(403);
     exit;
 }
+
+$dataFasilitas = GetFasilitas();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,9 @@ if (!defined('IN_INDEX')) {
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/fasilitas.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -53,17 +57,20 @@ if (!defined('IN_INDEX')) {
       <!-- List fasilitas -->
       <div class="fasilitas-list fade-in">
         <div class="fasilitas-wrapp fade-in">
-          <!-- CARD 1 -->
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
+          <?php foreach ($dataFasilitas as $fasilitas): ?>
+            <div class="fasilitas-card fade-in">
+              <div class="fasilitas-teks">
+                <h2 class="fasilitas-judul"><a href="#"><?= $fasilitas['nama_fasilitas'] ?></a></h2>
+  
+                <p class="fasilitas-deskripsi"><?= $fasilitas['deskripsi_fasilitas'] ?></p>
+              </div>
+              <div class="fasilitas-gambar">
+                <img 
+                  src="<?= BASE_URL ?>/assets/<?= $fasilitas['foto'][0]['url_foto'] ?>" 
+                  onerror="this.src = imagePlaceholderUrl('<?= $fasilitas['nama_fasilitas'] ?>')"/>
+              </div>
+            </div>  
+          <?php endforeach; ?>
 
           <!-- CARD 2 -->
           <div class="fasilitas-card fade-in">
@@ -161,7 +168,6 @@ if (!defined('IN_INDEX')) {
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>

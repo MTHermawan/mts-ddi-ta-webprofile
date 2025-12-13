@@ -3,6 +3,8 @@ if (!defined('IN_INDEX')) {
     http_response_code(403);
     exit;
 }
+
+$dataEkskul = GetEkskul();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,9 @@ if (!defined('IN_INDEX')) {
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/ekskul.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -52,146 +56,33 @@ if (!defined('IN_INDEX')) {
 
       <!-- List ekstrakurikuler -->
       <div class="ekstrakurikuler-list fade-in">
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
+        <?php foreach ($dataEkskul as $ekskul): ?>
+          <div class="ekstrakurikuler-wrapp fade-in">
+            <div class="ekstrakurikuler-card fade-in">
+              <div class="ekstrakurikuler-teks">
+                <h2 class="ekstrakurikuler-judul"><a href="#"><?= $ekskul['nama_ekskul'] ?></a></h2>
+  
+                <div class="ekstrakurikuler-gambar">
+                  <img 
+                  src="<?= BASE_URL ?>/assets/<?= $ekskul['foto'][0]['url_foto'] ?>" 
+                  onerror="this.src = imagePlaceholderUrl('<?= $ekskul['nama_ekskul'] ?>')"/>
+                </div>
+                <p class="ekstrakurikuler-deskripsi">
+                  <i class="fa-solid fa-person"></i> Pembimbing: <?= $ekskul['nama_pembimbing'] ?>
+                </p>
+                <p class="ekstrakurikuler-deskripsi">
+                  <i class="fa-solid fa-calendar"></i> Jadwal: <?= $ekskul['jadwal'] ?>
+                </p>
               </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
             </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 1 -->
-        <div class="ekstrakurikuler-wrapp fade-in">
-          <div class="ekstrakurikuler-card fade-in">
-            <div class="ekstrakurikuler-teks">
-              <h2 class="ekstrakurikuler-judul"><a href="#">Pramuka</a></h2>
-
-              <div class="ekstrakurikuler-gambar">
-                <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-              </div>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-person"></i> Pembimbing:
-              </p>
-              <p class="ekstrakurikuler-deskripsi">
-                <i class="fa-solid fa-calendar"></i> Jadwal:
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+          </div>  
+        <?php endforeach; ?>
     </section>
 
     <!-- FOOTER -->
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>

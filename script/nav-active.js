@@ -14,25 +14,33 @@ const sections = document.querySelectorAll("section[id]");
 function setActiveOnScroll() {
     let scrollY = window.pageYOffset;
 
+    let activeSet = false;
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;  
+        const sectionTop = section.offsetTop - 150;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute("id");
 
-        if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
             navLinks.forEach(link => link.classList.remove("active"));
 
             const activeLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
             if (activeLink) {
                 activeLink.classList.add("active");
+                activeSet = true;
             }
         }
     });
-    
-    if (scrollY < document.querySelector("#about").offsetTop - 200) {
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        document.querySelector('.nav-menu a[href="#"]').classList.add("active");
+
+    // fallback ke home (#)
+    if (!activeSet) {
+        const homeLink = document.querySelector('.nav-menu a[href="#"]');
+        if (homeLink) {
+            navLinks.forEach(link => link.classList.remove("active"));
+            homeLink.classList.add("active");
+        }
     }
 }
 
+document.addEventListener("DOMContentLoaded", setActiveOnScroll);
 window.addEventListener("scroll", setActiveOnScroll);

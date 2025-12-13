@@ -34,7 +34,7 @@ require_once "./includes/check-auth.php";
     <div class="main-content">
 
       <!-- main content media social -->
-      <form action="" class="form-container">
+      <form class="form-container" id="pengaturan_umum" enctype="multipart/form-data">
         <h1 class="change-password-title">Umum</h1>
         <div class="upload-container">
 
@@ -51,7 +51,7 @@ require_once "./includes/check-auth.php";
               <img src="" alt="Preview Gambar" id="previewImgLogo">
             </div>
 
-            <input type="file" id="fileInputLogo" class="file-input" accept="image/*">
+            <input type="file" id="fileInputLogo" class="file-input" accept="image/*" name="logo_sekolah">
 
             <div class="button-group">
               <label for="fileInputLogo" class="custom-file-upload">
@@ -77,7 +77,7 @@ require_once "./includes/check-auth.php";
               <img src="" alt="Preview Gambar" id="previewImgHero">
             </div>
 
-            <input type="file" id="fileInputHero" class="file-input" accept="image/*">
+            <input type="file" id="fileInputHero" class="file-input" accept="image/*" name="gambar_hero">
 
             <div class="button-group">
               <label for="fileInputHero" class="custom-file-upload">
@@ -97,11 +97,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="name">Nama Sekolah</label>
+                  <label class="settings-label" for="input_nama_sekolah">Nama Sekolah</label>
                   <input
                     class="input-text"
-                    id="name"
-                    name="name"
+                    id="input_nama_sekolah"
+                    name="nama_sekolah"
                     type="text"
                     placeholder="Masukkan Nama Sekolah" />
                 </div>
@@ -113,10 +113,10 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="motto">Motto Sekolah</label>
+                  <label class="settings-label" for="input_motto">Motto Sekolah</label>
                   <input
                     class="input-text"
-                    id="motto"
+                    id="input_motto"
                     name="motto"
                     type="text"
                     placeholder="Berkarkter & Unggul" />
@@ -131,11 +131,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="hero-section">Judul Visual Utama</label>
+                  <label class="settings-label" for="input_judul_hero">Judul Visual Utama</label>
                   <input
                     class="input-text"
-                    id="hero-section"
-                    name="hero-section"
+                    id="input_judul_hero"
+                    name="judul_hero"
                     type="text"
                     placeholder="Pendidikan Berkarakter" />
                 </div>
@@ -147,11 +147,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="sub-hero-section">Deskripsi Visual Utama</label>
+                  <label class="settings-label" for="input_deskripsi_hero">Deskripsi Visual Utama</label>
                   <input
                     class="input-text"
-                    id="sub-hero-section"
-                    name="sub-hero-section"
+                    id="input_deskripsi_hero"
+                    name="deskripsi_hero"
                     type="text"
                     placeholder="Mengedepankan Nilai-Nilai Cerdas Beretika" />
                 </div>
@@ -166,11 +166,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="sub-title-about">Sub Judul Tentang</label>
+                  <label class="settings-label" for="input_subjudul_tentang">Sub Judul Tentang</label>
                   <input
                     class="input-text"
-                    id="sub-title-about"
-                    name="sub-title-about"
+                    id="input_subjudul_tentang"
+                    name="subjudul_tentang"
                     type="text"
                     placeholder="Masukkan Nama Sekolah" />
                 </div>
@@ -182,11 +182,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-about">Deskripsi Tentang</label>
+                  <label class="settings-label" for="input_deskripsi_tentang">Deskripsi Tentang</label>
                   <input
                     class="input-text"
-                    id="description-about"
-                    name="description-about"
+                    id="input_deskripsi_tentang"
+                    name="deskripsi_tentang"
                     type="text"
                     placeholder="Menjadi lembaga pendidikan Islam..." />
                 </div>
@@ -201,11 +201,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-agenda">Deskripsi Agenda</label>
+                  <label class="settings-label" for="input_deskripsi_agenda">Deskripsi Agenda</label>
                   <input
                     class="input-text"
-                    id="description-agenda"
-                    name="description-agenda"
+                    id="input_deskripsi_agenda"
+                    name="deskripsi_agenda"
                     type="text"
                     placeholder="Ikuti berbagai kegiatan seru..." />
                 </div>
@@ -217,11 +217,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-berita">Deskripsi Berita</label>
+                  <label class="settings-label" for="input_deskripsi_berita">Deskripsi Berita</label>
                   <input
                     class="input-text"
-                    id="description-berita"
-                    name="description-berita"
+                    id="input_deskripsi_berita"
+                    name="deskripsi_berita"
                     type="text"
                     placeholder="Simak update terkini dari Madrasah..." />
                 </div>
@@ -237,11 +237,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-galeri">Deskripsi Galeri</label>
+                  <label class="settings-label" for="input_deskripsi_galeri">Deskripsi Galeri</label>
                   <input
                     class="input-text"
-                    id="description-galeri"
-                    name="description-galeri"
+                    id="input_deskripsi_galeri"
+                    name="deskripsi_galeri"
                     type="text"
                     placeholder="Simak momen-momen..." />
                 </div>
@@ -253,11 +253,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-tentang-kami">Deskripsi Tentang Kami</label>
+                  <label class="settings-label" for="input_deskripsi_tentang_kami">Deskripsi Tentang Kami</label>
                   <input
                     class="input-text"
-                    id="description-tentang-kami"
-                    name="description-tentang-kami"
+                    id="input_deskripsi_tentang_kami"
+                    name="deskripsi_tentang_kami"
                     type="text"
                     placeholder="Kami selalu terbuka untuk berdiskusi..." />
                 </div>
@@ -269,23 +269,23 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitPengaturan('pengaturan_umum')">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
       </form>
 
-      <form action="" class="form-container">
+      <form class="form-container" id="pengaturan_staf_murid" enctype="multipart/form-data">
         <h1 class="change-password-title">Staff dan Murid</h1>
         <div class="meta-row">
           <div class="meta-card">
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="jumlah-staff">Jumlah Staff</label>
+                  <label class="meta-label" for="input_jumlah_staff">Jumlah Staff</label>
                   <input
                     class="input-text"
-                    id="jumlah-staff"
-                    name="jumlah-staff"
+                    id="input_jumlah_staff"
+                    name="jumlah_staff"
                     type="text"
                     placeholder="60+" />
                 </div>
@@ -297,11 +297,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="jumlah-murid">Jumlah Murid</label>
+                  <label class="meta-label" for="input_jumlah_murid">Jumlah Murid</label>
                   <input
                     class="input-text"
-                    id="jumlah-murid"
-                    name="jumlah-murid"
+                    id="input_jumlah_murid"
+                    name="jumlah_murid"
                     type="text"
                     placeholder="220+" />
                 </div>
@@ -313,11 +313,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="judul-staff">Judul Staff</label>
+                  <label class="meta-label" for="input_judul_staf">Judul Staf</label>
                   <input
                     class="input-text"
-                    id="judul-staff"
-                    name="judul-staff"
+                    id="input_judul_staf"
+                    name="judul_staff"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -329,11 +329,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="judul-murid">Judul Murid</label>
+                  <label class="meta-label" for="input_judul_murid">Judul Murid</label>
                   <input
                     class="input-text"
-                    id="judul-murid"
-                    name="judul-murid"
+                    id="input_judul_murid"
+                    name="judul_murid"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -348,11 +348,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-staff">Deskripsi Staff</label>
+                  <label class="settings-label" for="input_deskripsi_staf">Deskripsi Staf</label>
                   <input
                     class="input-text"
-                    id="description-staff"
-                    name="description-staff"
+                    id="input_deskripsi_staf"
+                    name="deskripsi_staf"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -364,11 +364,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-murid">Deskripsi Murid</label>
+                  <label class="settings-label" for="input_deskripsi_murid">Deskripsi Murid</label>
                   <input
                     class="input-text"
-                    id="description-murid"
-                    name="description-murid"
+                    id="input_deskripsi_murid"
+                    name="deskripsi_murid"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -397,7 +397,7 @@ require_once "./includes/check-auth.php";
                   </span>
                 </div>
 
-                <input type="file" id="realFileInputStaff" accept="image/*" />
+                <input type="file" id="realFileInputStaff" accept="image/*" name="stat_icon_staf" />
               </div>
             </div>
           </div>
@@ -420,7 +420,7 @@ require_once "./includes/check-auth.php";
                   </span>
                 </div>
 
-                <input type="file" id="realFileInputMurid" accept="image/*" />
+                <input type="file" id="realFileInputMurid" accept="image/*" name="stat_icon_murid"/>
               </div>
             </div>
           </div>
@@ -430,24 +430,24 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitPengaturan('pengaturan_staf_murid')">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
 
       </form>
 
-      <form action="" class="form-container">
+      <form class="form-container" id="pengaturan_nilai_dasar" enctype="multipart/form-data">
         <h1 class="change-password-title">Nilai Dasar</h1>
         <div class="meta-row">
           <div class="meta-card">
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="core-value-1">Judul Nilai Dasar 1</label>
+                  <label class="meta-label" for="input_nilai_dasar_1">Judul Nilai Dasar 1</label>
                   <input
                     class="input-text"
-                    id="core-value-1"
-                    name="core-value-1"
+                    id="input_nilai_dasar_1"
+                    name="nilai_dasar_1"
                     type="text"
                     placeholder="60+" />
                 </div>
@@ -459,11 +459,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="core-value-2">Judul Nilai Dasar 2</label>
+                  <label class="meta-label" for="input_nilai_dasar_2">Judul Nilai Dasar 2</label>
                   <input
                     class="input-text"
-                    id="core-value-2"
-                    name="core-value-2"
+                    id="input_nilai_dasar_2"
+                    name="nilai_dasar_2"
                     type="text"
                     placeholder="220+" />
                 </div>
@@ -475,11 +475,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="core-value-3">Judul Nilai Dasar 3</label>
+                  <label class="meta-label" for="input_nilai_dasar_3">Judul Nilai Dasar 3</label>
                   <input
                     class="input-text"
-                    id="core-value-3"
-                    name="core-value-3"
+                    id="input_nilai_dasar_3"
+                    name="nilai_dasar_3"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -491,11 +491,11 @@ require_once "./includes/check-auth.php";
             <div class="meta-form">
               <div class="meta-info">
                 <div class="meta-details">
-                  <label class="meta-label" for="core-value-4">Judul Nilai Dasar 4</label>
+                  <label class="meta-label" for="input_nilai_dasar_4">Judul Nilai Dasar 4</label>
                   <input
                     class="input-text"
-                    id="core-value-4"
-                    name="core-value-4"
+                    id="input_nilai_dasar_4"
+                    name="nilai_dasar_4"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -510,11 +510,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-core-value-1">Deskripsi Nilai Dasar 1</label>
+                  <label class="settings-label" for="input_deskripsi_nilai_dasar_1">Deskripsi Nilai Dasar 1</label>
                   <input
                     class="input-text"
-                    id="description-core-value-1"
-                    name="description-core-value-1"
+                    id="input_deskripsi_nilai_dasar_1"
+                    name="deskripsi_nilai_dasar_1"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -526,11 +526,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-core-value-2">Deskripsi Nilai Dasar 2</label>
+                  <label class="settings-label" for="input_deskripsi_nilai_dasar_2">Deskripsi Nilai Dasar 2</label>
                   <input
                     class="input-text"
-                    id="description-core-value-2"
-                    name="description-core-value-2"
+                    id="input_deskripsi_nilai_dasar_2"
+                    name="deskripsi_nilai_dasar_2"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -545,11 +545,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-core-value-3">Deskripsi Nilai Dasar 3</label>
+                  <label class="settings-label" for="input_deskripsi_nilai_dasar_3">Deskripsi Nilai Dasar 3</label>
                   <input
                     class="input-text"
-                    id="description-core-value-3"
-                    name="description-core-value-3"
+                    id="input_deskripsi_nilai_dasar_3"
+                    name="deskripsi_nilai_dasar_3"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -561,11 +561,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="description-core-value-4">Deskripsi Nilai Dasar 4</label>
+                  <label class="settings-label" for="input_deskripsi_nilai_dasar_4">Deskripsi Nilai Dasar 4</label>
                   <input
                     class="input-text"
-                    id="description-core-value-4"
-                    name="description-core-value-4"
+                    id="input_deskripsi_nilai_dasar_4"
+                    name="deskripsi_nilai_dasar_4"
                     type="text"
                     placeholder="Komunitas pelajar yang beragam..." />
                 </div>
@@ -591,7 +591,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND1">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND1" accept="image/*" />
+                <input type="file" id="realFileInputND1" accept="image/*" name="icon_nilai_dasar_1"/>
               </div>
             </div>
           </div>
@@ -611,7 +611,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND2">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND2" accept="image/*" />
+                <input type="file" id="realFileInputND2" accept="image/*" name="icon_nilai_dasar_2" />
               </div>
             </div>
           </div>
@@ -633,7 +633,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND3">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND3" accept="image/*" />
+                <input type="file" id="realFileInputND3" accept="image/*" name="icon_nilai_dasar_3" />
               </div>
             </div>
           </div>
@@ -653,7 +653,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND4">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND4" accept="image/*" />
+                <input type="file" id="realFileInputND4" accept="image/*" name="icon_nilai_dasar_4" />
               </div>
             </div>
           </div>
@@ -662,13 +662,13 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitPengaturan('pengaturan_nilai_dasar')">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
 
       </form>
 
-      <form action="" class="form-container">
+      <form class="form-container" id="pengaturan_icon_visi_misi" enctype="multipart/form-data">
         <h1 class="change-password-title">Icon Visi-Misi</h1>
 
         <div class="settings-row">
@@ -688,7 +688,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND5">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND5" accept="image/*" />
+                <input type="file" id="realFileInputND5" accept="image/*" name="icon_visi"/>
               </div>
             </div>
           </div>
@@ -708,7 +708,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND6">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND6" accept="image/*" />
+                <input type="file" id="realFileInputND6" accept="image/*" name="icon_misi"/>
               </div>
             </div>
           </div>
@@ -731,7 +731,7 @@ require_once "./includes/check-auth.php";
                   <span class="file-name-display" id="fileNameTextND7">No file chosen</span>
                 </div>
 
-                <input type="file" id="realFileInputND7" accept="image/*" />
+                <input type="file" id="realFileInputND7" accept="image/*" name="icon_tujuan"/>
               </div>
             </div>
           </div>
@@ -740,14 +740,14 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitPengaturan('pengaturan_icon_visi_misi')">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
 
       </form>
 
-      <form action="" class="form-container">
-        <h1 class="change-password-title">Social Media</h1>
+      <form class="form-container" id="pengaturan_media_sosial" enctype="multipart/form-data">
+        <h1 class="change-password-title">Media Sosial</h1>
         <div class="social-row">
           <div class="social-card">
             <div class="social-form social-form-left">
@@ -758,10 +758,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="instagram">Instagram</label>
+                  <label class="social-label" for="input_url_instagram">Instagram</label>
                   <input
-                    id="instagram"
-                    name="instagram"
+                    class="social-input"
+                    id="input_url_instagram"
+                    name="url_instagram"
                     type="text"
                     required
                     placeholder="https://instagram.com/....." />
@@ -777,10 +778,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="facebook">Facebook</label>
+                  <label class="social-label" for="input_url_facebook">Facebook</label>
                   <input
-                    id="facebook"
-                    name="facebook"
+                    class="social-input"
+                    id="input_url_facebook"
+                    name="url_facebook"
                     type="text"
                     required
                     placeholder="https://facebook.com/....." />
@@ -799,10 +801,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="youtube">Youtube</label>
+                  <label class="social-label" for="input_url_youtube">Youtube</label>
                   <input
-                    id="youtube"
-                    name="youtube"
+                    class="social-input"
+                    id="input_url_youtube"
+                    name="url_youtube"
                     type="text"
                     required
                     placeholder="https://youtube.com/....." />
@@ -818,10 +821,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="email">Email</label>
+                  <label class="social-label" for="input_email_sekolah">Email Sekolah</label>
                   <input
-                    id="email"
-                    name="email"
+                    class="social-input"
+                    id="input_email_sekolah"
+                    name="email_sekolah"
                     type="text"
                     required
                     placeholder="email@example.com" />
@@ -841,10 +845,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="phone">Telepon</label>
+                  <label class="social-label" for="input_nomor_telepon">Telepon</label>
                   <input
-                    id="phone"
-                    name="phone"
+                    class="social-input"
+                    id="input_nomor_telepon"
+                    name="nomor_telepon"
                     type="text"
                     required
                     placeholder="08123456789" />
@@ -862,10 +867,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="location">Alamat</label>
+                  <label class="social-label" for="input_alamat">Alamat</label>
                   <input
-                    id="location"
-                    name="location"
+                    class="social-input"
+                    id="input_alamat"
+                    name="alamat"
                     type="text"
                     required
                     placeholder="Masukkan Alamat Lengkap" />
@@ -885,10 +891,11 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="maps">Tautan Google maps</label>
+                  <label class="social-label" for="url_maps">Tautan Google maps</label>
                   <input
-                    id="maps"
-                    name="maps"
+                    class="social-input"
+                    id="input_url_maps"
+                    name="url_maps"
                     type="text"
                     value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid"
                     required
@@ -901,23 +908,23 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions social-media-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitPengaturan('pengaturan_media_sosial')">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
       </form>
 
-      <form action="" class="form-container">
+      <form class="form-container" id="pengaturan_sandi" enctype="multipart/form-data">
         <h1 class="change-password-title">Ubah Kata Sandi</h1>
         <div class="settings-row">
           <div class="settings-card">
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="new-password">Kata Sandi Baru</label>
+                  <label class="settings-label" for="input_password_baru">Kata Sandi Baru</label>
                   <input
                     class="input-text"
-                    id="new-password"
-                    name="new-password"
+                    id="input_password_baru"
+                    name="password_baru"
                     type="password"
                     placeholder="Masukkan Password Baru" />
                 </div>
@@ -929,11 +936,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-right">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="retype-new-password">Konfirmasi Kata Sandi Baru</label>
+                  <label class="settings-label" for="input_konfirmasi_password">Konfirmasi Kata Sandi Baru</label>
                   <input
                     class="input-text"
-                    id="retype-new-password"
-                    name="retype-new-password"
+                    id="input_konfirmasi_password"
+                    name="konfirmasi_password"
                     type="password"
                     placeholder="Masukkan Password Baru" />
                 </div>
@@ -944,7 +951,7 @@ require_once "./includes/check-auth.php";
 
         <div class="form-actions">
           <div></div>
-          <button class="btn-save">
+          <button type="button" class="btn-save" onclick="SubmitChangePassword()">
             <i class="fa-regular fa-floppy-disk"></i> Simpan</button>
         </div>
       </form>
@@ -962,6 +969,7 @@ require_once "./includes/check-auth.php";
       <div class="notification-message">Pesan notifikasi</div>
     </div>
   </div>
+  <script src="./script/utility.js"></script>
   <script src="./script/pengaturan.js"></script>
   <script src="./script/input-icon.js"></script>
   <script src="./script/notification.js"></script>

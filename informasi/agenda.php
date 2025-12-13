@@ -21,11 +21,9 @@ $dataAgenda = GetAgenda();
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/agenda.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link
-      rel="icon"
-      href="<?= BASE_URL ?>/assets/logo-sekolah.png"
-      type="image/png/jpeg/jpg"
-    />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -57,11 +55,13 @@ $dataAgenda = GetAgenda();
 
       <!-- List agenda -->
       <div class="agenda-list fade-in">
-        <!-- CARD 1 -->
         <?php foreach ($dataAgenda as $agenda): ?>
           <div class="agenda-card fade-in">
           <div class="agenda-gambar">
-            <img src="<?= BASE_URL ?>/assets/<?= $agenda['url_foto'] ?>" alt="gambar" />
+            <img
+            src="<?= BASE_URL ?>/assets/<?= $agenda['url_foto'] ?>"
+            alt=<?= $agenda['judul'] ?>
+            onerror="this.src=imagePlaceholderUrl('<?= $agenda['judul'] ?>')" />
           </div>
 
           <div class="agenda-teks">
@@ -92,7 +92,6 @@ $dataAgenda = GetAgenda();
     <?php include_once dirname(__DIR__) . "/includes/footer.php"; ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>

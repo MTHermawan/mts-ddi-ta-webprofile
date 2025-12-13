@@ -1,8 +1,11 @@
 <?php session_start();
 require_once "./data/koneksi.php";
 require_once "./data/utility.php";
+include_once "./data/data_pengaturan.php";
 
 define('IN_INDEX', true);
+define('SETTINGS', GetAllSettings());
+
 
 $dir_name = basename(__DIR__);
 $raw_path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -13,33 +16,34 @@ if ($raw_path !== "/") {
 $path = trim($raw_path, '/');
 $path = rtrim($path, "/");
 
-$segments = $path ? explode("/", $path) : [];
+$path_segments = $path ? explode("/", $path) : [];
 
 if (strpos($raw_path, "/" . $dir_name) === 0) {
-    define("BASE_URL", "/" . $dir_name);
+  define("BASE_URL", "/" . $dir_name);
 } else {
-    define("BASE_URL", "");
+  define("BASE_URL", "");
 }
 
-$idx = array_search($dir_name, $segments);
+$idx = array_search($dir_name, $path_segments);
 
 if ($idx !== false) {
-  $segments = array_slice($segments, $idx + 1);
+  $path_segments = array_slice($path_segments, $idx + 1);
 }
 
-if (!isset($segments[0])) {
-  // include_once "./data/data_pengaturan.php";
-  // include_once "./data/data_agenda.php";
-  // include_once "./data/data_berita.php";
-  // include_once "./data/data_galeri.php";
-  require "./home.html";
+define('CURRENT_ROUTE', '/' . implode('/', $path_segments));
+
+if (!isset($path_segments[0])) {
+  include_once "./data/data_agenda.php";
+  include_once "./data/data_berita.php";
+  include_once "./data/data_galeri.php";
+  require "./home.php";
   exit;
 }
 
-switch ($segments[0]) {
+switch ($path_segments[0]) {
   case 'profile':
-    if ($segments[1]) {
-      switch ($segments[1]) {
+    if ($path_segments[1]) {
+      switch ($path_segments[1]) {
         case 'ekskul':
           include_once "./data/data_ekskul.php";
           require "./profile/ekskul.php";
@@ -70,11 +74,11 @@ switch ($segments[0]) {
 
   case 'informasi':
 
-    if (isset($segments[1])) {
-      switch ($segments[1]) {
+    if (isset($path_segments[1])) {
+      switch ($path_segments[1]) {
         case 'berita':
           include_once "./data/data_berita.php";
-          $id_berita = isset($segments[2]) ? $segments[2] : null;
+          $id_berita = isset($path_segments[2]) ? $path_segments[2] : null;
           if ($id_berita) {
             require "./informasi/adv-berita.php";
             exit;
@@ -84,7 +88,7 @@ switch ($segments[0]) {
           }
         case 'agenda':
           include_once "./data/data_agenda.php";
-          $id_agenda = isset($segments[2]) ? $segments[2] : null;
+          $id_agenda = isset($path_segments[2]) ? $path_segments[2] : null;
           if ($id_agenda) {
             require "./informasi/adv-agenda.php";
             exit;

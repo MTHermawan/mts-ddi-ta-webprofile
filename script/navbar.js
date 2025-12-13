@@ -61,26 +61,27 @@ function handleClickOutside(event) {
     });
 }
 
-// Event listeners
-Object.values(navMenuDropdown).forEach(menu => {
-    menu.normal_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleDropdown(e.target);
+document.addEventListener('DOMContentLoaded', () => {
+    // Event listeners
+    Object.values(navMenuDropdown).forEach(menu => {
+        menu.normal_btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleDropdown(e.target);
+        });
+        menu.sticky_btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleDropdown(e.target);
+        });
     });
-    menu.sticky_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleDropdown(e.target);
-    });
+    
+    // Main
+    stickyNavbar.id = '';
+    stickyNavbar.classList.add('stuck');
+    stickyNavbar.style.zIndex = '1000';
+    
+    navbarObserver?.observe(headerNavbar);
+    
+    document.addEventListener('click', handleClickOutside);
 });
-
-// Main
-stickyNavbar.id = '';
-stickyNavbar.classList.add('stuck');
-stickyNavbar.style.zIndex = '1000';
-
-navbarObserver?.observe(headerNavbar);
-
-document.addEventListener('click', handleClickOutside);
-
 
 

@@ -4,6 +4,8 @@ if (!defined('IN_INDEX')) {
     exit;
 }
 
+$dataAgenda = GetAgenda();
+$dataBerita = GetBerita();
 ?>
 
 <!DOCTYPE html>
@@ -18,25 +20,26 @@ if (!defined('IN_INDEX')) {
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/style.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/style/hero-sect.css" />
-    <link rel="icon" href="<?php BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
     <title>Mts Ddi Tani Aman</title>
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
   <body>
-    <?php include_once "./includes/header.php" ?>
+    <!-- HEADER -->
+    <?php include_once __DIR__ . "/includes/header.php" ?>
 
     <section id="hero">
       <img
-        src="assets/gambar-landing.jpeg"
+        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi</h1>
-        <p class="hero-subtitle">
-          Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
-          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.
+        <h1><?= isset(SETTINGS['judul_hero']) ? SETTINGS['judul_hero'] : "Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi" ?></h1>
+        <p class="hero-subtitle"><?= isset(SETTINGS['deskripsi_hero']) ? SETTINGS['deskripsi_hero'] :
+          `Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
+          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.` ?>
         </p>
         <button class="btn-primary">Hubungi Kami</button>
       </div>
@@ -45,19 +48,21 @@ if (!defined('IN_INDEX')) {
     <section id="about">
       <div class="about-section">
         <h1 class="about-subtitle">Tentang Mts Ddi Tani Aman</h1>
-        <h1 class="about-title">Madrasah Berkarakter dan Unggul</h1>
+        <h1 class="about-title"><?= isset(SETTINGS['subjudul_tentang']) ? SETTINGS['subjudul_tentang'] : `Madrasah Berkarakter dan Unggul` ?></h1>
         <p class="about-intro">
-          Menjadi lembaga pendidikan Islam yang unggul dalam akademik, berakhlak
+          <?= isset(SETTINGS['deskripsi_tentang']) ? SETTINGS['deskripsi_tentang'] :
+          `Menjadi lembaga pendidikan Islam yang unggul dalam akademik, berakhlak
           mulia, dan mampu menghasilkan generasi Qur'ani yang siap menghadapi
-          tantangan zaman
+          tantangan zaman.` ?>
         </p>
 
         <!-- Mission & Vision Cards -->
+        
         <div class="mission-vision-grid">
           <div class="card">
             <div class="card-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-visi-misi-white.svg"
+                src="./assets/icon-visi-misi-white.svg"
                 alt="Logo Visi Misi"
               />
             </div>
@@ -71,7 +76,7 @@ if (!defined('IN_INDEX')) {
           <div class="card">
             <div class="card-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-visi-misi-white.svg"
+                src="./assets/icon-visi-misi-white.svg"
                 alt="Logo Visi Misi"
               />
             </div>
@@ -83,13 +88,12 @@ if (!defined('IN_INDEX')) {
             </p>
           </div>
         </div>
-
         <div class="about-grid">
           <div class="feature-card-large">
             <div class="feature-content">
               <div class="feature-icon">
                 <img
-                  src="<?= BASE_URL ?>/assets/icon-visi-misi-white.svg"
+                  src="./assets/icon-visi-misi-white.svg"
                   alt="Logo Visi Misi"
                 />
               </div>
@@ -120,7 +124,7 @@ if (!defined('IN_INDEX')) {
             <div class="stat-card stat-card-1">
               <div class="stat-header">
                 <div class="stat-icon">
-                  <img src="<?= BASE_URL ?>/assets/icon-staff-white.svg" alt="Icon Staff" />
+                  <img src="./assets/icon-staff-white.svg" alt="Icon Staff" />
                 </div>
                 <div class="stat-number">60+</div>
               </div>
@@ -137,7 +141,7 @@ if (!defined('IN_INDEX')) {
               <div class="stat-header">
                 <div class="stat-icon">
                   <img
-                    src="<?= BASE_URL ?>/assets/icon-students-white.svg"
+                    src="./assets/icon-students-white.svg"
                     alt="Icon Student"
                   />
                 </div>
@@ -159,7 +163,7 @@ if (!defined('IN_INDEX')) {
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-prestasi-green.svg"
+                src="./assets/icon-prestasi-green.svg"
                 alt="icon-prestasi"
               />
             </div>
@@ -175,7 +179,7 @@ if (!defined('IN_INDEX')) {
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-building-green.svg"
+                src="./assets/icon-building-green.svg"
                 alt="icon-Building"
               />
             </div>
@@ -191,7 +195,7 @@ if (!defined('IN_INDEX')) {
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-ND3.svg"
+                src="./assets/icon-ND3.svg"
                 alt="icon-ND3"
               />
             </div>
@@ -206,7 +210,7 @@ if (!defined('IN_INDEX')) {
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="<?= BASE_URL ?>/assets/icon-ND4.svg"
+                src="./assets/icon-ND4.svg"
                 alt="icon-ND4"
               />
             </div>
@@ -259,7 +263,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -288,7 +292,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -317,7 +321,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -346,7 +350,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -375,7 +379,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -404,7 +408,7 @@ if (!defined('IN_INDEX')) {
               <p class="event-location">
                 <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-agenda.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -412,7 +416,7 @@ if (!defined('IN_INDEX')) {
         </div>
       </div>
       <div class="btn-container">
-        <a href="<?= BASE_URL ?>/informasi/agenda.php" class="btn-secondary">
+        <a href="<?= BASE_URL ?>/informasi/agenda" class="btn-secondary">
           Lihat Lebih Banyak
         </a>
       </div>
@@ -426,40 +430,40 @@ if (!defined('IN_INDEX')) {
           belajar mengajar, prestasi siswa, hingga agenda penting.
         </p>
 
-        <div class="news-grid">
-          <div class="featured-news">
-            <div class="featured-content">
-              <div class="featured-image">
-                <img
-                  src="assets/gambarabout.jpeg"
-                  alt="Ilustrasi sekolah modern"
-                />
-              </div>
-              <div class="featured-details">
-                <div class="news-tag">Berita Utama</div>
-                <h2 class="featured-title">
-                  Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat
-                  Kabupaten
-                </h2>
-                <p class="featured-desc">
-                  Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda
-                  Rizky Fauzan, berhasil meraih juara pertama dalam lomba
-                  tilawah Al-Qur'an tingkat kabupaten. Prestasi ini menjadi
-                  bukti bahwa pembelajaran Qur'ani di sekolah kami berjalan
-                  dengan baik dan penuh semangat.
-                </p>
+        <div class="featured-news">
+          <div class="featured-content">
+            <div class="featured-image">
+              <img
+                src="assets/gambarabout.jpeg"
+                alt="Ilustrasi sekolah modern"
+              />
+            </div>
+            <div class="featured-details">
+              <div class="news-tag">Berita Utama</div>
+              <h2 class="featured-title">
+                Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat
+                Kabupaten
+              </h2>
+              <p class="featured-desc">
+                Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda
+                Rizky Fauzan, berhasil meraih juara pertama dalam lomba
+                tilawah Al-Qur'an tingkat kabupaten. Prestasi ini menjadi
+                bukti bahwa pembelajaran Qur'ani di sekolah kami berjalan
+                dengan baik dan penuh semangat.
+              </p>
 
-                <div class="featured-meta">
-                  <div class="featured-meta-date">
-                    <i class="fa-solid fa-calendar news-icon"></i>
-                    <span>20 November 2025</span>
-                  </div>
-                  <div class="featured-meta-publisher">
-                    <i class="fas fa-user"></i>
-                    <span>Admin Sekolah</span>
-                  </div>
+              <div class="featured-meta">
+                <div class="featured-meta-date">
+                  <i class="fa-solid fa-calendar news-icon"></i>
+                  <span>20 November 2025</span>
                 </div>
-                <a href="<?= BASE_URL ?>/informasi/adv-berita.php"
+                <div class="featured-meta-publisher">
+                  <i class="fas fa-user"></i>
+                  <span>Admin Sekolah</span>
+                </div>
+              </div>
+              <div class="featured-btn">
+                <a href="<?= BASE_URL ?>/informasi/berita/1"
                   ><button class="btn-news">
                     Lihat Selengkapnya
                     <i class="fa-solid fa-arrow-right"></i></button
@@ -467,6 +471,8 @@ if (!defined('IN_INDEX')) {
               </div>
             </div>
           </div>
+        </div>
+        <div class="news-grid">
 
           <div class="news-item">
             <div class="news-image-container">
@@ -489,7 +495,7 @@ if (!defined('IN_INDEX')) {
               <p class="news-publisher">
                 <i class="fas fa-user news-icon"></i>Admin Sekolah
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-berita.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -516,7 +522,7 @@ if (!defined('IN_INDEX')) {
               <p class="news-publisher">
                 <i class="fas fa-user news-icon"></i>Admin Sekolah
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-berita.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -543,7 +549,7 @@ if (!defined('IN_INDEX')) {
               <p class="news-publisher">
                 <i class="fas fa-user news-icon"></i>Admin Sekolah
               </p>
-              <a href="<?= BASE_URL ?>/informasi/adv-berita.php" class="btn-event"
+              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
                 >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
               ></a>
             </div>
@@ -551,7 +557,7 @@ if (!defined('IN_INDEX')) {
         </div>
       </div>
       <div class="btn-container">
-        <a href="<?= BASE_URL ?>/informasi/berita.php" class="btn-secondary">
+        <a href="<?= BASE_URL ?>/informasi/berita" class="btn-secondary">
           Lihat Lebih Banyak
         </a>
       </div>
@@ -584,6 +590,11 @@ if (!defined('IN_INDEX')) {
         <div class="gallery-item">
           <img src="assets/gambar-gallery1.jpeg" alt="Galeri 6" />
         </div>
+      </div>
+      <div class="btn-container">
+        <a href="<?= BASE_URL ?>/informasi/galeri" class="btn-secondary">
+          Lihat Lebih Banyak
+        </a>
       </div>
     </section>
 
@@ -644,12 +655,12 @@ if (!defined('IN_INDEX')) {
       </div>
     </section>
 
-    <?php include_once "./includes/footer.php" ?>
+    <!-- FOOTER -->
+    <?php include_once __DIR__ . "/includes/footer.php"; ?>
 
-    <script src="script/navbar.js"></script>
-    <script src="script/nav-active.js"></script>
-    <script src="script/script.js"></script>
-    <script src="script/dropdown.js"></script>
-    <script src="script/hamburger-menu.js"></script>
+    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
+    <script src="<?= BASE_URL ?>/script/script.js"></script>
+    <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
+    <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
   </body>
 </html>

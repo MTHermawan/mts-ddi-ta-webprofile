@@ -17,8 +17,8 @@
             </div>
         </div>
 
-        <div class="exit-logo">
+        <a class="exit-logo" href="logout.php">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </div>
+        </a>
     </nav>
 </header>

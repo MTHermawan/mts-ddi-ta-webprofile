@@ -9,5 +9,5 @@ $base_url = $protocol . $host . '/' . $project_folder . '/';
 
 define('DOCUMENT_ROOT', $base_url);
 define('ASSET_PATH', $base_url . "assets/");
-define('CURRENT_PAGE', basename($_SERVER['PHP_SELF']));
+define('CURRENT_PAGE', basename($_SERVER['REQUEST_URI']));
 ?>

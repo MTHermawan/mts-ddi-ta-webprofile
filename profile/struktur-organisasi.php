@@ -6,6 +6,7 @@ if (!defined('IN_INDEX')) {
 
 // Data berbentuk array
 $dataStrukturOrganisasi = GetStrukturOrganisasi();
+$sett
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,9 @@ $dataStrukturOrganisasi = GetStrukturOrganisasi();
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/struktur-organisasi.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -53,7 +56,6 @@ $dataStrukturOrganisasi = GetStrukturOrganisasi();
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
 

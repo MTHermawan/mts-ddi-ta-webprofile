@@ -168,4 +168,27 @@ function DeleteStaff($id_staff)
     }
     return $success;
 }
+
+function GetStaffInitials(string $nama_staff, int $max = 2): string
+{
+    $nama_staff = trim(preg_replace('/\s+/', ' ', $nama_staff));
+
+    if ($nama_staff === '') {
+        return '';
+    }
+
+    $words = explode(' ', $nama_staff);
+    $initials = '';
+
+    foreach ($words as $word) {
+        if ($word !== '') {
+            $initials .= mb_strtoupper(mb_substr($word, 0, 1));
+            if (mb_strlen($initials) >= $max) {
+                break;
+            }
+        }
+    }
+
+    return $initials;
+}
 ?>

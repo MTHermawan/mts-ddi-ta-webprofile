@@ -3,6 +3,7 @@ if (!defined('IN_INDEX')) {
     http_response_code(403);
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,9 @@ if (!defined('IN_INDEX')) {
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/visi-misi.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
-    <link rel="icon" href="<?= BASE_URL ?>/assets/logo-sekolah.png" type="image/png/jpeg/jpg">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
+    <script src="<?= BASE_URL ?>/script/utility.js"></script>
 </head>
 <body>
 
@@ -85,7 +88,6 @@ if (!defined('IN_INDEX')) {
     <?php include_once dirname(__DIR__) . "/includes/footer.php" ?>
 
     <script src="<?= BASE_URL ?>/script/fade-in.js"></script>
-    <script src="<?= BASE_URL ?>/script/nav-active.js"></script>
     <script src="<?= BASE_URL ?>/script/dropdown.js"></script>
     <script src="<?= BASE_URL ?>/script/hamburger-menu.js"></script>
 
