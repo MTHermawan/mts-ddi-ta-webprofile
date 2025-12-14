@@ -348,11 +348,11 @@ require_once "./includes/check-auth.php";
             <div class="settings-form settings-form-left">
               <div class="settings-info">
                 <div class="settings-details">
-                  <label class="settings-label" for="input_deskripsi_staf">Deskripsi Staf</label>
+                  <label class="settings-label" for="input_deskripsi_staff">Deskripsi Staf</label>
                   <input
                     class="input-text"
-                    id="input_deskripsi_staf"
-                    name="deskripsi_staf"
+                    id="input_deskripsi_staff"
+                    name="deskripsi_staff"
                     type="text"
                     placeholder="Beragam latar belakang ilmu..." />
                 </div>
@@ -891,13 +891,12 @@ require_once "./includes/check-auth.php";
               </div>
               <div class="social-info">
                 <div class="social-details">
-                  <label class="social-label" for="url_maps">Tautan Google maps</label>
+                  <label class="social-label" for="input_url_maps">Tautan Google maps</label>
                   <input
                     class="social-input"
                     id="input_url_maps"
                     name="url_maps"
                     type="text"
-                    value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid"
                     required
                     placeholder="Masukkan Alamat Lengkap" />
                 </div>

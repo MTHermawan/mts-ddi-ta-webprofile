@@ -5,7 +5,7 @@
         <!-- Brand Sekolah -->
         <div class="footer-brand-full">
             <div class="brand-left">
-                <img src="<?php echo BASE_URL; ?>/assets/logo-sekolah.png" alt="Logo Sekolah" />
+                <img src="<?php echo BASE_URL; ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" alt="Logo Sekolah" />
             </div>
 
             <div class="brand-right">
@@ -23,9 +23,9 @@
                 </div> -->
 
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="<?= SETTINGS['url_facebook'] ?>"><i class="fab fa-facebook-f"></i></a>
+                    <a href="<?= SETTINGS['url_instagram'] ?>"><i class="fab fa-instagram"></i></a>
+                    <a href="<?= SETTINGS['url_youtube'] ?>"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -34,11 +34,19 @@
         <div class="footer-column">
             <h3>Menu</h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Berita</a></li>
-                <li><a href="#">Kontak</a></li>
+                <?php if ($current === '/') { ?>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#event">Agenda</a></li>
+                    <li><a href="#news">Berita</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                <?php } else { ?>
+                    <li><a href="<?= BASE_URL; ?>/">Home</a></li>
+                    <li><a href="<?= BASE_URL; ?>/informasi/agenda">Agenda</a></li>
+                    <li><a href="<?= BASE_URL; ?>/informasi/berita">Berita</a></li>
+                    <li><a href="<?= BASE_URL; ?>/informasi/galeri">Galeri</a></li>
+                    <li><a href="<?= BASE_URL; ?>/#contact">Kontak</a></li>
+                <?php } ?>
             </ul>
         </div>
 
@@ -46,12 +54,11 @@
         <div class="footer-column">
             <h3>Kontak</h3>
             <p>
-                <i class="fa-solid fa-location-dot info-foot"></i> Jl. Soekarno
-                Hatta, Tani Aman, Kec. Loa Janan Ilir
+                <i class="fa-solid fa-location-dot info-foot"></i><?= SETTINGS['alamat'] ?>
             </p>
-            <p><i class="fa-solid fa-phone info-foot"></i> 0898-9988-8899</p>
+            <p><i class="fa-solid fa-phone info-foot"></i><?= SETTINGS['nomor_telepon'] ?></p>
             <p>
-                <i class="fa-solid fa-envelope info-foot"></i> info@mtsdditania.com
+                <i class="fa-solid fa-envelope info-foot"></i><?= SETTINGS['email_sekolah'] ?>
             </p>
         </div>
     </div>

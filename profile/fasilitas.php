@@ -31,7 +31,7 @@ $dataFasilitas = GetFasilitas();
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
+        src="<?= BASE_URL ?>/assets/<?= SETTINGS['gambar_hero'] ?>"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
@@ -71,95 +71,6 @@ $dataFasilitas = GetFasilitas();
               </div>
             </div>  
           <?php endforeach; ?>
-
-          <!-- CARD 2 -->
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-
-          <!-- CARD 3 -->
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-
-          <!-- CARD 4 -->
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-
-          <!-- CARD 5 -->
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
-          <div class="fasilitas-card fade-in">
-            <div class="fasilitas-teks">
-              <h2 class="fasilitas-judul"><a href="#">Masjid</a></h2>
-
-              <p class="fasilitas-deskripsi">Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="fasilitas-gambar">
-              <img src="<?= BASE_URL ?>/assets/contoh3.jpg" alt="gambar" />
-            </div>
-          </div>
         </div>
       </div>
     </section>

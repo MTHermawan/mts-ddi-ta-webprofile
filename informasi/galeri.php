@@ -27,7 +27,7 @@ if (!defined('IN_INDEX')) {
   <?php include_once dirname(__DIR__) . "/includes/header.php" ?>
 
   <section id="hero">
-    <img src="<?= BASE_URL ?>/assets/gambar-landing.jpeg" alt="Latar belakang pendidikan berkarakter" class="hero-bg" />
+    <img src="<?= BASE_URL ?>/assets/<?= SETTINGS['gambar_hero'] ?>" alt="Latar belakang pendidikan berkarakter" class="hero-bg" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Galeri</h1>

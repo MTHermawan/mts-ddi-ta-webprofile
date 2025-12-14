@@ -21,6 +21,7 @@ $dataBerita = GetBerita();
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/header.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/dropdown.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/footer.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/assets/<?= SETTINGS['logo_sekolah'] ?>" type="image/png/jpeg/jpg" />
     <title>Mts Ddi Tani Aman</title>
     <script src="<?= BASE_URL ?>/script/utility.js"></script>
   </head>
@@ -30,16 +31,14 @@ $dataBerita = GetBerita();
 
     <section id="hero">
       <img
-        src="<?= BASE_URL ?>/assets/gambar-landing.jpeg"
+        src="<?= BASE_URL ?>/assets/<?= SETTINGS['gambar_hero'] ?>"
         alt="Latar belakang pendidikan berkarakter"
         class="hero-bg"
       />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1><?= isset(SETTINGS['judul_hero']) ? SETTINGS['judul_hero'] : "Pendidikan Berkarakter, Berbasis Al-Qur'an dan Teknologi" ?></h1>
-        <p class="hero-subtitle"><?= isset(SETTINGS['deskripsi_hero']) ? SETTINGS['deskripsi_hero'] :
-          `Mengedepankan Nilai-Nilai Cerdas Beretika: Ceria, Empati, Rasional,
-          Damai, Aktif, Sabar, Bersih, Elok, Tulus, Iman, Konsisten, dan Amanah.` ?>
+        <h1><?= SETTINGS['judul_hero'] ?></h1>
+        <p class="hero-subtitle"><?= SETTINGS['deskripsi_hero'] ?>
         </p>
         <button class="btn-primary">Hubungi Kami</button>
       </div>
@@ -48,12 +47,9 @@ $dataBerita = GetBerita();
     <section id="about">
       <div class="about-section">
         <h1 class="about-subtitle">Tentang Mts Ddi Tani Aman</h1>
-        <h1 class="about-title"><?= isset(SETTINGS['subjudul_tentang']) ? SETTINGS['subjudul_tentang'] : `Madrasah Berkarakter dan Unggul` ?></h1>
+        <h1 class="about-title"><?= SETTINGS['subjudul_tentang'] ?></h1>
         <p class="about-intro">
-          <?= isset(SETTINGS['deskripsi_tentang']) ? SETTINGS['deskripsi_tentang'] :
-          `Menjadi lembaga pendidikan Islam yang unggul dalam akademik, berakhlak
-          mulia, dan mampu menghasilkan generasi Qur'ani yang siap menghadapi
-          tantangan zaman.` ?>
+          <?= SETTINGS['deskripsi_tentang'] ?>
         </p>
 
         <!-- Mission & Vision Cards -->
@@ -70,7 +66,7 @@ $dataBerita = GetBerita();
             <p>
               Kami hadir untuk menumbuhkan generasi yang dekat dengan Al-Qur'an:
               memahaminya, menghafalnya, mengamalkannya, dan menjadikannya
-              pedoman dalam setiap langkah kehidupan.
+              pedoman dalam setiap langkah k  ehidupan.
             </p>
           </div>
           <div class="card">
@@ -126,15 +122,12 @@ $dataBerita = GetBerita();
                 <div class="stat-icon">
                   <img src="./assets/icon-staff-white.svg" alt="Icon Staff" />
                 </div>
-                <div class="stat-number">60+</div>
+                <div class="stat-number"><?= SETTINGS['jumlah_staff'] ?></div>
               </div>
 
               <div>
-                <div class="stat-title">Guru dan Staff aktif</div>
-                <div class="stat-desc">
-                  Beragam latar belakang ilmu, satu misi: mendidik generasi
-                  unggul
-                </div>
+                <div class="stat-title"><?= SETTINGS['judul_staff'] ?></div>
+                <div class="stat-desc"><?= SETTINGS['deskripsi_staff'] ?></div>
               </div>
             </div>
             <div class="stat-card stat-card-2">
@@ -145,14 +138,11 @@ $dataBerita = GetBerita();
                     alt="Icon Student"
                   />
                 </div>
-                <div class="stat-number">250+</div>
+                <div class="stat-number"><?= SETTINGS['jumlah_murid'] ?></div>
               </div>
               <div>
-                <div class="stat-title">Siswa dan Siswi aktif</div>
-                <div class="stat-desc">
-                  Komunitas pelajar yang beragam dari berbagai daerah dan latar
-                  belakang
-                </div>
+                <div class="stat-title"><?= SETTINGS['judul_murid'] ?></div>
+                <div class="stat-desc"><?= SETTINGS['deskripsi_murid'] ?></div>
               </div>
             </div>
           </div>
@@ -168,11 +158,8 @@ $dataBerita = GetBerita();
               />
             </div>
             <div class="highlight-content">
-              <div class="highlight-title">Prestasi Sekolah</div>
-              <div class="highlight-desc">
-                Berbagai penghargaan akademik dan non-akademik tingkat regional
-                & nasional.
-              </div>
+              <div class="highlight-title"><?= SETTINGS['nilai_dasar_1'] ?></div>
+              <div class="highlight-desc"><?= SETTINGS['deskripsi_nilai_dasar_1'] ?></div>
             </div>
           </div>
 
@@ -184,11 +171,8 @@ $dataBerita = GetBerita();
               />
             </div>
             <div class="highlight-content">
-              <div class="highlight-title">Fasilitas Modern</div>
-              <div class="highlight-desc">
-                Ruang belajar nyaman, laboratorium, perpustakaan, dan area
-                olahraga.
-              </div>
+              <div class="highlight-title"><?= SETTINGS['nilai_dasar_2'] ?></div>
+              <div class="highlight-desc"><?= SETTINGS['deskripsi_nilai_dasar_2'] ?></div>
             </div>
           </div>
 
@@ -200,10 +184,8 @@ $dataBerita = GetBerita();
               />
             </div>
             <div class="highlight-content">
-              <div class="highlight-title">Tenaga Pendidik Profesional</div>
-              <div class="highlight-desc">
-                Guru berpengalaman dan kompeten dalam bidangnya masing-masing.
-              </div>
+              <div class="highlight-title"><?= SETTINGS['nilai_dasar_3'] ?></div>
+              <div class="highlight-desc"><?= SETTINGS['deskripsi_nilai_dasar_3'] ?></div>
             </div>
           </div>
 
@@ -215,11 +197,8 @@ $dataBerita = GetBerita();
               />
             </div>
             <div class="highlight-content">
-              <div class="highlight-title">Program Unggulan</div>
-              <div class="highlight-desc">
-                Tahfidz, karakter, pembinaan akademik, serta pengembangan minat
-                & bakat.
-              </div>
+              <div class="highlight-title"><?= SETTINGS['nilai_dasar_4'] ?></div>
+              <div class="highlight-desc"><?= SETTINGS['deskripsi_nilai_dasar_4'] ?></div>
             </div>
           </div>
         </div>
@@ -229,11 +208,7 @@ $dataBerita = GetBerita();
     <section id="event">
       <div class="event-section">
         <h1 class="event-title">Agenda Mendatang</h1>
-        <p class="event-intro">
-          Ikuti berbagai kegiatan seru dan bermanfaat yang kami siapkan untuk
-          memperkuat iman, ilmu, dan akhlak siswa-siswi kami. Semua acara
-          dirancang dengan nuansa Qur'ani dan penuh makna
-        </p>
+        <p class="event-intro"><?= SETTINGS['deskripsi_agenda'] ?></p>
 
         <div class="events-grid">
           <div class="event-card">
@@ -425,10 +400,7 @@ $dataBerita = GetBerita();
     <section id="news">
       <div class="news-section">
         <h1 class="section-title">Berita Terbaru</h1>
-        <p class="section-intro">
-          Simak update terkini dari Madrasah DDI Tani Aman mulai dari kegiatan
-          belajar mengajar, prestasi siswa, hingga agenda penting.
-        </p>
+        <p class="section-intro"><?= SETTINGS['deskripsi_berita'] ?></p>
 
         <div class="featured-news">
           <div class="featured-content">
@@ -565,11 +537,7 @@ $dataBerita = GetBerita();
 
     <section id="gallery" class="gallery-section">
       <h1 class="section-title">Galeri Kegiatan</h1>
-      <p class="section-intro">
-        Simak momen-momen penuh makna dari kehidupan sehari-hari di Madrasah DDI
-        Tani Aman — mulai dari belajar mengajar, lomba-lomba, hingga kegiatan
-        sosial yang menumbuhkan rasa peduli dan kebersamaan.
-      </p>
+      <p class="section-intro"><?= SETTINGS['deskripsi_galeri'] ?></p>
 
       <div class="gallery-grid">
         <div class="gallery-item gallery-item-tall">
@@ -601,12 +569,7 @@ $dataBerita = GetBerita();
     <section id="contact">
       <div class="contact-section">
         <h1 class="section-title">Hubungi Kami</h1>
-        <p class="section-intro">
-          Kami selalu terbuka untuk berdiskusi dengan Anda baik tentang
-          pendaftaran, kegiatan sekolah, maupun kolaborasi. Silakan hubungi kami
-          melalui salah satu saluran di bawah ini, atau datang langsung ke
-          kantor kami.
-        </p>
+        <p class="section-intro"><?= SETTINGS['deskripsi_tentang_kami'] ?></p>
 
         <div class="contact-grid">
           <div class="contact-card">
@@ -615,7 +578,7 @@ $dataBerita = GetBerita();
                 <i class="fa-solid fa-phone"></i>
               </div>
               <h2 class="contact-title">Telepon</h2>
-              <p class="contact-detail">0898-9988-8899</p>
+              <p class="contact-detail"><?= SETTINGS['nomor_telepon'] ?></p>
             </div>
           </div>
           <div class="contact-card">
@@ -624,7 +587,7 @@ $dataBerita = GetBerita();
                 <i class="fa-solid fa-message"></i>
               </div>
               <h2 class="contact-title">Email</h2>
-              <p class="contact-detail">info@mtsdditania.com</p>
+              <p class="contact-detail"><?= SETTINGS['email_sekolah'] ?></p>
             </div>
           </div>
           <div class="contact-card">
@@ -633,17 +596,14 @@ $dataBerita = GetBerita();
                 <i class="fa-solid fa-map"></i>
               </div>
               <h2 class="contact-title">Alamat</h2>
-              <p class="contact-detail">
-                Jl. Soekarno Hatta, Tani Aman, Kec. Loa Janan Ilir, Kota
-                Samarinda, Kalimantan Timur
-              </p>
+              <p class="contact-detail"><?= SETTINGS['alamat'] ?></p>
             </div>
           </div>
         </div>
 
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6104228699833!2d117.09752919999998!3d-0.584908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6813f36fcb987%3A0x2a58352fcfdf7056!2sMTs%20DDI%20Tani%20Aman!5e0!3m2!1sid!2sid!4v1762111103905!5m2!1sid!2sid"
+            src="<?= SETTINGS['url_maps'] ?>"
             width="600"
             height="450"
             style="border: 0"

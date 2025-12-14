@@ -1557,7 +1557,7 @@ section.show {
 
   .hero-content {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 50px 0 0 0;
   }
 
   .hero-content h1 {
