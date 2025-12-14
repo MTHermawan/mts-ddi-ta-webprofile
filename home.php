@@ -6,6 +6,8 @@ if (!defined('IN_INDEX')) {
 
 $dataAgenda = GetAgenda();
 $dataBerita = GetBerita();
+
+$pinnedBerita = array_search(true, array_column($dataBerita, 'pinned'));
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +60,8 @@ $dataBerita = GetBerita();
           <div class="card">
             <div class="card-icon">
               <img
-                src="./assets/icon-visi-misi-white.svg"
-                alt="Logo Visi Misi"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_misi'] ?>"
+                alt="Icon Visi"
               />
             </div>
             <h3>Misi Kami</h3>
@@ -72,8 +74,8 @@ $dataBerita = GetBerita();
           <div class="card">
             <div class="card-icon">
               <img
-                src="./assets/icon-visi-misi-white.svg"
-                alt="Logo Visi Misi"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_visi'] ?>"
+                alt="Icon Visi"
               />
             </div>
             <h3>Visi Kami</h3>
@@ -89,8 +91,8 @@ $dataBerita = GetBerita();
             <div class="feature-content">
               <div class="feature-icon">
                 <img
-                  src="./assets/icon-visi-misi-white.svg"
-                  alt="Logo Visi Misi"
+                  src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_tujuan'] ?>"
+                  alt="Icon Tujuan"
                 />
               </div>
               <h2>Tujuan</h2>
@@ -120,7 +122,7 @@ $dataBerita = GetBerita();
             <div class="stat-card stat-card-1">
               <div class="stat-header">
                 <div class="stat-icon">
-                  <img src="./assets/icon-staff-white.svg" alt="Icon Staff" />
+                  <img src="<?= BASE_URL ?>/assets/<?= SETTINGS['stat_icon_staf'] ?>" alt="Icon Staff" />
                 </div>
                 <div class="stat-number"><?= SETTINGS['jumlah_staff'] ?></div>
               </div>
@@ -134,7 +136,7 @@ $dataBerita = GetBerita();
               <div class="stat-header">
                 <div class="stat-icon">
                   <img
-                    src="./assets/icon-students-white.svg"
+                    src="<?= BASE_URL ?>/assets/<?= SETTINGS['stat_icon_murid'] ?>"
                     alt="Icon Student"
                   />
                 </div>
@@ -153,7 +155,7 @@ $dataBerita = GetBerita();
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="./assets/icon-prestasi-green.svg"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_nilai_dasar_1'] ?>"
                 alt="icon-prestasi"
               />
             </div>
@@ -166,7 +168,7 @@ $dataBerita = GetBerita();
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="./assets/icon-building-green.svg"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_nilai_dasar_2'] ?>"
                 alt="icon-Building"
               />
             </div>
@@ -179,7 +181,7 @@ $dataBerita = GetBerita();
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="./assets/icon-ND3.svg"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_nilai_dasar_3'] ?>"
                 alt="icon-ND3"
               />
             </div>
@@ -192,7 +194,7 @@ $dataBerita = GetBerita();
           <div class="highlight-card">
             <div class="highlight-icon">
               <img
-                src="./assets/icon-ND4.svg"
+                src="<?= BASE_URL ?>/assets/<?= SETTINGS['icon_nilai_dasar_4'] ?>"
                 alt="icon-ND4"
               />
             </div>
@@ -211,183 +213,41 @@ $dataBerita = GetBerita();
         <p class="event-intro"><?= SETTINGS['deskripsi_agenda'] ?></p>
 
         <div class="events-grid">
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah
-                  DibukaPenerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah
-                  Dibuka
-                </h3>
+          <?php $i = 0;
+          foreach ($dataAgenda as $agenda) {
+            if ($i > 5) break; ?>
+            <div class="event-card">
+              <div class="event-image-container">
+                <img
+                  src="<?= BASE_URL ?>/assets/<?= $agenda['url_foto'] ?>"
+                  alt="Event 1"
+                  class="event-img"
+                  onerror="this.src=imagePlaceholderUrl('<?= $agenda['judul'] ?>')"
+                />
+                <?php if (file_exists(BASE_URL . "/assets/" . $agenda['url_foto'])) { ?>
+                  <div class="image-overlay"></div>
+                <?php } ?>
               </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
+              <div class="event-content">
+                <div class="event-title">
+                  <h3 class="event-name"><?= $agenda['judul'] ?></h3>
+                </div>
+                <p class="event-date">
+                  <i class="fa-solid fa-calendar event-icon"></i><?= $agenda['tanggal'] ?>
+                </p>
+                <p class="event-time">
+                  <i class="fa-solid fa-clock event-icon"></i><?= $agenda['waktu'] ?>
+                </p>
+                <p class="event-location">
+                  <i class="fa-solid fa-location-dot event-icon"></i><?= $agenda['lokasi'] ?>
+                </p>
+                <a href="<?= BASE_URL ?>/informasi/agenda/<?= $agenda['id_agenda'] ?>" class="btn-event"
+                  >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
+                ></a>
               </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
             </div>
-          </div>
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
-              </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
-              </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
-              </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="event-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="event-content">
-              <div class="event-title">
-                <h3 class="event-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
-              </div>
-              <p class="event-date">
-                <i class="fa-solid fa-calendar event-icon"></i>20 November 2025
-              </p>
-              <p class="event-time">
-                <i class="fa-solid fa-clock event-icon"></i>10:00 - 12:00
-              </p>
-              <p class="event-location">
-                <i class="fa-solid fa-location-dot event-icon"></i>Auditorium
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/agenda/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
+          <?php $i++;
+          } ?>
         </div>
       </div>
       <div class="btn-container">
@@ -402,40 +262,38 @@ $dataBerita = GetBerita();
         <h1 class="section-title">Berita Terbaru</h1>
         <p class="section-intro"><?= SETTINGS['deskripsi_berita'] ?></p>
 
+        <?php if ($pinnedBerita !== false) { ?>
         <div class="featured-news">
           <div class="featured-content">
+            <?php if (file_exists(BASE_URL . "/assets/" . $dataBerita[$pinnedBerita]['url_foto'])) { ?>
             <div class="featured-image">
               <img
-                src="assets/gambarabout.jpeg"
-                alt="Ilustrasi sekolah modern"
+                src="<?= BASE_URL ?>/assets/<?= $dataBerita[$pinnedBerita]['url_foto'] ?>"
+                alt="Sekolah"
               />
             </div>
+            <?php } ?>
             <div class="featured-details">
               <div class="news-tag">Berita Utama</div>
               <h2 class="featured-title">
-                Siswa MTs DDI Tani Aman Raih Juara 1 Lomba Tilawah Tingkat
-                Kabupaten
+                <?= $dataBerita[$pinnedBerita]['judul'] ?>
               </h2>
               <p class="featured-desc">
-                Alhamdulillah, atas izin Allah SWT, siswa kelas 8, Ananda
-                Rizky Fauzan, berhasil meraih juara pertama dalam lomba
-                tilawah Al-Qur'an tingkat kabupaten. Prestasi ini menjadi
-                bukti bahwa pembelajaran Qur'ani di sekolah kami berjalan
-                dengan baik dan penuh semangat.
+                <?= $dataBerita[$pinnedBerita]['deskripsi'] ?>
               </p>
 
               <div class="featured-meta">
                 <div class="featured-meta-date">
                   <i class="fa-solid fa-calendar news-icon"></i>
-                  <span>20 November 2025</span>
+                  <span><?= FormatDateID($dataBerita[$pinnedBerita]['tanggal_dibuat']) ?></span>
                 </div>
                 <div class="featured-meta-publisher">
                   <i class="fas fa-user"></i>
-                  <span>Admin Sekolah</span>
+                  <span><?= $dataBerita[$pinnedBerita]['nama_admin'] ?></span>
                 </div>
               </div>
               <div class="featured-btn">
-                <a href="<?= BASE_URL ?>/informasi/berita/1"
+                <a href="<?= BASE_URL ?>/informasi/berita/<?= $dataBerita[$pinnedBerita]['id_berita'] ?>"
                   ><button class="btn-news">
                     Lihat Selengkapnya
                     <i class="fa-solid fa-arrow-right"></i></button
@@ -444,88 +302,42 @@ $dataBerita = GetBerita();
             </div>
           </div>
         </div>
+        <?php } ?>
         <div class="news-grid">
-
-          <div class="news-item">
-            <div class="news-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="news-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="news-content">
-              <div class="news-title">
-                <h3 class="news-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
+          <?php $i = 0;
+          foreach ($dataBerita as $berita) { 
+            if ($i > 2) break;
+            if ($berita['pinned']) continue; ?>
+            <div class="news-item">
+              <div class="news-image-container">
+                <img
+                  src="<?= BASE_URL ?>/assets/<?= $berita['url_foto'] ?>"
+                  alt="Event 1"
+                  class="news-img"
+                  onerror="this.src=imagePlaceholderUrl('<?= $berita['judul'] ?>')"
+                />
+                <?php if (file_exists(BASE_URL . "/assets/" . $berita['url_foto'])) { ?>
+                  <div class="image-overlay"></div>
+                <?php } ?>
               </div>
-              <p class="news-date">
-                <i class="fa-solid fa-calendar news-icon"></i>20 November 2025
-              </p>
-              <p class="news-publisher">
-                <i class="fas fa-user news-icon"></i>Admin Sekolah
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="news-item">
-            <div class="news-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="news-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="news-content">
-              <div class="news-title">
-                <h3 class="news-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
+              <div class="news-content">
+                <div class="news-title">
+                  <h3 class="news-name"><?= $berita['judul'] ?></h3>
+                </div>
+                <p class="news-date">
+                  <i class="fa-solid fa-calendar news-icon"></i><?= FormatDateID($berita['tanggal_dibuat']) ?>
+                </p>
+                <p class="news-publisher">
+                  <i class="fas fa-user news-icon"></i><?= $berita['nama_admin'] ?>
+                </p>
+                <a href="<?= BASE_URL ?>/informasi/berita/<?= $berita['id_berita'] ?>" class="btn-event"
+                  >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
+                ></a>
               </div>
-              <p class="news-date">
-                <i class="fa-solid fa-calendar news-icon"></i>20 November 2025
-              </p>
-              <p class="news-publisher">
-                <i class="fas fa-user news-icon"></i>Admin Sekolah
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
             </div>
-          </div>
-
-          <div class="news-item">
-            <div class="news-image-container">
-              <img
-                src="assets/gambarabout.jpeg"
-                alt="Event 1"
-                class="news-img"
-              />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="news-content">
-              <div class="news-title">
-                <h3 class="news-name">
-                  Penerimaan Siswa Baru Tahun Ajaran 2024/2025 Telah Dibuka
-                </h3>
-              </div>
-              <p class="news-date">
-                <i class="fa-solid fa-calendar news-icon"></i>20 November 2025
-              </p>
-              <p class="news-publisher">
-                <i class="fas fa-user news-icon"></i>Admin Sekolah
-              </p>
-              <a href="<?= BASE_URL ?>/informasi/berita/1" class="btn-event"
-                >Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
+                      
+          <?php $i++;
+          } ?>
         </div>
       </div>
       <div class="btn-container">

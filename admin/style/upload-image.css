@@ -150,13 +150,25 @@ input[type="file"] {
 #imgPreviewND7 {
   max-width: 100px;
   max-height: 100px;
-  width: auto;
-  height: auto;
   object-fit: contain;
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 4px;
   margin-top: 5px;
-  background-color: #fff;
   display: block;
+}
+
+.preview-icon-bg-green,
+.preview-icon-bg-white {
+  width: 64px;
+}
+
+.preview-icon-bg-green {
+  background-color: green;
+  width: 64px;
+}
+
+.preview-icon-bg-white {
+  background-color: white;
+  width: 64px;
 }

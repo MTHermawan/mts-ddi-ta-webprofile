@@ -384,7 +384,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerStaff" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewStaff" alt="Preview" />
+                  <img src="" id="imgPreviewStaff" class="preview-icon-bg-green" alt="Preview" />
                 </div>
 
                 <label class="form-label">Upload Icon Staff</label>
@@ -407,7 +407,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerMurid" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewMurid" alt="Preview" />
+                  <img src="" id="imgPreviewMurid" class="preview-icon-bg-green" alt="Preview" />
                 </div>
 
                 <label class="form-label">Upload Icon Murid</label>
@@ -581,7 +581,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND1" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND1" alt="Preview" />
+                  <img src="" id="imgPreviewND1" alt="Preview" class="preview-icon-bg-white" />
                 </div>
 
                 <label class="form-label">Upload Icon Nilai Dasar-1</label>
@@ -601,7 +601,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND2" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND2" alt="Preview" />
+                  <img src="" id="imgPreviewND2" alt="Preview" class="preview-icon-bg-white" />
                 </div>
 
                 <label class="form-label">Upload Icon Nilai Dasar-2</label>
@@ -623,7 +623,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND3" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND3" alt="Preview" />
+                  <img src="" id="imgPreviewND3" alt="Preview" class="preview-icon-bg-white" />
                 </div>
 
                 <label class="form-label">Upload Icon Nilai Dasar-3</label>
@@ -643,7 +643,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND4" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND4" alt="Preview" />
+                  <img src="" id="imgPreviewND4" alt="Preview" class="preview-icon-bg-white" />
                 </div>
 
                 <label class="form-label">Upload Icon Nilai Dasar-4</label>
@@ -678,7 +678,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND5" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND5" alt="Preview" />
+                  <img src="" id="imgPreviewND5" alt="Preview" class="preview-icon-bg-green" />
                 </div>
 
                 <label class="form-label">Upload Icon Visi</label>
@@ -698,7 +698,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND6" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND6" alt="Preview" />
+                  <img src="" id="imgPreviewND6" alt="Preview" class="preview-icon-bg-green" />
                 </div>
 
                 <label class="form-label">Upload Icon Misi</label>
@@ -721,7 +721,7 @@ require_once "./includes/check-auth.php";
               <div class="card">
                 <div id="previewContainerND7" style="display: none;">
                   <p style="margin: 0 0 5px 0; font-size: 14px; color: rgb(29, 41, 57);">Preview:</p>
-                  <img src="" id="imgPreviewND7" alt="Preview" />
+                  <img src="" id="imgPreviewND7" alt="Preview" class="preview-icon-bg-green" />
                 </div>
 
                 <label class="form-label">Upload Icon Nilai Tujuan</label>

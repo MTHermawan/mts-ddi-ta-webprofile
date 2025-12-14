@@ -92,14 +92,18 @@ async function handleResumeInput(id, remoteResumeURL) {
 }
 
 async function createImage(url) {
-    let response = await fetch(url);
-    let data = await response.blob();
-    let metadata = {
-        type: "image/*",
-    };
-    const filename = new URL(response['url']).pathname.split("/").pop();
-    return new File([data], filename, metadata);
+    const response = await fetch(url);
+    const data = await response.blob();
+
+    const filename = new URL(response.url).pathname.split("/").pop();
+
+    return new File(
+        [data],
+        filename,
+        { type: data.type || "image/svg+xml" }
+    );
 }
+
 
 function GetDayID(day, trim = -1) {
     let dayStr = "";

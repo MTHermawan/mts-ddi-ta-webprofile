@@ -23,9 +23,17 @@
                 </div> -->
 
                 <div class="footer-social">
-                    <a href="<?= SETTINGS['url_facebook'] ?>"><i class="fab fa-facebook-f"></i></a>
-                    <a href="<?= SETTINGS['url_instagram'] ?>"><i class="fab fa-instagram"></i></a>
-                    <a href="<?= SETTINGS['url_youtube'] ?>"><i class="fab fa-youtube"></i></a>
+                    <?php if (isset(SETTINGS['url_facebook']) && SETTINGS['url_facebook'] != "") { ?>
+                    <a href="<?= SETTINGS['url_facebook'] ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <?php } ?>
+                    
+                    <?php if (isset(SETTINGS['url_instagram']) && SETTINGS['url_instagram'] != "") { ?>
+                    <a href="<?= SETTINGS['url_instagram'] ?>" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <?php } ?>
+                    
+                    <?php if (isset(SETTINGS['url_youtube']) && SETTINGS['url_youtube'] != "") { ?>
+                        <a href="<?= SETTINGS['url_youtube'] ?>" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <?php } ?>
                 </div>
             </div>
         </div>

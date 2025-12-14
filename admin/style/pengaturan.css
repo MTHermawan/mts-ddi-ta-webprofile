@@ -209,6 +209,7 @@
   /* box-shadow: 0 0 0 0.9px #dde1e5; */
   flex-wrap: wrap;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
 .settings-card {

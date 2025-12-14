@@ -85,7 +85,8 @@ function GetBerita($id_berita = null, $judul = null, $deskripsi = null, $nama_ad
 
         $sql = "SELECT id_berita, judul, deskripsi, tanggal_dibuat, url_foto, a.nama as nama_admin, pinned FROM berita as b 
                 LEFT JOIN informasi as i ON i.id_informasi = b.id_informasi 
-                LEFT JOIN admin as a ON i.email_admin = a.email $where_clause";
+                LEFT JOIN admin as a ON i.email_admin = a.email $where_clause
+                ORDER BY tanggal_dibuat";
         $stmt = $koneksi->prepare($sql);
 
         if (!empty($params)) {
