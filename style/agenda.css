@@ -63,9 +63,9 @@ body {
 }
 
 .agenda-list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .agenda-card {
@@ -87,7 +87,7 @@ body {
 
 .agenda-gambar img {
   width: 240px;
-  height: 192px;
+  height: 216px;
   border-radius: 18px;
   object-fit: cover;
 }
@@ -221,6 +221,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .agenda-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
   .agenda-card {
     flex-direction: column;
   }

@@ -62,9 +62,9 @@ body {
 }
 
 .berita-list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .berita-card {
@@ -86,7 +86,7 @@ body {
 
 .berita-gambar img {
   width: 240px;
-  height: 172px;
+  height: 196px;
   border-radius: 18px;
   object-fit: cover;
 }
@@ -95,7 +95,7 @@ body {
   flex: 1;
 }
 
-.berita-judul{
+.berita-judul {
   font-size: 24px;
   font-weight: 700;
   text-decoration: none;
@@ -218,6 +218,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .berita-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
   .berita-card {
     flex-direction: column;
   }

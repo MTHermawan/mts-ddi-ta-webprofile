@@ -244,9 +244,9 @@ INSERT INTO sejarah (judul_sejarah, tahun_sejarah, deskripsi) VALUES
 ('Berdirinya MTs DDI Tani Aman', '1984', 'Madrasah Tsanawiyah Darud Da’wah Wal Irsyad (MTs DDI) Tani Aman Samarinda resmi berdiri di bawah naungan Yayasan DDI Tani Aman. Pada awal berdiri, madrasah ini dipimpin oleh Bapak H. Jamaluddin, A.Md. sebagai kepala madrasah, dengan jumlah siswa sekitar 21 siswa.'),
 ('Regenerasi Kepemimpinan', '2013', 'Setelah 29 tahun memimpin, Bapak H. Jamaluddin menyerahkan tongkat estafet kepemimpinan kepada Bapak H. Suwardi, A.Md. Di bawah kepemimpinannya, madrasah terus berkembang hingga tahun 2019.'),
 ('Akreditasi "A" Nasional', '2021', 'MTs DDI Tani Aman meraih akreditasi "A" dari Badan Akreditasi Nasional (BAN-SM) dengan SK Nomor: 999/BAN-SM/SK/2021. Saat ini dipimpin oleh Ibu ST. Fatimah Amin, S.Pd., dengan total 23 tenaga pendidik dan kependidikan.'),
-('Prestasi & Pertumbuhan', '2024', 'Madrasah kini memiliki 236 siswa aktif dan telah meluluskan lebih dari 3.000 alumni. Pada tahun ajaran ini, angkatan ke-39 lulus dengan 100% kelulusan. Fasilitas fisik, prestasi akademik-nonakademik, dan jaringan alumni terus berkembang pesat.')
+('Prestasi & Pertumbuhan', '2024', 'Madrasah kini memiliki 236 siswa aktif dan telah meluluskan lebih dari 3.000 alumni. Pada tahun ajaran ini, angkatan ke-39 lulus dengan 100% kelulusan. Fasilitas fisik, prestasi akademik-nonakademik, dan jaringan alumni terus berkembang pesat.');
 
-INSERT INTO `pengaturan` (`id_setting`, `setting_key`, `setting_value`, `tanggal_diperbarui`) VALUES
+INSERT INTO pengaturan (`id_setting`, `setting_key`, `setting_value`, `tanggal_diperbarui`) VALUES
 (1, 'nama_sekolah', 'MTs DDI Tani Aman', '2025-12-14 12:52:22'),
 (2, 'motto', 'Madrasah berkarakter & unggul', '2025-12-14 12:52:22'),
 (3, 'judul_hero', 'Pendidikan Berkarakter, Berbasis Al-Qur\'an dan Teknologi', '2025-12-14 12:52:22'),
