@@ -22,7 +22,7 @@ async function ReloadDataStaff(keyword = null) {
   return false;
 }
 
-async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
+async function PostTambahStaff(nama, jabatan, mapel, foto_staff) {
   try {
     const method = 'POST';
     const url = './post/manajemen-staff/tambah-staff.php';
@@ -31,7 +31,7 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
     formData.append('nama_staff', nama);
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
-    formData.append('pendidikan', pendidikan);
+    // formData.append('pendidikan', pendidikan);
 
     if (foto_staff) formData.append('foto_staff', foto_staff);
 
@@ -45,7 +45,7 @@ async function PostTambahStaff(nama, jabatan, mapel, pendidikan, foto_staff) {
   return false;
 }
 
-async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_staff) {
+async function PostEditStaff(id_staff, nama, jabatan, mapel, foto_staff) {
   try {
     const method = 'POST';
     const url = './post/manajemen-staff/update-staff.php';
@@ -55,7 +55,7 @@ async function PostEditStaff(id_staff, nama, jabatan, mapel, pendidikan, foto_st
     formData.append('nama_staff', nama);
     formData.append('jabatan', jabatan);
     formData.append('mapel', mapel);
-    formData.append('pendidikan', pendidikan);
+    // formData.append('pendidikan', pendidikan);
 
     if (foto_staff) formData.append('foto_staff', foto_staff);
 
@@ -96,6 +96,34 @@ function SearchStaffEvent(delay = 0) {
     ReloadDataStaff(keyword);
   }, delay);
 }
+
+function ConvertStaffToCSV(data) {
+  if (!data || !data.length) return "";
+
+  const headers = [
+    "ID",
+    "Nama Staff",
+    "Jabatan",
+    "Mata Pelajaran",
+    "Foto",
+    "Tanggal Dibuat"
+  ];
+
+  const rows = data.map(staff => [
+    staff.id_staff ?? "",
+    `"${(staff.nama_staff ?? "").replace(/"/g, '""')}"`,
+    `"${(staff.jabatan ?? "").replace(/"/g, '""')}"`,
+    `"${(staff.mapel ?? "").replace(/"/g, '""')}"`,
+    staff.url_foto ? staff.url_foto : "",
+    staff.tanggal_dibuat ?? ""
+  ]);
+
+  return [
+    headers.join(";"),
+    ...rows.map(row => row.join(";"))
+  ].join("\n");
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   searchInput.addEventListener('input', () => { SearchStaffEvent(500); });

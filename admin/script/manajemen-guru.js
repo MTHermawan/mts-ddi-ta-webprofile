@@ -10,7 +10,7 @@ let staffData = [
     nama_staff: "Lindsey Curtis",
     jabatan: "Guru",
     mapel: "Teknologi Informasi",
-    pendidikan: "S.Kom",
+    // pendidikan: "S.Kom",
     url_foto:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
   },
@@ -19,7 +19,7 @@ let staffData = [
     nama_staff: "Kaiya George",
     jabatan: "Guru",
     mapel: "Manajemen Proyek",
-    pendidikan: "M.M",
+    // pendidikan: "M.M",
     url_foto:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
   },
@@ -28,7 +28,7 @@ let staffData = [
     nama_staff: "Zain Geldt",
     jabatan: "Guru",
     mapel: "Bahasa Indonesia",
-    pendidikan: "S.S",
+    // pendidikan: "S.S",
     url_foto:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
   },
@@ -37,7 +37,7 @@ let staffData = [
     nama_staff: "Abram Schleifer",
     jabatan: "Guru",
     mapel: "Pemasaran Digital",
-    pendidikan: "M.M",
+    // pendidikan: "M.M",
     url_foto:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
   },
@@ -46,7 +46,7 @@ let staffData = [
     nama_staff: "Carla George",
     jabatan: "Guru",
     mapel: "Pemrograman Web",
-    pendidikan: "S.Kom",
+    // pendidikan: "S.Kom",
     url_foto:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
   },
@@ -62,7 +62,7 @@ function GetStaffById(id_staff) {
 }
 
 // Fungsi buka popup untuk tambah data
-function openPopup(mode = "Tambah Guru") {
+function openPopup(mode = "Tambah Staff") {
   currentMode = "add";
   document.getElementById("popupTitle").textContent = mode;
   resetForm();
@@ -73,7 +73,7 @@ function openPopup(mode = "Tambah Guru") {
 function openEditPopup(id_staff) {
   currentMode = "edit";
   currentEditId = id_staff;
-  document.getElementById("popupTitle").textContent = "Edit Guru";
+  document.getElementById("popupTitle").textContent = "Edit Staff";
 
   // Isi form dengan data guru yang akan diedit
   const staff = GetStaffById(currentEditId);
@@ -81,7 +81,7 @@ function openEditPopup(id_staff) {
     document.getElementById("inputName").value = staff.nama_staff;
     document.getElementById("inputPosition").value = staff.jabatan;
     document.getElementById("inputSubject").value = staff.mapel;
-    document.getElementById("inputDegree").value = staff.pendidikan;
+    // document.getElementById("inputDegree").value = staff.pendidikan;
 
     // Jika ada foto, tampilkan preview
     if (staff.url_foto) {
@@ -110,7 +110,7 @@ function openDeletePopup(id_staff) {
   document.getElementById("dataName").textContent = staff["nama_staff"];
   document.getElementById("dataPosition").textContent = staff["jabatan"];
   document.getElementById("dataSubject").textContent = staff["mapel"];
-  document.getElementById("dataDegree").textContent = staff["pendidikan"];
+  // document.getElementById("dataDegree").textContent = staff["pendidikan"];
 
   // Menampilkan popup delete
   document.getElementById("deletePopup").style.display = "flex";
@@ -172,7 +172,7 @@ function resetForm() {
   document.getElementById("inputName").value = "";
   document.getElementById("inputPosition").value = "";
   document.getElementById("inputSubject").value = "";
-  document.getElementById("inputDegree").value = "";
+  // document.getElementById("inputDegree").value = "";
   removeImage();
   currentMode = "add";
   currentEditId = null;
@@ -325,19 +325,19 @@ function generateDummyData(count) {
     "Geografi",
     "Ekonomi",
   ];
-  const degrees = ["S.Pd", "M.Pd", "S.S", "M.Si", "S.T", "M.T"];
+  // const degrees = ["S.Pd", "M.Pd", "S.S", "M.Si", "S.T", "M.T"];
 
   for (let i = 6; i <= count; i++) {
     const randomName = names[Math.floor(Math.random() * names.length)];
     const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
-    const randomDegree = degrees[Math.floor(Math.random() * degrees.length)];
+    // const randomDegree = degrees[Math.floor(Math.random() * degrees.length)];
 
     staffData.push({
       id_staff: i,
       nama_staff: randomName,
       jabatan: "Guru",
       mapel: randomSubject,
-      pendidikan: randomDegree,
+      // pendidikan: randomDegree,
       url_foto: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80&v=${i}`,
     });
   }
@@ -393,7 +393,6 @@ function displayTableData(page = 1) {
       </td>
       <td><span class="position">${staff.jabatan ? staff.jabatan : "-"}</span></td>
       <td><span class="subject">${staff.mapel ? staff.jabatan : "-"}</span></td>
-      <td><span class="degree">${staff.pendidikan ? staff.jabatan : "-"}</span></td>
       <td>
         <div class="action-buttons">
           <button class="btn btn-edit" data-id="${staff.id_staff}">
@@ -567,7 +566,7 @@ async function submitForm() {
   const nama = document.getElementById("inputName").value;
   const jabatan = document.getElementById("inputPosition").value;
   const mapel = document.getElementById("inputSubject").value;
-  const pendidikan = document.getElementById("inputDegree").value;
+  // const pendidikan = document.getElementById("inputDegree").value;
   const foto_staff = document.getElementById("imageInput").files[0] ?? null;
 
   if (!nama.trim()) {
@@ -581,7 +580,7 @@ async function submitForm() {
       nama,
       jabatan,
       mapel,
-      pendidikan,
+      // pendidikan,
       foto_staff
     );
       
@@ -592,7 +591,7 @@ async function submitForm() {
       nama,
       jabatan,
       mapel,
-      pendidikan,
+      // pendidikan,
       foto_staff
     );
     success ? showSuccess(`Data staff "${nama}" berhasil diperbarui!`) : showError(`Data staff "${nama}" gagal diperbarui!`);
@@ -626,4 +625,31 @@ async function confirmDelete() {
     }
   }
 }
+
+function ExportCSV() {
+  if (!staffData || !staffData.length) {
+    alert("Data staff kosong!");
+    return;
+  }
+
+  const excelData = staffData.map((staff, index) => ({
+  "No": index + 1,
+  "Nama Staff": staff.nama_staff,
+  "Jabatan": staff.jabatan,
+  "Mapel": staff.mapel,
+  // "Pendidikan": staff.pendidikan,
+  "Foto": staff.url_foto
+    ? `=HYPERLINK("${location.origin}/assets/${staff.url_foto}", "Lihat Foto")`
+    : ""
+}));
+
+
+  const worksheet = XLSX.utils.json_to_sheet(excelData);
+  const workbook = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Data Staff");
+
+  XLSX.writeFile(workbook, "data-staff-mts-ddi-tani-aman.xlsx");
+}
+
 

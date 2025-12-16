@@ -16,7 +16,7 @@
 /*                 BUTTON DI HEADER             */
 
 .button-container {
-  width: 148px;
+  /* width: 148px; */
   display: flex;
   justify-content: space-between;
 }

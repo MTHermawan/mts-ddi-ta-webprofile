@@ -39,9 +39,9 @@ require_once "./includes/check-auth.php";
         </div>
 
         <div class="button-container">
-          <button class="export button">
+          <!-- <button class="export button">
             <i class="fa-solid fa-file-export"></i> Ekspor CSV
-          </button>
+          </button> -->
           <button
             class="add button"
             id="btn_tambah_guru"

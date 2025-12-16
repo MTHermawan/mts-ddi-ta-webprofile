@@ -11,10 +11,10 @@ include_once $project_root . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR 
 $nama_staff = $_GET['nama'] ?? null;
 $jabatan = $_GET['jabatan'] ?? null;
 $mapel = $_GET['mapel'] ?? null;
-$pendidikan = $_GET['pendidikan'] ?? null;
+// $pendidikan = $_GET['pendidikan'] ?? null;
 
 $search = $_GET['search'] ?? null;
-$data = GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, pendidikan: $pendidikan, search: $search);
+$data = GetStaff(id: $id_staff, nama: $nama_staff, jabatan: $jabatan, mapel: $mapel, search: $search);
 $data = RemoveProperties($data, ["tanggal_dibuat"]);
 
 echo json_encode($data);

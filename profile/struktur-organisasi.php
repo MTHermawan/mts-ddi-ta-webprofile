@@ -46,9 +46,11 @@ $sett
             Susunan organisasi sekolah yang jelas dan terstruktur, memastikan proses pendidikan berjalan efektif dan terkoordinasi.
         </p>
         <div class="struktur-list">
+            <?php if ($dataStrukturOrganisasi) { ?>
             <div class="struktur-card">
-            <img src="<?= BASE_URL ?>/assets/<?= $dataStrukturOrganisasi[0]['url_foto'] ?>" alt="struktur-organisasi" class="img-organisasi">
+                <img src="<?= BASE_URL ?>/assets/<?= $dataStrukturOrganisasi[0]['url_foto'] ?>" alt="struktur-organisasi" class="img-organisasi">
             </div>
+            <?php } ?>
         </div>
     </section>
 

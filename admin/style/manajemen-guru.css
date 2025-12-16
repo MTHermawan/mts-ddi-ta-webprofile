@@ -30,7 +30,7 @@
 /*                 BUTTON DI HEADER             */
 
 .button-container {
-  width: 276px;
+  /* width: 276px; */
   display: flex;
   justify-content: space-between;
 }

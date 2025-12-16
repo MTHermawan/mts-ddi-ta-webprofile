@@ -7,13 +7,12 @@ include_once 'utility.php';
 // - jabatan string
 // - mapel string
 // - url_foto string
-// - pendidikan string
 // - tanggal_dibuat string
 
 $asset_subdir = "staff/";
 
 // Menambahkan baris data staff baru (CREATE)
-function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
+function InsertStaff($nama_staff, $jabatan, $mapel, $file_foto)
 {
     global $koneksi, $asset_subdir;
 
@@ -22,9 +21,9 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
         // Upload File
         $url_foto = TambahFile($file_foto, $asset_subdir);
 
-        $sql = "INSERT INTO staff (nama_staff, jabatan, mapel, pendidikan, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, tanggal_dibuat) VALUES (?, ?, ?, ?, NOW())";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("sssss", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto);
+        $stmt->bind_param("ssss", $nama_staff, $jabatan, $mapel, $url_foto);
         $stmt->execute();
 
         $success = true;
@@ -36,7 +35,7 @@ function InsertStaff($nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
     return $success;
 }
 
-function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pendidikan = null, $search = null)
+function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $search = null)
 {
     global $koneksi;
     $data = [];
@@ -66,15 +65,9 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
             $params[] = "%$mapel%";
             $types .= "s";
         }
-        if ($pendidikan !== null) {
-            $conditions[] = "pendidikan LIKE ?";
-            $params[] = "%$pendidikan%";
-            $types .= "s";
-        }
 
         if ($search !== null) {
-            $conditions[] = "(nama_staff LIKE ? OR jabatan LIKE ? OR mapel LIKE ? OR pendidikan LIKE ?)";
-            $params[] = "%$search%";
+            $conditions[] = "(nama_staff LIKE ? OR jabatan LIKE ? OR mapel LIKE ?)";
             $params[] = "%$search%";
             $params[] = "%$search%";
             $params[] = "%$search%";
@@ -108,7 +101,7 @@ function GetStaff($id = null, $nama = null, $jabatan = null, $mapel = null, $pen
 }
 
 // Memperbarui data informasi berdasarkan ID (UPDATE)
-function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $file_foto)
+function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $file_foto)
 {
     global $koneksi, $asset_subdir;
 
@@ -125,9 +118,9 @@ function UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $fil
             $isDeleteOld = true;
         }
 
-        $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, pendidikan = ?, url_foto = ? WHERE id_staff = ?";
+        $sql = "UPDATE staff SET nama_staff = ?, jabatan = ?, mapel = ?, url_foto = ? WHERE id_staff = ?";
         $stmt = $koneksi->prepare($sql);
-        $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $pendidikan, $url_foto, $id_staff);
+        $stmt->bind_param("sssssi", $nama_staff, $jabatan, $mapel, $url_foto, $id_staff);
         $stmt->execute();
 
         // Menghapus foto lama

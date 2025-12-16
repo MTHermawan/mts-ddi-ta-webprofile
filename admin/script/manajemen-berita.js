@@ -534,8 +534,6 @@ function removeImage() {
 async function submitForm() {
   const judul = document.getElementById("titleInput").value;
   const deskripsi = document.getElementById("descriptionInput").value;
-  const tanggal = document.getElementById("dateInput").value;
-  const penulis = document.getElementById("creatorInput").value;
   const foto_berita = document.getElementById("imageInput").files[0] ?? null;
 
   // Validasi
@@ -630,9 +628,12 @@ async function confirmDelete() {
 
 // Fungsi untuk reset form
 function resetForm() {
+  const currentDate = new Date();
+  const formattedDate = `${currentDate.getDate()} ${GetMonthID(currentDate.getMonth(), 3)} ${currentDate.getFullYear()}`;
+
   document.getElementById("titleInput").value = "";
-  document.getElementById("dateInput").value = "";
-  document.getElementById("creatorInput").value = "";
+  document.getElementById("dateInput").value = formattedDate;
+  document.getElementById("creatorInput").value = window.APP_SESSION.nama || "";
   document.getElementById("descriptionInput").value = "";
   removeImage();
   currentMode = "add";

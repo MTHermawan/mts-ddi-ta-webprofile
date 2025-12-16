@@ -11,6 +11,8 @@ if (!isset($_SESSION['email'])) {
         $admin = ValidateRememberToken($_COOKIE['admin_remember']);
         if ($admin) {
             $_SESSION['email'] = $admin['email'];
+            $adminData = GetAdmin($_SESSION['email']);
+            $_SESSION['nama'] = $adminData['nama'];
         } else {
             $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
             header("Location: ./login-admin.php");

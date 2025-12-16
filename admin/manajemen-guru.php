@@ -29,24 +29,24 @@ include_once "../data/utility.php";
     <?php include "./includes/header.php" ?>
 
     <!-- Title Menu -->
-    <h1 class="menu-title">Staff Pengajar</h1>
+    <h1 class="menu-title">Staff</h1>
 
     <!-- Main Content -->
     <div class="main-content">
       <div class="main-content-header">
         <div class="search-container">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" class="search-input" placeholder="Cari nama guru" />
+          <input type="text" class="search-input" placeholder="Cari nama staff" />
+        </div>
+        <div class="button-container">
+          <!-- <button class="export button">
+            <i class="fa-solid fa-file-export"></i> Ekspor CSV
+          </button> -->
+          <button class="add button" id="btn_tambah_guru" onclick="openPopup('Tambah Staff')">
+            <i class="fa-solid fa-plus"></i> Tambah Staff
+          </button>
         </div>
 
-        <div class="button-container">
-          <button class="export button">
-            <i class="fa-solid fa-file-export"></i> Ekspor CSV
-          </button>
-          <button class="add button" id="btn_tambah_guru" onclick="openPopup('Tambah Guru')">
-            <i class="fa-solid fa-plus"></i> Tambah Guru
-          </button>
-        </div>
       </div>
 
       <div class="main-content-data">
@@ -55,7 +55,7 @@ include_once "../data/utility.php";
           <div class="empty-data-placeholder" id="emptyDataPlaceholder">
             <img src="../assets/icon-empty-data.svg" alt="logo empty data" />
             <p>Belum ada data guru yang ditambahkan</p>
-            <p>Klik tombol "Tambah Guru" untuk menambahkan</p>
+            <p>Klik tombol "Tambah Staff" untuk menambahkan</p>
           </div>
         </div>
 
@@ -67,7 +67,7 @@ include_once "../data/utility.php";
                 <th>Nama</th>
                 <th>Jabatan</th>
                 <th>Mata Pelajaran</th>
-                <th>Pendidikan</th>
+                <!-- <th>Pendidikan</th> -->
                 <th>Aksi</th>
                 <th></th>
               </tr>
@@ -87,7 +87,7 @@ include_once "../data/utility.php";
                 </td>
                 <td><span class="position">Guru</span></td>
                 <td><span class="subject">Teknologi Informasi</span></td>
-                <td><span class="degree">S.Kom</span></td>
+                <!-- <td><span class="degree">S.Kom</span></td> -->
                 <td>
                   <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
@@ -109,7 +109,7 @@ include_once "../data/utility.php";
                 </td>
                 <td><span class="position">Guru</span></td>
                 <td><span class="subject">Manajemen Proyek</span></td>
-                <td><span class="degree">M.M</span></td>
+                <!-- <td><span class="degree">M.M</span></td> -->
                 <td>
                   <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
@@ -131,7 +131,7 @@ include_once "../data/utility.php";
                 </td>
                 <td><span class="position">Guru</span></td>
                 <td><span class="subject">Bahasa Indonesia</span></td>
-                <td><span class="degree">S.S</span></td>
+                <!-- <td><span class="degree">S.S</span></td> -->
                 <td>
                   <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
@@ -153,7 +153,7 @@ include_once "../data/utility.php";
                 </td>
                 <td><span class="position">Guru</span></td>
                 <td><span class="subject">Pemasaran Digital</span></td>
-                <td><span class="degree">M.M</span></td>
+                <!-- <td><span class="degree">M.M</span></td> -->
                 <td>
                   <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
@@ -175,7 +175,7 @@ include_once "../data/utility.php";
                 </td>
                 <td><span class="position">Guru</span></td>
                 <td><span class="subject">Pemrograman Web</span></td>
-                <td><span class="degree">S.Kom</span></td>
+                <!-- <td><span class="degree">S.Kom</span></td> -->
                 <td>
                   <div class="action-buttons">
                     <button class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
@@ -218,7 +218,7 @@ include_once "../data/utility.php";
   <div class="popup-overlay-form" id="popup">
     <div class="popup-content-form">
       <div class="popup-header">
-        <h2 class="popup-title" id="popupTitle">Tambah Guru</h2>
+        <h2 class="popup-title" id="popupTitle">Tambah Staff</h2>
         <button class="popup-close" onclick="closePopup()">
           <i class="fas fa-times"></i>
         </button>
@@ -299,7 +299,7 @@ include_once "../data/utility.php";
               placeholder="Masukkan mata pelajaran yang diampu" />
           </div>
 
-          <div class="text-input-group">
+          <!-- <div class="text-input-group">
             <label for="titleInput" class="text-input-label">Pendidikan</label>
             <input
               type="text"
@@ -307,7 +307,7 @@ include_once "../data/utility.php";
               id="inputDegree"
               name="pendidikan"
               placeholder="Masukkan gelar guru" />
-          </div>
+          </div> -->
         </div>
 
       </div>
@@ -359,8 +359,8 @@ include_once "../data/utility.php";
           <span class="data-value" id="dataSubject">Teknologi Informasi</span>
         </div>
         <div class="data-item">
-          <span class="data-label">Pendidikan:</span>
-          <span class="data-value" id="dataDegree">S.Kom</span>
+          <!-- <span class="data-label">Pendidikan:</span> -->
+          <!-- <span class="data-value" id="dataDegree">S.Kom</span> -->
         </div>
       </div>
 

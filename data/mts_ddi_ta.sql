@@ -74,7 +74,6 @@ CREATE TABLE staff (
     jabatan VARCHAR(50),
     mapel VARCHAR(50),
     url_foto VARCHAR(50),
-    pendidikan VARCHAR(50),
     tanggal_dibuat DATETIME DEFAULT (CURRENT_TIMESTAMP())
 );
 
@@ -135,8 +134,8 @@ INSERT INTO admin (email, password, nama, tanggal_register) VALUES
 ('admin@mtsddi.sch.id', 'admin123', 'Admin', NOW());
 
 -- Insert data ke tabel guru
-INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, pendidikan, tanggal_dibuat) VALUES
-('Hj. ST. Fatimah Amin, S.Pd.', "Kepala Madrasah", 'IPS Terpadu', '', 'S.Pd', NOW());
+INSERT INTO staff (nama_staff, jabatan, mapel, url_foto, tanggal_dibuat) VALUES
+('Hj. ST. Fatimah Amin, S.Pd.', "Kepala Madrasah", 'IPS Terpadu', '', NOW());
 
 -- Insert data ke tabel ekskul
 INSERT INTO ekskul (nama_ekskul, nama_pembimbing, jadwal, tanggal_dibuat) VALUES

@@ -1,15 +1,4 @@
 <?php require_once __DIR__ . "/path.php";
-// echo "DOCUMENT_ROOT: " . $_SERVER['DOCUMENT_ROOT'];
-// echo "<br><br>";
-// echo "HTTP_HOST: " . $_SERVER['HTTP_HOST'];
-// echo "<br><br>";
-// echo "PHP_SELF: " . $_SERVER['PHP_SELF'];
-// echo "<br><br>";
-// echo "REQUEST_URI: " . $_SERVER['REQUEST_URI'];
-// echo "<br><br>";
-// echo "SCRIPT_NAME: " . $_SERVER['SCRIPT_NAME'];
-// echo "<br><br>";
-
 ?>
 
 <div class="overlay" id="overlay"></div>
@@ -17,7 +6,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <div style="display: flex; align-items: center; gap: 16px;">
-      <img src="<?php echo ASSET_PATH; ?>logo-sekolah.png" alt="Logo" class="sidebar-logo" />
+      <img src="../assets/logo-sekolah.png" alt="Logo" class="sidebar-logo" />
       <h1>MTs DDI TA</h1>
     </div>
 
@@ -43,7 +32,7 @@
     <li>
       <a href="manajemen-guru.php" class="menu-item <?php if (CURRENT_PAGE == "manajemen-guru.php") echo "active"; ?>">
         <i class="fa-regular fa-user"></i>
-        <span class="menu-text">Staff Pengajar</span>
+        <span class="menu-text">Staff</span>
       </a>
     </li>
     <li>

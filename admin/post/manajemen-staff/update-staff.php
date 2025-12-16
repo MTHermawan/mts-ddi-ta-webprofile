@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_staff = $_POST['nama_staff'];
     $jabatan = $_POST['jabatan'];
     $mapel = $_POST['mapel'];
-    $pendidikan = $_POST['pendidikan'];
+    // $pendidikan = $_POST['pendidikan'];
     $file_foto = null;
     
     if (isset($_FILES['foto_staff']))
         $file_foto = $_FILES['foto_staff'];
 
-    UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $pendidikan, $file_foto);
+    UpdateStaff($id_staff, $nama_staff, $jabatan, $mapel, $file_foto);
 }
 header('Location: ../../manajemen-guru.php');
 

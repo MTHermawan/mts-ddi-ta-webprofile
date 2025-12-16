@@ -51,8 +51,8 @@ if (!$data_agenda_tunggal) {
   </section>
 
   <section class="breadcrumb fade-in">
-    <a href="<?= BASE_URL ?>/index.html">Home</a> ›
-    <a href="<?= BASE_URL ?>/informasi/agenda.php">Agenda</a> ›
+    <a href="<?= BASE_URL ?>/index">Home</a> ›
+    <a href="<?= BASE_URL ?>/informasi/agenda">Agenda</a> ›
     <span>Detail Agenda</span>
   </section>
 

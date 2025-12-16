@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($data) {
         $_SESSION['email'] = $data['email'];
+        $_SESSION['nama'] = $data['nama'];
         $_SESSION['login_success_message'] = "Login berhasil!";
 
         if ((isset($_POST['remember']) && $_POST['remember'] == 'on' ) || true) {
